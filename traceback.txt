@@ -1,0 +1,28 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "renpy/common/00start.rpy", line 273, in script
+    python:
+ScriptError: could not find label 'start'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\bootstrap.py", line 316, in bootstrap
+    renpy.main.main()
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 574, in main
+    run(restart)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 139, in run
+    renpy.execution.run_context(True)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\execution.py", line 901, in run_context
+    context.run()
+  File "renpy/common/00start.rpy", line 273, in script
+    python:
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\script.py", line 894, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'start'.
+
+Windows-8-6.2.9200
+Ren'Py 7.3.3.568
+Forgotten One 1.0
+Wed Oct 16 17:45:01 2019
