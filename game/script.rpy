@@ -33,7 +33,7 @@ label scene1:
     # These display lines of dialogue.
     r "Guilty! Is there a punishment worthy of what you have done?"
 
-    "another god enters"
+    "Another god enters."
 
     r "Sister? Kehira, you are interrupting an important tria- Actually, you came just in time."
 
@@ -58,11 +58,11 @@ label scene2:
 
     k "You did not do it, did you?"
 
-    "You stand there shocked"
+    "You stand there shocked."
 
     k "My cat got your tongue? You did not cause the Mortal Realm crisis, did you?"
 
-    e " I did not!"
+    e "I did not!"
 
     e "You believe me?"
 
@@ -82,7 +82,7 @@ label scene2:
 
     k "Then you must perform your task in stealth? (grins) Or would you rather stay here and find out what awaits you in the Darker Realm?"
 
-    "a small childish looking boy appears behind you"
+    "A small childish looking boy appears behind you."
 
     n "Your Dark Majesty, have you spoken to Ezbril of our plan?"
 
@@ -90,13 +90,13 @@ label scene2:
 
     n "That is excellent! We need to get prepared quickly as possible! The mortals can not suffer much more. I have found a way to get us there safely, and undetected. Follow me."
 
-    "A wave of confusion falls upon you but its clear that Kehira is expecting you to follow the small child, so you flustardly run after him"
+    "A wave of confusion falls upon you but its clear that Kehira is expecting you to follow the small child, so you flustardly run after him."
 
     jump chapter2scene1
 
 label chapter2scene1:
     play music "Forest.wav" fadeout 1.0 fadein 1.0
-    "The scenery has changed, you are now in front of a lush forest. A small tribe can be seen in the distance on your right and in front of you is a path that seems to lead deep into the forest"
+    "The scenery has changed, you are now in front of a lush forest. A small tribe can be seen in the distance on your right and in front of you is a path that seems to lead deep into the forest."
 
     n "Here we are, the Forest of Nourishment. For decades, tribes of humans have relied on the forest’s generous blessings for wood and food. This place is also home to many animals."
 
@@ -116,9 +116,9 @@ label chapter2scene1:
 
     n "I have duties to perform, therefore this is where I depart. I will say this, keep your eyes sharp and be aware of your surroundings. Trust no one. When you have accomplished your goal, meet me here and I shall escort you back to the Darker Realm."
 
-    "Edna hands you 5 glowing gemstones and teleports away"
+    "Edna hands you 5 glowing gemstones and teleports away."
 
-    e "Why am I always stuck in this mess"
+    e "Why am I always stuck in this mess?"
 
 
     jump forest1
@@ -126,20 +126,20 @@ label forest1:
     $ backwards = False
     menu:
         "Enter the forest":
-            "You walk into the forest until you reach a fork in the path and can now see why Edna said this forest is like a maze"
+            "You walk into the forest until you reach a fork in the path and can now see why Edna said this forest is like a maze."
             jump forest2
         "Investigate the village":
             "I can see the village in the distance and from here it looks very peaceful. The tribe probably relys on the forest for wood and food."
-            "I should probably enter the forest now"
+            "I should probably enter the forest now."
             jump forest1
 label forest2:
     menu:
         "Take left branch":
-            "After walking down the path for a while you come across a sprawling beautiful lake"
-            "A dead end it seems"
+            "After walking down the path for a while you come across a sprawling beautiful lake."
+            "A dead end it seems."
             menu:
                 "Turn around":
-                    "You walk back to the branch in the path"
+                    "You walk back to the branch in the path."
                     jump forest2
         "Take right branch":
             "Walking deeper the trees begin to tower over you even more, the tallest must be hundreds of years old."
@@ -150,17 +150,17 @@ label forest2:
 label forest3:
     menu:
         "Take the overgrown path":
-            "Path is harder to traverse than before, can see signs of decaying flowers"
-            "The path keeps getting more overgrown the further you go on, making progress much slower"
+            "Path is harder to traverse than before, can see signs of decaying flowers."
+            "The path keeps getting more overgrown the further you go on, making progress much slower."
             jump forest4
         "Stay on your current path":
             if backwards == False:
-                "You continue down the path, passing by a large bog on your right"
+                "You continue down the path, passing by a large bog on your right."
                 jump forest5
             else:
-                "You come across a place you recognise as the first branch in the path when you entered the forest"
+                "You come across a place you recognise as the first branch in the path when you entered the forest."
                 $ backwards = False
-                "You turn and faced the crossroad"
+                "You turn and faced the crossroad."
                 jump forest2
         "Turn around":
             if backwards == False:
@@ -171,13 +171,13 @@ label forest3:
 label forest4:
     menu:
         "Keep going forward":
-            "After bushwacking for what felt like ages you come across a large path similar to the one you strayed from earlier"
-            "As soon as you step out from your makeshift path you lose track of where it was "
+            "After bushwacking for what felt like ages you come across a large path similar to the one you strayed from earlier."
+            "As soon as you step out from your makeshift path you lose track of where it was."
             menu:
                 "Follow large path to the left":
                     jump forest5
                 "Follow large path to the right":
-                    "You follow the path past a bog on your left"
+                    "You follow the path past a bog on your left."
                     "You come across another branch in the path, your current path seems to continue straight but to the right there is an overgrown path."
                     $ backwards = True
                     jump forest3
@@ -192,7 +192,7 @@ label forestn:
     jump forestcenter
 
 label forestcenter:
-    play music "Nazareth.wav" 
+    play music "Nazareth.wav"
 
     "A lonely, tranquil heart of a forest. A gushing spring could be heard, along with an occasional call of a songbird. An Irul sits gracefully on a water-smoothed stone, surrounded by an audience of white tailed deer and curious rabbits."
     e "That must be Nazareth. He seems peaceful."
