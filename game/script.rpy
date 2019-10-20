@@ -19,7 +19,7 @@ label start:
     jump scene1
 
 label scene1:
-
+    play music "Banished.mp3"
     # Show a background. This uses a placeholder by default, but you can
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
@@ -50,6 +50,7 @@ label scene1:
     jump scene2
 
 label scene2:
+    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
     "You are now in another great throne room, dimmer than the last one, but equally as magnificent and clean. Kehira sits upon her dark throne, a white cat on her lap."
 
@@ -94,6 +95,7 @@ label scene2:
     jump chapter2scene1
 
 label chapter2scene1:
+    play music "Forest.wav" fadeout 1.0 fadein 1.0
     "The scenery has changed, you are now in front of a lush forest. A small tribe can be seen in the distance on your right and in front of you is a path that seems to lead deep into the forest"
 
     n "Here we are, the Forest of Nourishment. For decades, tribes of humans have relied on the forest’s generous blessings for wood and food. This place is also home to many animals."
@@ -186,9 +188,12 @@ label forest5:
     jump forestn
 
 label forestn:
+    stop music
     jump forestcenter
 
 label forestcenter:
+    play music "Nazareth.wav" 
+
     "A lonely, tranquil heart of a forest. A gushing spring could be heard, along with an occasional call of a songbird. An Irul sits gracefully on a water-smoothed stone, surrounded by an audience of white tailed deer and curious rabbits."
     e "That must be Nazareth. He seems peaceful."
     "The carpet of moss starts to darken. Nazareth stands, and some of the rabbits begin to back away. The grass under his feet begins to darken, then disappear. Like a ripple, the surrounding plants begin to vanish, leaving no evidence of the lush green that existed. The small company of critters starts to flee from their once home."

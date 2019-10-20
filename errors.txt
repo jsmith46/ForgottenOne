@@ -2,7 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 116: indentation mismatch.
+File "game/script.rpy", line 22: could not parse statement.
+    play music 255581__moz5a__remembered.mp3
+                     ^
 
-Ren'Py Version: Ren'Py 7.3.3.568
-Wed Oct 16 17:44:50 2019
+Ren'Py Version: Ren'Py 7.3.4.596
+Sat Oct 19 21:08:52 2019
