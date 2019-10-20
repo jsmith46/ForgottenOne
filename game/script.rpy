@@ -81,7 +81,7 @@ label scene2:
 
     k "Then you must perform your task in stealth? (grins) Or would you rather stay here and find out what awaits you in the Darker Realm?"
 
-    "a small childish looking dweeb appears behind you"
+    "a small childish looking boy appears behind you"
 
     n "Your Dark Majesty, have you spoken to Ezbril of our plan?"
 
@@ -89,7 +89,7 @@ label scene2:
 
     n "That is excellent! We need to get prepared quickly as possible! The mortals can not suffer much more. I have found a way to get us there safely, and undetected. Follow me."
 
-    "A wave of confusion falls upon you but its clear that Kehira is expecting you to follow the smoll child so you flustardly follow him"
+    "A wave of confusion falls upon you but its clear that Kehira is expecting you to follow the small child, so you flustardly run after him"
 
     jump chapter2scene1
 
@@ -100,7 +100,7 @@ label chapter2scene1:
 
     n "In the heart of the forest you will find Nazareth, the Irul of Spring, Harvest, and Life. For eons, he has travelled forest to forest, village to village, nourishing and looked after every being that breathes. However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
 
-    n " Among the mortals, rumor is that some have spotted Nazareth purposely destroying vegetation. He has not returned to the Greater Realm in almost a decade, which leads Kehira to suspect that he might be hiding something."
+    n "Among the mortals, rumor is that some have spotted Nazareth purposely destroying vegetation. He has not returned to the Greater Realm in almost a decade, which leads Kehira to suspect that he might be hiding something."
 
     e "Her majesty wants me to investigate Nazareth?"
 
@@ -113,15 +113,18 @@ label chapter2scene1:
     "Edna hands you 5 glowing gemstones and teleports away"
 
     e "Why am I always stuck in this mess"
+
+    
     jump forest1
 label forest1:
-
+    $ backwards = False
     menu:
         "Enter the forest":
             "You walk into the forest until you reach a fork in the path and can now see why Edna said this forest is like a maze"
             jump forest2
         "Investigate the village":
-            "I can see the village in the distance and from here it looks very peaceful. I should probably enter the forest now"
+            "I can see the village in the distance and from here it looks very peaceful. The tribe probably relys on the forest for wood and food."
+            "I should probably enter the forest now"
             jump forest1
 label forest2:
     menu:
@@ -133,41 +136,66 @@ label forest2:
                     "You walk back to the branch in the path"
                     jump forest2
         "Take right branch":
-            return
-
-
-
-
-
-
-
+            "Walking deeper the trees begin to tower over you even more, the tallest must be hundreds of years old."
+            "You come across another branch in the path, your current path seems to continue straight but to the left there is an overgrown path."
+            jump forest3
+        "Leave the forest":
+            jump forest1
+label forest3:
     menu:
+        "Take the overgrown path":
+            "Path is harder to traverse than before, can see signs of decaying flowers"
+            "The path keeps getting more overgrown the further you go on, making progress much slower"
+            jump forest4
+        "Stay on your current path":
+            if backwards = False:
+                "You continue down the path, passing by a large bog on your right"
+                jump forest5
+            else:
+                "You come across a place you recognise as the first branch in the path when you entered the forest"
+                $ backwards = False
+                "You turn and faced the crossroad"
+                jump forest2
+        "Turn around":
+            if backwards = False:
+                jump forest2
+            else:
+                $ backwards = False
+                jump forest5
+label forest4:
+    menu:
+        "Keep going forward":
+            "After bushwacking for what felt like ages you come across a large path similar to the one you strayed from earlier"
+            "As soon as you step out from your makeshift path you lose track of where it was " 
+            menu:
+                "Follow large path to the left":
+                    jump forest5
+                "Follow large path to the right":
+                    "You follow the path past a bog on your left"
+                    "You come across another branch in the path, your current path seems to continue straight but to the right there is an overgrown path."
+                    $ backwards = True
+                    jump forest3
+        "Turn around":
+            jump forest3
 
-        "Yes, I do.":
-            jump choice1_yes
+label forest5:
+    jump forestn
 
-        "No, I don't.":
-            jump choice1_no
+label forestn:
+    jump forestcenter
 
-        "Go to hell.":
-            jump choice1_no
-
-label choice1_yes:
-
-    $ menu_flag = True
-
-    H "While creating a multi-path visual novel can be a bit more work, it can yield a unique experience."
-
-    jump choice1_done
-
-label choice1_no:
-
-    $ menu_flag = False
-
-    H "Games without menus are called kinetic novels, and there are dozens of them available to play."
-
-    jump choice1_done
-
-label choice1_done:
-    H "Dab on those Fortnighters"
+label forestcenter:
+    "A lonely, tranquil heart of a forest. A gushing spring could be heard, along with an occasional call of a songbird. An Irul sits gracefully on a water-smoothed stone, surrounded by an audience of white tailed deer and curious rabbits."
+    e "That must be Nazareth. He seems peaceful."
+    "The carpet of moss starts to darken. Nazareth stands, and some of the rabbits begin to back away. The grass under his feet begins to darken, then disappear. Like a ripple, the surrounding plants begin to vanish, leaving no evidence of the lush green that existed. The small company of critters starts to flee from their once home."
+    e "The Irul of Spring, Harvest and Life … destroying the ancient forest? I must report this to Her Dark Majesty."
+    "Nazareth raises his arms, like a falcon about to take flight. He seems to hesitate a moment. Suddenly, he twirls and shoots toward the skies. Time stops. You are not standing in a forest anymore."
+    "The entire East half of the forest has vanished, leaving behind no blade of grass or whisper of what was once magical and green. You can easily make out the small tribe from here. And in front of you…"
+    "A wall of flames. The West half of the forest is ablaze, the fire rushing toward you, the inferno leaping from tree to tree."
+    "But you realize that you are safe. There are no trees, no vegetation left on this side to feed the hungry flames. The forest fire cannot spread."
+    "A shift of air, a sudden flash of light to your right, and Edna stands beside you."
+    n "Greetings! I’m ba-"
+    n "(astonished) What- what happened here?"
+    e "It seems to be a forest fire. I was confused when I witnessed Nazareth wiping out the ancient forest. I think he was just trying to protect the tribe of mortals yonder. The flames will not reach them."
+    n "(sorrowful) It must be hard for Nazareth to obliterate the ancient Forest of Nourishment that he had nurtured for eons. Nazareth has proved that his heart is still kind toward the mortals. We have not found the real culprit of the Mortal Realm crisis, but we must report this to Her Majesty."
     return
