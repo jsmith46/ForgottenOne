@@ -98,7 +98,9 @@ label chapter2scene1:
 
     n "Here we are, the Forest of Nourishment. For decades, tribes of humans have relied on the forest’s generous blessings for wood and food. This place is also home to many animals."
 
-    n "In the heart of the forest you will find Nazareth, the Irul of Spring, Harvest, and Life. For eons, he has travelled forest to forest, village to village, nourishing and looked after every being that breathes. However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
+    n "In the heart of the forest you will find Nazareth, the Irul of Spring, Harvest, and Life. For eons, he has travelled forest to forest, village to village, nourishing and looked after every being that breathes."
+
+    n "However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
 
     n "Among the mortals, rumor is that some have spotted Nazareth purposely destroying vegetation. He has not returned to the Greater Realm in almost a decade, which leads Kehira to suspect that he might be hiding something."
 
@@ -106,7 +108,9 @@ label chapter2scene1:
 
     n "Not so fast. Remember, you are a fallen Irul and the Iruil believe that you are banished. If you are seen in the Mortal Realm, Nazareth can use that against you. You might not be lucky to be given a second chance."
 
-    n "EDNA: Your task is to find out what exactly Nazareth is doing, so Kehira and Remya can use that information to decide his fate. Be warned, the Forest of Nourishment is a sacred place and easy to get lost in. I have some glowing gemstones you can use to mark your path.  When you find Nazareth, stay hidden and collect any evidence you find that would support your claim against Nazareth."
+    n "EDNA: Your task is to find out what exactly Nazareth is doing, so Kehira and Remya can use that information to decide his fate. Be warned, the Forest of Nourishment is a sacred place and easy to get lost in."
+
+    n "I have some glowing gemstones you can use to mark your path.  When you find Nazareth, stay hidden and collect any evidence you find that would support your claim against Nazareth."
 
     n "I have duties to perform, therefore this is where I depart. I will say this, keep your eyes sharp and be aware of your surroundings. Trust no one. When you have accomplished your goal, meet me here and I shall escort you back to the Darker Realm."
 
@@ -114,7 +118,7 @@ label chapter2scene1:
 
     e "Why am I always stuck in this mess"
 
-    
+
     jump forest1
 label forest1:
     $ backwards = False
@@ -148,7 +152,7 @@ label forest3:
             "The path keeps getting more overgrown the further you go on, making progress much slower"
             jump forest4
         "Stay on your current path":
-            if backwards = False:
+            if backwards == False:
                 "You continue down the path, passing by a large bog on your right"
                 jump forest5
             else:
@@ -157,7 +161,7 @@ label forest3:
                 "You turn and faced the crossroad"
                 jump forest2
         "Turn around":
-            if backwards = False:
+            if backwards == False:
                 jump forest2
             else:
                 $ backwards = False
@@ -166,7 +170,7 @@ label forest4:
     menu:
         "Keep going forward":
             "After bushwacking for what felt like ages you come across a large path similar to the one you strayed from earlier"
-            "As soon as you step out from your makeshift path you lose track of where it was " 
+            "As soon as you step out from your makeshift path you lose track of where it was "
             menu:
                 "Follow large path to the left":
                     jump forest5
