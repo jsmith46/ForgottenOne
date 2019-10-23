@@ -310,6 +310,10 @@ label market_intro:
     $ apple_flag = False
     $ gone_girl = False
     $ pouch = False
+    $ theif_flag = False
+    $ no_theif = False
+    $ theif_riddle = False
+label market_entrance
 
     "The cozy little village reminds you of the small tribe you saw before. A
     glance eastward, and you can see what is left of the ancient Forest, still
@@ -331,6 +335,8 @@ label market_west:
     "Merchants shouting their wares, buyers gathering up items as fast as they
     can, human younglings shoving and elbowing as they race through the crowd."
     "You tug close your hood, hoping to dissolve within its comforting shadow."
+    jump block_1
+
 
 label market_east:
     "Even from this distance, you can see the ghastly orange grin taking what
@@ -339,6 +345,21 @@ label market_east:
     shall the inferno rage? But that is not your task."
     "You must find Cytvis and figure out why she let the Sun ignite the ancient
     forest."
+
+    jump market_entrance
+
+label block_1:
+    "You are standing inside of the market place, infront of the exit which you can see to the east.
+     On the north you can see a narrow path through 2 vendor tents. On the West you can see a narrow passage,
+     shaded and quiet, contrary to the rest of the marketplace"
+
+     menu:
+         "Go west":
+             jump theif
+         "Go north":
+             jump lady
+         "Go east":
+             jump market_entrance
 
 label lady:
 
@@ -416,3 +437,83 @@ label lady_riddle:
 
 label leave_nicely:
     e "My apologies, but I must be on my way."
+
+
+label theif
+    "You find yourself in a narrow passage, shaded and quiet, contrary to the rest of the marketplace."
+    if no_theif == False:
+        if theif_flag == False:
+            "Before you stand, you notice a rough looking bulky man.
+            He is examining a small leather pouch, the kind you have seen many mortal females carry in this market.
+            The delicate, embroidered pouch looks peculiar in his large hands. You doubt it belongs to him.
+            The man senses your presence. For what seems like eternity, you stare at each other.
+            Finally, he grins broadly."
+
+            t "(smirking) Nehehe. I don’t recall seeing you around. You must be new here"
+            jump theif_menu
+        else:
+            t "Oh, its you again. What do you want?"
+            jump theif_menu2
+    else:
+        jump block_2
+label theif_menu
+    menu:
+        "Ask for pouch":
+            jump take_pouch
+        "Leave":
+            "You decide it is in your best interest to stay out of trouble."
+            jump block_1
+
+label take_pouch:
+    e "I think that pouch belongs to someone else. Give it to me."
+    t "Oh? Aahaha! We have quite a bold one here."
+    t "I am this village’s most skilled thief. You dare walk into my lair and demand for what I have rightfully stolen? Nehehe, you amuse me!"
+    t "I don’t think this pouch belongs to you either. Why, there is barely anything here! Such a waste of my skills."
+    t "But there is something far more valuable I can get from you. You, outsider, did you know that in this village you
+       can trade in riddles? They value intellect here, because they think it sets them apart from the tribe men who live by that ancient forest.
+       Or what used to be a forest- nehehehe"
+    $ theif_flag = True
+
+label theif_menu2:
+    t "Answer this riddle, and you shall win the pouch for exchange."
+    menu:
+        "Answer riddle":
+            jump theif_riddle
+        "Leave"
+            t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here"
+            jump block_1
+
+label theif_riddle:
+    t "Let’s test you. Nehehehe"
+    t "Riddle here"
+    if theif_riddle == True:
+        t "You have my respect, nehehehe. Here, you can have this humble pouch. I can trade goods far more valuable with the answer you gave me, ahahaha."
+        "You hear the jingle of coins as the thief tosses you the small pouch."
+        t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
+        "The thief takes a step back, and melts into the shadows."
+        e "Village chief? Murderer? What was he talking about?"
+        $ pouch == True
+        $ no_theif == True
+        jump block_2
+    else:
+        t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here"
+        jump theif_menu2
+label block_2:
+    "To your north you can see a bridge not that far from where you are standing. To your west you can see the end of the narrow passage, blocked of by stalls.
+    Far to the East along the narrow passage lies the exit to the market place."
+    menu:
+        "Go north":
+            jump block_3
+        "Go east":
+            jump block_1
+
+label block_3:
+    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into 2. To your west is a deadend.
+    To your east is a small passage by the riverside. To your south is a Narrow passage which leads to the exit of the market "
+    menu:
+        "Go north":
+            jump bridgekeeper
+        "Go east":
+            jump baker
+        "Go south":
+            jump block_2
