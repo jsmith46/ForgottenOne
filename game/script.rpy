@@ -17,6 +17,18 @@ define t = Character("THIEF")
 
 define m = Character("MERCHANT")
 
+define b = Character("BAKER")
+
+define s = Character("SHEPHeRD")
+
+define bk = Character("BRIDGE KEEPER")
+
+define c1 = Character("CHILD 1")
+
+define c2 = Character("CHILD 2")
+
+define c3 = Character("CHILD 3")
+
 
 # The game starts here.
 label start:
@@ -313,6 +325,21 @@ label market_intro:
     $ theif_flag = False
     $ no_theif = False
     $ theif_riddle = False
+    $ baker_flag = False
+    $ no_baker = False
+    $ baker_riddle = False
+    $ bk_flag = False
+    $ no_bk = False
+    $ bk_riddle = False
+    $ shepard_flag = False
+    $ no_shepard = False
+    $ shepard_riddle = False
+    $ merchant_flag = False
+    $ no_merchant = False
+    $ merchant_riddle = False
+    $ kids_flag = False
+    $ no_kids = False
+    $ kids_riddle = False
 label market_entrance
 
     "The cozy little village reminds you of the small tribe you saw before. A
@@ -422,6 +449,8 @@ label give_pouch:
     to proceed."
     $ gone_girl = True
 
+    jump block_4
+
 label lady_riddle:
     if lady_riddle == False:
         $ lady_riddle = True
@@ -437,7 +466,21 @@ label lady_riddle:
 
 label leave_nicely:
     e "My apologies, but I must be on my way."
+    jump block_1
 
+jump riddle_solved:
+    l "Oh good sir, thank you! Thank you so much!"
+    l "Wait here for just a moment."
+    "The Lady rushes to a nearby merchant who trades her a dozen apples."
+    l "Here, please take this as a token of my gratitude."
+    "The Lady hands you a sweet apple."
+    $ apple_flag = True
+    l "Oh! The kids must be getting hungry. I shall be on my way."
+    "The Lady walks away, humming a joyous tune. The path is clear now for you
+    to proceed."
+    $ gone_girl = True
+
+    jump block_4
 
 label theif
     "You find yourself in a narrow passage, shaded and quiet, contrary to the rest of the marketplace."
@@ -509,7 +552,7 @@ label block_2:
 
 label block_3:
     "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into 2. To your west is a deadend.
-    To your east is a small passage by the riverside. To your south is a Narrow passage which leads to the exit of the market "
+    To your east is a small passage by the riverside which leads to the entrace of another bridge. To your south is a Narrow passage which leads to the exit of the market "
     menu:
         "Go north":
             jump bridgekeeper
@@ -517,3 +560,272 @@ label block_3:
             jump baker
         "Go south":
             jump block_2
+
+label block_4:
+    "You are on a narrow path between 2 stalls. Just to your west is the entrace to a bridge which goes over the river that seperates the market into 2.
+    To your east is a deadend. To your south is a Narrow passage which leads to the exit of the market "
+    menu:
+        "Go west":
+            jump baker
+        "Go south":
+            jump block_1
+label baker:
+    if no_baker == False:
+        if baker_flag == False:
+            "sweet, welcoming aroma of cinnamon, honey, - and something you can only describe as “warm”-
+            beckons you to a bright bake house with a hand painted sign.
+            Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
+            you wonder when the Iruil would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
+            "A stout man in white napron flashes you a grin as he presents a steel tray arranged with buttered buns."
+
+            b "Good morrow, Sir! Have not seen you around before. Might you be a traveller?"
+            e "Indeed."
+            b "Welcome then! Try the best bread in the village, and you shall eat most well today. This one is on the house."
+            "The golden glaze of melted butter on fresh bread is inviting, indeed."
+            jump baker_menu
+        else:
+            t "Oh, its you again. If you can aid me with my problem, you may take a shortcut through the bakery."
+            jump baker_menu2
+    else:
+        jump block_5
+label baker_menu
+    menu:
+    "Accept Bread":
+        e "Thank you kindly."
+        "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite.
+        It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you.
+        The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself.
+        The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
+        $ baker_flag = True
+        jump eat_bread
+    "Leave":
+        "The aroma of maken good might be mesmerizing, but you must stay focused on your task"
+        jump block_4
+
+label eat_bread:
+    b "You must be weary from your journey. The market can be labrinth to navigate for visitors like yourself."
+    b "If you can aid me with my problem, you may take a shortcut through the bakery."
+    jump baker_menu2
+
+label baker_menu2:
+    menu:
+        "Offer to help":
+            e "I can try to help you with your problem. What might it be, Sir?"
+            jump help_baker
+        "Leave":
+            e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
+            b "See you around! Be wary lest you lose your bearing."
+            jump block_2
+
+label help_baker:
+
+
+    b "riddle here"
+    if baker_riddle == True:
+        b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
+        $ no_baker = True
+        jump block_5
+    else:
+        jump help_baker
+
+label block_5:
+    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into 2. To your east is a narrow passage between 2 stalls.
+    To your west is a small passage by the riverside leading to another bridge."
+    menu:
+        "Go north":
+            jump block_7
+        "Go east":
+            jump block_4
+        "Go west":
+            jump block_3
+
+label bridge_keeper:
+    if no_bk = False:
+        if bk_flag == False:
+
+        else:
+
+    else:
+        "You have crossed the bridge and went through a cornered passage"
+        jump block_6
+
+label block_6:
+    "You have come onto another crossroad. Just to your north is a cornered passage going west. To your east is another cross road.
+    To your west is the cornered passage leading to one of the bridges."
+    menu:
+        "Go north":
+            jump shepherd
+        "Go east":
+            jump block_7
+        "Go west":
+            "You went through the cornered passage and crossed the bridge"
+            jump block_3
+label block_7:
+    "You have come onto another crossroad. Just to your north is a very narrow road which leads to the north end of the market. To your east is a narrow cornered passage.
+    To your west is another crossroad. To your south is a bridge"
+    menu:
+        "Go north":
+            jump merchant
+        "Go east":
+            jump dead_end_1
+        "Go west":
+            jump block_6
+        "Go south"
+            jump block_5
+
+label dead_end_1:
+    "You have reached the end of this road. There is a large wall blocking you from progressing any further. You decide to head
+    back to your previous crossroad as there is no point wasting your prescious time here"
+    jump block_7
+
+label merchant:
+    if no_merchant == False:
+        "As you shove your way through the crowd, you find the path blocked by a merchant’s wagon."
+        if merchant_flag == False:
+            "You have never seen a wagon up close before, and you cannot help but feel awed by the mortals’ inventive.
+            The creative ensemble of refined wood and cloth allowed this merchant to carry heaps of furs,
+            pulled through many roads by his patient horse. The merchant stands leaning against his wagon,
+            heedless of the path he has blocked. Your approach draws his attention."
+
+            m "Hail, old friend! Would you be interested in some fine, silky furs?"
+            "You ignore him."
+            m "I tell you, I did not trade these furs from your tribesmen!"
+
+            menu:
+                "Talk to him":
+                    jump talk_merchant
+
+                "Leave":
+                    "You have no interest in trading with the mortals. "
+                    jump block_7
+        else:
+            m "Aha, its you again. Are you here to solve my riddle?"
+            jump merchant_menu
+    else:
+        jump block_8
+
+label talk_merchant
+    "His words catch your interest."
+    e "What tribesmen? What do the furs have to do with tribesmen?"
+    m "Wh-no, no. I said the furs have nothing to do with the tribesm-"
+    m "Oho! You must be an outsider here, just like your old friend."
+    m "You see, old friend, the villagers here seem to have a dispute with the tribesmen east of the forest."
+    m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you.
+      They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
+    m "Alas, the moment I mentioned the tribesmen here, the villagers have avoided my wagon. This is woodness, old friend!"
+        "The horse whips its tail to bat off a fly."
+    m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen.
+      Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
+    $ merchant_flag = True
+    jump merchant_menu
+
+label merchant_menu
+    m "What say you, old friend? Would you mind helping a friend out here?"
+    menu:
+        "Try the riddel":
+            jump merchant_help
+        "Feed apple to the horse" if apple_flag == True:
+            jump feed_horse
+        "Leave":
+            m "Woe, old friend! Mayhap we are not the cultured gentleman we try to be."
+            jump block_7
+
+label merchant_help:
+    e "Uh, I can give it a try."
+    m "riddle here"
+    if merchant_riddle == True:
+        m "Most beauteous, old friend!"
+        "He moves his wagon just enough for you to proceed. "
+        m "I will see you anon!"
+        $ no_merchant = True
+        jump block_8
+    else:
+        jump merchant_help
+
+label feed_horse:
+    "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you.
+    The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
+    "The greedy beast has moved the wagon just enough for you to proceed."
+    jump block_8
+
+label block_8:
+        "You have reached the northend of the market. To your south is the cross from where you just came. To your west is a narrow path. You notice that the path o your east
+        leads to an deadend"
+        menu:
+            "Go west":
+                jump kids
+            "GO south":
+                jump block_7
+label shepherd:
+
+
+label block_9:
+
+label dead_end_2:
+    "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head
+    back to your previous crossroad as there is no point wasting your prescious time here"
+    jump block_9
+label kids:
+    "A peculiar shift of air reveals that Cyvtis must be close by.
+    As you make your way through the suffocating mass of mortals,
+    you find your path conveniently blocked by a group of insolent mortal younglings. "
+    if no_kids == False:
+        if kids_flag == False:
+            c1 "You can not play with us, you are a tribesman!"
+            c2 "Boo, tribesman!"
+            c3 "No, I am not!"
+            c1 "I saw your folks travelling to the east side of the forest."
+            c3 "(wailing) That is a lie!"
+            e "Even their younglings despise the tribesmen."
+
+            menu:
+                "Proceed past the younglings":
+                    jump proceed_kids
+                "Leave":
+                    "Strange creatures they are, the mortal younglings. Maybe you can find a way around."
+                    jump block_8
+        else:
+            c1 "Oho, you're back"
+            jump kids_code
+    else:
+        jump block_10
+
+label proceed_kids:
+    "Depicting no interest, you continue your trek."
+    c1 "Hey you! If you want to pass through the fort, you must say the secret code."
+    e "...fort?"
+    "You look around for the alleged fort."
+    c2 "Is he a tribesman as well?"
+    c1 "He might be, but if he can unravel the code then he is not."
+    $ kids_flag = True
+    jump kids_code
+
+label kids_code:
+    c2 "Our secret code is the hardest to break!"
+    menu:
+        "Try Code":
+            e " Is it now? I bet you I can unravel your code."
+            jump solve_code
+
+        "Leave":
+            c2 "Aha! Told you our secret code is the hardest to break!"
+            c1 "Boo, tribesman!"
+            jump block_8
+
+label solve_code:
+    c1 "Insert riddle here"
+    if kids_riddle == True:
+        c1 "Behold the sir! You may travel through our fort in peace."
+        e "You know, I am in fact a tribesman."
+        c2 "(shocked) B-but you are a gentleman! How can a tribesman break our secret code?"
+        c3 "(amazed) Tribesmen must be real strong."
+        c1 "Only tribesmen can break our secret code!"
+        $ no_kids = True
+        jump block_10
+    else:
+        jump solve_code
+
+
+label block_10:
+
+label town_center
