@@ -629,7 +629,8 @@ label help_baker:
         jump help_baker
 
 label block_5:
-    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into 2. To your east is a narrow passage between 2 stalls.
+    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into 2.
+    To your east is a narrow passage between 2 stalls.
     To your west is a small passage by the riverside leading to another bridge."
     menu:
         "Go north":
@@ -642,12 +643,63 @@ label block_5:
 label bridge_keeper:
     if no_bk = False:
         if bk_flag == False:
+            "You hear it before you see it, the bustling song of water eager to explore and free.
+            The river itself is a subtle sweep of a painter’s brush,
+            glinting bright and managing to dominate its own path despite the labyrinth of the marketplace.
+            Cattails bow to the water’s might and dragonflies drift lazily overhead. A weathered bridge connects the two shores."
 
+            menu:
+                "Take a bridge":
+                    "The smell of damp wood greets you as you take your first step on the bridge.
+                    The suspension sways, but holds fast. Before you can manage another step, a short figure leaps in front of you.
+                    This man was probably hiding- under the bridge?"
+                    $ bk_flag = True
+                    jump take_bridge
+                "Leave":
+                    "You are unsure if the ropes would support you across. Perhaps there is another way to cross the river."
+                    jump block_3
         else:
+
 
     else:
         "You have crossed the bridge and went through a cornered passage"
         jump block_6
+
+label take_bridge
+    b "Hold it right there! None shall pass without answering the riddle."
+    e "Most bizzare."
+    menu:
+        "Answer Roddle":
+            e "Tell me your riddle, and I shall answer it."
+            jump solve_bk
+        "Offer coins from the pouch" if pouch == True:
+
+            jump bribe_bk
+        "Leave":
+            "You shall not pass!"
+            jump block_3
+solve_bk:
+    bk "riddle here"
+    if bk_riddle == True:
+        bk "Hmph. You have answered correct."
+        "Before you realize it, the man leaps into the river- yet you do not hear the splash of water. He was indeed hiding under the bridge."
+        "The bridge is now clear for you to pass."
+        $ no_bk = True
+        jump block_6
+    else:
+        jump solve_bk
+
+
+bribe_bk:
+    "Maybe you can temp this greedy mortal with some coins.
+    The clink of the few coins grab the man’s attention as you reach into the folds of your cloak. You fish out the leather pouch.
+    Without looking away, the Bridge Keeper steps aside, leave a path wide open."
+    bk "Humph. This shall do. You may pass."
+    "You hold out the pouch, but the man is already snatching it away. A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
+    e "..."
+    e "Despicable."
+    "You continue your trek across the bridge"
+    jump block_6
 
 label block_6:
     "You have come onto another crossroad. Just to your north is a cornered passage going west. To your east is another cross road.
@@ -757,9 +809,66 @@ label block_8:
             "GO south":
                 jump block_7
 label shepherd:
+    if no_shepherd = False:
+        if shepherd_flag == False:
+            "A glance skyward, and you see the clouds gathering up ahead.
+            Cyvtis, the Irul of the skies, must be closeby. Still gazing upward,
+            you slam into a cloud on the ground- no, a lamb?
+            Up ahead, you see a vast heard of sheep, a mirror image to the cloudy sky above.
+            Amid the mass of rolling cotton walks a single human, already glancing your way.
+            Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
 
+            s "Good day, maister! What brings you upon this humble heard?"
+
+            menu:
+                "You wish to proceed":
+                    e "I would like to proceed to the other side of this herd."
+                    s "Oh! Apologies, masiter. We must be blocking your path."
+                    $ shepherd_flag = True
+                    jump help_shepherd
+
+                "Leave":
+                    "That herd does not look easy to navigate."
+                    jump block_6
+
+        else:
+            jump help_shepherd
+    else:
+        jump block_9
+
+label help_shepherd
+    s "I will move this heard to the pasture yonder, but I need to make sure I have everyone. Could you help me figure out how many sheep there are?"
+    menu:
+        "Help her":
+            e "Sure, I can help you."
+            jump solve_shepherd
+        "Leave":
+            e "Worry not about moving your herd. I shall find another path."
+            jump block_6
+
+label solve_shepherd
+    s "riddle here"
+    if shepherd_riddle == True:
+        s "Looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
+        "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
+        s "Safe travels to you and farewell!"
+
+        $ no_shepherd = True
+        jump block_9
+    else:
+        jump solve_shepherd
 
 label block_9:
+    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market.
+    To your east is a narrow cornered path between 2 stalls, leading towards the crossroad you came from before.
+    To your west is a cornered path going towards the river."
+    menu:
+        "Go north":
+            jump town_square
+        "Go east":
+            jump block_6
+        "Go west":
+            jump dead_end_2
 
 label dead_end_2:
     "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head
@@ -827,5 +936,13 @@ label solve_code:
 
 
 label block_10:
+    "You are on a narrow path. Just to your West is the Town Square, the heart of the market.
+    To your east is a narrow path, leading towards towards the entrance to the northend of the market"
+    menu:
+        "Go east":
+            jump block_8
+        "Go west":
+            jump town_square
 
-label town_center
+
+label town_square
