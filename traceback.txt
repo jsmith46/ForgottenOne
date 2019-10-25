@@ -1,40 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 22, in script
-    play music Banished.mp3
-  File "renpy/common/000statements.rpy", line 120, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "game/script.rpy", line 22, in <module>
-    play music Banished.mp3
-NameError: name 'Banished' is not defined
+  File "game/script.rpy", line 908, in script
+    else:
+  File "game/script.rpy", line 908, in <module>
+    else:
+NameError: name 'no_shepherd' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 22, in script
-    play music Banished.mp3
-  File "/home/mehrab/STS350/renpy-7.3.4-sdk/renpy/ast.py", line 1949, in execute
-    self.call("execute")
-  File "/home/mehrab/STS350/renpy-7.3.4-sdk/renpy/ast.py", line 1937, in call
-    return renpy.statements.call(method, parsed, *args, **kwargs)
-  File "/home/mehrab/STS350/renpy-7.3.4-sdk/renpy/statements.py", line 277, in call
-    return method(parsed, *args, **kwargs)
-  File "renpy/common/000statements.rpy", line 120, in execute_play_music
-    renpy.music.play(_audio_eval(p["file"]),
-  File "renpy/common/000statements.rpy", line 32, in _audio_eval
-    return eval(expr, locals=store.audio.__dict__)
-  File "/home/mehrab/STS350/renpy-7.3.4-sdk/renpy/python.py", line 2039, in py_eval
+  File "game/script.rpy", line 908, in script
+    else:
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
+    if renpy.python.py_eval(condition):
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
     return py_eval_bytecode(code, globals, locals)
-  File "/home/mehrab/STS350/renpy-7.3.4-sdk/renpy/python.py", line 2032, in py_eval_bytecode
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 22, in <module>
-    play music Banished.mp3
-NameError: name 'Banished' is not defined
+  File "game/script.rpy", line 908, in <module>
+    else:
+NameError: name 'no_shepherd' is not defined
 
-Linux-5.0.0-23-generic-x86_64-with-debian-buster-sid
-Ren'Py 7.3.4.596
+Windows-8-6.2.9200
+Ren'Py 7.3.5.606
 Forgotten One 1.0
-Sat Oct 19 21:09:39 2019
+Thu Oct 24 21:36:16 2019
