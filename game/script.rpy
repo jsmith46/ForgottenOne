@@ -584,8 +584,8 @@ label thief_riddle:
         t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
         "The thief takes a step back, and melts into the shadows."
         e "Village chief? Murderer? What was he talking about?"
-        $ pouch == True
-        $ no_thief == True
+        $ pouch = True
+        $ no_thief = True
         jump block_2
     else:
         t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here."
@@ -724,20 +724,21 @@ label bridge_keeper:
                     The suspension sways, but holds fast. Before you can manage another step, a short figure leaps in front of you.
                     This man was probably hiding- under the bridge?"
                     $ bk_flag = True
-                    bk "Hold it right there! None shall pass without answering the riddle."
-                    e "Most bizzare."
+
                     jump take_bridge
                 "Leave":
                     "You are unsure if the ropes would support you across. Perhaps there is another way to cross the river."
                     jump block_3
         else:
-            return
+            jump take_bridge
 
     else:
         "You have crossed the bridge and went through a cornered passage"
         jump block_6
 
 label take_bridge:
+    bk "Hold it right there! None shall pass without answering the riddle."
+    e "Most bizzare."
     menu:
         "Answer riddle":
             if bk_riddle == True:
@@ -904,10 +905,11 @@ label block_8:
                 jump block_7
 
 label shepherd:
+    "A glance skyward, and you see the clouds gathering up ahead.
+    Cyvtis, the Irul of the skies, must be closeby."
     if no_shepherd == False:
         if shepherd_flag == False:
-            "A glance skyward, and you see the clouds gathering up ahead.
-            Cyvtis, the Irul of the skies, must be closeby. Still gazing upward,
+            "Still gazing upward,
             you slam into a cloud on the ground- no, a lamb?
             Up ahead, you see a vast heard of sheep, a mirror image to the cloudy sky above."
             "Amid the mass of rolling cotton walks a single human, already glancing your way.
@@ -980,10 +982,10 @@ label dead_end_2:
     back to your previous crossroad as there is no point wasting your prescious time here"
     jump block_9
 label kids:
-    "A peculiar shift of air reveals that Cyvtis must be close by.
-    As you make your way through the suffocating mass of mortals,
-    you find your path conveniently blocked by a group of insolent mortal younglings. "
+    "A peculiar shift of air reveals that Cyvtis must be close by."
     if no_kids == False:
+        "As you make your way through the suffocating mass of mortals,
+        you find your path conveniently blocked by a group of insolent mortal younglings. "
         if kids_flag == False:
             c1 "You can not play with us, you are a tribesman!"
             c2 "Boo, tribesman!"
