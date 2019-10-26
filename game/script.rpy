@@ -32,6 +32,7 @@ define c3 = Character("CHILD 3")
 
 # The game starts here.
 label start:
+    #jump market_intro
     jump scene1
 
 label scene1:
@@ -204,7 +205,7 @@ label chapter2scene1:
     jump forest0
     
 label forest0:
-    
+    scene rsz_FOREST 
     menu:
         "Head east into the forest":
             "Walking through the forest you can now see why Edna said this forest is like a maze."
@@ -218,7 +219,7 @@ label forest1:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and west."
     if orb_forest1 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
@@ -232,50 +233,50 @@ label forest1:
                 "Walking deeper the trees begin to tower over you even more, the
                 tallest must be hundreds of years old."
                 $trees = True
-            "The path bends slightly so when you come across the next intersection you are facing south"
+            "The path bends slightly so when you come across the next intersection you are facing south."
             jump forest2
         "Go west":
             jump forest0
         "Drop a gemstone":
             if orb_forest1 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest1 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest1
 label forest2:
     if  same == False:
-        "You come across an intersection with 4 choices: south, east, west and north"
+        "You come across an intersection with 4 choices: south, east, west and north."
     if orb_forest2 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
             jump forest6
         "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing south"
+            "The path bends slightly so when you come across the next intersection you are facing south."
             jump forest4
         "Go west":
-            "The path bends slightly south but then curves back so when you come across the next intersection you are still facing west"
+            "The path bends slightly south but then curves back so when you come across the next intersection you are still facing west."
             jump forest3
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west"
+            "The path bends slightly so when you come across the next intersection you are facing west."
             jump forest1
         "Drop a gemstone":
             if orb_forest2 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest2 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest2
        
@@ -283,26 +284,26 @@ label forest3:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and north."
     if orb_forest3 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
             jump lake1
         "Go east":
-            "The path bends slightly north but then curves back so when you come across the next intersection you are still facing east"
+            "The path bends slightly north but then curves back so when you come across the next intersection you are still facing east."
             jump forest2
         "Go north":
             jump forest1
         "Drop a gemstone":
             if orb_forest3 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest3 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest3
 
@@ -310,27 +311,27 @@ label forest4:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and north."
     if orb_forest4 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
-            "The path bends slightly so when you come across the next intersection you are facing west"
+            "The path bends slightly so when you come across the next intersection you are facing west."
             jump forest5
         "Go east":
             jump bog
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west"
+            "The path bends slightly so when you come across the next intersection you are facing west."
             jump forest2
         "Drop a gemstone":
             if orb_forest4 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest4 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest4
 
@@ -338,27 +339,27 @@ label forest5:
     if  same == False:
         "You come across an intersection with 3 choices: east, west, and north."
     if orb_forest5 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing north"
+            "The path bends slightly so when you come across the next intersection you are facing north."
             jump forest4
         "Go west":
             jump deadend
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west"
+            "The path bends slightly so when you come across the next intersection you are facing west."
             jump forest6
         "Drop a gemstone":
             if orb_forest5 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest5 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest5
 
@@ -366,35 +367,38 @@ label forest6:
     if  same == False:
         "You come across an intersection with 3 choices: east, west, and north."
     if orb_forest6 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing east"
+            "The path bends slightly so when you come across the next intersection you are facing east."
             jump forest5
         "Go west":
-            "The path bends slightly so when you come across the next intersection you are facing south"
+            "The path bends slightly so when you come across the next intersection you are facing south."
             jump forest7
         "Go north":
             jump forest2
         "Drop a gemstone":
             if orb_forest6 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest6 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest6
 
 label forest7:
+    if peace == False:
+        "As you keep travelling further into the forest you realize that everything is unnaturally quiet and you haven't seen signs of wildlife for a while."
+        $peace = True
     if  same == False:
         "You come across an intersection with 3 choices: south, east and north."
     if orb_forest7 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
@@ -402,18 +406,18 @@ label forest7:
         "Go east":
             jump forest8
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing south"
+            "The path bends slightly so when you come across the next intersection you are facing south."
             jump forest6
         "Drop a gemstone":
             if orb_forest7 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest7 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest7
 
@@ -421,7 +425,7 @@ label forest8:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and west."
     if orb_forest8 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
@@ -432,131 +436,131 @@ label forest8:
             jump forest7
         "Drop a gemstone":
             if orb_forest8 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest8 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump forest8
 label lake1:
     if  same == False:
-        "The path continues south until you reach a beautiful sprawling lake"  
+        "The path continues south until you reach a beautiful sprawling lake."  
     if orb_lake1 == True and same == False: 
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $lake1seen = True
     if lake2seen == True and same == False:
-        "On the other side of the lake you can see an opening which you think you've been before"
+        "On the other side of the lake you can see an opening which you think you've been before."
     $same = False
     menu:
         "Go back":
-            "You head back to your last intersection where you are facing north"
+            "You head back to your last intersection where you are facing north."
             jump forest3
         "Drop a gemstone":
             if orb_lake1 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_lake1 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump lake1
 label lake2:
     if  same == False:
-        "The path bends slightly to the right and abruptly ends upon reaching a beautiful large lake when you are facing west"
+        "The path bends slightly to the right and abruptly ends upon reaching a beautiful large lake when you are facing west."
     if orb_lake2 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     $lake2seen = True
     if lake2seen == True:
-        "On the other side of the lake you can see an opening which you think you've been before"
+        "On the other side of the lake you can see an opening which you think you've been before."
     menu:
         "Go back":
-            "You head back to your last intersection where you are facing north"
+            "You head back to your last intersection where you are facing north."
             jump forest7
         "Drop a gemstone":
             if orb_lake2 == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_lake2 = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump lake2
 label bog:
     if  same == False:
-        "The path continues east until you arrive at a bog ... there doesn't seem to be any way to cross it"
+        "The path continues east until you arrive at a bog ... there doesn't seem to be any way to cross it."
     if orb_bog == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go back":
-            "You head back west to your last intersection"
+            "You head back west to your last intersection."
             jump forest4
         "Drop a gemstone":
             if orb_bog == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_bog = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump bog
 label deadend:
     if  same == False:
-        "The path gets smaller and more overgrown until you can't proceed any further"
+        "The path gets smaller and more overgrown until you can't proceed any further."
     if orb_deadend == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go back":
-            "You head back east to your last intersection"
+            "You head back east to your last intersection."
             jump forest5
         "Drop a gemstone":
             if orb_deadend == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_deadend = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump deadend
 label destroyed:
     if  same == False:
-        "The path turns east and then is blocked by a bunch of fallen trees, vines and other vegetation"
+        "The path turns east and then is blocked by a bunch of fallen trees, vines and other vegetation."
         "There is nothing natural about this"
     if destroyed == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before"
+        "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go back":
-            "You head back to your last intersection where you are facing north"
+            "You head back to your last intersection where you are facing north."
             jump forest8
         "Drop a gemstone":
             if orb_destroyed == True:
-                "I've already dropped a gemstone here"
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_destroyed = True
-                    "You now have [orbs] gemstones left"
+                    "You now have [orbs] gemstones left."
                 else:
-                    "You are out of gemstones"
+                    "You are out of gemstones."
             $same = True
             jump destroyed
 label forestn:
@@ -638,6 +642,8 @@ label market_intro:
     $ kids_flag = False
     $ no_kids = False
     $ kids_riddle = False
+    scene rsz_marketplace
+    jump market_entrance
 
 label market_entrance:
 
@@ -693,7 +699,10 @@ label lady:
     two vendors’ tents. "
 
     if gone_girl == False:
+        show ezibrl2 at left
+        show lady2 at right
         if lady_flag == False:
+            
             "But the passage is blocked by a sobbing lady, pure agony on her
             young
             face. "
@@ -707,10 +716,13 @@ label lady:
                 "Approach her":
                     jump help_lady
                 "Leave":
+                    
                     jump meanie_to_lady
         else:
             l "Oh, it’s you, good sir! Did you find my pouch?"
             jump lady_menu
+    else:
+        jump block_4
 
 label help_lady:
     e "What did it look like?"
@@ -735,7 +747,9 @@ label lady_menu:
 
 label meanie_to_lady:
     "You are unskilled in the art of being a gentleman"
-    jump block1
+    hide ezibrl2
+    hide lady2
+    jump block_1
 
 label give_pouch:
     l "Oh good sir, thank you! Thank you so much!"
@@ -748,7 +762,8 @@ label give_pouch:
     "The Lady walks away, humming a joyous tune. The path is clear now for you
     to proceed."
     $ gone_girl = True
-
+    hide ezibrl2
+    hide lady2
     jump block_4
 
 label lady_riddle:
@@ -758,7 +773,7 @@ label lady_riddle:
         l "Would you help me, good sir?"
         l "The villagers here love to trade in riddles. The good merchant over
         there said he would let me have a dozen of those sweet apples if I can
-        answer his riddle. You look wise, good sir. Can you help me solve th
+        answer his riddle. You look wise, good sir. Can you help me solve the
          merchant’s riddle?"
         l "An apple has rolled its way down into a hole. This particular hole
         is extremely deep and has a sharp bend in the middle, making the apple
@@ -796,6 +811,8 @@ label lady_riddle_answer:
 
 label leave_nicely:
     e "My apologies, but I must be on my way."
+    hide ezibrl2
+    hide lady2
     jump block_1
 
 label riddle_solved:
@@ -809,13 +826,16 @@ label riddle_solved:
     "The Lady walks away, humming a joyous tune. The path is clear now for you
     to proceed."
     $ gone_girl = True
-
+    hide ezibrl2
+    hide lady2
     jump block_4
 
 label thief:
     "You find yourself in a narrow passage, shaded and quiet, contrary to the
     rest of the marketplace."
     if no_thief == False:
+        show ezibrl2 at left
+        show thief2 at right
         if thief_flag == False:
             "Before you stand, you notice a rough looking bulky man.
             He is examining a small leather pouch, the kind you have seen many
@@ -838,6 +858,8 @@ label thief_menu:
             jump take_pouch
         "Leave":
             "You decide it is in your best interest to stay out of trouble."
+            hide ezibrl2
+            hide thief2
             jump block_1
 
 label take_pouch:
@@ -866,6 +888,8 @@ label thief_menu2:
             jump thief_riddle
         "Leave":
             t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here"
+            hide ezibrl2
+            hide thief2
             jump block_1
 
 label thief_riddle:
@@ -883,6 +907,8 @@ label thief_riddle:
         e "Village chief? Murderer? What was he talking about?"
         $ pouch = True
         $ no_thief = True
+        hide ezibrl2
+        hide theif2
         jump block_2
     else:
         t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here."
@@ -922,6 +948,8 @@ label block_4:
 label baker:
     if no_baker == False:
         if baker_flag == False:
+            show ezibrl2 at left
+            show baker2 at right
             "Sweet, welcoming aroma of cinnamon, honey, - and something you can only describe as “warm”-
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
@@ -950,6 +978,8 @@ label baker_menu:
             jump eat_bread
         "Leave":
             "The aroma of maken good might be mesmerizing, but you must stay focused on your task"
+            hide baker2
+            hide ezibrl2
             jump block_4
 
 label eat_bread:
@@ -968,6 +998,8 @@ label baker_menu2:
         "Leave":
             e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
+            hide baker 
+            hide ezibrl2
             jump block_2
 
 label help_baker:
@@ -985,6 +1017,8 @@ label help_baker:
     if baker_riddle == True:
         b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
         $ no_baker = True
+        hide baker 
+        hide ezibrl
         jump block_5
     else:
         menu:
@@ -993,6 +1027,8 @@ label help_baker:
             "Leave":
                 e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
                 b "See you around! Be wary lest you lose your bearing."
+                hide baker 
+                hide ezibrl
                 jump block_2
 
 label block_5:
@@ -1034,6 +1070,8 @@ label bridge_keeper:
         jump block_6
 
 label take_bridge:
+    show ezibrl2 at left
+    show bridgekeep at right
     bk "Hold it right there! None shall pass without answering the riddle."
     e "Most bizzare."
     menu:
@@ -1047,6 +1085,8 @@ label take_bridge:
             jump bribe_bk
         "Leave":
             "You shall not pass!"
+            hide ezibrl2
+            hide bridgekeep
             jump block_3
 label solve_bk:
     bk "Four people need to cross a bridge in the middle of the night. The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
@@ -1062,6 +1102,8 @@ label solve_bk:
         bk "Hmph. You have answered correct."
         "Before you realize it, the man leaps into the river- yet you do not hear the splash of water. He was indeed hiding under the bridge."
         "The bridge is now clear for you to pass."
+        hide ezibrl2
+        hide bridgekeep
         $ no_bk = True
         jump block_6
     else:
@@ -1077,6 +1119,8 @@ label bribe_bk:
     e "..."
     e "Despicable."
     "You continue your trek across the bridge."
+    hide ezibrl
+    hide bridgekeep
     jump block_6
 
 label block_6:
@@ -1105,12 +1149,14 @@ label block_7:
 
 label dead_end_1:
     "You have reached the end of this road. There is a large wall blocking you from progressing any further. You decide to head
-    back to your previous crossroad as there is no point wasting your prescious time here"
+    back to your previous crossroad as there is no point wasting your precious time here"
     jump block_7
 
 label merchant:
     if no_merchant == False:
         "As you shove your way through the crowd, you find the path blocked by a merchant’s wagon."
+        show ezibrl2 at left
+        show merchant2 at right
         if merchant_flag == False:
             "You have never seen a wagon up close before, and you cannot help but feel awed by the mortals’ inventive.
             The creative ensemble of refined wood and cloth allowed this merchant to carry heaps of furs,
@@ -1128,6 +1174,8 @@ label merchant:
 
                 "Leave":
                     "You have no interest in trading with the mortals. "
+                    hide ezibrl2
+                    hide merchant2
                     jump block_7
         else:
             m "Aha, its you again. Are you here to solve my riddle?"
@@ -1163,13 +1211,15 @@ label merchant_menu:
             jump feed_horse
         "Leave":
             m "Woe, old friend! Mayhap we are not the cultured gentleman we try to be."
+            hide ezibrl2
+            hide merchant2
             jump block_7
 
 label merchant_help:
-    m "The distance three racehorses can run around the racetrack in half a minute are as follows:
+    m "The distance three racehorses can run around the racetrack a minute are as follows:
     \nHorse A: Two laps.
     \nHorse B: Three laps.
-    \nHorse C: Four laps."
+    \nHorse C: Half a lap."
     m "The horses line up at the starting line and start running in the same direction. How many minutes will pass before all three horses line up at the starting line again?"
     $ answer = renpy.input("How many minutes will pass before the horses line up? \n(Answer numerically, e.g. 1)")
     if answer == "2":
@@ -1182,6 +1232,8 @@ label merchant_help:
         "He moves his wagon just enough for you to proceed. "
         m "I will see you anon!"
         $ no_merchant = True
+        hide ezibrl2
+        hide merchant2
         jump block_8
     else:
         jump merchant_menu
@@ -1190,6 +1242,8 @@ label feed_horse:
     "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you.
     The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
     "The greedy beast has moved the wagon just enough for you to proceed."
+    hide ezibrl2
+    hide merchant2
     jump block_8
 
 label block_8:
@@ -1205,6 +1259,8 @@ label shepherd:
     "A glance skyward, and you see the clouds gathering up ahead.
     Cyvtis, the Irul of the skies, must be closeby."
     if no_shepherd == False:
+        show ezibrl2 at left
+        show shepard at right
         if shepherd_flag == False:
             "Still gazing upward,
             you slam into a cloud on the ground- no, a lamb?
@@ -1224,6 +1280,8 @@ label shepherd:
 
                 "Leave":
                     "That herd does not look easy to navigate."
+                    hide ezibrl2
+                    hide shepard
                     jump block_6
 
         else:
@@ -1241,6 +1299,8 @@ label help_shepherd:
                 jump solve_shepherd
         "Leave":
             e "Worry not about moving your herd. I shall find another path."
+            hide ezibrl2
+            hide shepard
             jump block_6
 
 label solve_shepherd:
@@ -1258,6 +1318,8 @@ label solve_shepherd:
         s "Safe travels to you and farewell!"
 
         $ no_shepherd = True
+        hide ezibrl2
+        hide shepard
         jump block_9
     else:
         jump solve_shepherd
@@ -1281,6 +1343,8 @@ label dead_end_2:
 label kids:
     "A peculiar shift of air reveals that Cyvtis must be close by."
     if no_kids == False:
+        show ezibrl2 at left 
+        show kids2 at right
         "As you make your way through the suffocating mass of mortals,
         you find your path conveniently blocked by a group of insolent mortal younglings. "
         if kids_flag == False:
@@ -1296,6 +1360,8 @@ label kids:
                     jump proceed_kids
                 "Leave":
                     "Strange creatures they are, the mortal younglings. Maybe you can find a way around."
+                    hide ezibrl2
+                    hide kids2
                     jump block_8
         else:
             c1 "Oho, you're back"
@@ -1326,6 +1392,8 @@ label kids_code:
         "Leave":
             c2 "Aha! Told you our secret code is the hardest to break!"
             c1 "Boo, tribesman!"
+            hide ezibrl2
+            hide kids2
             jump block_8
 
 label solve_code:
@@ -1344,6 +1412,8 @@ label solve_code:
         c3 "(amazed) Tribesmen must be real strong."
         c1 "Only tribesmen can break our secret code!"
         $ no_kids = True
+        hide ezibrl2
+        hide kids
         jump block_10
     else:
         jump solve_code
