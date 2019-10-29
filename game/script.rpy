@@ -134,15 +134,16 @@ label scene2:
 
     k "Yes, Enda. I was just beginning to tell Ezbril about our plan. He has
     agreed. But I didn’t get a chance to mention that you will also be joining
-    us. (Kehira turns to look at Ezbril, who is looking confused by Enda’s
-    entrance)"
+    us." 
 
-    n "That is excellent! We need to get prepared quickly as possible! The
+    "Kehira turns to look at Ezbril, who is looking confused by Enda’s entrance"
+
+    n "That is excellent! We need to get prepared as quickly as possible! The
     mortals can not suffer much more. I have found a way to get us there safely,
      and undetected. Follow me."
 
-    "A wave of confusion falls upon you but its clear that Kehira is expecting
-    you to follow the small child. You flustardly run after him."
+    "A wave of confusion falls upon Ezbril but its clear that Kehira is expecting
+    him to follow the small child. He flustardly run after Enda."
 
     jump chapter2scene1
 
@@ -171,7 +172,7 @@ label chapter2scene1:
 
     n "Not so fast. Remember, you are a fallen Irul and the Iruil believe that
     you are banished. If you are seen in the Mortal Realm, Nazareth can use that
-     against you. You might not be lucky to be given a second chance."
+     against you. You might not be lucky enough to be given a second chance."
 
     n "Your task is to find out what exactly Nazareth is doing, so Kehira
     and Remya can use that information to decide his fate. Be warned, the Forest
@@ -183,8 +184,7 @@ label chapter2scene1:
 
     n "I have duties to perform, therefore this is where I depart. I will say
     this, keep your eyes sharp and be aware of your surroundings. Trust no one."
-    n "When you have accomplished your goal, meet me here and I shall escort you
-     back to the Darker Realm."
+    n "When you have accomplished your goal, I shall escort you back to the Darker Realm."
 
     "Enda hands you 5 glowing gemstones and teleports away."
 
@@ -219,7 +219,7 @@ label forest0:
             jump forest1
         "Go south and investigate the village":
             "The village is visible in the distance and from here it looks very
-            peaceful. The tribe probably relys on the forest for wood and food."
+            peaceful. The tribe probably relies on the forest for wood and food."
             "I should probably enter the forest now."
             jump forest0
 label forest1:
@@ -554,7 +554,7 @@ label destroyed:
     if  same == False:
         "The path turns east and then is blocked by a bunch of fallen trees, vines and other vegetation."
         "There is nothing natural about this"
-    if destroyed == True and same == False:
+    if orb_destroyed == True and same == False:
         "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
@@ -588,7 +588,8 @@ label forestcenter:
     e "That must be Nazareth. He seems peaceful."
     "The carpet of moss starts to darken. Nazareth stands, and some of the
     rabbits begin to back away. The grass under his feet begins to darken,
-    then disappear. Like a ripple, the surrounding plants begin to vanish,
+    then disappear."
+    "Like a ripple, the surrounding plants begin to vanish,
     leaving no evidence of the lush green that existed. The small company of
     critters starts to flee from their once home."
     e "The Irul of Spring, Harvest and Life … destroying the ancient forest?
@@ -610,10 +611,8 @@ label forestcenter:
     e "It seems to be a forest fire. I was confused when I witnessed Nazareth
     wiping out the ancient forest. I think he was just trying to protect the
     tribe of mortals yonder. The flames will not reach them."
-    n "(sorrowful) It must be hard for Nazareth to obliterate the ancient Forest
-     of Nourishment that he had nurtured for eons. Nazareth has proved that his
-     heart is still kind toward the mortals. We have not found the real culprit
-      of the Mortal Realm crisis, but we must report this to Her Majesty."
+    n "(sorrowful) It must be hard for Nazareth to obliterate the ancient Forest of Nourishment that he had nurtured for eons. Nazareth has proved that his heart is still kind toward the mortals."
+    "We have not found the real culprit of the Mortal Realm crisis, but we must report this to Her Majesty."
     jump chapter3scene1
 
 label chapter3scene1:
@@ -625,11 +624,11 @@ label chapter3scene1:
     menu:
         "He destroyed the ancient forest":
             k "That's terrible, any idea as to why he would do such a thing?"
-            e "There was a fire and Nazareth destroyed a large part of the forest to make sure the flames couldn't reach the tribe on the other side"
-            k "You should have led with that part"
-            e "Probably"
+            e "There was a fire and Nazareth destroyed a large part of the forest to make sure the flames couldn't reach the tribe on the other side."
+            k "You should have led with that part."
+            e "Probably."
             k "..."
-            k "Anyways"
+            k "Anyways."
         "He saved a tribe of mortals":
             k "By destroying the ancient forest?"
             e "There was a fire that was spreading too quickly, it would have destroyed the whole forest and the tribe on the other side."
@@ -638,6 +637,7 @@ label chapter3scene1:
     k "I've heard from Enda that Cyvtis has been in the area recently."
     k "As the god of the skies she certainly could have caused the fire by harnessing the power of the sun."
     k "It's decided, Enda will take you to the village where Cyvtis has been spotted and you can figure out her role in this crisis."
+    "You proceed to follow Enda again, hoping that this madness will end soon so you can go back to your normal life."
     jump market_pre_intro
 label market_pre_intro:
     n "Here we are, the village that I saw Cyvtis heading into. We are on the opposite side of the ancient forest as last time."
@@ -674,8 +674,8 @@ label market_intro:
 
 label market_entrance:
 
-    "The cozy little village reminds you of the small tribe you saw before. A
-    glance eastward, and you can see what is left of the ancient Forest, still
+    "The cozy little village reminds you of the small tribe you saw before."
+    "A glance eastward, and you can see what is left of the ancient Forest, still
     ablaze. To your west is the village marketplace, humming alive with busy
     mortals hurrying to make the most of their short time."
     "Cyvtis is somewhere in the village, perhaps disguised as a mortal."
@@ -689,8 +689,8 @@ label market_entrance:
 label market_west:
     "You have never been to a human marketplace, and you did not know what to
     expect. It seems that the entire village, no, all of the Mortal Realm has
-    decided to gather here on consensus. The marketplace needs no Irul of Chaos,
-    for it has plenty of chaos of its own."
+    decided to gather here on consensus."
+    "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
     "Merchants shouting their wares, buyers gathering up items as fast as they
     can, human younglings shoving and elbowing as they race through the crowd."
     "You tug close your hood, hoping to dissolve within its comforting shadow."
@@ -864,8 +864,8 @@ label thief:
         show ezibrl2 at left
         show thief2 at right
         if thief_flag == False:
-            "Before you stand, you notice a rough looking bulky man.
-            He is examining a small leather pouch, the kind you have seen many
+            "Before you stand, you notice a rough looking lanky man."
+            "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
             "The man senses your presence. For what seems like eternity, you
@@ -895,7 +895,8 @@ label take_pouch:
     t "I am this village’s most skilled thief. You dare walk into my lair and demand for what I have rightfully stolen? Nehehe, you amuse me!"
     t "I don’t think this pouch belongs to you either. Why, there is barely anything here! Such a waste of my skills."
     t "But there is something far more valuable I can get from you. You, outsider, did you know that in this village you
-       can trade in riddles? They value intellect here, because they think it sets them apart from the tribe men who live by that ancient forest.
+       can trade in riddles?"
+    t "They value intellect here, because they think it sets them apart from the tribe men who live by that ancient forest.
        Or what used to be a forest- nehehehe."
     $ thief_flag = True
 
@@ -935,7 +936,7 @@ label thief_riddle:
         $ pouch = True
         $ no_thief = True
         hide ezibrl2
-        hide theif2
+        hide thief2
         jump block_2
     else:
         t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here."
@@ -1079,7 +1080,7 @@ label bridge_keeper:
             "Cattails bow to the water’s might and dragonflies drift lazily overhead. A weathered bridge connects the two shores."
 
             menu:
-                "Walk ot the bridge":
+                "Walk across the bridge":
                     "The smell of damp wood greets you as you take your first step on the bridge.
                     The suspension sways, but holds fast. Before you can manage another step, a short figure leaps in front of you.
                     This man was probably hiding- under the bridge?"
@@ -1284,7 +1285,7 @@ label block_8:
 
 label shepherd:
     "A glance skyward, and you see the clouds gathering up ahead.
-    Cyvtis, the Irul of the skies, must be closeby."
+    Cyvtis, the Irul of the skies, must be close by."
     if no_shepherd == False:
         show ezibrl2 at left
         show shepard at right
@@ -1295,12 +1296,12 @@ label shepherd:
             "Amid the mass of rolling cotton walks a single human, already glancing your way.
             Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
 
-            s "Good day, maister! What brings you upon this humble heard?"
+            s "Good day, maister! What brings you upon this humble herd?"
 
             menu:
                 "You wish to proceed":
                     e "I would like to proceed to the other side of this herd."
-                    s "Oh! Apologies, masiter. We must be blocking your path."
+                    s "Oh! Apologies, mister. We must be blocking your path."
                     $ shepherd_flag = True
                     s "I will move this heard to the pasture yonder, but I need to make sure I have everyone. Could you help me figure out how many sheep there are?"
                     jump help_shepherd
@@ -1332,15 +1333,15 @@ label help_shepherd:
 
 label solve_shepherd:
     s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here gives birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
-    s "You picked up one of these darling baby sheep at the pet shop and brought it home the day after it was born. In 10 months from now, how many sheep will you have?"
-    $ answer = renpy.input("How many sheep will you have in 10 months? (Answer numerically, e.g. 1)")
+    s "I picked up one of these darling baby sheep at the pet shop and brought it home the day after it was born. It has been 10 months since then, how many sheep do I have?"
+    $ answer = renpy.input("How many sheep will you have in 10 months? (Answer numerically, e.g. 120)")
     if answer == "1":
         $ shepherd_riddle = True
     else:
         s "I don't think that is the correct answer..."
         jump help_shepherd
     if shepherd_riddle == True:
-        s "Looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
+        s "Huh I guess you are right, looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
 
@@ -1465,23 +1466,24 @@ label town_square:
     "You can barely make out the figure from the shadows."
     e "I see the villagers here like to collect weapons."
     v "You seem to be a cultured man."
-    e "Are you starting a war"
+    e "Are you starting a war?"
     v "We are only ending the war. Long have the tribesmen disputed with our folks. We shall tolerate the barbarians no longer. I cannot believe they survived the blazing forest."
     "The image of the burning forest suddenly aligns with the pile of torches on the ground. No, this cannot be."
     e "A-are you responsible for the burning of the ancient Forest of Nourishment?"
     v "Forest of Nourishment? Ha! It was just another old forest."
-    v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful. We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
+    v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
+    v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
     v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
     e "Why are you telling me this?" 
     v "Ha! Because you may join us, if that is your wish. You seem interested in our fine weapons, and you look to be a cultured gentleman, similar to our own kind."
     v "If you made it this far through the market, you must have solved various intellectual problems. Truly, you belong with us in spirit. Were you to decide upon staying, you would be most welcomed here."
     "You cannot believe your ears. This man must be going crazy."
-    v " I have a council to attend soon. Farewell for now, traveller! I hope to see you join us."
+    v "I have a council to attend soon. Farewell for now, traveller! I hope to see you join us."
     "The shadow of a man blends into more shadows. Silence greets you once again."
     e "This has been an unexpected turn of events. I have not discovered Cyvtis’s purpose yet, but now I know the real culprit- or should I say, culprits, of the forest fire. I must report this to Kehira."
     "You realize that you do not remember your way back through the mayhem of the market. You decide to continue forward through the winding passage, toward the sliver of light promising fresh air."
     "The narrow, suffocating alleyway stretches at last into a vast town square. Where the market was crowded with vendors shouting their wares and buyers shoving through the mob, the town square is surprisingly peaceful."
-    "Younglings running and playing, women engaging in pleasant conversations, and the elderlly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
+    "Younglings running and playing, women engaging in pleasant conversations, and the elderly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
     "Your attention fixates on the dancer in the far left. It is not her graceful movements, slightly peculiar and rather swift compared to the others, but the dance- you recognize her dance."
     "The dance of rain."
     "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruil. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
@@ -1491,7 +1493,8 @@ label town_square:
     "A cold breeze licks at your face and creeps across your skin. The air is suddenly ice-cold and the once-bright sky now dimmer, as if the sun’s warmth has been directed elsewhere."
     v "Somebody set the weapons cart on fire!"
     av "The torches have also been drenched. They are useless now."
-    "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions. While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
+    "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
+    "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
     n "I have been waiting for you! That market looks easy to get lost in. Here, I got this for you from the nearby merchant."
     "A small hand extends to offer you a smaller pewter whistle, a twin tied to a string around Enda’s neck."
     n "When you did not return for a while, I was afraid I might get lost in the market crowd. If we stray again, we can find each other by following the sound of the whistle."
@@ -1508,7 +1511,6 @@ label mission3:
     k "Weapons?"
     e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe."
     e "If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
-    k ""
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness?"
     e "I can not say that about all the moratal, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
     n "Your Majesty! There has been a catastrophe. We have an influx of human souls crossing into the Darker Realm."
