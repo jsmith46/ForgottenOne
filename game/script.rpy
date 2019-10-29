@@ -9,7 +9,9 @@ define k = Character("KEHIRA")
 
 define e = Character("EZBRIL")
 
-define n = Character("EDNA")
+define n = Character("ENDA")
+
+define z = Character("ZARTHARACKS")
 
 define l = Character("LADY")
 
@@ -22,6 +24,10 @@ define b = Character("BAKER")
 define s = Character("SHEPHERD")
 
 define bk = Character("BRIDGE KEEPER")
+
+define v = Character("VILLAGER")
+
+define av = Character("ANOTHER VILLAGER")
 
 define c1 = Character("CHILD 1")
 
@@ -126,9 +132,9 @@ label scene2:
 
     n "Your Dark Majesty, have you spoken to Ezbril of our plan?"
 
-    k "Yes, Edna. I was just beginning to tell Ezbril about our plan. He has
+    k "Yes, Enda. I was just beginning to tell Ezbril about our plan. He has
     agreed. But I didn’t get a chance to mention that you will also be joining
-    us. (Kehira turns to look at Ezbril, who is looking confused by Edna’s
+    us. (Kehira turns to look at Ezbril, who is looking confused by Enda’s
     entrance)"
 
     n "That is excellent! We need to get prepared quickly as possible! The
@@ -180,12 +186,13 @@ label chapter2scene1:
     n "When you have accomplished your goal, meet me here and I shall escort you
      back to the Darker Realm."
 
-    "Edna hands you 5 glowing gemstones and teleports away."
+    "Enda hands you 5 glowing gemstones and teleports away."
 
     e "... Why am I always stuck in this mess?"
     $trees = False
     $peace = False
     $orbs = 5
+    $loop = 0
     $orb_forest1 = False
     $orb_forest2 = False
     $orb_forest3 = False
@@ -205,10 +212,10 @@ label chapter2scene1:
     jump forest0
     
 label forest0:
-    scene rsz_FOREST 
+    scene rsz_forest
     menu:
         "Head east into the forest":
-            "Walking through the forest you can now see why Edna said this forest is like a maze."
+            "Walking through the forest you can now see why Enda said this forest is like a maze."
             jump forest1
         "Go south and investigate the village":
             "The village is visible in the distance and from here it looks very
@@ -364,10 +371,13 @@ label forest5:
             jump forest5
 
 label forest6:
+    $loop += 1
     if  same == False:
         "You come across an intersection with 3 choices: east, west, and north."
     if orb_forest6 == True and same == False:
         "You see a gemstone lying on the ground, you must have been here before."
+    if loop >= 5:
+        "Looking west, you notice a large rock that you haven't seen before" 
     $same = False
     menu:
         "Go east":
@@ -593,7 +603,7 @@ label forestcenter:
     toward you, the inferno leaping from tree to tree."
     "But you realize that you are safe. There are no trees, no vegetation left
     on this side to feed the hungry flames. The forest fire cannot spread."
-    "A shift of air, a sudden flash of light to your right, and Edna stands
+    "A shift of air, a sudden flash of light to your right, and Enda stands
     beside you."
     n "Greetings! I’m ba-"
     n "(astonished) Wha- what happened here?"
@@ -608,15 +618,32 @@ label forestcenter:
 
 label chapter3scene1:
 
-    "placeholder description"
+    "When you arrive the room appears pitch black, your eyes haven't adjusted from being in the bright forest"
+    "You can make out Kehira, impatiently waiting"
     e "(bows deeply) Your Majesty, we are back, and we bring news."
     k "What is it? Did you find what Nazareth was up to?"
     menu:
         "He destroyed the ancient forest":
-            return
+            k "That's terrible, any idea as to why he would do such a thing?"
+            e "There was a fire and Nazareth destroyed a large part of the forest to make sure the flames couldn't reach the tribe on the other side"
+            k "You should have led with that part"
+            e "Probably"
+            k "..."
+            k "Anyways"
         "He saved a tribe of mortals":
-            return
-    return
+            k "By destroying the ancient forest?"
+            e "There was a fire that was spreading too quickly, it would have destroyed the whole forest and the tribe on the other side."
+    k "I need you to investigate who could have caused this fire as they could be behind this whole crisis."
+    e "Is there any Irul who could have done this?"
+    k "I've heard from Enda that Cyvtis has been in the area recently."
+    k "As the god of the skies she certainly could have caused the fire by harnessing the power of the sun."
+    k "It's decided, Enda will take you to the village where Cyvtis has been spotted and you can figure out her role in this crisis."
+    jump market_pre_intro
+label market_pre_intro:
+    n "Here we are, the village that I saw Cyvtis heading into. We are on the opposite side of the ancient forest as last time."
+    n "The fire must have started from around here."
+    n "I'm off, keep doing a great job!"
+    jump market_intro
 
 label market_intro:
     $ lady_flag = False
@@ -998,7 +1025,7 @@ label baker_menu2:
         "Leave":
             e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
-            hide baker 
+            hide baker2 
             hide ezibrl2
             jump block_2
 
@@ -1017,8 +1044,8 @@ label help_baker:
     if baker_riddle == True:
         b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
         $ no_baker = True
-        hide baker 
-        hide ezibrl
+        hide baker2 
+        hide ezibrl2
         jump block_5
     else:
         menu:
@@ -1027,8 +1054,8 @@ label help_baker:
             "Leave":
                 e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
                 b "See you around! Be wary lest you lose your bearing."
-                hide baker 
-                hide ezibrl
+                hide baker2 
+                hide ezibrl2
                 jump block_2
 
 label block_5:
@@ -1413,7 +1440,7 @@ label solve_code:
         c1 "Only tribesmen can break our secret code!"
         $ no_kids = True
         hide ezibrl2
-        hide kids
+        hide kids2
         jump block_10
     else:
         jump solve_code
@@ -1430,4 +1457,96 @@ label block_10:
 
 
 label town_square:
+    "The rough, cobbled alley twists and tapers, turn after turn straying from the market crowd. With every step, the passage gets quieter, and the walls seem to cast more shadows."
+    "You almost missed it in the dark, the silhouette of a wooden cart against the weathered wall. But it is the faint sheen of metal that catches your eye. The cart is loaded with pitchforks, spears, hammers, axes, and daggers- weapons."
+    "The village seems to be preparing for war. A sharp smell of damp wood catches your attention. On the ground, you see a pile of wooden torches, drenched in a small puddle of clear water."
+    "You hear footsteps behind you."
+    v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
+    "You can barely make out the figure from the shadows."
+    e "I see the villagers here like to collect weapons."
+    v "You seem to be a cultured man."
+    e "Are you starting a war"
+    v "We are only ending the war. Long have the tribesmen disputed with our folks. We shall tolerate the barbarians no longer. I cannot believe they survived the blazing forest."
+    "The image of the burning forest suddenly aligns with the pile of torches on the ground. No, this cannot be."
+    e "A-are you responsible for the burning of the ancient Forest of Nourishment?"
+    v "Forest of Nourishment? Ha! It was just another old forest."
+    v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful. We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
+    v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
+    e "Why are you telling me this?" 
+    v "Ha! Because you may join us, if that is your wish. You seem interested in our fine weapons, and you look to be a cultured gentleman, similar to our own kind."
+    v "If you made it this far through the market, you must have solved various intellectual problems. Truly, you belong with us in spirit. Were you to decide upon staying, you would be most welcomed here."
+    "You cannot believe your ears. This man must be going crazy."
+    v " I have a council to attend soon. Farewell for now, traveller! I hope to see you join us."
+    "The shadow of a man blends into more shadows. Silence greets you once again."
+    e "This has been an unexpected turn of events. I have not discovered Cyvtis’s purpose yet, but now I know the real culprit- or should I say, culprits, of the forest fire. I must report this to Kehira."
+    "You realize that you do not remember your way back through the mayhem of the market. You decide to continue forward through the winding passage, toward the sliver of light promising fresh air."
+    "The narrow, suffocating alleyway stretches at last into a vast town square. Where the market was crowded with vendors shouting their wares and buyers shoving through the mob, the town square is surprisingly peaceful."
+    "Younglings running and playing, women engaging in pleasant conversations, and the elderlly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
+    "Your attention fixates on the dancer in the far left. It is not her graceful movements, slightly peculiar and rather swift compared to the others, but the dance- you recognize her dance."
+    "The dance of rain."
+    "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruil. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
+    "It begins as a whispering in the air. A tinkling sound comes to your ears as the sky’s first tear fall softly on your cheek."
+    "Cyvtis cups her hands and brings them to her heart. With half a kick, her palms stretch eastward in a swirling motion. The winds whips and blows away the rain clouds toward the direction her palms are pointing- toward the still blazing forest."
+    "The dance ends abruptly. With a nimble movement, Cyvtis is making her way toward the market, and possibly out of the village. This is a good chance for you to get out as well, and you follow her distantly."
+    "A cold breeze licks at your face and creeps across your skin. The air is suddenly ice-cold and the once-bright sky now dimmer, as if the sun’s warmth has been directed elsewhere."
+    v "Somebody set the weapons cart on fire!"
+    av "The torches have also been drenched. They are useless now."
+    "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions. While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
+    n "I have been waiting for you! That market looks easy to get lost in. Here, I got this for you from the nearby merchant."
+    "A small hand extends to offer you a smaller pewter whistle, a twin tied to a string around Enda’s neck."
+    n "When you did not return for a while, I was afraid I might get lost in the market crowd. If we stray again, we can find each other by following the sound of the whistle."
+    e "Thank you, Enda."
+    "You accept the whistle."
+    e "Quick, we must hurry back to Kehira. The villagers would be looking for any foreigners soon."
+    n "What happened?"
+    e "I will tell you later. We must make haste."
+    jump mission3
+label mission3:
+    "A dimly lit room, Kehira perched upon her dark throne."
+    k "I see you are back. What did you learn about Cyvtis?"
+    e "Cyvtis was only in the village so she could bring rain upon the blazing forest and destroy the villagers’ weapons."
+    k "Weapons?"
+    e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe."
+    e "If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
+    k ""
+    k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness?"
+    e "I can not say that about all the moratal, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
+    n "Your Majesty! There has been a catastrophe. We have an influx of human souls crossing into the Darker Realm."
+    k "Where do these souls originate from?"
+    n "From the v-village. The village Ezbril just visited. It has been wiped out by a mighty flood."
+    "You are shocked. The lively village full of colours.The laughing younglings who had so much to live for. The entire village that breathed a few heartbeats ago. All of it, gone?"
+    e "It must have been Cyvtis. She brought excessive rains that flooded the river."
+    k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
+    k "Cyvtis is the Irul of Skies, but let us not forget the Irul who controls the rivers."
+    k "Ezbril, you have done well so far, yet your task has not concluded. Your next target is Zartharacks, the Irul of Sea and all Waters."
+    k "He is responsible for the flow of the rivers and streams, and maintaining balance in the waters. The rise in the river’s water level would have been a work of his."
+    k " I must warn you, Zartharacks is- unique."
+    e "Unique?"
+    k "He never cared much about following rules, as I am sure you will soon see for yourself. Enda, escort Ezbril to the Serpent Bank."
+    n "Yes, Your Dark Majesty."
+
+    n "Here we are, the glorious Serpent Bank! This is the river that flowed into the village, and through the ancient forest. Because half the trees are now gone, you can see the tribe from here as well."
+    "You look around, and indeed you are located northwest of the ancient forest, the small tribe visible due to the lack of trees that would have once blocked your view."
+    "You can see the remains of the village, the colourful rooftops easily visible to your Irul eyes. You look away." 
+    n "Now Zartharacks in fact lives under water, but I cannot escort you further. As a lesser Irul, I still need to breathe."
+    e "That is alright, thanks for escorting me here. Are you going to leave again?"
+    n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
+    n "While you find what Zartharacks is up to, I will go collect some fruit."
+    "Enda runs off into the distance as you turn toward your next quest."
+    "..."
+    "..."
+    "pretend there is a maze here similar to the one in the forest except it has you chasing the river god Zarthacks"
+    "eventually you catch up to him"
+    "..."
+    "..."
+    z "Are you done following me?"
+    jump end
+label end: 
     return
+
+    
+    
+   
+    
+    
+     
