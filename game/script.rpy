@@ -616,7 +616,7 @@ label forestcenter:
     jump chapter3scene1
 
 label chapter3scene1:
-
+    scene throne_room
     "When you arrive the room appears pitch black, your eyes haven't adjusted from being in the bright forest"
     "You can make out Kehira, impatiently waiting"
     e "(bows deeply) Your Majesty, we are back, and we bring news."
@@ -1102,7 +1102,7 @@ label bridge_keeper:
 
 label take_bridge:
     show ezibrl2 at left
-    show bridgekeep at right
+    show bridgekeep2 at right
     bk "Hold it right there! None shall pass without answering the riddle."
     e "Most bizzare."
     menu:
@@ -1117,7 +1117,7 @@ label take_bridge:
         "Leave":
             "You shall not pass!"
             hide ezibrl2
-            hide bridgekeep
+            hide bridgekeep2
             jump block_3
 label solve_bk:
     bk "Four people need to cross a bridge in the middle of the night. The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
@@ -1134,7 +1134,7 @@ label solve_bk:
         "Before you realize it, the man leaps into the river- yet you do not hear the splash of water. He was indeed hiding under the bridge."
         "The bridge is now clear for you to pass."
         hide ezibrl2
-        hide bridgekeep
+        hide bridgekeep2
         $ no_bk = True
         jump block_6
     else:
@@ -1151,7 +1151,7 @@ label bribe_bk:
     e "Despicable."
     "You continue your trek across the bridge."
     hide ezibrl
-    hide bridgekeep
+    hide bridgekeep2
     jump block_6
 
 label block_6:
@@ -1509,6 +1509,7 @@ label town_square:
     e "I will tell you later. We must make haste."
     jump mission3
 label mission3:
+    scene throne_room
     "A dimly lit room, Kehira perched upon her dark throne."
     k "I see you are back. What did you learn about Cyvtis?"
     e "Cyvtis was only in the village so she could bring rain upon the blazing forest and destroy the villagers’ weapons."
