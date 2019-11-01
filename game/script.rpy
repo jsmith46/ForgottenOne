@@ -52,11 +52,13 @@ label scene1:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
+    "You are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
+    Remya is seated on her great throne, you are kneeling before her."
 
     # These display lines of dialogue.
     r "Guilty! Is there a punishment worthy of what you have done?"
 
-    "Another god enters."
+    "Another god enters"
 
     r "Sister? Kehira, you are interrupting an important tria- Actually, you
     came just in time."
@@ -1337,7 +1339,7 @@ label help_shepherd:
 label solve_shepherd:
     s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here gives birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
     s "I picked up one of these darling baby sheep at the pet shop and brought it home the day after it was born. It has been 10 months since then, how many sheep do I have?"
-    $ answer = renpy.input("How many sheep will you have in 10 months? (Answer numerically, e.g. 120)")
+    $ answer = renpy.input("How many sheep do I have? (Answer numerically, e.g. 120)")
     if answer == "1":
         $ shepherd_riddle = True
     else:
@@ -1430,8 +1432,8 @@ label kids_code:
 label solve_code:
     c1 "A boy and his big sister are sitting around the kitchen table chatting.
     \n'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!'"
-    c2 "'Well, why don't you just give me one more on top of that? Then I'll be three times your age.'\nSo just how old is each sibling?"
-    $ answer = renpy.input("How old is each sibling? (Answer numerically, e.g. 1)")
+    c2 "'Well, why don't you just give me one more on top of that? Then I'll be three times your age.'\nSo just how old is the youngest sibling?"
+    $ answer = renpy.input("How old is the youngest sibling? (Answer numerically, e.g. 1)")
     if answer == "6":
         $ kids_riddle = True
     else:
@@ -1540,13 +1542,6 @@ label mission3:
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
-    "..."
-    "..."
-    "pretend there is a maze here similar to the one in the forest except it has you chasing the river god Zarthacks"
-    "eventually you catch up to him"
-    "..."
-    "..."
-    z "Are you done following me?"
     jump end
 label end:
     return
