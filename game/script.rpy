@@ -134,7 +134,7 @@ label scene2:
 
     k "Yes, Enda. I was just beginning to tell Ezbril about our plan. He has
     agreed. But I didn’t get a chance to mention that you will also be joining
-    us." 
+    us."
 
     "Kehira turns to look at Ezbril, who is looking confused by Enda’s entrance"
 
@@ -210,7 +210,7 @@ label chapter2scene1:
     $lake1seen = False
     $lake2seen = False
     jump forest0
-    
+
 label forest0:
     scene rsz_forest
     menu:
@@ -286,7 +286,7 @@ label forest2:
                     "You are out of gemstones."
             $same = True
             jump forest2
-       
+
 label forest3:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and north."
@@ -377,7 +377,7 @@ label forest6:
     if orb_forest6 == True and same == False:
         "You see a gemstone lying on the ground, you must have been here before."
     if loop >= 5:
-        "Looking west, you notice a large rock that you haven't seen before" 
+        "Looking west, you notice a large rock that you haven't seen before"
     $same = False
     menu:
         "Go east":
@@ -458,8 +458,8 @@ label forest8:
             jump forest8
 label lake1:
     if  same == False:
-        "The path continues south until you reach a beautiful sprawling lake."  
-    if orb_lake1 == True and same == False: 
+        "The path continues south until you reach a beautiful sprawling lake."
+    if orb_lake1 == True and same == False:
         "You see a gemstone lying on the ground, you must have been here before."
     $lake1seen = True
     if lake2seen == True and same == False:
@@ -638,8 +638,11 @@ label chapter3scene1:
     k "As the god of the skies she certainly could have caused the fire by harnessing the power of the sun."
     k "It's decided, Enda will take you to the village where Cyvtis has been spotted and you can figure out her role in this crisis."
     "You proceed to follow Enda again, hoping that this madness will end soon so you can go back to your normal life."
+    stop music
+
     jump market_pre_intro
 label market_pre_intro:
+    play music "Forest.wav"
     n "Here we are, the village that I saw Cyvtis heading into. We are on the opposite side of the ancient forest as last time."
     n "The fire must have started from around here."
     n "I'm off, keep doing a great job!"
@@ -729,7 +732,7 @@ label lady:
         show ezibrl2 at left
         show lady2 at right
         if lady_flag == False:
-            
+
             "But the passage is blocked by a sobbing lady, pure agony on her
             young
             face. "
@@ -743,7 +746,7 @@ label lady:
                 "Approach her":
                     jump help_lady
                 "Leave":
-                    
+
                     jump meanie_to_lady
         else:
             l "Oh, it’s you, good sir! Did you find my pouch?"
@@ -1026,7 +1029,7 @@ label baker_menu2:
         "Leave":
             e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
-            hide baker2 
+            hide baker2
             hide ezibrl2
             jump block_2
 
@@ -1045,7 +1048,7 @@ label help_baker:
     if baker_riddle == True:
         b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
         $ no_baker = True
-        hide baker2 
+        hide baker2
         hide ezibrl2
         jump block_5
     else:
@@ -1055,7 +1058,7 @@ label help_baker:
             "Leave":
                 e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
                 b "See you around! Be wary lest you lose your bearing."
-                hide baker2 
+                hide baker2
                 hide ezibrl2
                 jump block_2
 
@@ -1371,7 +1374,7 @@ label dead_end_2:
 label kids:
     "A peculiar shift of air reveals that Cyvtis must be close by."
     if no_kids == False:
-        show ezibrl2 at left 
+        show ezibrl2 at left
         show kids2 at right
         "As you make your way through the suffocating mass of mortals,
         you find your path conveniently blocked by a group of insolent mortal younglings. "
@@ -1458,6 +1461,7 @@ label block_10:
 
 
 label town_square:
+    play music "Nazareth.wav" fadeout 1.0 fadein 1.0
     "The rough, cobbled alley twists and tapers, turn after turn straying from the market crowd. With every step, the passage gets quieter, and the walls seem to cast more shadows."
     "You almost missed it in the dark, the silhouette of a wooden cart against the weathered wall. But it is the faint sheen of metal that catches your eye. The cart is loaded with pitchforks, spears, hammers, axes, and daggers- weapons."
     "The village seems to be preparing for war. A sharp smell of damp wood catches your attention. On the ground, you see a pile of wooden torches, drenched in a small puddle of clear water."
@@ -1474,7 +1478,7 @@ label town_square:
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
     v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
     v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
-    e "Why are you telling me this?" 
+    e "Why are you telling me this?"
     v "Ha! Because you may join us, if that is your wish. You seem interested in our fine weapons, and you look to be a cultured gentleman, similar to our own kind."
     v "If you made it this far through the market, you must have solved various intellectual problems. Truly, you belong with us in spirit. Were you to decide upon staying, you would be most welcomed here."
     "You cannot believe your ears. This man must be going crazy."
@@ -1529,7 +1533,7 @@ label mission3:
 
     n "Here we are, the glorious Serpent Bank! This is the river that flowed into the village, and through the ancient forest. Because half the trees are now gone, you can see the tribe from here as well."
     "You look around, and indeed you are located northwest of the ancient forest, the small tribe visible due to the lack of trees that would have once blocked your view."
-    "You can see the remains of the village, the colourful rooftops easily visible to your Irul eyes. You look away." 
+    "You can see the remains of the village, the colourful rooftops easily visible to your Irul eyes. You look away."
     n "Now Zartharacks in fact lives under water, but I cannot escort you further. As a lesser Irul, I still need to breathe."
     e "That is alright, thanks for escorting me here. Are you going to leave again?"
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
@@ -1543,12 +1547,5 @@ label mission3:
     "..."
     z "Are you done following me?"
     jump end
-label end: 
+label end:
     return
-
-    
-    
-   
-    
-    
-     
