@@ -52,8 +52,8 @@ label scene1:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    "Ezbril are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
-    Remya is seated on her great throne, Ezbril is kneeling before her."
+    "You are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
+    Remya is seated on her great throne, you kneeling before her."
 
     # These display lines of dialogue.
     r "Guilty! Is there a punishment worthy of what you have done?"
@@ -91,7 +91,7 @@ label scene1:
 label scene2:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
-    "Ezbril is now in another great throne room, dimmer than the last one, but
+    "You are now in another great throne room, dimmer than the last one, but
     equally as magnificent and clean. Kehira sits upon her dark throne, a white
     cat on her lap."
 
@@ -100,7 +100,7 @@ label scene2:
 
     k "You did not do it, did you?"
 
-    "Ezbril stand there shocked."
+    "You stand there shocked."
 
     k "My cat got your tongue? You did not cause the Mortal Realm crisis, did
     you?"
@@ -176,8 +176,8 @@ label scene2:
 
 label chapter2scene1:
     play music "Forest.wav" fadeout 1.0 fadein 1.0
-    "The scenery has changed, Ezbril are now in front of a lush forest. A small
-    tribe can be seen in the distance on Ezbril's right and in front of him is a
+    "The scenery has changed, you are now in front of a lush forest. A small
+    tribe can be seen in the distance on your right and in front of you is a
     path that seems to lead deep into the forest."
 
     n "Here we are, the Forest of Nourishment. For decades, tribes of humans
@@ -213,7 +213,7 @@ label chapter2scene1:
     this, keep your eyes sharp and be aware of your surroundings. Trust no one."
     n "When you have accomplished your goal, I shall escort you back to the Darker Realm."
 
-    "Enda hands Ezbril 5 glowing gemstones and teleports away."
+    "Enda hands you 5 glowing gemstones and teleports away."
 
     e "... Why am I always stuck in this mess?"
 
