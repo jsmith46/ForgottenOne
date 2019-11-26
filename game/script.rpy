@@ -654,14 +654,14 @@ label chapter3scene1:
             e "I'm back, and I bring news."
     k "What is it? Did you find what Nazareth was up to?"
     menu:
-        "He destroyed the ancient forest":
+        "'He destroyed the ancient forest'":
             k "That's terrible, any idea as to why he would do such a thing?"
             e "There was a fire and Nazareth destroyed a large part of the forest to make sure the flames couldn't reach the tribe on the other side."
             k "You should have led with that part."
-            e "Probably."
+            e "Perhaps."
             k "..."
             k "Anyways."
-        "He saved a tribe of mortals":
+        "'He saved a tribe of mortals'":
             k "By destroying the ancient forest?"
             e "There was a fire that was spreading too quickly, it would have destroyed the whole forest and the tribe on the other side."
     k "I need you to investigate who could have caused this fire as they could be behind this whole crisis."
