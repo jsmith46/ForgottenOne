@@ -52,13 +52,22 @@ label scene1:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    "You are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
-    Remya is seated on her great throne, you are kneeling before her."
+    "Ezbril are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
+    Remya is seated on her great throne, Ezbril is kneeling before her."
 
     # These display lines of dialogue.
     r "Guilty! Is there a punishment worthy of what you have done?"
 
-    "Another god enters"
+    menu:
+        "'You dare accuse me?!'":
+            e "You dare accuse me?!"
+            "Remya smirks."
+            r "Are you in any position to say that?"
+        "'I didn't do it!'":
+            e "I didn't do it!"
+            r "Silence!"
+
+    "Another Irul enters."
 
     r "Sister? Kehira, you are interrupting an important tria- Actually, you
     came just in time."
@@ -82,7 +91,7 @@ label scene1:
 label scene2:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
-    "You are now in another great throne room, dimmer than the last one, but
+    "Ezbril is now in another great throne room, dimmer than the last one, but
     equally as magnificent and clean. Kehira sits upon her dark throne, a white
     cat on her lap."
 
@@ -91,12 +100,18 @@ label scene2:
 
     k "You did not do it, did you?"
 
-    "You stand there shocked."
+    "Ezbril stand there shocked."
 
     k "My cat got your tongue? You did not cause the Mortal Realm crisis, did
     you?"
 
-    e "I did not!"
+    menu:
+        "'Finally, someone who gets it.'":
+            e "Finally, someone who gets it."
+            pass
+        "'I did not!'":
+            e "I did not!"
+            pass
 
     e "You believe me?"
 
@@ -123,14 +138,23 @@ label scene2:
     this crisis. By doing this, you may be able to prove your innocence."
     k "So what do you say? Are you up for this challenge?"
 
-    e "(A look of thought on his face, and nods with approval) What about your
-    sister, the Light Majesty? I am supposed to be banished and punished here.
-    If I am seen in the Mortal Realm-"
+    menu:
+        "'And if I refuse?'":
+            e "And if I refuse?"
+            k "Then you rot here."
+            e "(A look of thought on his face, and nods with approval) What about your
+            sister, the Light Majesty? I am supposed to be banished and punished here.
+            If I am seen in the Mortal Realm-"
+            k "Then you must perform your task in stealth."
+        "'What about your sister?'":
+            e "(A look of thought on his face, and nods with approval) What about your
+            sister, the Light Majesty? I am supposed to be banished and punished here.
+            If I am seen in the Mortal Realm-"
 
-    k "Then you must perform your task in stealth. (grins) Or would you rather
-    stay here and find out what awaits you in the Darker Realm?"
+            k "Then you must perform your task in stealth. (grins) Or would you rather
+            stay here and find out what awaits you in the Darker Realm?"
 
-    "A small childish looking boy appears behind you."
+    "A small childish looking boy appears behind Ezbril."
 
     n "Your Dark Majesty, have you spoken to Ezbril of our plan?"
 
@@ -144,15 +168,16 @@ label scene2:
     mortals can not suffer much more. I have found a way to get us there safely,
      and undetected. Follow me."
 
-    "A wave of confusion falls upon Ezbril but its clear that Kehira is expecting
-    him to follow the small child. He flustardly run after Enda."
+    "A wave of confusion falls upon Ezbril but it'
+    s clear that Kehira is expecting
+    him to follow the small child. He flustedly run after Enda."
 
     jump chapter2scene1
 
 label chapter2scene1:
     play music "Forest.wav" fadeout 1.0 fadein 1.0
-    "The scenery has changed, you are now in front of a lush forest. A small
-    tribe can be seen in the distance on your right and in front of you is a
+    "The scenery has changed, Ezbril are now in front of a lush forest. A small
+    tribe can be seen in the distance on Ezbril's right and in front of him is a
     path that seems to lead deep into the forest."
 
     n "Here we are, the Forest of Nourishment. For decades, tribes of humans
@@ -188,9 +213,10 @@ label chapter2scene1:
     this, keep your eyes sharp and be aware of your surroundings. Trust no one."
     n "When you have accomplished your goal, I shall escort you back to the Darker Realm."
 
-    "Enda hands you 5 glowing gemstones and teleports away."
+    "Enda hands Ezbril 5 glowing gemstones and teleports away."
 
     e "... Why am I always stuck in this mess?"
+
     $trees = False
     $peace = False
     $orbs = 5
@@ -621,7 +647,11 @@ label chapter3scene1:
     scene throne_room
     "When you arrive the room appears pitch black, your eyes haven't adjusted from being in the bright forest"
     "You can make out Kehira, impatiently waiting"
-    e "(bows deeply) Your Majesty, we are back, and we bring news."
+    menu:
+        "Bow to her majesty":
+            e "(bows deeply) Your Majesty, we are back, and we bring news."
+        "Stand still":
+            e "I'm back, and I bring news."
     k "What is it? Did you find what Nazareth was up to?"
     menu:
         "He destroyed the ancient forest":
@@ -698,6 +728,8 @@ label market_west:
     "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
     "Merchants shouting their wares, buyers gathering up items as fast as they
     can, human younglings shoving and elbowing as they race through the crowd."
+    "'Stop! Thief!'"
+    "You see a tall man running across the marketplace, shoving people as he runs by, a leather pouch in one hand."
     "You tug close your hood, hoping to dissolve within its comforting shadow."
     jump block_1
 
@@ -745,11 +777,10 @@ label lady:
             of coins."
 
             menu:
+                "Leave":
+                    jump meanie_to_lady
                 "Approach her":
                     jump help_lady
-                "Leave":
-
-                    jump meanie_to_lady
         else:
             l "Oh, it’s you, good sir! Did you find my pouch?"
             jump lady_menu
@@ -869,7 +900,7 @@ label thief:
         show ezibrl2 at left
         show thief2 at right
         if thief_flag == False:
-            "Before you stand, you notice a rough looking lanky man."
+            "Before you stand, you notice a rough looking lanky man. You recognize him running earlier."
             "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
@@ -886,7 +917,11 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
-        "Ask for pouch":
+        "Intimidate him into giving you the pouch":
+            e "Give me the pouch. Or else."
+            jump meanie_take_pouch
+        "Ask for pouch nicely":
+            e "I think that pouch belongs to someone else. Give it to me."
             jump take_pouch
         "Leave":
             "You decide it is in your best interest to stay out of trouble."
@@ -895,7 +930,6 @@ label thief_menu:
             jump block_1
 
 label take_pouch:
-    e "I think that pouch belongs to someone else. Give it to me."
     t "Oh? Aahaha! We have quite a bold one here."
     t "I am this village’s most skilled thief. You dare walk into my lair and demand for what I have rightfully stolen? Nehehe, you amuse me!"
     t "I don’t think this pouch belongs to you either. Why, there is barely anything here! Such a waste of my skills."
@@ -1475,7 +1509,7 @@ label town_square:
     e "Are you starting a war?"
     v "We are only ending the war. Long have the tribesmen disputed with our folks. We shall tolerate the barbarians no longer. I cannot believe they survived the blazing forest."
     "The image of the burning forest suddenly aligns with the pile of torches on the ground. No, this cannot be."
-    e "A-are you responsible for the burning of the ancient Forest of Nourishment?"
+    e "Are you responsible for the burning of the ancient Forest of Nourishment?"
     v "Forest of Nourishment? Ha! It was just another old forest."
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
     v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "

@@ -2,10 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 952: invalid syntax
-    shepherd_riddle = True:
-                           ^
-    
+File "game/script.rpy", line 111: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    pass
+    ^
+
+File "game/script.rpy", line 114: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
+    pass
+    ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Thu Oct 24 21:43:25 2019
+Mon Nov 25 20:08:35 2019
