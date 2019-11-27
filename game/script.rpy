@@ -197,7 +197,7 @@ label chapter2scene1:
 
     e "Her majesty wants me to investigate Nazareth?"
 
-    n "Not so fast. Remember, you are a fallen Irul and the Iruil believe that
+    n "Not so fast. Remember, you are a fallen Irul and the Irul believe that
     you are banished. If you are seen in the Mortal Realm, Nazareth can use that
      against you. You might not be lucky enough to be given a second chance."
 
