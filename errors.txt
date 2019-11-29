@@ -2,13 +2,21 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 111: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    pass
-    ^
+File "game/script.rpy", line 1967: expected statement.
+    "Go north":
+              ^
 
-File "game/script.rpy", line 114: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation.
-    pass
-    ^
+File "game/script.rpy", line 1969: expected statement.
+    "Go east":
+             ^
+
+File "game/script.rpy", line 1971: expected statement.
+    "Go west":
+             ^
+
+File "game/script.rpy", line 1973: expected statement.
+    "Go south":
+              ^
 
 Ren'Py Version: Ren'Py 7.3.5.606
-Mon Nov 25 20:08:35 2019
+Fri Nov 29 01:22:14 2019

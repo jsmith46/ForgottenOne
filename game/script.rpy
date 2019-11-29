@@ -39,7 +39,7 @@ define c3 = Character("CHILD 3")
 # The game starts here.
 label start:
     #jump market_intro
-    jump scene1
+    jump maze3start
 
 label scene1:
     play music "Banished.mp3"
@@ -1882,37 +1882,179 @@ label mission3:
     "You can see the remains of the village, the colourful rooftops easily visible to your Irul eyes. You look away."
     n "Now Zartharacks in fact lives under water, but I cannot escort you further. As a lesser Irul, I still need to breathe."
     e "That is alright, thanks for escorting me here. Are you going to leave again?"
+
+    # line from Enda about the restless water. Don't remove
+    n "Oh, I almost forgot. Zartharacks makes the water around him restless. It is hard to see the restless water but you will feel it when you stand by it."
+    e "And if I enter the restless water?"
+    n "I believe it will propel you further away from Zartharacks but I have never witnessed it myself."
+
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
-    jump mission3
+    jump maze3start
 
-label mission3:
-    jump maze3
-
-label maze3:
+label maze3start:
     # starting position is 2,1
     $pos = [2,1]
 
     "You are at the entrance to the sunken ship."
     menu:
         "Go into the ship":
-            return
-        "Return":
+            pass
+        "Return ashore":
             jump end
 
-    "You are on the upper deck inside of the ship. You see the stairs leading to the lower decks directly north of you. The water is calm where you are standing."
+    "You are on the upper deck inside of the ship. You see the stairs leading to the lower decks directly north of you."
+    "The water is calm where you are standing."
+    $first = True
+    jump maze3p1
 
-    while $pos != [2,6]:
-        if $pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
-            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
-        elif $pos in
+label maze3p1:
+    if pos == [2,6]:
+        "You make it to the other end of the ship. You descend downwards into the lower deck of the ship."
+        $pos = [2,1]
+        "You are on one deck deeper inside of the ship. You see the stairs leading to the lower decks directly north of you."
+        "Before you proceed, you notice the water change. While it was calm when you entered, it now has moves withunrest."
+        "As you take in your surroundings, you feel the water around you get calm."
+        "You wait a few moments."
+        $current = True
+        jump maze3p2
+    if pos in ([2,2],[1,3],[3,3],[1,5],[3,4],[2,4],[2,5]):
+        "You make your movement."
+        "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        if pos == [2,2]:
+            "You see your destination directly in front of you."
+        elif pos == [2,4]:
+            "You see your destination directly in front of you. You are almost to the end."
+        elif pos == [2,5]:
+            "You see your destination directly in front of you. You are one step away from the end."
+    elif pos in ([1,4],[2,3],[3,5]):
+        "You make your movement."
+        "As soon as you do, you feel the water immediate change from calm to something more vicious."
+        "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+        "The current throws you backwards. You fly further away from your destination."
+        "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+        "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+        "You are back where you began."
+        $pos = [2,1]
+    else:
+        if first:
+            pass
+        else:
+            "You make your movement."
+            "The water is calm where you are standing."
+    if pos in ([1,2],[1,3],[1,5]):
         menu:
             "Go north":
-                $y+=1
-            "Go west":
+                $pos[1] += 1
             "Go east":
+                $pos[0] += 1
             "Go south":
+                $pos[1] -= 1
+    elif pos in ([3,2],[3,3],[3,4]):
+        menu:
+            "Go north":
+                $pos[1] += 1
+            "Go west":
+                $pos[0] -= 1
+            "Go south":
+                $pos[1] -= 1
+    elif pos == [2,1]:
+        menu:
+            "Go north":
+                $pos[1] += 1
+            "Go east":
+                $pos[0] += 1
+            "Go west":
+                $pos[0] -= 1
+    elif pos == [1,1]:
+        menu:
+            "Go north":
+                $pos[1] += 1
+            "Go east":
+                $pos[0] += 1
+    elif pos == [3,1]:
+        menu:
+            "Go north":
+                $pos[1] += 1
+            "Go west":
+                $pos[0] -= 1
+    elif pos == [1,6]:
+        menu:
+            "Go east":
+                $pos[0] += 1
+            "Go south":
+                $pos[1] -= 1
+    else:
+        menu:
+            "Go north":
+                $pos[1] += 1
+            "Go east":
+                $pos[0] += 1
+            "Go west":
+                $pos[0] -= 1
+            "Go south":
+                $pos[1] -= 1
+    $first = False
+    jump maze3p1
+
+label maze3p2:
+    "[pos]"
+    if current:
+        "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
+    else:
+        "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
+    if pos == [2,7]:
+        "You make it to the other end of the ship. You descend downwards into the lower deck of the ship."
+        jump maze3p3
+    if pos in ([1,1],[3,1],[2,2],[2,3],[3,3],[1,3],[1,4],[2,5],[1,6],[3,4],[3,6]):
+        if current:
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        else:
+            "The water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
+        if pos == [2,2]:
+            "You see your destination directly in front of you."
+        elif pos == [2,3]:
+            "You see your destination directly in front of you. You are a bit closer to the end."
+        elif pos == [2,4]:
+            "You see your destination directly in front of you. You are about half way there."
+        elif pos == [2,5]:
+            "You see your destination directly in front of you. You are almost to the end."
+        elif pos == [2,6]:
+            "You see your destination directly in front of you. You are one step away from the end."
+    elif pos in ([1,2],[3,5],[3,2],[1,5],[2,4]):
+        if current:
+            "You feel the water immediate change from calm to something more vicious."
+            "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+            "The current throws you backwards. You fly further away from your destination."
+            "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+            "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+            "You are back where you began."
+            $pos = [2,1]
+        else:
+            "The water surrounding you is especially riled. Do not linger in your position for long."
+    else:
+        "The water is calm around where you are standing."
+    menu:
+        "Go north" if pos[1] != 7:
+            $pos[1] += 1
+            "You make your movement."
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
+            "You make your movement."
+        "Go west" if pos[0] != 1:
+            $pos[0] -= 1
+            "You make your movement."
+        "Go south" if pos[1] != 1:
+            $pos[1] -= 1
+            "You make your movement."
+        "Stay":
+            "You wait."
+    if current:
+        $current = False
+    else:
+        $current = True
+    jump maze3p2
 
 label end:
     return
