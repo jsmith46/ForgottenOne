@@ -194,8 +194,8 @@ label chapter2scene1:
     $trees = False
     $peace = False
     $orbs = 5
-    $loop = 0
     $orb_forest1 = False
+    $orb_forestb1 = False
     $orb_forest2 = False
     $orb_forest3 = False
     $orb_forest4 = False
@@ -208,9 +208,23 @@ label chapter2scene1:
     $orb_bog = False
     $orb_deadend = False
     $orb_destroyed = False
+    $orb_forest1c = 0
+    $orb_forestb1c = 0
+    $orb_forest2c = 0
+    $orb_forest3c = 0
+    $orb_forest4c = 0
+    $orb_forest5c = 0
+    $orb_forest6c = 0
+    $orb_forest7c = 0
+    $orb_forest8c = 0
+    $orb_lake1c = 0
+    $orb_lake2c = 0
+    $orb_bogc = 0
+    $orb_deadendc = 0
+    $orb_destroyedc = 0
     $same = False
     $lake1seen = False
-    $lake2seen = False
+    $log = False
     jump forest0
 
 label forest0:
@@ -228,7 +242,16 @@ label forest1:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and west."
     if orb_forest1 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
@@ -242,9 +265,9 @@ label forest1:
                 "Walking deeper the trees begin to tower over you even more, the
                 tallest must be hundreds of years old."
                 $trees = True
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest2
+            jump forestb1
         "Go west":
+            "You leave the forest."
             jump forest0
         "Drop a gemstone":
             if orb_forest1 == True:
@@ -253,29 +276,91 @@ label forest1:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest1 = True
+                    $orb_forest1c = 5-orbs
+                    if orb_forest1c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest1c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest1c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest1c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest1c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump forest1
+label forestb1:
+    if  same == False:
+        "You come across an intersection with 2 choices: south and west ."
+    if orb_forestb1 == True and same == False:
+        if orb_forestb1c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
+    $same = False
+    menu:
+        "Go south":
+            jump forest2
+        "Go west":
+            jump forest1
+        "Drop a gemstone":
+            if orb_forestb1 == True:
+                "I've already dropped a gemstone here."
+            else:
+                if orbs > 0:
+                    $orbs -= 1
+                    $orb_forestb1 = True
+                    $orb_forestb1c = 5-orbs
+                    if orb_forestb1c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forestb1c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forestb1c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forestb1c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forestb1c == 5:
+                        "You place a black gemstone on the ground."
+                    "You now have [orbs] gemstones left."
+
+                else:
+                    "You are out of gemstones."
+            $same = True
+            jump forestb1
 label forest2:
     if  same == False:
         "You come across an intersection with 4 choices: south, east, west and north."
     if orb_forest2 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
             jump forest6
         "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing south."
             jump forest4
         "Go west":
-            "The path bends slightly south but then curves back so when you come across the next intersection you are still facing west."
             jump forest3
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west."
-            jump forest1
+            jump forestb1
         "Drop a gemstone":
             if orb_forest2 == True:
                 "I've already dropped a gemstone here."
@@ -283,7 +368,19 @@ label forest2:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest2 = True
+                    $orb_forest2c = 5-orbs
+                    if orb_forest2c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest2c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest2c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest2c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest2c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -293,13 +390,21 @@ label forest3:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and north."
     if orb_forest3 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
             jump lake1
         "Go east":
-            "The path bends slightly north but then curves back so when you come across the next intersection you are still facing east."
             jump forest2
         "Go north":
             jump forest1
@@ -310,7 +415,19 @@ label forest3:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest3 = True
+                    $orb_forest3c = 5-orbs
+                    if orb_forest3c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest3c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest3c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest3c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest3c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -318,18 +435,25 @@ label forest3:
 
 label forest4:
     if  same == False:
-        "You come across an intersection with 3 choices: south, east and north."
+        "You come across an intersection with 3 choices: south, east and west."
     if orb_forest4 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
-            "The path bends slightly so when you come across the next intersection you are facing west."
             jump forest5
         "Go east":
-            jump bog
-        "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west."
+            jump deadend
+        "Go west":
             jump forest2
         "Drop a gemstone":
             if orb_forest4 == True:
@@ -338,7 +462,19 @@ label forest4:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest4 = True
+                    $orb_forest4c = 5-orbs
+                    if orb_forest4c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest4c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest4c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest4c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest4c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -348,17 +484,24 @@ label forest5:
     if  same == False:
         "You come across an intersection with 3 choices: east, west, and north."
     if orb_forest5 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing north."
-            jump forest4
+            jump bog
         "Go west":
-            jump deadend
-        "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west."
             jump forest6
+        "Go north":
+            jump forest4
         "Drop a gemstone":
             if orb_forest5 == True:
                 "I've already dropped a gemstone here."
@@ -366,28 +509,42 @@ label forest5:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest5 = True
+                    $orb_forest5c = 5-orbs
+                    if orb_forest5c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest5c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest5c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest5c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest5c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump forest5
 
 label forest6:
-    $loop += 1
     if  same == False:
-        "You come across an intersection with 3 choices: east, west, and north."
+        "You come across an intersection with 2 choices: east and north."
     if orb_forest6 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
-    if loop >= 5:
-        "Looking west, you notice a large rock that you haven't seen before"
+        if orb_forest6c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing east."
             jump forest5
-        "Go west":
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest7
         "Go north":
             jump forest2
         "Drop a gemstone":
@@ -397,7 +554,19 @@ label forest6:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest6 = True
+                    $orb_forest6c = 5-orbs
+                    if orb_forest6c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest6c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest6c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest6c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest6c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -407,19 +576,25 @@ label forest7:
     if peace == False:
         "As you keep travelling further into the forest you realize that everything is unnaturally quiet and you haven't seen signs of wildlife for a while."
         $peace = True
-    if  same == False:
-        "You come across an intersection with 3 choices: south, east and north."
+    if orb_forest7 == True and same == False:
+        if orb_forest7c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     if orb_forest7 == True and same == False:
         "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go south":
-            jump lake2
         "Go east":
             jump forest8
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest6
+            jump lake2
         "Drop a gemstone":
             if orb_forest7 == True:
                 "I've already dropped a gemstone here."
@@ -427,7 +602,19 @@ label forest7:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest7 = True
+                    $orb_forest7c = 5-orbs
+                    if orb_forest7c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest7c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest7c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest7c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest7c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -437,7 +624,16 @@ label forest8:
     if  same == False:
         "You come across an intersection with 3 choices: south, east and west."
     if orb_forest8 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go south":
@@ -453,23 +649,46 @@ label forest8:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest8 = True
+                    $orb_forest8c = 5-orbs
+                    if orb_forest8c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest8c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest8c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest8c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest8c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump forest8
 label lake1:
     if  same == False:
-        "The path continues south until you reach a beautiful sprawling lake."
+        "The path continues south until you reach a river. It seems skinnier here than any other part of the river."
+        "If you had something long that could support your weight you might be able to cross it."
     if orb_lake1 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $lake1seen = True
-    if lake2seen == True and same == False:
-        "On the other side of the lake you can see an opening which you think you've been before."
     $same = False
     menu:
-        "Go back":
-            "You head back to your last intersection where you are facing north."
+        "Place log across river" if log:
+            "You place your log across the river and slowly make your way across."
+            "Just as you make it to the other side the log slips and falls into the river"
+            jump lake2
+        "Go back north":
             jump forest3
         "Drop a gemstone":
             if orb_lake1 == True:
@@ -478,22 +697,40 @@ label lake1:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_lake1 = True
+                    $orb_lake1c = 5-orbs
+                    if orb_lake1c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_lake1c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_lake1c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_lake1c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_lake1c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump lake1
 label lake2:
     if  same == False:
-        "The path bends slightly to the right and abruptly ends upon reaching a beautiful large lake when you are facing west."
+        "You are on the south side of the river. You can only go south from here"
     if orb_lake2 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
-    $lake2seen = True
-    if lake2seen == True:
-        "On the other side of the lake you can see an opening which you think you've been before."
     menu:
-        "Go back":
+        "Go south":
             "You head back to your last intersection where you are facing north."
             jump forest7
         "Drop a gemstone":
@@ -503,6 +740,17 @@ label lake2:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_lake2 = True
+                    $orb_lake2c = 5-orbs
+                    if orb_lake2c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_lake2c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_lake2c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_lake2c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_lake2c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -510,11 +758,26 @@ label lake2:
             jump lake2
 label bog:
     if  same == False:
-        "The path continues east until you arrive at a bog ... there doesn't seem to be any way to cross it."
+        "The path continues east until you arrive at a bog. There sure are a lot of fallen trees around here."
+        "Those logs look sturdy like someone could probably walk on them."
     if orb_bog == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
+        "Pick up a log" if lake1seen == True and log == False:
+            "You picked up a log, it was lighter than expected"
+            $log = True
+            $same = True
+            jump bog
         "Go back":
             "You head back west to your last intersection."
             jump forest4
@@ -525,6 +788,17 @@ label bog:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_bog = True
+                    $orb_bogc = 5-orbs
+                    if orb_bogc == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_bogc == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_bogc == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_bogc == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_bogc == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -534,12 +808,21 @@ label deadend:
     if  same == False:
         "The path gets smaller and more overgrown until you can't proceed any further."
     if orb_deadend == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go back":
             "You head back east to your last intersection."
-            jump forest5
+            jump forest4
         "Drop a gemstone":
             if orb_deadend == True:
                 "I've already dropped a gemstone here."
@@ -547,6 +830,17 @@ label deadend:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_deadend = True
+                    $orb_deadendc = 5-orbs
+                    if orb_deadendc == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_deadendc == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_deadendc == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_deadendc == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_deadendc == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -555,21 +849,44 @@ label deadend:
 label destroyed:
     if  same == False:
         "The path turns east and then is blocked by a bunch of fallen trees, vines and other vegetation."
-        "There is nothing natural about this"
+        "There is nothing natural about this."
     if orb_destroyed == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go back":
+        "Go back north":
             "You head back to your last intersection where you are facing north."
             jump forest8
         "Drop a gemstone":
             if orb_destroyed == True:
                 "I've already dropped a gemstone here."
+        "Drop a gemstone":
+            if orb_deadend == True:
+                "I've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_destroyed = True
+                    $orb_destroyedc = 5-orbs
+                    if orb_destroyedc == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_destroyedc == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_destroyedc == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_destroyedc == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_destroyedc == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -1222,12 +1539,11 @@ label talk_merchant:
     m "Wh-no, no. I said the furs have nothing to do with the tribesm-"
     m "Oho! You must be an outsider here, just like your old friend."
     m "You see, old friend, the villagers here seem to have a dispute with the tribesmen east of the forest."
-    m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you.
-      They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
+    m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you."
+    m "They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
     m "Alas, the moment I mentioned the tribesmen here, the villagers have avoided my wagon. This is woodness, old friend!"
     "The horse whips its tail to bat off a fly."
-    m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen.
-      Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
+    m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen. Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
     $ merchant_flag = True
     m "What say you, old friend? Would you mind helping a friend out here?"
     jump merchant_menu
@@ -1249,10 +1565,7 @@ label merchant_menu:
             jump block_7
 
 label merchant_help:
-    m "The distance three racehorses can run around the racetrack a minute are as follows:
-    \nHorse A: Two laps.
-    \nHorse B: Three laps.
-    \nHorse C: Half a lap."
+    m "The distance three racehorses can run around the racetrack a minute are as follows: \nHorse A: Two laps. \nHorse B: Three laps. \nHorse C: Half a lap."
     m "The horses line up at the starting line and start running in the same direction. How many minutes will pass before all three horses line up at the starting line again?"
     $ answer = renpy.input("How many minutes will pass before the horses line up? \n(Answer numerically, e.g. 1)")
     if answer == "2":
@@ -1358,9 +1671,7 @@ label solve_shepherd:
         jump solve_shepherd
 
 label block_9:
-    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market.
-    To your east is a narrow cornered path between two stalls, leading towards the crossroad you came from before.
-    To your west is a cornered path going towards the river."
+    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market. To your east is a narrow cornered path between two stalls, leading towards the crossroad you came from before. To your west is a cornered path going towards the river."
     menu:
         "Go north":
             jump town_square
@@ -1370,16 +1681,14 @@ label block_9:
             jump dead_end_2
 
 label dead_end_2:
-    "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head
-    back to your previous crossroad as there is no point wasting your prescious time here"
+    "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head back to your previous crossroad as there is no point wasting your prescious time here"
     jump block_9
 label kids:
     "A peculiar shift of air reveals that Cyvtis must be close by."
     if no_kids == False:
         show ezibrl2 at left
         show kids2 at right
-        "As you make your way through the suffocating mass of mortals,
-        you find your path conveniently blocked by a group of insolent mortal younglings. "
+        "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings. "
         if kids_flag == False:
             c1 "You can not play with us, you are a tribesman!"
             c2 "Boo, tribesman!"
@@ -1453,8 +1762,8 @@ label solve_code:
 
 
 label block_10:
-    "You are on a narrow path. Just to your west is the Town Square, the heart of the market.
-    To your east is a narrow path, leading towards towards the entrance to the northend of the market."
+    "You are on a narrow path. Just to your west is the Town Square, the heart of the market."
+    "To your east is a narrow path, leading towards towards the entrance to the northend of the market."
     menu:
         "Go east":
             jump block_8
@@ -1542,6 +1851,34 @@ label mission3:
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
-    jump end
+    jump mission3
+
+label mission3:
+    jump maze3
+
+label maze3:
+    # starting position is 2,1
+    $pos = [2,1]
+
+    "You are at the entrance to the sunken ship."
+    menu:
+        "Go into the ship":
+            return
+        "Return":
+            jump end
+
+    "You are on the upper deck inside of the ship. You see the stairs leading to the lower decks directly north of you. The water is calm where you are standing."
+
+    while $pos != [2,6]:
+        if $pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        elif $pos in
+        menu:
+            "Go north":
+                $y+=1
+            "Go west":
+            "Go east":
+            "Go south":
+
 label end:
     return
