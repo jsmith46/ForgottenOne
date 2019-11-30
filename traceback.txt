@@ -1,28 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 908, in script
-    else:
-  File "game/script.rpy", line 908, in <module>
-    else:
-NameError: name 'no_shepherd' is not defined
+  File "game/script.rpy", line 1903, in script
+    jump end
+ScriptError: could not find label 'end'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 908, in script
-    else:
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 908, in <module>
-    else:
-NameError: name 'no_shepherd' is not defined
+  File "game/script.rpy", line 1903, in script
+    jump end
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\script.py", line 898, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'end'.
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Forgotten One 1.0
-Thu Oct 24 21:36:16 2019
+Sat Nov 30 16:14:11 2019
