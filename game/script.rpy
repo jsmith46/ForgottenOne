@@ -135,7 +135,7 @@ label scene2:
 
     k "All I am asking from you is to identify the sources of disorder and rein in the chaos. This is an order from your Queen."
 
-    You are hesitant, but you must perform your duty.
+    "You are hesitant, but you must perform your duty."
 
     e "Yes, Your Majesty."
 
