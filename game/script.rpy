@@ -3,39 +3,39 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define young = Character("A YOUNG VOICE")
+define young = Character("A YOUNG VOICE", what_italic=True)
 
-define young2 = Character("VOICE")
+define young2 = Character("VOICE", what_italic=True)
 
-define k = Character("KEHIRA")
+define k = Character("KEHIRA", what_italic=True)
 
-define e = Character("EZBRIL")
+define e = Character("EZBRIL", what_italic=True)
 
-define n = Character("ENDA")
+define n = Character("ENDA", what_italic=True)
 
-define z = Character("ZARTHARACKS")
+define z = Character("ZARTHARACKS", what_italic=True)
 
-define l = Character("LADY")
+define l = Character("LADY", what_italic=True)
 
-define t = Character("THIEF")
+define t = Character("THIEF", what_italic=True)
 
-define m = Character("MERCHANT")
+define m = Character("MERCHANT", what_italic=True)
 
-define b = Character("BAKER")
+define b = Character("BAKER", what_italic=True)
 
-define s = Character("SHEPHERD")
+define s = Character("SHEPHERD", what_italic=True)
 
-define bk = Character("BRIDGE KEEPER")
+define bk = Character("BRIDGE KEEPER", what_italic=True)
 
-define v = Character("VILLAGER")
+define v = Character("VILLAGER", what_italic=True)
 
-define av = Character("ANOTHER VILLAGER")
+define av = Character("ANOTHER VILLAGER", what_italic=True)
 
-define c1 = Character("CHILD 1")
+define c1 = Character("CHILD 1", what_italic=True)
 
-define c2 = Character("CHILD 2")
+define c2 = Character("CHILD 2", what_italic=True)
 
-define c3 = Character("CHILD 3")
+define c3 = Character("CHILD 3", what_italic=True)
 
 
 # The game starts here.
@@ -109,10 +109,10 @@ label scene2:
     k "Back in the days when the mortals still believed, the Iruls were the true rulers of both realms. "
 
     menu:
-        "'What makes us better than the greedy mortals?'":
+        "'{i}What makes us better than the greedy mortals?'":
             k "There this nothing wrong with wanting more, as long as no one gets hurt."
             k "When the mortals believed in Iruls and we were strong, the mortals themselves thrived from our blessings. Look at them now, falling into chaos. "
-        "'Powers sounds appealing.'":
+        "'{i}Powers sounds appealing.'":
             pass
 
     e "However, I vowed to never associate with the mortals again."
@@ -150,7 +150,7 @@ label chariot1:
     "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
     "And then all at once. "
 
-    "'Ezbril.
+    "{i}'Ezbril.
     Ezbril.
     You are the Irul of Destruction and Chaos. You are born from disorder, and only you can control it.'"
 
@@ -283,7 +283,7 @@ label forest1:
             jump forest0
         "Drop a gemstone":
             if orb_forest1 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -327,7 +327,7 @@ label forestb1:
             jump forest1
         "Drop a gemstone":
             if orb_forestb1 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -375,7 +375,7 @@ label forest2:
             jump forestb1
         "Drop a gemstone":
             if orb_forest2 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -422,7 +422,7 @@ label forest3:
             jump forest1
         "Drop a gemstone":
             if orb_forest3 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -469,7 +469,7 @@ label forest4:
             jump forest2
         "Drop a gemstone":
             if orb_forest4 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -516,7 +516,7 @@ label forest5:
             jump forest4
         "Drop a gemstone":
             if orb_forest5 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -561,7 +561,7 @@ label forest6:
             jump forest2
         "Drop a gemstone":
             if orb_forest6 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -609,7 +609,7 @@ label forest7:
             jump lake2
         "Drop a gemstone":
             if orb_forest7 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -656,7 +656,7 @@ label forest8:
             jump forest7
         "Drop a gemstone":
             if orb_forest8 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -704,7 +704,7 @@ label lake1:
             jump forest3
         "Drop a gemstone":
             if orb_lake1 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -747,7 +747,7 @@ label lake2:
             jump forest7
         "Drop a gemstone":
             if orb_lake2 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -795,7 +795,7 @@ label bog:
             jump forest4
         "Drop a gemstone":
             if orb_bog == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -837,7 +837,7 @@ label deadend:
             jump forest4
         "Drop a gemstone":
             if orb_deadend == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -880,10 +880,10 @@ label destroyed:
             jump forest8
         "Drop a gemstone":
             if orb_destroyed == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
         "Drop a gemstone":
             if orb_deadend == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
@@ -957,14 +957,14 @@ label chapter3scene1:
             e "I'm back, and I bring news."
     k "What is it? Did you find what Nazareth was up to?"
     menu:
-        "'He destroyed the ancient forest'":
+        "{i}'He destroyed the ancient forest'":
             k "That's terrible, any idea as to why he would do such a thing?"
             e "There was a fire and Nazareth destroyed a large part of the forest to make sure the flames couldn't reach the tribe on the other side."
             k "You should have led with that part."
             e "Perhaps."
             k "..."
             k "Anyways."
-        "'He saved a tribe of mortals'":
+        "{i}'He saved a tribe of mortals'":
             k "By destroying the ancient forest?"
             e "There was a fire that was spreading too quickly, it would have destroyed the whole forest and the tribe on the other side."
     k "I need you to investigate who could have caused this fire as they could be behind this whole crisis."
@@ -1031,7 +1031,7 @@ label market_west:
     "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
     "Merchants shouting their wares, buyers gathering up items as fast as they
     can, human younglings shoving and elbowing as they race through the crowd."
-    "'Stop! Thief!'"
+    "{i}'Stop! Thief!'"
     "You see a tall man running across the marketplace, shoving people as he runs by, a leather pouch in one hand."
     "You tug close your hood, hoping to dissolve within its comforting shadow."
     jump block_1
@@ -1251,7 +1251,7 @@ label thief_menu2:
                 jump thief_riddle
             else:
                 t "Let’s test you. Nehehehe."
-                t "Spell 'Roast' out loud five times."
+                t "Spell {i}'Roast'{/i} out loud five times."
                 t "..."
                 t "Did you do it?"
                 t "Now... what do you put in a toaster?"
@@ -1324,7 +1324,7 @@ label baker:
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
             you wonder when the Iruil would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
-            "A stout man in white napron flashes you a grin as he presents a steel tray arranged with buttered buns."
+            "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
 
             b "Good morrow, Sir! Have not seen you around before. Might you be a traveller?"
             e "Indeed."
@@ -1374,10 +1374,10 @@ label baker_menu2:
 
 label help_baker:
     b "Somebody ate nine loaves of my bread! Here's what my four kids have to say:"
-    b "Aerith: 'Brock ate the loaves!'
-    \nBrock: 'Daniel ate them all up!'
-    \nCammy: 'I didn't eat them, no way!'
-    \nDaniel: 'Brock's totally lying!'"
+    b "Aerith: {i}'Brock ate the loaves!{/i}'
+    \nBrock: {i}'Daniel ate them all up!{/i}'
+    \nCammy: {i}'I didn't eat them, no way!{/i}'
+    \nDaniel: {i}'Brock's totally lying!{/i}'"
     b "I know that only one of these rascals are telling the truth and all the others are lying. Can you figure out who is telling the truth?"
     $ answer = renpy.input("Who ate the loaves? (Aerith, Brock, Cammy, Daniel)")
     if answer.lower() == "daniel":
@@ -1760,8 +1760,8 @@ label kids_code:
 
 label solve_code:
     c1 "A boy and his big sister are sitting around the kitchen table chatting.
-    \n'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!'"
-    c2 "'Well, why don't you just give me one more on top of that? Then I'll be three times your age.'\nSo just how old is the youngest sibling?"
+    \n{i}'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!{/i}"
+    c2 "'{i}Well, why don't you just give me one more on top of that? Then I'll be three times your age.'{/i}\nSo just how old is the youngest sibling?"
     $ answer = renpy.input("How old is the youngest sibling? (Answer numerically, e.g. 1)")
     if answer == "6":
         $ kids_riddle = True
@@ -1883,14 +1883,14 @@ label maze3start:
     # starting position is 2,1
     $pos = [2,1]
 
-    "You are floating above the sunken ship. You see the doors leading to the lower decks missing. Only the hinges remain."
+    "You are floating above the sunken boat. You see the doors leading to the lower decks missing. Only the hinges remain."
     menu:
-        "Go into the ship":
+        "Go into the boat":
             pass
         "Return ashore":
             jump end
 
-    "You swim to the entrance and descend down the stairs. The deck you are on is completely empty, except for seaweed and the few fish that have taken the ship as their home."
+    "You swim to the entrance and descend down the stairs. The deck you are on is completely empty, except for the vegetation and the few fish that have taken the boat as their home."
     "The deck is rectangular in shape. About twice as long as it is wide. You see the stairs leading to the lower decks directly north of you."
     "The water is calm where you are standing."
     $first = True
@@ -1898,9 +1898,9 @@ label maze3start:
 
 label maze3p1:
     if pos == [2,6]:
-        "You make it to the other end of the ship. You take the stairs and descend downwards into the lower deck of the ship."
+        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
         $pos = [2,1]
-        "You are on one deck deeper inside of the ship. This deck is about the same size as the previous deck."
+        "You are on one deck deeper inside of the boat. This deck is about the same size as the previous deck."
         "You see the stairs leading to the lower decks directly north of you."
         "Before you proceed, you notice the water change. While it was calm when you entered, it now moves with unrest."
         "As you take in your surroundings, you feel the water around you get calm."
@@ -1950,8 +1950,8 @@ label maze3p2:
         "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
     if pos == [2,7]:
         $pos = [3,1]
-        "You make it to the other end of the ship. You take the stairs and descend downwards into the lower deck of the ship."
-        "You are on one deck deeper inside of the ship. This deck is not as long as the previous deck but it is wider."
+        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
+        "You are on one deck deeper inside of the boat. This deck is not as long as the previous deck but it is wider."
         "You see the large oak doors directly north of you."
         "Similar to the previous deck, you notice the water shifts between being calm and restless as time pass."
         "However, unlike the previous floor, some of the water is only restless."
@@ -2012,7 +2012,7 @@ label maze3p3:
     else:
         "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
     if pos == [3,5]:
-        "You make it to the other end of the ship. You push with all your strength to open the oak doors. Strangely, the door opens as easily as if you were on land."
+        "You make it to the other end of the boat. You push with all your strength to open the oak doors. Strangely, the door opens as easily as if you were on land."
         jump zarth
 
     if pos in ([2,1],[3,1],[4,2],[1,2],[3,3],[4,4]):
