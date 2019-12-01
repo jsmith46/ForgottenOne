@@ -3,7 +3,9 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define r = Character("REMYA")
+define young = Character("A YOUNG VOICE")
+
+define young2 = Character("VOICE")
 
 define k = Character("KEHIRA")
 
@@ -39,7 +41,16 @@ define c3 = Character("CHILD 3")
 # The game starts here.
 label start:
     #jump market_intro
-    jump maze3start
+    jump prologue
+
+label prologue:
+    "Long ago, there was a Gate that joined two realms. One was the Mortal Realm, flourishing grounds for humans and animals to live and prosper. Crystal clear rivers slashed the green land, domed by a blue sky. The other was the Greater Realm, home to the Iruls- mighty guardians of the Mortal Realm. Unlike mortals, the Iruls were born of magic. There was the Irul of Joy, who brought merriment into the lives of mortals; Irul of wisdom, who guided the mortals to achieve great heights; Irul of animals, who ensured the critters had a voice; and many more. The Greater Realm was ruled by the Irul of Darkness, Queen Kehira. The Iruls would descend upon the Mortal Realm to ensure peace and harmony, and in return, the mortals would offer them gifts and sacrifices. The more followers an Irul had, the stronger their powers would grow. The Iruls and mortals benefited from each other, and both realms lived in harmony
+
+    Yet, a time came when the mortals became ungrateful. They wanted more. Peace did not satisfy their desires as they wished to acquire greater material wealth. They began to cheat and kill, taking advantage of the weaker amongst their own kind. War replaced harmony. A new chaos began to brew, and with it, a new Irul was born- Ezbril, the Irul of Destruction and Chaos.
+
+    Ezbril took upon himself the mission to rein in the disorder of the Mortal Realm- a task only the Irul of Destruction and Chaos could accomplish. A chicken laid an egg. He succeeded, but he took drastic measures to accomplish his goal, and committed a sin. A sin so terrible, it was deemed unspeakable. Regretful of his own crimes, Ezbril vowed to never set foot into the Mortal Realm again.
+
+    Life for mortals returned to normal, but they now deemed themselves independent. They were clever with their inventions, and saw no value in the blessings of the Irul. Where once prayers and songs of praise rose to a crescendo, smoke and iron polluted the newly cobbled streets. Rows of market vendors replaced the once sacred shrines. Soon, the Irul were forgotten."
 
 label scene1:
     play music "Banished.mp3"
@@ -52,136 +63,113 @@ label scene1:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    "You are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
-    Remya is seated on her great throne, you kneeling before her."
+    young "Ezbril? Irul of Destruction and Chaos, Her Majesty summons you. "
 
     # These display lines of dialogue.
-    r "Guilty! Is there a punishment worthy of what you have done?"
+    e "Kehira wishes to see me? It has been a while."
 
     menu:
-        "'You dare accuse me?!'":
-            e "You dare accuse me?!"
-            "Remya smirks."
-            r "Are you in any position to say that?"
-        "'I didn't do it!'":
-            e "I didn't do it!"
-            r "Silence!"
-
-    "Another Irul enters."
-
-    r "Sister? Kehira, you are interrupting an important tria- Actually, you
-    came just in time."
-
-    r "Ezbril, Irul of Destruction and Chaos. For the suffering you have caused,
-     for the cruelty you have brought, for your part in the Mortal Realm crisis,
-      I hereby pronounce you guilty."
-    r "You shall be banished to the Darker Realm, where my sister will ensure
-    that you are punished for eternity."
-
-    e "Please! I am innoc-"
-
-    r "The trial is over. Kehira, he is all yours."
-
-    k "(grinning) This way."
-
-    "Ezbril stands up and walks out with Kehira."
-
-    jump scene2
+        "Accept":
+            jump scene2
+        "Deny":
+            young2 "I am afraid you cannot deny the request of Her Majesty."
+            young2 "Don’t make her wait."
+            jump scene2
 
 label scene2:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
-    "You are now in another great throne room, dimmer than the last one, but
-    equally as magnificent and clean. Kehira sits upon her dark throne, a white
-    cat on her lap."
+    "It has been many years since you visited the Queen’s throne room, but it has not changed at all from what you remembered."
+    "Great chandeliers of black crystal glare at you from above. Darkness, her favourite aura, engulfs every corner, and you never quite discovered how large this room really is."
+    "Kehira stands before her dark throne, her mighty power almost tangible from across the great room."
+    "You are not sure what the Irul Queen wants from you.
+    A smirk crosses blood red lips as a slender finger beckons you forward."
 
-    e "So this is the Darker Realm where I will be punished for a crime I did
-     not commit. But why are we in a throne room?"
+    e "Your Majesty."
 
-    k "You did not do it, did you?"
+    "You bow deeply."
 
-    "You stand there shocked."
+    k "So you answered my summon."
 
-    k "My cat got your tongue? You did not cause the Mortal Realm crisis, did
-    you?"
+    e "Did I have a choice?"
 
-    menu:
-        "'Finally, someone who gets it.'":
-            e "Finally, someone who gets it."
-        "'I did not!'":
-            e "I did not!"
+    "The Queen’s eyes shine with a glimmer of amusement."
 
-    e "You believe me?"
+    k "I have a task for you. The Mortal Realm has fallen into chaos again."
 
-    k "The Mortal Realm crisis is a series of disasters causing chaos in the
-    mortal world. Cruelty is high, famine is growing, and mortals are
-    suffering."
-    k "My sister and I are unsure about when exactly this all started, but we
-    are determined to find and punish the Irul responsible for these unspeakable
-     crimes."
-    k "You are the Irul of Destruction and Chaos. Naturally, my sister believes
-    that only an Irul of Chaos can cause so much suffering."
-    k "However, as the Irul Queen of Darkness, I realize that this could not be
-    the work of one Irul alone."
+    e "Kehira, you know that I have vowed to never return to the Mortal Realm. You must seek someone else. "
 
-    e "Then why am I here? Will I be punished? I did no-"
+    k " You were the only one who could control it before. Ezbril, Irul of Destruction and Chaos, you must control this chaos again. "
 
-    k "Relax, I will not punish you yet. I have much use for you."
+    e "Why do you still care about the mortals?"
 
-    e "Me? What could the Irul Queen of Darkness want from a mere Irul of
-    Chaos?"
+    "A low laugh, ancient and cold. "
 
-    k "You are going to the Mortal Realm to see firsthand what this destruction
-    looks like. We will be able to determine from there who may have started
-    this crisis. By doing this, you may be able to prove your innocence."
-    k "So what do you say? Are you up for this challenge?"
+    k "The Iruls get their powers from the amount of mortal followers they have. We are strong, yes, but we used to be mighty."
+    k "Back in the days when the mortals still believed, the Iruls were the true rulers of both realms. "
 
     menu:
-        "'And if I refuse?'":
-            e "And if I refuse?"
-            k "Then you rot here."
-            e "(A look of thought on his face, and nods with approval) What about your
-            sister, the Light Majesty? I am supposed to be banished and punished here.
-            If I am seen in the Mortal Realm-"
-            k "Then you must perform your task in stealth."
-        "'What about your sister?'":
-            e "(A look of thought on his face, and nods with approval) What about your
-            sister, the Light Majesty? I am supposed to be banished and punished here.
-            If I am seen in the Mortal Realm-"
+        "'What makes us better than the greedy mortals?'":
+            k "There this nothing wrong with wanting more, as long as no one gets hurt."
+            k "When the mortals believed in Iruls and we were strong, the mortals themselves thrived from our blessings. Look at them now, falling into chaos. "
+        "'Powers sounds appealing.'":
+            pass
 
-            k "Then you must perform your task in stealth. (grins) Or would you rather
-            stay here and find out what awaits you in the Darker Realm?"
+    e "However, I vowed to never associate with the mortals again."
 
-    "A small childish looking boy appears behind Ezbril."
+    k "Ezbril, if you fail to act now, you would only bring more misery upon the mortals."
 
-    n "Your Dark Majesty, have you spoken to Ezbril of our plan?"
+    k "I have someone who will escort you. Enda, come forward."
 
-    k "Yes, Enda. I was just beginning to tell Ezbril about our plan. He has
-    agreed. But I didn’t get a chance to mention that you will also be joining
-    us."
+    "A small figure cautiously emerges from behind the throne. You have never seen such a young Irul before."
 
-    "Kehira turns to look at Ezbril, who is looking confused by Enda’s entrance"
+    n "Pleased to meet you!"
 
-    n "That is excellent! We need to get prepared as quickly as possible! The
-    mortals can not suffer much more. I have found a way to get us there safely,
-     and undetected. Follow me."
+    "You recognize that voice."
 
-    "A wave of confusion falls upon Ezbril but it'
-    s clear that Kehira is expecting
-    him to follow the small child. He flustedly run after Enda."
+    k "Ezbril, meet Enda, my personal messenger."
+    k "Enda is a lesser-Irul, born after the mortals forgot us. Because the Iruls get their powers from the faith of the mortals, Enda’s powers are very limited."
+    k "Unlike you and I, his life can be extinguished with a mortal wound. If we don’t regain mortal followers, every Irul born afterward would be a lesser-Irul."
 
+    "Young eyes stare at you. You feel a tang of remorse for the lesser-Irul, his powers forever limited. "
+
+    k "All I am asking from you is to identify the sources of disorder and rein in the chaos. This is an order from your Queen."
+
+    You are hesitant, but you must perform your duty.
+
+    e "Yes, Your Majesty."
+
+
+    jump chariot1
+
+label chariot1:
+    n "Easy there!"
+    n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
+    n "Now hold on tight…"
+
+    "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
+    "And then all at once. "
+
+    "'Ezbril.
+    Ezbril.
+    You are the Irul of Destruction and Chaos. You are born from disorder, and only you can control it.'"
+
+    n " Wake up, Ezbril. We have arrived."
     jump chapter2scene1
 
 label chapter2scene1:
     play music "Forest.wav" fadeout 1.0 fadein 1.0
-    "The scenery has changed, you are now in front of a lush forest. A small
-    tribe can be seen in the distance on your right and in front of you is a
-    path that seems to lead deep into the forest."
+    "The path before you leads to a lush forest. Along the forest’s edge, you can make out a small tribe of mortals."
 
-    n "Here we are, the Forest of Nourishment. For decades, tribes of humans
-    have relied on the forest’s generous blessings for wood and food. This place
-     is also home to many animals."
+    n "Here we are, the Forest of Nourishment. For generations, the small tribe over there has relied on the forest’s generous blessings for food and wood. The ancient forest is also home to many animals."
 
+    n "Her Majesty sensed a magic of destruction radiating from this forest."
+
+    e "Magic of destruction? But I am the Irul of Destruction and Chaos, and I haven’t set foot in the Mortal Realm in ages."
+
+    n "That is why we must find out who is responsible for this. Let’s start by exploring the forest, where Her Majesty sensed the foul magic."
+
+    #is the rest after here removed? Will leave for now
     n "In the heart of the forest you will find Nazareth, the Irul of Spring,
     Harvest, and Life. For eons, he has travelled forest to forest, village to
     village, nourishing and looked after every being that breathes."
