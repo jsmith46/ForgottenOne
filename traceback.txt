@@ -1,32 +1,45 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 1915, in script
-    if pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
-  File "game/script.rpy", line 1915, in script
-    if pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
-Exception: Possible infinite loop.
+While processing the color property of style label_text:
+  File "renpy/common/00start.rpy", line 82, in _init_language
+    renpy.change_language(language)
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+Exception: Color string u'7d323aa' must be 3, 4, 6, or 8 hex digits long.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\bootstrap.py", line 316, in bootstrap
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\bootstrap.py", line 316, in bootstrap
     renpy.main.main()
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\main.py", line 578, in main
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 574, in main
     run(restart)
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\main.py", line 143, in run
-    renpy.execution.run_context(True)
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\execution.py", line 908, in run_context
-    context.run()
-  File "game/script.rpy", line 1915, in script
-    if pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
-  File "game/script.rpy", line 1915, in script
-    if pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\execution.py", line 59, in check_infinite_loop
-    raise Exception("Possible infinite loop.")
-Exception: Possible infinite loop.
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 71, in run
+    renpy.translation.init_translation()
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\translation\__init__.py", line 558, in init_translation
+    renpy.store._init_language()  # @UndefinedVariable
+  File "renpy/common/00start.rpy", line 82, in _init_language
+    renpy.change_language(language)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\translation\__init__.py", line 646, in change_language
+    i()
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+  File "style.pyx", line 795, in renpy.style.rebuild
+  File "style.pyx", line 788, in renpy.style.build_styles
+  File "style.pyx", line 680, in renpy.style.build_style
+  File "style.pyx", line 680, in renpy.style.build_style
+  File "style.pyx", line 709, in renpy.style.build_style
+  File "style.pyx", line 706, in renpy.style.build_style
+  File "gen/style_functions.pyx", line 757, in style_functions.color_property
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\color.py", line 158, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string u'7d323aa' must be 3, 4, 6, or 8 hex digits long.
 
 Windows-8-6.2.9200
-Ren'Py 7.3.5.606
+Ren'Py 7.3.3.568
 Forgotten One 1.0
-Fri Nov 29 01:19:14 2019
+Sun Dec 01 21:36:41 2019
