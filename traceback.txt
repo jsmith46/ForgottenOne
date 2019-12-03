@@ -1,28 +1,45 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/script.rpy", line 908, in script
-    else:
-  File "game/script.rpy", line 908, in <module>
-    else:
-NameError: name 'no_shepherd' is not defined
+While processing the color property of style label_text:
+  File "renpy/common/00start.rpy", line 82, in _init_language
+    renpy.change_language(language)
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+Exception: Color string u'7d323aa' must be 3, 4, 6, or 8 hex digits long.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 908, in script
-    else:
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
-    if renpy.python.py_eval(condition):
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\python.py", line 2059, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "E:\Applications\renpy-7.3.5-sdk\renpy\python.py", line 2052, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 908, in <module>
-    else:
-NameError: name 'no_shepherd' is not defined
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\bootstrap.py", line 316, in bootstrap
+    renpy.main.main()
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 574, in main
+    run(restart)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 71, in run
+    renpy.translation.init_translation()
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\translation\__init__.py", line 558, in init_translation
+    renpy.store._init_language()  # @UndefinedVariable
+  File "renpy/common/00start.rpy", line 82, in _init_language
+    renpy.change_language(language)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\translation\__init__.py", line 646, in change_language
+    i()
+  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
+    __update()
+  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
+    renpy.style.rebuild()
+  File "style.pyx", line 795, in renpy.style.rebuild
+  File "style.pyx", line 788, in renpy.style.build_styles
+  File "style.pyx", line 680, in renpy.style.build_style
+  File "style.pyx", line 680, in renpy.style.build_style
+  File "style.pyx", line 709, in renpy.style.build_style
+  File "style.pyx", line 706, in renpy.style.build_style
+  File "gen/style_functions.pyx", line 757, in style_functions.color_property
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\color.py", line 158, in __new__
+    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
+Exception: Color string u'7d323aa' must be 3, 4, 6, or 8 hex digits long.
 
 Windows-8-6.2.9200
-Ren'Py 7.3.5.606
+Ren'Py 7.3.3.568
 Forgotten One 1.0
-Thu Oct 24 21:36:16 2019
+Sun Dec 01 21:36:41 2019

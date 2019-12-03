@@ -3,43 +3,54 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define r = Character("REMYA")
+define young = Character("A YOUNG VOICE", what_italic=True)
 
-define k = Character("KEHIRA")
+define young2 = Character("VOICE", what_italic=True)
 
-define e = Character("EZBRIL")
+define k = Character("KEHIRA", what_italic=True)
 
-define n = Character("ENDA")
+define e = Character("EZBRIL", what_italic=True)
 
-define z = Character("ZARTHARACKS")
+define n = Character("ENDA", what_italic=True)
 
-define l = Character("LADY")
+define z = Character("ZARTHARACKS", what_italic=True)
 
-define t = Character("THIEF")
+define l = Character("LADY", what_italic=True)
 
-define m = Character("MERCHANT")
+define t = Character("THIEF", what_italic=True)
 
-define b = Character("BAKER")
+define m = Character("MERCHANT", what_italic=True)
 
-define s = Character("SHEPHERD")
+define b = Character("BAKER", what_italic=True)
 
-define bk = Character("BRIDGE KEEPER")
+define s = Character("SHEPHERD", what_italic=True)
 
-define v = Character("VILLAGER")
+define bk = Character("BRIDGE KEEPER", what_italic=True)
 
-define av = Character("ANOTHER VILLAGER")
+define v = Character("VILLAGER", what_italic=True)
 
-define c1 = Character("CHILD 1")
+define av = Character("ANOTHER VILLAGER", what_italic=True)
 
-define c2 = Character("CHILD 2")
+define c1 = Character("CHILD 1", what_italic=True)
 
-define c3 = Character("CHILD 3")
+define c2 = Character("CHILD 2", what_italic=True)
+
+define c3 = Character("CHILD 3", what_italic=True)
 
 
 # The game starts here.
 label start:
     #jump market_intro
-    jump scene1
+    jump prologue
+
+label prologue:
+    "Long ago, there was a Gate that joined two realms. One was the Mortal Realm, flourishing grounds for humans and animals to live and prosper. Crystal clear rivers slashed the green land, domed by a blue sky. The other was the Greater Realm, home to the Iruls- mighty guardians of the Mortal Realm. Unlike mortals, the Iruls were born of magic. There was the Irul of Joy, who brought merriment into the lives of mortals; Irul of wisdom, who guided the mortals to achieve great heights; Irul of animals, who ensured the critters had a voice; and many more. The Greater Realm was ruled by the Irul of Darkness, Queen Kehira. The Iruls would descend upon the Mortal Realm to ensure peace and harmony, and in return, the mortals would offer them gifts and sacrifices. The more followers an Irul had, the stronger their powers would grow. The Iruls and mortals benefited from each other, and both realms lived in harmony
+
+    Yet, a time came when the mortals became ungrateful. They wanted more. Peace did not satisfy their desires as they wished to acquire greater material wealth. They began to cheat and kill, taking advantage of the weaker amongst their own kind. War replaced harmony. A new chaos began to brew, and with it, a new Irul was born- Ezbril, the Irul of Destruction and Chaos.
+
+    Ezbril took upon himself the mission to rein in the disorder of the Mortal Realm- a task only the Irul of Destruction and Chaos could accomplish. A chicken laid an egg. He succeeded, but he took drastic measures to accomplish his goal, and committed a sin. A sin so terrible, it was deemed unspeakable. Regretful of his own crimes, Ezbril vowed to never set foot into the Mortal Realm again.
+
+    Life for mortals returned to normal, but they now deemed themselves independent. They were clever with their inventions, and saw no value in the blessings of the Irul. Where once prayers and songs of praise rose to a crescendo, smoke and iron polluted the newly cobbled streets. Rows of market vendors replaced the once sacred shrines. Soon, the Irul were forgotten."
 
 label scene1:
     play music "Banished.mp3"
@@ -52,113 +63,113 @@ label scene1:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    "You are in a magnificent throne room. In this dimly lit room, the throne is bright and seems to be made of light itself.
-    Remya is seated on her great throne, you are kneeling before her."
+    young "Ezbril? Irul of Destruction and Chaos, Her Majesty summons you. "
 
     # These display lines of dialogue.
-    r "Guilty! Is there a punishment worthy of what you have done?"
+    e "Kehira wishes to see me? It has been a while."
 
-    "Another god enters"
-
-    r "Sister? Kehira, you are interrupting an important tria- Actually, you
-    came just in time."
-
-    r "Ezbril, Irul of Destruction and Chaos. For the suffering you have caused,
-     for the cruelty you have brought, for your part in the Mortal Realm crisis,
-      I hereby pronounce you guilty."
-    r "You shall be banished to the Darker Realm, where my sister will ensure
-    that you are punished for eternity."
-
-    e "Please! I am innoc-"
-
-    r "The trial is over. Kehira, he is all yours."
-
-    k "(grinning) This way."
-
-    "Ezbril stands up and walks out with Kehira."
-
-    jump scene2
+    menu:
+        "Accept":
+            jump scene2
+        "Deny":
+            young2 "I am afraid you cannot deny the request of Her Majesty."
+            young2 "Don’t make her wait."
+            jump scene2
 
 label scene2:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
-    "You are now in another great throne room, dimmer than the last one, but
-    equally as magnificent and clean. Kehira sits upon her dark throne, a white
-    cat on her lap."
+    "It has been many years since you visited the Queen’s throne room, but it has not changed at all from what you remembered."
+    "Great chandeliers of black crystal glare at you from above. Darkness, her favourite aura, engulfs every corner, and you never quite discovered how large this room really is."
+    "Kehira stands before her dark throne, her mighty power almost tangible from across the great room."
+    "You are not sure what the Irul Queen wants from you.
+    A smirk crosses blood red lips as a slender finger beckons you forward."
 
-    e "So this is the Darker Realm where I will be punished for a crime I did
-     not commit. But why are we in a throne room?"
+    e "Your Majesty."
 
-    k "You did not do it, did you?"
+    "You bow deeply."
 
-    "You stand there shocked."
+    k "So you answered my summon."
 
-    k "My cat got your tongue? You did not cause the Mortal Realm crisis, did
-    you?"
+    e "Did I have a choice?"
 
-    e "I did not!"
+    "The Queen’s eyes shine with a glimmer of amusement."
 
-    e "You believe me?"
+    k "I have a task for you. The Mortal Realm has fallen into chaos again."
 
-    k "The Mortal Realm crisis is a series of disasters causing chaos in the
-    mortal world. Cruelty is high, famine is growing, and mortals are
-    suffering."
-    k "My sister and I are unsure about when exactly this all started, but we
-    are determined to find and punish the Irul responsible for these unspeakable
-     crimes."
-    k "You are the Irul of Destruction and Chaos. Naturally, my sister believes
-    that only an Irul of Chaos can cause so much suffering."
-    k "However, as the Irul Queen of Darkness, I realize that this could not be
-    the work of one Irul alone."
+    e "Kehira, you know that I have vowed to never return to the Mortal Realm. You must seek someone else. "
 
-    e "Then why am I here? Will I be punished? I did no-"
+    k " You were the only one who could control it before. Ezbril, Irul of Destruction and Chaos, you must control this chaos again. "
 
-    k "Relax, I will not punish you yet. I have much use for you."
+    e "Why do you still care about the mortals?"
 
-    e "Me? What could the Irul Queen of Darkness want from a mere Irul of
-    Chaos?"
+    "A low laugh, ancient and cold. "
 
-    k "You are going to the Mortal Realm to see firsthand what this destruction
-    looks like. We will be able to determine from there who may have started
-    this crisis. By doing this, you may be able to prove your innocence."
-    k "So what do you say? Are you up for this challenge?"
+    k "The Iruls get their powers from the amount of mortal followers they have. We are strong, yes, but we used to be mighty."
+    k "Back in the days when the mortals still believed, the Iruls were the true rulers of both realms. "
 
-    e "(A look of thought on his face, and nods with approval) What about your
-    sister, the Light Majesty? I am supposed to be banished and punished here.
-    If I am seen in the Mortal Realm-"
+    menu:
+        "'{i}What makes us better than the greedy mortals?'":
+            k "There this nothing wrong with wanting more, as long as no one gets hurt."
+            k "When the mortals believed in Iruls and we were strong, the mortals themselves thrived from our blessings. Look at them now, falling into chaos. "
+        "'{i}Powers sounds appealing.'":
+            pass
 
-    k "Then you must perform your task in stealth. (grins) Or would you rather
-    stay here and find out what awaits you in the Darker Realm?"
+    e "However, I vowed to never associate with the mortals again."
 
-    "A small childish looking boy appears behind you."
+    k "Ezbril, if you fail to act now, you would only bring more misery upon the mortals."
 
-    n "Your Dark Majesty, have you spoken to Ezbril of our plan?"
+    k "I have someone who will escort you. Enda, come forward."
 
-    k "Yes, Enda. I was just beginning to tell Ezbril about our plan. He has
-    agreed. But I didn’t get a chance to mention that you will also be joining
-    us."
+    "A small figure cautiously emerges from behind the throne. You have never seen such a young Irul before."
 
-    "Kehira turns to look at Ezbril, who is looking confused by Enda’s entrance"
+    n "Pleased to meet you!"
 
-    n "That is excellent! We need to get prepared as quickly as possible! The
-    mortals can not suffer much more. I have found a way to get us there safely,
-     and undetected. Follow me."
+    "You recognize that voice."
 
-    "A wave of confusion falls upon Ezbril but its clear that Kehira is expecting
-    him to follow the small child. He flustardly run after Enda."
+    k "Ezbril, meet Enda, my personal messenger."
+    k "Enda is a lesser-Irul, born after the mortals forgot us. Because the Iruls get their powers from the faith of the mortals, Enda’s powers are very limited."
+    k "Unlike you and I, his life can be extinguished with a mortal wound. If we don’t regain mortal followers, every Irul born afterward would be a lesser-Irul."
 
+    "Young eyes stare at you. You feel a tang of remorse for the lesser-Irul, his powers forever limited. "
+
+    k "All I am asking from you is to identify the sources of disorder and rein in the chaos. This is an order from your Queen."
+
+    "You are hesitant, but you must perform your duty."
+
+    e "Yes, Your Majesty."
+
+
+    jump chariot1
+
+label chariot1:
+    n "Easy there!"
+    n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
+    n "Now hold on tight…"
+
+    "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
+    "And then all at once. "
+
+    "{i}'Ezbril.
+    Ezbril.
+    You are the Irul of Destruction and Chaos. You are born from disorder, and only you can control it.'"
+
+    n " Wake up, Ezbril. We have arrived."
     jump chapter2scene1
 
 label chapter2scene1:
     play music "Forest.wav" fadeout 1.0 fadein 1.0
-    "The scenery has changed, you are now in front of a lush forest. A small
-    tribe can be seen in the distance on your right and in front of you is a
-    path that seems to lead deep into the forest."
+    "The path before you leads to a lush forest. Along the forest’s edge, you can make out a small tribe of mortals."
 
-    n "Here we are, the Forest of Nourishment. For decades, tribes of humans
-    have relied on the forest’s generous blessings for wood and food. This place
-     is also home to many animals."
+    n "Here we are, the Forest of Nourishment. For generations, the small tribe over there has relied on the forest’s generous blessings for food and wood. The ancient forest is also home to many animals."
 
+    n "Her Majesty sensed a magic of destruction radiating from this forest."
+
+    e "Magic of destruction? But I am the Irul of Destruction and Chaos, and I haven’t set foot in the Mortal Realm in ages."
+
+    n "That is why we must find out who is responsible for this. Let’s start by exploring the forest, where Her Majesty sensed the foul magic."
+
+    #is the rest after here removed? Will leave for now
     n "In the heart of the forest you will find Nazareth, the Irul of Spring,
     Harvest, and Life. For eons, he has travelled forest to forest, village to
     village, nourishing and looked after every being that breathes."
@@ -172,13 +183,9 @@ label chapter2scene1:
 
     e "Her majesty wants me to investigate Nazareth?"
 
-    n "Not so fast. Remember, you are a fallen Irul and the Iruil believe that
-    you are banished. If you are seen in the Mortal Realm, Nazareth can use that
-     against you. You might not be lucky enough to be given a second chance."
-
     n "Your task is to find out what exactly Nazareth is doing, so Kehira
     and Remya can use that information to decide his fate. Be warned, the Forest
-     of Nourishment is a sacred place and easy to get lost in."
+    of Nourishment is a sacred place and easy to get lost in."
 
     n "I have some glowing gemstones you can use to mark your path.  When you
     find Nazareth, stay hidden and collect any evidence you find that would
@@ -191,11 +198,12 @@ label chapter2scene1:
     "Enda hands you 5 glowing gemstones and teleports away."
 
     e "... Why am I always stuck in this mess?"
+
     $trees = False
     $peace = False
     $orbs = 5
-    $loop = 0
     $orb_forest1 = False
+    $orb_forestb1 = False
     $orb_forest2 = False
     $orb_forest3 = False
     $orb_forest4 = False
@@ -208,82 +216,176 @@ label chapter2scene1:
     $orb_bog = False
     $orb_deadend = False
     $orb_destroyed = False
+    $orb_forest1c = 0
+    $orb_forestb1c = 0
+    $orb_forest2c = 0
+    $orb_forest3c = 0
+    $orb_forest4c = 0
+    $orb_forest5c = 0
+    $orb_forest6c = 0
+    $orb_forest7c = 0
+    $orb_forest8c = 0
+    $orb_lake1c = 0
+    $orb_lake2c = 0
+    $orb_bogc = 0
+    $orb_deadendc = 0
+    $orb_destroyedc = 0
     $same = False
     $lake1seen = False
-    $lake2seen = False
+    $log = False
     jump forest0
 
 label forest0:
     scene rsz_forest
     menu:
-        "Head east into the forest":
-            "Walking through the forest you can now see why Enda said this forest is like a maze."
+        "Head west into the forest":
+            "You enter a landscape enriched with the luscious boreal forest, salt plains, and gypsum karst landforms. This large forest is covered by black spruce, jackpine, aspen, and poplar trees."
+            "Not to mention the large bogs, muskeg and rich diversity which has sustained the mortals with their sustenance and way of life. The mortal tribe must also benefit from the river that flows out from here."
             jump forest1
-        "Go south and investigate the village":
-            "The village is visible in the distance and from here it looks very
-            peaceful. The tribe probably relies on the forest for wood and food."
-            "I should probably enter the forest now."
+        "Go north and investigate the village":
+            n "The mortals from the tribe rely on the Forest of Nourishment for food and wood. I would like to explore the mortal ways, but we must find out what is causing chaos in the forest."
             jump forest0
 label forest1:
     if  same == False:
-        "You come across an intersection with 3 choices: south, east and west."
+        "You come across an intersection with 3 choices: north, west and east."
     if orb_forest1 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest1c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go south":
+        "Go north":
             if trees == False:
-                "Walking deeper the trees begin to tower over you even more, the
-                tallest must be hundreds of years old."
+                "Walking deeper the trees begin to tower over you even more, the tallest trees look over a hundred years old."
                 $trees = True
             jump forest3
-        "Go east":
-            if trees == False:
-                "Walking deeper the trees begin to tower over you even more, the
-                tallest must be hundreds of years old."
-                $trees = True
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest2
         "Go west":
+            if trees == False:
+                "Walking deeper the trees begin to tower over you even more, the tallest trees look over a hundred years old."
+                $trees = True
+            jump forestb1
+        "Go east":
+            "You leave the forest."
             jump forest0
         "Drop a gemstone":
             if orb_forest1 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest1 = True
+                    $orb_forest1c = 5-orbs
+                    if orb_forest1c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest1c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest1c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest1c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest1c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump forest1
-label forest2:
+label forestb1:
     if  same == False:
-        "You come across an intersection with 4 choices: south, east, west and north."
-    if orb_forest2 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        "You come across an intersection with 2 choices: north and east ."
+    if orb_forestb1 == True and same == False:
+        if orb_forestb1c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forestb1c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go south":
-            jump forest6
-        "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest4
-        "Go west":
-            "The path bends slightly south but then curves back so when you come across the next intersection you are still facing west."
-            jump forest3
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west."
+            jump forest2
+        "Go east":
             jump forest1
         "Drop a gemstone":
+            if orb_forestb1 == True:
+                "You've already dropped a gemstone here."
+            else:
+                if orbs > 0:
+                    $orbs -= 1
+                    $orb_forestb1 = True
+                    $orb_forestb1c = 5-orbs
+                    if orb_forestb1c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forestb1c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forestb1c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forestb1c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forestb1c == 5:
+                        "You place a black gemstone on the ground."
+                    "You now have [orbs] gemstones left."
+
+                else:
+                    "You are out of gemstones."
+            $same = True
+            jump forestb1
+label forest2:
+    if  same == False:
+        "You come across an intersection with 4 choices: north, west, east and south."
+    if orb_forest2 == True and same == False:
+        if orb_forest2c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest2c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
+    $same = False
+    menu:
+        "Go north":
+            jump forest6
+        "Go west":
+            jump forest4
+        "Go east":
+            jump forest3
+        "Go south":
+            jump forestb1
+        "Drop a gemstone":
             if orb_forest2 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest2 = True
+                    $orb_forest2c = 5-orbs
+                    if orb_forest2c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest2c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest2c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest2c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest2c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -291,26 +393,46 @@ label forest2:
 
 label forest3:
     if  same == False:
-        "You come across an intersection with 3 choices: south, east and north."
+        "You come across an intersection with 3 choices: north, west and south."
     if orb_forest3 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest3c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go south":
-            jump lake1
-        "Go east":
-            "The path bends slightly north but then curves back so when you come across the next intersection you are still facing east."
-            jump forest2
         "Go north":
+            jump lake1
+        "Go west":
+            jump forest2
+        "Go south":
             jump forest1
         "Drop a gemstone":
             if orb_forest3 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest3 = True
+                    $orb_forest3c = 5-orbs
+                    if orb_forest3c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest3c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest3c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest3c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest3c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -318,27 +440,46 @@ label forest3:
 
 label forest4:
     if  same == False:
-        "You come across an intersection with 3 choices: south, east and north."
+        "You come across an intersection with 3 choices: north, west and east."
     if orb_forest4 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest4c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go south":
-            "The path bends slightly so when you come across the next intersection you are facing west."
-            jump forest5
-        "Go east":
-            jump bog
         "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west."
+            jump forest5
+        "Go west":
+            jump deadend
+        "Go east":
             jump forest2
         "Drop a gemstone":
             if orb_forest4 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest4 = True
+                    $orb_forest4c = 5-orbs
+                    if orb_forest4c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest4c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest4c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest4c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest4c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -346,58 +487,91 @@ label forest4:
 
 label forest5:
     if  same == False:
-        "You come across an intersection with 3 choices: east, west, and north."
+        "You come across an intersection with 3 choices: west, east, and south."
     if orb_forest5 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest5c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing north."
-            jump forest4
         "Go west":
-            jump deadend
-        "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing west."
+            jump bog
+        "Go east":
             jump forest6
+        "Go south":
+            jump forest4
         "Drop a gemstone":
             if orb_forest5 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest5 = True
+                    $orb_forest5c = 5-orbs
+                    if orb_forest5c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest5c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest5c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest5c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest5c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump forest5
 
 label forest6:
-    $loop += 1
     if  same == False:
-        "You come across an intersection with 3 choices: east, west, and north."
+        "You come across an intersection with 2 choices: west and south."
     if orb_forest6 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
-    if loop >= 5:
-        "Looking west, you notice a large rock that you haven't seen before"
+        if orb_forest6c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest6c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go east":
-            "The path bends slightly so when you come across the next intersection you are facing east."
-            jump forest5
         "Go west":
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest7
-        "Go north":
+            jump forest5
+        "Go south":
             jump forest2
         "Drop a gemstone":
             if orb_forest6 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest6 = True
+                    $orb_forest6c = 5-orbs
+                    if orb_forest6c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest6c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest6c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest6c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest6c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -407,27 +581,45 @@ label forest7:
     if peace == False:
         "As you keep travelling further into the forest you realize that everything is unnaturally quiet and you haven't seen signs of wildlife for a while."
         $peace = True
-    if  same == False:
-        "You come across an intersection with 3 choices: south, east and north."
+    if orb_forest7 == True and same == False:
+        if orb_forest7c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest7c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     if orb_forest7 == True and same == False:
         "You see a gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
+        "Go west":
+            jump forest8
         "Go south":
             jump lake2
-        "Go east":
-            jump forest8
-        "Go north":
-            "The path bends slightly so when you come across the next intersection you are facing south."
-            jump forest6
         "Drop a gemstone":
             if orb_forest7 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest7 = True
+                    $orb_forest7c = 5-orbs
+                    if orb_forest7c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest7c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest7c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest7c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest7c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
@@ -435,74 +627,135 @@ label forest7:
 
 label forest8:
     if  same == False:
-        "You come across an intersection with 3 choices: south, east and west."
+        "You come across an intersection with 3 choices: north, west and east."
     if orb_forest8 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_forest8c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go south":
+        "Go north":
             jump destroyed
-        "Go east":
-            jump forestn
         "Go west":
+            jump forestn
+        "Go east":
             jump forest7
         "Drop a gemstone":
             if orb_forest8 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_forest8 = True
+                    $orb_forest8c = 5-orbs
+                    if orb_forest8c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_forest8c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_forest8c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_forest8c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_forest8c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump forest8
 label lake1:
     if  same == False:
-        "The path continues south until you reach a beautiful sprawling lake."
+        "The path continues north until you reach a river. It seems skinnier here than any other part of the river."
+        "If you had something long that could support your weight you might be able to cross it."
     if orb_lake1 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_lake1c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $lake1seen = True
-    if lake2seen == True and same == False:
-        "On the other side of the lake you can see an opening which you think you've been before."
     $same = False
     menu:
-        "Go back":
-            "You head back to your last intersection where you are facing north."
+        "Place log across river" if log:
+            "You place your log across the river and slowly make your way across."
+            "Just as you make it to the other side the log slips and falls into the river."
+            jump lake2
+        "Go back south":
             jump forest3
         "Drop a gemstone":
             if orb_lake1 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_lake1 = True
+                    $orb_lake1c = 5-orbs
+                    if orb_lake1c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_lake1c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_lake1c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_lake1c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_lake1c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
+
                 else:
                     "You are out of gemstones."
             $same = True
             jump lake1
 label lake2:
     if  same == False:
-        "The path bends slightly to the right and abruptly ends upon reaching a beautiful large lake when you are facing west."
+        "You are on the north side of the river. You can only go north from here."
     if orb_lake2 == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_lake2c == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
-    $lake2seen = True
-    if lake2seen == True:
-        "On the other side of the lake you can see an opening which you think you've been before."
     menu:
-        "Go back":
-            "You head back to your last intersection where you are facing north."
+        "Go north":
+            "You head back to your last intersection where you are facing south."
             jump forest7
         "Drop a gemstone":
             if orb_lake2 == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_lake2 = True
+                    $orb_lake2c = 5-orbs
+                    if orb_lake2c == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_lake2c == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_lake2c == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_lake2c == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_lake2c == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -510,21 +763,47 @@ label lake2:
             jump lake2
 label bog:
     if  same == False:
-        "The path continues east until you arrive at a bog ... there doesn't seem to be any way to cross it."
+        "The path continues west until you arrive at a bog. There sure are a lot of fallen trees around here."
+        "Those logs look sturdy like someone could probably walk on them."
     if orb_bog == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_bogc == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
+        "Pick up a log" if lake1seen == True and log == False:
+            "You picked up a log, it was lighter than expected."
+            $log = True
+            $same = True
+            jump bog
         "Go back":
-            "You head back west to your last intersection."
+            "You head back east to your last intersection."
             jump forest4
         "Drop a gemstone":
             if orb_bog == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_bog = True
+                    $orb_bogc = 5-orbs
+                    if orb_bogc == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_bogc == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_bogc == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_bogc == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_bogc == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -534,19 +813,39 @@ label deadend:
     if  same == False:
         "The path gets smaller and more overgrown until you can't proceed any further."
     if orb_deadend == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_deadendc == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
         "Go back":
-            "You head back east to your last intersection."
-            jump forest5
+            "You head back west to your last intersection."
+            jump forest4
         "Drop a gemstone":
             if orb_deadend == True:
-                "I've already dropped a gemstone here."
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_deadend = True
+                    $orb_deadendc = 5-orbs
+                    if orb_deadendc == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_deadendc == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_deadendc == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_deadendc == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_deadendc == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -554,22 +853,42 @@ label deadend:
             jump deadend
 label destroyed:
     if  same == False:
-        "The path turns east and then is blocked by a bunch of fallen trees, vines and other vegetation."
-        "There is nothing natural about this"
+        "The path turns west and then is blocked by a bunch of fallen trees, vines and other vegetation."
+        "There is nothing natural about this."
     if orb_destroyed == True and same == False:
-        "You see a gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 1:
+            "You see a blue gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 2:
+            "You see a red gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 3:
+            "You see a green gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 4:
+            "You see a yellow gemstone lying on the ground, you must have been here before."
+        if orb_destroyedc == 5:
+            "You see a black gemstone lying on the ground, you must have been here before."
     $same = False
     menu:
-        "Go back":
-            "You head back to your last intersection where you are facing north."
+        "Go back south":
+            "You head back to your last intersection where you are facing south."
             jump forest8
         "Drop a gemstone":
-            if orb_destroyed == True:
-                "I've already dropped a gemstone here."
+            if orb_deadend == True:
+                "You've already dropped a gemstone here."
             else:
                 if orbs > 0:
                     $orbs -= 1
                     $orb_destroyed = True
+                    $orb_destroyedc = 5-orbs
+                    if orb_destroyedc == 1:
+                        "You place a blue gemstone on the ground."
+                    if orb_destroyedc == 2:
+                        "You place a red gemstone on the ground."
+                    if orb_destroyedc == 3:
+                        "You place a green gemstone on the ground."
+                    if orb_destroyedc == 4:
+                        "You place a yellow gemstone on the ground."
+                    if orb_destroyedc == 5:
+                        "You place a black gemstone on the ground."
                     "You now have [orbs] gemstones left."
                 else:
                     "You are out of gemstones."
@@ -587,67 +906,91 @@ label forestcenter:
     along with an occasional call of a songbird. An Irul sits gracefully on a
     water-smoothed stone, surrounded by an audience of white tailed deer and
     curious rabbits."
-    e "That must be Nazareth. He seems peaceful."
-    "The carpet of moss starts to darken. Nazareth stands, and some of the
-    rabbits begin to back away. The grass under his feet begins to darken,
-    then disappear."
-    "Like a ripple, the surrounding plants begin to vanish,
-    leaving no evidence of the lush green that existed. The small company of
-    critters starts to flee from their once home."
-    e "The Irul of Spring, Harvest and Life … destroying the ancient forest?
-    I must report this to Her Dark Majesty."
+    "He seems preoccupied examining a twig, and has not noticed you yet."
+    n "Ezbril, I recognize him. Before you is Nazareth, the Irul of Spring, Harvest, and Life. For eons, he has travelled forest to forest, tribe to tribe, nourishing and looking after every being that breathes."
+    n "However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
+    e "Enda, I can feel the magic of destruction that Kehira sensed. It seems strong within Nazareth. This might relate to his decremental performance."
+    e "If he can create trees, he must be able to destroy them as well. That would explain the magic I sense."
+    n "Would Nazareth destroy the very beings he has nourished for many years?"
+    "The carpet of moss starts to darken."
+    n "Oh no! Does he know that we are here?"
+    "Nazareth stands abruptly, and some of the rabbits begin to back away."
+    "The grass under his feet begins to darken, then disappear. Like a ripple, the surrounding plants begin to vanish, leaving no evidence of the lush green that existed. The small company of critters begin to scurry, aiming for trees that disappear like a mirage."
+    e "The Irul of Spring, Harvest and Life … destroying the ancient forest?"
+    n "We must report this to Her Majesty."
     "Nazareth raises his arms, like a falcon about to take flight. He seems to
-    hesitate a moment. Suddenly, he twirls and shoots toward the skies. Time
-    stops. You are not standing in a forest anymore."
-    "The entire east half of the forest has vanished, leaving behind no blade
-    of grass or whisper of what was once magical and green. You can easily make
-     out the small tribe from here. And in front of you…"
+    hesitate a moment. Suddenly, he twirls and shoots toward the skies."
+    "Time stops. You are not standing in a forest anymore."
+    "The entire west half of the forest has vanished, leaving behind no blade of grass or whisper of what was once magical and green."
+    "Now that the trees are gone, you can easily make out the small tribe from here; a tribe that once sat along the forest’s edge now stood bare in an open field. And in front of you…"
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
-    toward you, the inferno leaping from tree to tree."
+    toward you, the inferno leaping from tree to tree.  Enda instinctively darts behind you, his fear echoing in your own bones."
+    "A dark aura begins to dance along the tips of your fingers. The chaos of the flames fuels your own. Your destructive energy resonates with the forest’s disorder."
+    n "Ezbril!"
     "But you realize that you are safe. There are no trees, no vegetation left
     on this side to feed the hungry flames. The forest fire cannot spread."
-    "A shift of air, a sudden flash of light to your right, and Enda stands
-    beside you."
-    n "Greetings! I’m ba-"
-    n "(astonished) Wha- what happened here?"
-    e "It seems to be a forest fire. I was confused when I witnessed Nazareth
-    wiping out the ancient forest. I think he was just trying to protect the
-    tribe of mortals yonder. The flames will not reach them."
-    n "(sorrowful) It must be hard for Nazareth to obliterate the ancient Forest of Nourishment that he had nurtured for eons. Nazareth has proved that his heart is still kind toward the mortals."
-    "We have not found the real culprit of the Mortal Realm crisis, but we must report this to Her Majesty."
+    n "That was a close one."
+    e "Enda, no matter what happens, do not let me unleash my powers in the Mortal Realm. I have constrained my magic for too long. Were I to lose control, the destruction would be too great."
+    n "Is that why you have not returned to the Mortal Realm in many years?"
+    e "…"
+    e "Let’s go, Enda. We must report our findings to Kehira."
+    jump travellingback
+
+label travellingback:
+    n "Here comes our ride. Let’s go!"
+    "You feel exhausted. Sweet weariness greets you in a dark embrace."
+    n "We have arrived."
     jump chapter3scene1
 
 label chapter3scene1:
     scene throne_room
-    "When you arrive the room appears pitch black, your eyes haven't adjusted from being in the bright forest"
-    "You can make out Kehira, impatiently waiting"
-    e "(bows deeply) Your Majesty, we are back, and we bring news."
-    k "What is it? Did you find what Nazareth was up to?"
+    n "We are back, your Majesty. "
     menu:
-        "He destroyed the ancient forest":
-            k "That's terrible, any idea as to why he would do such a thing?"
-            e "There was a fire and Nazareth destroyed a large part of the forest to make sure the flames couldn't reach the tribe on the other side."
-            k "You should have led with that part."
-            e "Probably."
-            k "..."
-            k "Anyways."
-        "He saved a tribe of mortals":
-            k "By destroying the ancient forest?"
-            e "There was a fire that was spreading too quickly, it would have destroyed the whole forest and the tribe on the other side."
-    k "I need you to investigate who could have caused this fire as they could be behind this whole crisis."
-    e "Is there any Irul who could have done this?"
-    k "I've heard from Enda that Cyvtis has been in the area recently."
-    k "As the god of the skies she certainly could have caused the fire by harnessing the power of the sun."
-    k "It's decided, Enda will take you to the village where Cyvtis has been spotted and you can figure out her role in this crisis."
-    "You proceed to follow Enda again, hoping that this madness will end soon so you can go back to your normal life."
+        "Bow to her majesty":
+            "You bow deeply"
+            e "Your Majesty, we bring news."
+        "Stand still":
+            e "I bring news."
+    k "Oh? You have returned earlier than I expected, what have you discovered"
+    menu:
+        "{i}'The ancient forest is burning.'":
+            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the southern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
+        "{i}'Nazareth destroyed half of the ancient forest.'":
+            k "Such nonsense you speak, Ezbril. Nazareth has nurtured the ancient Forest of Nourishment for eons, yet you claim that he would destroy his very own creation? How did it come to this?"
+            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the southern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
+    k "A bold move by Nazareth."
+    k "Even so, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze. I cannot help but wonder what might have started the fire."
+    "Kehira sharply glances your way."
+    k "Did you lose your control again, Ezbril?"
+    n "No, he did not!"
+    n "-Your Majesty."
+    n "I was with Ezbril the whole time, Your Majesty. We did not know about the fire until half the forest was already ablaze. If Nazareth hadn’t destroyed the southern half, we would have been trapped amongst the flames ourselves."
+    "The Queen seems to contemplate something."
+    k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
+    e "Who brings fire into the Mortal Realm?"
+    k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm. She could have harnessed this power again and set the forest on fire."
+    k "Infact, I have been informed that Cyvtis was in that area recently."
+    e "Why would Cyvtis do this?"
+    k "When we discover the culprit behind this disorder, we can find out their intentions."
+    k "Enda, escort Ezbril into the Mortal Realm again."
+    n "I shall, Your Majesty." 
     stop music
+    jump travellingtomarket
+label travellingtomarket:
+    n "Looks like I get to travel with you once more."
+    n "Mortal Realm, here we come again!"
+    "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
+    "Ezbril. The mortals need you. You must restore peace into the Mortal Realm again."
+    n "You sure get tired a lot. In any case, here we are."
 
     jump market_pre_intro
 label market_pre_intro:
     play music "Forest.wav"
-    n "Here we are, the village that I saw Cyvtis heading into. We are on the opposite side of the ancient forest as last time."
-    n "The fire must have started from around here."
-    n "I'm off, keep doing a great job!"
+    n "Over there is north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you a village where Cyvtis was reportedly spotted by a few Irul."
+    e "Is this the same village that we saw before?"
+    n "Oh no, that one by the forest was a tribe, located at the southern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
+    n "On the other hand, the villagers are quite innovative with their techniques and love machineray over nature."
+    n "Let’s go find what brings Cyvtis to this village."
     jump market_intro
 
 label market_intro:
@@ -698,6 +1041,8 @@ label market_west:
     "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
     "Merchants shouting their wares, buyers gathering up items as fast as they
     can, human younglings shoving and elbowing as they race through the crowd."
+    "{i}'Stop! Thief!'"
+    "You see a tall man running across the marketplace, shoving people as he runs by, a leather pouch in one hand."
     "You tug close your hood, hoping to dissolve within its comforting shadow."
     jump block_1
 
@@ -736,8 +1081,7 @@ label lady:
         if lady_flag == False:
 
             "But the passage is blocked by a sobbing lady, pure agony on her
-            young
-            face. "
+            young face. "
 
             l "(sobbing) Sigh. Sig, sig, sob."
             e "..."
@@ -745,11 +1089,10 @@ label lady:
             of coins."
 
             menu:
+                "Leave":
+                    jump meanie_to_lady
                 "Approach her":
                     jump help_lady
-                "Leave":
-
-                    jump meanie_to_lady
         else:
             l "Oh, it’s you, good sir! Did you find my pouch?"
             jump lady_menu
@@ -869,7 +1212,7 @@ label thief:
         show ezibrl2 at left
         show thief2 at right
         if thief_flag == False:
-            "Before you stand, you notice a rough looking lanky man."
+            "Before you stand, you notice a rough looking lanky man. You recognize him running earlier."
             "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
@@ -886,7 +1229,11 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
-        "Ask for pouch":
+        "Intimidate him into giving you the pouch":
+            e "Give me the pouch. Or else."
+            jump meanie_take_pouch
+        "Ask for pouch nicely":
+            e "I think that pouch belongs to someone else. Give it to me."
             jump take_pouch
         "Leave":
             "You decide it is in your best interest to stay out of trouble."
@@ -895,7 +1242,6 @@ label thief_menu:
             jump block_1
 
 label take_pouch:
-    e "I think that pouch belongs to someone else. Give it to me."
     t "Oh? Aahaha! We have quite a bold one here."
     t "I am this village’s most skilled thief. You dare walk into my lair and demand for what I have rightfully stolen? Nehehe, you amuse me!"
     t "I don’t think this pouch belongs to you either. Why, there is barely anything here! Such a waste of my skills."
@@ -914,7 +1260,7 @@ label thief_menu2:
                 jump thief_riddle
             else:
                 t "Let’s test you. Nehehehe."
-                t "Spell 'Roast' out loud five times."
+                t "Spell {i}'Roast'{/i} out loud five times."
                 t "..."
                 t "Did you do it?"
                 t "Now... what do you put in a toaster?"
@@ -987,7 +1333,7 @@ label baker:
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
             you wonder when the Iruil would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
-            "A stout man in white napron flashes you a grin as he presents a steel tray arranged with buttered buns."
+            "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
 
             b "Good morrow, Sir! Have not seen you around before. Might you be a traveller?"
             e "Indeed."
@@ -1037,10 +1383,10 @@ label baker_menu2:
 
 label help_baker:
     b "Somebody ate nine loaves of my bread! Here's what my four kids have to say:"
-    b "Aerith: 'Brock ate the loaves!'
-    \nBrock: 'Daniel ate them all up!'
-    \nCammy: 'I didn't eat them, no way!'
-    \nDaniel: 'Brock's totally lying!'"
+    b "Aerith: {i}'Brock ate the loaves!{/i}'
+    \nBrock: {i}'Daniel ate them all up!{/i}'
+    \nCammy: {i}'I didn't eat them, no way!{/i}'
+    \nDaniel: {i}'Brock's totally lying!{/i}'"
     b "I know that only one of these rascals are telling the truth and all the others are lying. Can you figure out who is telling the truth?"
     $ answer = renpy.input("Who ate the loaves? (Aerith, Brock, Cammy, Daniel)")
     if answer.lower() == "daniel":
@@ -1123,7 +1469,7 @@ label take_bridge:
             jump block_3
 label solve_bk:
     bk "Four people need to cross a bridge in the middle of the night. The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
-    bk "Tom can cross in 1 minute, John can cross in 2 minutes, Sally can cross in 5 minutes, and Connor can cross in 10 minutes. If two people cross together they go as fast as the slower person. What is the shortest amount of time it would take the four of them to all cross?"
+    bk "Tom can cross in one minute, John can cross in two minutes, Sally can cross in five minutes, and Connor can cross in ten minutes. If two people cross together they go as fast as the slower person. What is the shortest amount of time it would take the four of them to all cross?"
     $ answer = renpy.input("What is the shortest amount of time it would take the four of them to all cross? (Answer numerically, e.g. 1)")
     if answer == "17":
         $ bk_riddle = True
@@ -1222,12 +1568,11 @@ label talk_merchant:
     m "Wh-no, no. I said the furs have nothing to do with the tribesm-"
     m "Oho! You must be an outsider here, just like your old friend."
     m "You see, old friend, the villagers here seem to have a dispute with the tribesmen east of the forest."
-    m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you.
-      They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
+    m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you."
+    m "They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
     m "Alas, the moment I mentioned the tribesmen here, the villagers have avoided my wagon. This is woodness, old friend!"
     "The horse whips its tail to bat off a fly."
-    m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen.
-      Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
+    m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen. Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
     $ merchant_flag = True
     m "What say you, old friend? Would you mind helping a friend out here?"
     jump merchant_menu
@@ -1249,10 +1594,7 @@ label merchant_menu:
             jump block_7
 
 label merchant_help:
-    m "The distance three racehorses can run around the racetrack a minute are as follows:
-    \nHorse A: Two laps.
-    \nHorse B: Three laps.
-    \nHorse C: Half a lap."
+    m "The distance three racehorses can run around the racetrack a minute are as follows: \nHorse A: Two laps. \nHorse B: Three laps. \nHorse C: Half a lap."
     m "The horses line up at the starting line and start running in the same direction. How many minutes will pass before all three horses line up at the starting line again?"
     $ answer = renpy.input("How many minutes will pass before the horses line up? \n(Answer numerically, e.g. 1)")
     if answer == "2":
@@ -1358,9 +1700,7 @@ label solve_shepherd:
         jump solve_shepherd
 
 label block_9:
-    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market.
-    To your east is a narrow cornered path between two stalls, leading towards the crossroad you came from before.
-    To your west is a cornered path going towards the river."
+    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market. To your east is a narrow cornered path between two stalls, leading towards the crossroad you came from before. To your west is a cornered path going towards the river."
     menu:
         "Go north":
             jump town_square
@@ -1370,16 +1710,14 @@ label block_9:
             jump dead_end_2
 
 label dead_end_2:
-    "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head
-    back to your previous crossroad as there is no point wasting your prescious time here"
+    "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head back to your previous crossroad as there is no point wasting your prescious time here"
     jump block_9
 label kids:
     "A peculiar shift of air reveals that Cyvtis must be close by."
     if no_kids == False:
         show ezibrl2 at left
         show kids2 at right
-        "As you make your way through the suffocating mass of mortals,
-        you find your path conveniently blocked by a group of insolent mortal younglings. "
+        "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings. "
         if kids_flag == False:
             c1 "You can not play with us, you are a tribesman!"
             c2 "Boo, tribesman!"
@@ -1431,8 +1769,8 @@ label kids_code:
 
 label solve_code:
     c1 "A boy and his big sister are sitting around the kitchen table chatting.
-    \n'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!'"
-    c2 "'Well, why don't you just give me one more on top of that? Then I'll be three times your age.'\nSo just how old is the youngest sibling?"
+    \n{i}'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!{/i}"
+    c2 "'{i}Well, why don't you just give me one more on top of that? Then I'll be three times your age.'{/i}\nSo just how old is the youngest sibling?"
     $ answer = renpy.input("How old is the youngest sibling? (Answer numerically, e.g. 1)")
     if answer == "6":
         $ kids_riddle = True
@@ -1453,8 +1791,8 @@ label solve_code:
 
 
 label block_10:
-    "You are on a narrow path. Just to your west is the Town Square, the heart of the market.
-    To your east is a narrow path, leading towards towards the entrance to the northend of the market."
+    "You are on a narrow path. Just to your west is the Town Square, the heart of the market."
+    "To your east is a narrow path, leading towards towards the entrance to the northend of the market."
     menu:
         "Go east":
             jump block_8
@@ -1475,7 +1813,7 @@ label town_square:
     e "Are you starting a war?"
     v "We are only ending the war. Long have the tribesmen disputed with our folks. We shall tolerate the barbarians no longer. I cannot believe they survived the blazing forest."
     "The image of the burning forest suddenly aligns with the pile of torches on the ground. No, this cannot be."
-    e "A-are you responsible for the burning of the ancient Forest of Nourishment?"
+    e "Are you responsible for the burning of the ancient Forest of Nourishment?"
     v "Forest of Nourishment? Ha! It was just another old forest."
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
     v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
@@ -1519,7 +1857,7 @@ label mission3:
     e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe."
     e "If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness?"
-    e "I can not say that about all the moratal, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
+    e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
     n "Your Majesty! There has been a catastrophe. We have an influx of human souls crossing into the Darker Realm."
     k "Where do these souls originate from?"
     n "From the v-village. The village Ezbril just visited. It has been wiped out by a mighty flood."
@@ -1539,9 +1877,214 @@ label mission3:
     "You can see the remains of the village, the colourful rooftops easily visible to your Irul eyes. You look away."
     n "Now Zartharacks in fact lives under water, but I cannot escort you further. As a lesser Irul, I still need to breathe."
     e "That is alright, thanks for escorting me here. Are you going to leave again?"
+
+    # line from Enda about the restless water. Don't remove
+    n "Oh, I almost forgot. Zartharacks makes the water around him restless. It is hard to see the restless water but you will feel it when you stand by it."
+    e "And if I enter the restless water?"
+    n "I believe it will propel you further away from Zartharacks but I have never witnessed it myself."
+
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
-    jump end
-label end:
+    jump maze3start
+
+label maze3start:
+    # starting position is 2,1
+    $pos = [2,1]
+
+    "You are floating above the sunken boat. You see the doors leading to the lower decks missing. Only the hinges remain."
+    menu:
+        "Go into the boat":
+            pass
+        "Return ashore":
+            jump end
+
+    "You swim to the entrance and descend down the stairs. The deck you are on is completely empty, except for the vegetation and the few fish that have taken the boat as their home."
+    "The deck is rectangular in shape. About twice as long as it is wide. You see the stairs leading to the lower decks directly north of you."
+    "The water is calm where you are standing."
+    $first = True
+    jump maze3p1
+
+label maze3p1:
+    if pos == [2,6]:
+        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
+        $pos = [2,1]
+        "You are on one deck deeper inside of the boat. This deck is about the same size as the previous deck."
+        "You see the stairs leading to the lower decks directly north of you."
+        "Before you proceed, you notice the water change. While it was calm when you entered, it now moves with unrest."
+        "As you take in your surroundings, you feel the water around you get calm."
+        "You wait a few moments."
+        $current = True
+        jump maze3p2
+    if pos in ([2,2],[1,3],[3,3],[1,5],[3,4],[2,4],[2,5]):
+        "You make your movement."
+        "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        if pos == [2,2]:
+            "You see your destination directly in front of you."
+        elif pos == [2,4]:
+            "You see your destination directly in front of you. You are almost to the end."
+        elif pos == [2,5]:
+            "You see your destination directly in front of you. You are one step away from the end."
+    elif pos in ([1,4],[2,3],[3,5]):
+        "You make your movement."
+        "As soon as you do, you feel the water immediate change from calm to something more vicious."
+        "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+        "The current throws you backwards. You fly further away from your destination."
+        "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+        "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+        "You are back where you began."
+        $pos = [2,1]
+    else:
+        if first:
+            pass
+        else:
+            "You make your movement."
+            "The water is calm where you are standing."
+    menu:
+        "Go north" if pos[1] != 7:
+            $pos[1] += 1
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
+        "Go west" if pos[0] != 1:
+            $pos[0] -= 1
+        "Go south" if pos[1] != 1:
+            $pos[1] -= 1
+    $first = False
+    jump maze3p1
+
+label maze3p2:
+    if current:
+        "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
+    else:
+        "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
+    if pos == [2,7]:
+        $pos = [3,1]
+        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
+        "You are on one deck deeper inside of the boat. This deck is not as long as the previous deck but it is wider."
+        "You see the large oak doors directly north of you."
+        "Similar to the previous deck, you notice the water shifts between being calm and restless as time pass."
+        "However, unlike the previous floor, some of the water is only restless."
+        $current = False
+        jump maze3p3
+    if pos in ([1,1],[3,1],[2,2],[2,2],[3,3],[1,3],[1,6],[3,4],[3,6]):
+        if current:
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        else:
+            "The water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
+        if pos == [2,2]:
+            "You see your destination directly in front of you."
+        elif pos == [2,3]:
+            "You see your destination directly in front of you. You are a bit closer to the end."
+        elif pos == [2,4]:
+            "You see your destination directly in front of you. You are about half way there."
+        elif pos == [2,5]:
+            "You see your destination directly in front of you. You are almost to the end."
+        elif pos == [2,6]:
+            "You see your destination directly in front of you. You are one step away from the end."
+    elif pos in ([1,2],[3,5],[3,2],[1,5],[2,3]):
+        if current:
+            "You feel the water immediate change from calm to something more vicious."
+            "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+            "The current throws you backwards. You fly further away from your destination."
+            "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+            "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+            "You are back where you began."
+            $pos = [2,1]
+        else:
+            "The water surrounding you is especially riled. Do not linger in your position for long."
+    else:
+        "The water is calm around where you are standing."
+    menu:
+        "Go north" if pos[1] != 7:
+            $pos[1] += 1
+            "You make your movement."
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
+            "You make your movement."
+        "Go west" if pos[0] != 1:
+            $pos[0] -= 1
+            "You make your movement."
+        "Go south" if pos[1] != 1:
+            $pos[1] -= 1
+            "You make your movement."
+        "Stay":
+            "You wait."
+    if current:
+        $current = False
+    else:
+        $current = True
+    jump maze3p2
+
+label maze3p3:
+    if current:
+        "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
+    else:
+        "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
+    if pos == [3,5]:
+        "You make it to the other end of the boat. You push with all your strength to open the oak doors. Strangely, the door opens as easily as if you were on land."
+        jump zarth
+
+    if pos in ([2,1],[3,1],[4,2],[1,2],[3,3],[4,4]):
+        #surrounded by changing water and just restless water
+        if current:
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        else:
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+            "The water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
+        if pos == [3,3]:
+            "You see your destination directly in front of you. You are about half way there."
+    elif pos in ([5,1],[5,3],[1,3],[1,5]):
+        #surrounded by only changing water
+        if current:
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        else:
+            "The water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
+    elif pos in ([1,4],[5,5]):
+        #surrounded by only just restless water
+        "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+    elif pos in ([2,2],[3,2],[2,4],[3,4],[4,5]):
+        #enter bad water
+        "As soon as you do, you feel the water immediate change from calm to something more vicious."
+        "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+        "The current throws you backwards. You fly further away from your destination."
+        "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+        "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+        "You are back where you began."
+        $pos = [3,1]
+    elif pos in ([1,1],[4,1],[2,3],[4,3],[2,5]):
+        #enter changing water bad
+        if current:
+            "You feel the water immediate change from calm to something more vicious."
+            "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+            "The current throws you backwards. You fly further away from your destination."
+            "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+            "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+            "You are back where you began."
+            $pos = [3,1]
+        else:
+            "The water surrounding you is especially riled. Do not linger in your position for long."
+    else:
+        "The water is calm around where you are standing."
+    menu:
+        "Go north" if pos[1] != 5:
+            $pos[1] += 1
+            "You make your movement."
+        "Go east" if pos[0] != 5:
+            $pos[0] += 1
+            "You make your movement."
+        "Go west" if pos[0] != 1:
+            $pos[0] -= 1
+            "You make your movement."
+        "Go south" if pos[1] != 1:
+            $pos[1] -= 1
+            "You make your movement."
+        "Stay":
+            "You wait."
+    if current:
+        $current = False
+    else:
+        $current = True
+    jump maze3p3
+
+label zarth:
     return

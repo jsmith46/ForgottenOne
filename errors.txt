@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 952: invalid syntax
-    shepherd_riddle = True:
-                           ^
-    
+File "game/script.rpy", line 956: choice menuitem expects a non-empty block.
+    "{i}'The ancient forest is burning.'":
+                                          ^
 
-Ren'Py Version: Ren'Py 7.3.5.606
-Thu Oct 24 21:43:25 2019
+Ren'Py Version: Ren'Py 7.3.3.568
+Mon Dec 02 12:53:03 2019
