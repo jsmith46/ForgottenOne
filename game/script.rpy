@@ -785,6 +785,7 @@ label bog:
             jump bog
         "Go back":
             "You head back east to your last intersection."
+
             jump forest5
         "Drop a gemstone":
             if orb_bog == True:
