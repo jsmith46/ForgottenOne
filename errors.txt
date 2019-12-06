@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 166: expected 'image_name_component' not found.
-    scene with dissolve
-          ^
+File "game/script.rpy", line 1730: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+            leads to an deadend."
 
-Ren'Py Version: Ren'Py 7.3.3.568
-Fri Dec 06 03:33:30 2019
+Ren'Py Version: Ren'Py 7.3.4.596
+Fri Dec  6 16:50:05 2019

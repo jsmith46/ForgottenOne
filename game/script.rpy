@@ -355,7 +355,7 @@ label forest2:
         show enda2 at right with dissolve
         n "Woah! That has to be the biggest tree I've ever seen."
         n "There are incredible sights in the Mortal Realm."
-        e “Yes, the Mortal Realm is enchanting in its own way.”
+        e "Yes, the Mortal Realm is enchanting in its own way."
         hide enda2 with dissolve
         $endaexplained = True
     if orb_forest2 == True and same == False:
@@ -1030,7 +1030,7 @@ label chapter3scene1:
     "The Queen seems to contemplate something."
     k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
     e "Who brings fire into the Mortal Realm?"
-    k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm.
+    k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm."
     k "She could have harnessed this power again and set the forest on fire."
     k "Infact, I have been informed that Cyvtis was in that area recently."
     e "Why would Cyvtis do this?"
@@ -1141,7 +1141,7 @@ label market_east:
     jump market_entrance
 
 label block_1:
-    “You stand inside the marketplace. To your east is the entrance you just came from. Up north, you can see a path between two vendors’ tents. To your west is a narrow passage, shaded a quiet, contrary to the rest of the marketplace."
+    "You stand inside the marketplace. To your east is the entrance you just came from. Up north, you can see a path between two vendors’ tents. To your west is a narrow passage, shaded a quiet, contrary to the rest of the marketplace."
     menu:
         "Go west":
             jump thief
@@ -1717,8 +1717,8 @@ label merchant_help:
         jump merchant_menu
 
 label feed_horse:
-    "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you.
-    The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
+    "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you."
+    "The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
     "The greedy beast has moved the wagon just enough for you to proceed."
     n "Clever play, Ezbril!"
     hide ezibrl2
@@ -1735,19 +1735,19 @@ label block_8:
                 jump block_7
 
 label shepherd:
-    "A glance skyward, and you see the clouds gathering up ahead.
-    Cyvtis, the Irul of the skies, must be close by."
+    "A glance skyward, and you see the clouds gathering up ahead."
+    "Cyvtis, the Irul of the skies, must be close by."
 
     if no_shepherd == False:
         show ezibrl2 at left
         show shepard at right
         if shepherd_flag == False:
-            "Still gazing upward,
-            you slam into a cloud on the ground- no, a lamb?"
+            "Still gazing upward,"
+            "you slam into a cloud on the ground- no, a lamb?"
             n "How lovely! Come here, little lamb."
             "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
-            "Amid the mass of rolling cotton walks a single human, already glancing your way.
-            Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
+            "Amid the mass of rolling cotton walks a single human, already glancing your way."
+            "Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
 
             s "Good day, misters! What brings you upon this humble herd?"
 
@@ -1887,8 +1887,7 @@ label kids_code:
             jump block_8
 
 label solve_code:
-    c1 "A boy and his big sister are sitting around the kitchen table chatting.
-    \n{i}'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!{/i}"
+    c1 "A boy and his big sister are sitting around the kitchen table chatting.\n {i}'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!{/i}"
     c2 "'{i}Well, why don't you just give me one more on top of that? Then I'll be three times your age.'{/i}\nSo just how old is the youngest sibling?"
     $ answer = renpy.input("How old is the youngest sibling? (Answer numerically, e.g. 1)")
     if answer == "6":
