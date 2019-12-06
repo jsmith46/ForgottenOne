@@ -986,12 +986,9 @@ label chapter3scene1:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     n "We are back, your Majesty. "
-    menu:
-        "Bow to her majesty":
-            "You bow deeply"
-            e "Your Majesty, we bring news."
-        "Stand still":
-            e "I bring news."
+    "You bow deeply"
+    e "Your Majesty, we bring news."
+
     k "Oh? You have returned earlier than I expected, what have you discovered"
     menu:
         "{i}'The ancient forest is burning.'":
@@ -1951,54 +1948,82 @@ label town_square:
     jump chariot3
 
 label chariot3:
+
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
     n "Welcome aboard again."
     n "Let’s go!"
+    "Your mind is befuddled with what you discovered in the village. A cacophony of haphazard thoughts drifts you to slumber."
     $ renpy.pause(0.5)
     stop sfx1
     stop sfx2
+    n "We are back in the Greater Realm."
+
     jump mission3
 label mission3:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
-    "A dimly lit room, Kehira perched upon her dark throne."
-    k "I see you are back. What did you learn about Cyvtis?"
-    e "Cyvtis was only in the village so she could bring rain upon the blazing forest and destroy the villagers’ weapons."
-    k "Weapons?"
-    e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe."
-    e "If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
-    k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness?"
+    n "We have returned, Your Majesty."
+    "You bow deeply as Enda sprints out of the throne room."
+    e "And we have discovered the true culprits of the disorder in the Mortal Realm."
+    "The Queen arches a slender brow."
+    e "The chaos of the Mortal Realm is the work of none but mortals themselves."
+    k "Are you certain that this is not the work on an Irul, Ezbril? I sensed Irul magic entwined with the disorder."
+    e "The magic you sensed is various Irul attempting to restore harmony to the Mortal Realm."
+    k "Ezbril, what did you witness in the village?"
+    e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe. If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
+    e "Nazareth faded the Ancient Forest of Nourishment to save a tribe of mortals. Cyvtis brough rain upon the blazing forest and harnessed the powers of the sun to alight the weapons meant to start war."
+    e "From what I have witnessed, the Iruls are using magic to combat the evils of the Mortal Realm."
+    "Silence."
+    k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
     e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
-    n "Your Majesty! There has been a catastrophe. We have an influx of human souls crossing into the Darker Realm."
-    k "Where do these souls originate from?"
-    n "From the v-village. The village Ezbril just visited. It has been wiped out by a mighty flood."
-    "You are shocked. The lively village full of colours.The laughing younglings who had so much to live for. The entire village that breathed a few heartbeats ago. All of it, gone?"
-    e "It must have been Cyvtis. She brought excessive rains that flooded the river."
+    "Footsteps scurry into the throne room."
+    n "Your Majesty! There has been a catastrophe. I have been sent to inform you of a great destruction in the Mortal Realm."
+    k "What happened, Enda?"
+    n "The v-village. The village Ezbril and I just visited. It has been wiped out by a mighty flood."
+    "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
+    k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortal’s, yet the mortal’s have no powers over the flow of a  river. The mortal’s can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
+    e "It must have been Cyvtis’s vengeance on the village. She brought excessive rains that flooded the river."
     k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
     k "Cyvtis is the Irul of Skies, but let us not forget the Irul who controls the rivers."
     k "Ezbril, you have done well so far, yet your task has not concluded. Your next target is Zartharacks, the Irul of Sea and all Waters."
-    k "He is responsible for the flow of the rivers and streams, and maintaining balance in the waters. The rise in the river’s water level would have been a work of his."
-    k " I must warn you, Zartharacks is- unique."
+    k "Zartharacks is responsible for the flow of the rivers and streams, and maintaining balance in the waters. The rise in the river’s water level could have been a work of his."
+    k "I must warn you, Zartharacks is- unique."
     e "Unique?"
-    k "He never cared much about following rules, as I am sure you will soon see for yourself. Enda, escort Ezbril to the Serpent Bank."
-    n "Yes, Your Dark Majesty."
-
-    n "Here we are, the glorious Serpent Bank! This is the river that flowed into the village, and through the ancient forest. Because half the trees are now gone, you can see the tribe from here as well."
-    "You look around, and indeed you are located northwest of the ancient forest, the small tribe visible due to the lack of trees that would have once blocked your view."
-    "You can see the remains of the village, the colourful rooftops easily visible to your Irul eyes. You look away."
-    n "Now Zartharacks in fact lives under water, but I cannot escort you further. As a lesser Irul, I still need to breathe."
-    e "That is alright, thanks for escorting me here. Are you going to leave again?"
-
-    # line from Enda about the restless water. Don't remove
+    k "I am sure you will soon see for yourself. Enda, escort Ezbril to Zaratharacks’s lair."
+    n "As you wish, Your Majesty."
+    jump chariottowater
+label chariottowater:
+    n "This has been quite an adventure!"
+    n "Let’s go back, hopefully for the last time."
+    "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over."
+    "Ezbril."
+    "What have you done?"
+    n "Ezbril, let’s go."
+    jump beforemaze3
+label beforemaze3:
+    n "Here we are. Zartharacks’s lair. Look, you can see the mortal’s tribe not far ahead."
+    "Indeed, the mortal’s tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
+    "You know that beyond the forest lies the village, now demolished by the river. The river flows through the remains of the village, swirling through the forest and the tribe, snaking from the tribe toward you and into-"
+    e "The sea?"
+    "Before you expands a murmuring domain of waters, the shimmering beast desolate; yet, strangely alive. The furious waves wrestle and crash into the menacing rocks, eager to spill the secrets of the unknown beyond."
+    n "In the waters you will find a sunken ship, the one that remains apiece. Zartharacks had turned the mighty ship into his lair, his personal quarters located in the bottom most level of the ship."
+    e "All we need to do is locate him within his lair, and unravel his plans?"
+    e "Let's go."
+    n "Ezbril."
+    n "I am afraid I cannot join you this time."
+    e "Oh?"
+    n "As a lesser-Irul, I still need to breathe. Therefore, I cannot accompany you underwater."
+    "You feel a pang of sorrow for the young Irul, but Enda looks cheerful."
+    n "I have been wanting to explore the tribe up close. They say some of them still remember the Irul. I want to know if the rumors are correct."
     n "Oh, I almost forgot. Zartharacks makes the water around him restless. It is hard to see the restless water but you will feel it when you stand by it."
     e "And if I enter the restless water?"
     n "I believe it will propel you further away from Zartharacks but I have never witnessed it myself."
-
-    n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
-    n "While you find what Zartharacks is up to, I will go collect some fruit."
-    "Enda runs off into the distance as you turn toward your next quest."
+    n "After you have found Zartharacks, you should come explore the tribe as well."
+    e "I must focus on my task ahead, but I will join you afterward."
+    n "I shall see you soon, then."
+    "Enda sprints toward the colourful tribe, laughing joyously, as you turn toward your next quest."
     $ renpy.pause(0.5)
     jump maze3start
 
@@ -2006,15 +2031,18 @@ label maze3start:
     play music "Maze.wav" fadeout 1.0 fadein 1.0
     # starting position is 2,1
     $pos = [2,1]
+    "Your footsteps are muted to a gentle thud as you prowl across the ashen sand and into the beckoning sea."
+    "The sea is a malicious force, daring and cold. A taunting current sways you sideways, a loyal guardian to the hoard of wooden masts and planks that break the surface. And then she catches your eye."
+    "You know her when you see her, a sunken ship still apiece. The dark beast rests at the bottom most seabed, ancient and asleep. Zartharacks’s lair."
+    "You stand on the main deck, but you must make your way to Zartharacks’s personal quarters on the lowest level."
 
-    "You are floating above the sunken boat. You see the doors leading to the lower decks missing. Only the hinges remain."
-    menu:
-        "Go into the boat":
-            pass
-        "Return ashore":
-            jump end
+    ##menu:
+        ##"Go into the boat":
+            ##pass
+        ##"Return ashore":
+            ##jump end
 
-    "You swim to the entrance and descend down the stairs. The deck you are on is completely empty, except for the vegetation and the few fish that have taken the boat as their home."
+    "You go to the entrance and descend down the stairs. The deck you are on is completely empty, except for the vegetation and the few fish that have taken the boat as their home."
     "The deck is rectangular in shape. About twice as long as it is wide. You see the stairs leading to the lower decks directly north of you."
     "The water is calm where you are standing."
     $first = True
@@ -2202,4 +2230,139 @@ label maze3p3:
     jump maze3p3
 
 label zarth:
+    young2 "Looking for me?"
+    e "Wha-"
+    "Behind you stands the Irul of Waters- or you suppose he is an Irul, for he appears more similar in form to an ancient sea creature."
+    z "Ah, Ezbril. It has been some years. Have you returned to taint my waters crimson again?"
+    z "Let me guess, you are here to inquire about the flood, and my role in it."
+    e "Inquire not so much, I was supposed to spy on you."
+    z "Ha! You think you could sneak up on me in my territory? Fellow Irul, you amuse me so! Why, the waters whisper to me."
+    z "Since you came this far, I shall show you the truth."
+    z "Are you ready?"
+    e "Ready for wha-?"
+    "Zartharacks lifts a scaly arm and the water in the room gathers into a massive whirlpool, lifting you and the Irul of Waters into a travelling, swirling madness."
+    "A few heartbeats later, you are back on your feet. But you are not standing in an underwater ship anymore."
+    "You have been transported to a river’s side, and not far ahead you can see a sight familiar to you. The village."
+    "Zartharacks has transported you through the waters and back to the village- or what used to be a village. The place you once recognized has been reduced to nothing more than an enormous waste of rubble."
+    "The crowded marketplace you visited has been washed away, existing as nothing more than a whisper of memory."
+    "You can make out small figures, tirelessly working through the waste, hoping to mine any essence of hope. To your relief, it looks like most of the villagers survived the flood."
+    e "Why did you bring me here?"
+    z "So you may see the truth for yourself."
+    z " Do you know what this is?"
+    "Zartharcks motions toward the river. No, something in the river. A wall made of the sturdiest stone. Broken."
+    e "That is a broken dam?"
+    "And then it hits you. The truth."
+    z "You didn’t think I would flood the village and plague my own waters, did you?"
+    z "Why, whichever Irul destroyed the dam has been quite clever in their malicious intent. When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this."
+    e "It was no Irul that destroyed the dam, Zartharacks. I have an inkling that this is the work of mortals."
+    z "Mortals? Are you forgetting that this is a mortal village that has been destroyed?"
+    "You glance toward the village again, at the desperate mortals picking through the rubble for all that has been spared from the water’s wrath. You can clearly make out a villager as he fishes through the waste and tugs out a long rod, sharp at the end. A spear."
+    "Beside him, another mortal straps a quiver of arrows across her back. Around them, more and more mortals extricate various wicked weapons- swords, knives, axes, daggers, and more."
+    "Cyvtis had destroyed their weapons, but it seems that they had a greater stash than what you were lead to believe. The villagers have been busy."
+    "Further up, you can make out several wagons, all loaded with steel. Some of the wagons are already moving. Toward the Ancient Forest of Nourishment. Beyond the forest lies-"
+    e "The tribe."
+    z "What did you say?"
+    e "Zartharacks, take me to the tribe beyond the forest."
+    z "Have you lost your bearing? There is clearly a war raging between the mortals. We would be wise to stay out of this, especially with your history."
+    e "Enda is in the tribe."
+    z "Oh, the small Messenger Irul?"
+    "Zartharacks looks shocked. Angered."
+    z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of the mortals?"
+    "Zartharacks gathers a furious wave that threatens a second flood."
+    "The world swirls, and a few heartbeats later, you are standing on lush green grass."
+    "Lush green grass now painted red."
+    "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm. Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
+    "Zartharacks curses under his breath. Row after row of waxy skin splattered crimson. Eyes of unsuspecting merchants and farmers staring forever into the skies. For once, the tribesmen and the villagers lay side by side. And that is when you see it-"
+    "A small body in a dark puddle, an arrow protruding from a pale stomach. His chest rises and falls in hiccups of movement. Enda. He is alive, but mortally wounded. Standing above him is an archer from the village, bloodshot eyes staring at Enda’s small form on the ground."
+    "The small sound that escapes from Enda sets your blood raging. Tendrils of darkness escape from between your fingers. Ebony flows from your eyes, your mouth and your ears, until you are engulfed in a black orb."
+    "The archer has not noticed your presence."
+    "You could do it. You could kill her. Half a thought from you, and the archer would be engulfed in black flames. She wouldn’t have time to scream."
+    #flashback here
+    "No. The past must not be repeated. You have made it this far, you must not lose control now. Enda would not want this."
+    "The ice in your veins begins to melt, replaced by a deep, numbing sorrow. Dark tendril slowly reek back. The village archer is now on her knees by Enda’s side. You tense."
+    "Gently, the archer scoops up the small form. Her bow drops to the ground, but she does not bend to retrieve it. Without hesitation, she begins to sprint across the field, through the rain of arrows and clash of blades, toward a small tent. A tribe healer’s tent."
+    "The tribesmen stationed outside the tent draw their weapons at the sight of a village archer, but then they perceive the slight figure in her arms. Understanding shining in their eyes, they allow the archer to disappear into the tent with Enda."
+    "A cool breeze gently caresses your face as you hear Zarthacks softly makes his way to your side. A tender wave gathers you back into the water and along the river, until you stand before the healer’s tent."
+    "There is recognition in the tribesmen’s eyes as they let you through the flaps."
+    "Resting across a murky blanket, Enda has fallen into a trance. His face is paler than the moon rising above, his cheek colder than the ice that glides on the winter sea. Blue stains his torn shirt, the telltale colour of an Irul’s sacred blood."
+    "The lingering joy in his eyes sealed behind heavy lids, hidden from this undeserving world. His wound has been cleaned and covered with herbs, and two healers are draping a cotton cloth across his abdomen. They show no surprise at the pool of cobalt blood, although the archer is gawking."
+    z "Alas that these evil days should be ours. The boy needs an Irul healer. Waste no time, my currents shall carry you through the waters and into the Darker Realm."
+    "The healers finish covering the wound. Without a word, they stand aside as you pick up Enda’s light form and walk out of the tent, right into the river."
+    "Zartharacks remains on land as a gentle, yet strong wave lifts you off the river bed and toward the sea, and beyond the sea into the dark stream that no mortal has ventured into."
+    jump conclusion
+label conclusion:
+    #put a long pause here
+    k " You may enter."
+    e "Kehira"
+    e " I have answered your summon."
+    "The Queen of Darkness has ruled over the Greater Realm for as long as any Irul could remember. The Queen has been ancient since the first time you saw her, but now she appears weathered- older."
+    k "Enda is being taken care of. Without the cloth hindering the flow of his blood, he would have been beyond hope, even for the best of the Irul healers."
+    k "I want to discuss the events you witnessed in the Mortal Realm. What you reported upon your return is bewildering news indeed."
+    e "I have told you all that I know, Kehira. The flood was in fact no work of an Irul. The fire, the flood, and the massacre were all consequences of the war between the mortals."
+    k "Yes, and this is not the first time that the mortals have brought such suffering upon themselves. I fear that eventually, the Iruls might become a victim of their anguish as well. We almost lost an Irul to the evils of the mortals."
+    k "I had hoped to reunite the two realms, as they were in the olden days. I had wanted the Iruls to grow stronger, as we once were when the mortals remembered us. I sought power and it blinded me, until we almost lost one of our own. I cannot risk the well being of the Iruls any longer."
+    k "Therefore, I have made the decision to withdraw from the Mortal Realm. The Iruls shall enjoy a blissful life in the Greater Realm, as we will seal the gates between the two realms for eternity."
+    e "Would you abandon the mortals, in order to save the Iruls?"
+    k "As the Queen of Iruls, that is my priority. We may never get a chance to grow as strong as we once were, but the Iruls would be safe from the evils of the mortals."
+    e "What about the mortals who still remember us? They are few in numbers, but they exist."
+    e "What about the innocent younglings who had no perception on the chaos of their realm?"
+    e "What about the villager who risked her life to carry Enda to safety, or the tribe healers who allowed him another chance at life?"
+    e "While I have witnessed the worst of the mortals; I have also witnessed their kind and selfless spirit. I will not blame the entire realm for the wicked actions of a few."
+    k "Your heart is noble, Ezbril. However, the decision has been made and this is what the Iruls want. The gates shall be sealed."
+    e "If that is your resolve, Kehira, then I will stay in the Mortal Realm."
+    "The Queen is silent. Pondering."
+    k "If you leave now, you will never be able to return to the Greater Realm again."
+    e "I have made my decision. All these years I have been the outcast, the Irul who brings nothing but Chaos and Destruction. There is nothing here for me, but I have found the spark of hope in the Mortal Realm."
+    e "The mortals need me, as much as I need them."
+    "A faint smile dances across the Queen’s lips."
+    k "You have been dismissed, Ezbril, Irul of Chaos and Destruction."
+    #transition from throne room to gates
+    "You stand before the mighty gates. You turn around to catch one last glance of your home."
+    "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
+    "He begins to rasp between muffled sobs"
+    n "Kehira told me that you are going to l-leave."
+    e "Good to see you up and moving."
+    n "She said that you will n-never be able to return to the Greater Realm."
+    e "This is the beginning of the journey I must embark upon. I have discovered a purpose for myself."
+    "Enda lets go of you, but a small hand still clenches your cloak."
+    n "Then take me with you!"
+    "You are stunned at the young Irul’s request, but determination and challenge shines in his eyes."
+    n "I have travelled with you into the Mortal Realm and back. I have witnessed all that you have witnessed, and I also believe that there is hope for the mortals."
+    n "I am begging you, take me on your journey!"
+    "You consider Enda’s request. And then you smile."
+    e " I suppose I would not mind a companion."
+    "Enda’s delightful laugh brightens the skies as the two of you step out of the Greater Realm one last time."
+    jump epilogue
+label epilogue:
+    #pause for a while
+    "That day, Ezbril and his companion embarked on their journey to bring light into the lives of mortals. Behind them, the magical Gates between the two realms sealed forever."
+    "Some say that his powers faded over time and Ezbril died of old age. Others believe that the darkness of the mortals rusted his heart, and he fell into the ways of the evil."
+    "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
+    e "Let’s go, Enda. This bird’s wing is all patched up."
+    n "Coming!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     return
