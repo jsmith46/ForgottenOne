@@ -36,6 +36,11 @@ define c1 = Character("CHILD 1", what_italic=True)
 define c2 = Character("CHILD 2", what_italic=True)
 
 define c3 = Character("CHILD 3", what_italic=True)
+#initializing sound channels
+init python:
+    renpy.music.register_channel("sfx2", "sfx", True)
+    renpy.music.register_channel("sfx1", "sfx", True)
+    renpy.music.register_channel("sfx3", "sfx", True)
 
 
 # The game starts here.
@@ -77,6 +82,9 @@ label scene1:
             jump scene2
 
 label scene2:
+    play sound "music/footsteps.ogg"
+    $ renpy.pause(1.5)
+    stop sound
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
     "It has been many years since you visited the Queen’s throne room, but it has not changed at all from what you remembered."
@@ -143,22 +151,34 @@ label scene2:
     jump chariot1
 
 label chariot1:
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(1)
     n "Easy there!"
     n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
     n "Now hold on tight…"
 
     "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
     "And then all at once. "
-
+    stop sfx1
+    stop sfx2
+    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(1)
     "{i}'Ezbril.
     Ezbril.
     You are the Irul of Destruction and Chaos. You are born from disorder, and only you can control it.'"
-
+    $ renpy.pause(1)
+    stop music
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
     n " Wake up, Ezbril. We have arrived."
+    $ renpy.pause(0.5)
+    stop sfx1
+    stop sfx2
     jump chapter2scene1
 
 label chapter2scene1:
-    play music "Forest.wav" fadeout 1.0 fadein 1.0
+    play music "Maze.wav" fadeout 1.0 fadein 1.0
     "The path before you leads to a lush forest. Along the forest’s edge, you can make out a small tribe of mortals."
 
     n "Here we are, the Forest of Nourishment. For generations, the small tribe over there has relied on the forest’s generous blessings for food and wood. The ancient forest is also home to many animals."
@@ -246,6 +266,9 @@ label forest0:
             n "The mortals from the tribe rely on the Forest of Nourishment for food and wood. I would like to explore the mortal ways, but we must find out what is causing chaos in the forest."
             jump forest0
 label forest1:
+    play sfx1 "music/birds.ogg"
+    $ renpy.pause(1)
+    stop sfx1
     if  same == False:
         "You come across an intersection with 3 choices: north, west and east."
     if orb_forest1 == True and same == False:
@@ -672,6 +695,8 @@ label forest8:
             $same = True
             jump forest8
 label lake1:
+    play sfx1 "music/river.ogg"
+    $ renpy.pause(0.5)
     if  same == False:
         "The path continues north until you reach a river. It seems skinnier here than any other part of the river."
         "If you had something long that could support your weight you might be able to cross it."
@@ -694,6 +719,7 @@ label lake1:
             "Just as you make it to the other side the log slips and falls into the river."
             jump lake2
         "Go back south":
+            stop sfx1
             jump forest3
         "Drop a gemstone":
             if orb_lake1 == True:
@@ -737,6 +763,7 @@ label lake2:
     menu:
         "Go north":
             "You head back to your last intersection where you are facing south."
+            stop sfx1
             jump forest7
         "Drop a gemstone":
             if orb_lake2 == True:
@@ -902,6 +929,9 @@ label forestn:
 
 label forestcenter:
     play music "Nazareth.wav"
+    play sfx1 "music/river.ogg"
+    play sfx2 "music/birds.ogg"
+    $ renpy.pause(0.5)
 
     "A lonely, tranquil heart of a forest. A gushing spring could be heard,
     along with an occasional call of a songbird. An Irul sits gracefully on a
@@ -924,6 +954,13 @@ label forestcenter:
     "Time stops. You are not standing in a forest anymore."
     "The entire west half of the forest has vanished, leaving behind no blade of grass or whisper of what was once magical and green."
     "Now that the trees are gone, you can easily make out the small tribe from here; a tribe that once sat along the forest’s edge now stood bare in an open field. And in front of you…"
+    stop sfx1
+    stop sfx2
+    play sfx1 "music/flames.ogg"
+    $ renpy.pause(0.5)
+
+
+
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
     toward you, the inferno leaping from tree to tree.  Enda instinctively darts behind you, his fear echoing in your own bones."
     "A dark aura begins to dance along the tips of your fingers. The chaos of the flames fuels your own. Your destructive energy resonates with the forest’s disorder."
@@ -935,15 +972,24 @@ label forestcenter:
     n "Is that why you have not returned to the Mortal Realm in many years?"
     e "…"
     e "Let’s go, Enda. We must report our findings to Kehira."
+    stop sfx1
     jump travellingback
 
 label travellingback:
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(1)
     n "Here comes our ride. Let’s go!"
     "You feel exhausted. Sweet weariness greets you in a dark embrace."
     n "We have arrived."
+
+    stop sfx1
+    stop sfx2
+    $ renpy.pause(0.5)
     jump chapter3scene1
 
 label chapter3scene1:
+    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     n "We are back, your Majesty. "
     menu:
@@ -978,15 +1024,20 @@ label chapter3scene1:
     stop music
     jump travellingtomarket
 label travellingtomarket:
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(1)
     n "Looks like I get to travel with you once more."
     n "Mortal Realm, here we come again!"
     "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
     "{i}'Ezbril. The mortals need you. You must restore peace into the Mortal Realm again.'"
     n "You sure get tired a lot. In any case, here we are."
-
+    stop sfx1
+    stop sfx2
+    $ renpy.pause(0.5)
     jump market_pre_intro
 label market_pre_intro:
-    play music "Forest.wav"
+    play music "Maze.wav"
     n "Over there is north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you a village where Cyvtis was reportedly spotted by a few Irul."
     e "Is this the same village that we saw before?"
     n "Oh no, that one by the forest was a tribe, located at the southern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
@@ -1906,10 +1957,17 @@ label town_square:
     jump chariot3
 
 label chariot3:
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(1)
     n "Welcome aboard again."
     n "Let’s go!"
+    $ renpy.pause(0.5)
+    stop sfx1
+    stop sfx2
     jump mission3
 label mission3:
+    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     "A dimly lit room, Kehira perched upon her dark throne."
     k "I see you are back. What did you learn about Cyvtis?"
@@ -1947,9 +2005,11 @@ label mission3:
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
+    $ renpy.pause(0.5)
     jump maze3start
 
 label maze3start:
+    play music "Maze.wav" fadeout 1.0 fadein 1.0
     # starting position is 2,1
     $pos = [2,1]
 
