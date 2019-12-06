@@ -1,22 +1,52 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 1239, in script
-    jump meanie_take_pouch
-ScriptError: could not find label 'meanie_take_pouch'.
+  File "game/script.rpy", line 65, in script
+    young "Ezbril? Irul of Destruction and Chaos, Her Majesty summons you. "
+  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
+    _window_show()
+  File "renpy/common/000window.rpy", line 60, in _window_show
+    renpy.with_statement(trans)
+IOError: Couldn't find file 'try.webm'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 1239, in script
-    jump meanie_take_pouch
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\ast.py", line 1697, in execute
-    rv = renpy.game.script.lookup(target)
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\script.py", line 894, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'meanie_take_pouch'.
+  File "game/script.rpy", line 65, in script
+    young "Ezbril? Irul of Destruction and Chaos, Her Majesty summons you. "
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 671, in execute
+    statement_name("say")
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 45, in statement_name
+    i(name)
+  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
+    _window_show()
+  File "renpy/common/000window.rpy", line 60, in _window_show
+    renpy.with_statement(trans)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
+    clear=clear)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\display\core.py", line 3130, in interact_core
+    renpy.audio.audio.interact()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1107, in interact
+    periodic()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1060, in periodic
+    six.reraise(exc[0], exc[1], exc[2])
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1038, in periodic_thread_main
+    periodic_pass()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 979, in periodic_pass
+    c.periodic()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 457, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 73, in load
+    rv = renpy.loader.load(fn)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\loader.py", line 576, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'try.webm'.
 
 Windows-8-6.2.9200
-Ren'Py 7.3.3.568
+Ren'Py 7.3.5.606
 Forgotten One 1.0
-Thu Dec 05 17:48:56 2019
+Thu Dec 05 23:30:36 2019
