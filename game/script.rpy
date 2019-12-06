@@ -99,9 +99,9 @@ label scene2:
 
     k "I have a task for you. The Mortal Realm has fallen into chaos again."
 
-    e "Kehira, you know that I have vowed to never return to the Mortal Realm. You must seek someone else. "
+    e "Kehira, you know that I have vowed to never return to the Mortal Realm. You must seek someone else."
 
-    k " You were the only one who could control it before. Ezbril, Irul of Destruction and Chaos, you must control this chaos again. "
+    k "You were the only one who could control it before. Ezbril, Irul of Destruction and Chaos, you must control this chaos again."
 
     e "Why do you still care about the mortals?"
 
@@ -113,7 +113,7 @@ label scene2:
     menu:
         "'{i}What makes us better than the greedy mortals?'":
             k "There this nothing wrong with wanting more, as long as no one gets hurt."
-            k "When the mortals believed in Iruls and we were strong, the mortals themselves thrived from our blessings. Look at them now, falling into chaos. "
+            k "When the mortals believed in Iruls and we were strong, the mortals themselves thrived from our blessings. Look at them now, falling into chaos."
         "'{i}Powers sounds appealing.'":
             pass
 
@@ -247,6 +247,7 @@ label chapter2scene1:
     $same = False
     $lake1seen = False
     $log = False
+    $endaexplained = True
     jump forest0
 
 label forest0:
@@ -362,6 +363,11 @@ label forestb1:
 label forest2:
     if  same == False:
         "You come across an intersection with 4 choices: north, west, east and south."
+        "In the center of this crossroad is a tree that dwarfs all other visible trees."
+    if endaexplained == False:
+        n "Woah that has to be the biggest tree I've ever seen."
+        n "There are incredible sights in the Mortal Realm."
+        $endaexplained = True
     if orb_forest2 == True and same == False:
         if orb_forest2c == 1:
             "You see a blue gemstone lying on the ground, you must have been here before."
@@ -1313,10 +1319,7 @@ label thief_menu2:
                 jump thief_riddle
             else:
                 t "Let’s test you. Nehehehe."
-                t "Spell {i}'Roast'{/i} out loud five times."
-                t "..."
-                t "Did you do it?"
-                t "Now... what do you put in a toaster?"
+                t "Give me food, and I will live; give me water, and I will die. What am I?"
             jump thief_riddle
         "Leave":
             t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here"
@@ -1325,13 +1328,12 @@ label thief_menu2:
             jump block_1
 
 label thief_riddle:
-    $ answer = renpy.input("What do you put in a toaster?")
-    if (answer.lower() == "you have toasters in this world?") or (answer.lower() == "toasters exist in this world?"):
-        t "No, but this joke works best with toasters. EHEHEHE."
-    elif (answer.lower() == "bread"):
+    $ answer = renpy.input("What am I?")
+    if (answer.lower() == "fire"):
         $ t_riddle = True
 
     if t_riddle == True:
+        t "That answer should have been on the tip of my tongue with what is happening in the forest"
         t "You have my respect, nehehehe. Here, you can have this humble pouch. I can trade goods far more valuable with the answer you gave me, ahahaha."
         "You hear the jingle of coins as the thief tosses you the small pouch."
         t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
@@ -2340,29 +2342,4 @@ label epilogue:
     "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
     e "Let’s go, Enda. This bird’s wing is all patched up."
     n "Coming!"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     return
