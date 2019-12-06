@@ -36,11 +36,6 @@ define c1 = Character("CHILD 1", what_italic=True)
 define c2 = Character("CHILD 2", what_italic=True)
 
 define c3 = Character("CHILD 3", what_italic=True)
-#initializing sound channels
-init python:
-    renpy.music.register_channel("sfx2", "sfx", True)
-    renpy.music.register_channel("sfx1", "sfx", True)
-    renpy.music.register_channel("sfx3", "sfx", True)
 
 
 # The game starts here.
@@ -49,13 +44,7 @@ label start:
     jump prologue
 
 label prologue:
-    "Long ago, there was a Gate that joined two realms. One was the Mortal Realm, flourishing grounds for humans and animals to live and prosper. Crystal clear rivers slashed the green land, domed by a blue sky. The other was the Greater Realm, home to the Iruls- mighty guardians of the Mortal Realm. Unlike mortals, the Iruls were born of magic. There was the Irul of Joy, who brought merriment into the lives of mortals; Irul of wisdom, who guided the mortals to achieve great heights; Irul of animals, who ensured the critters had a voice; and many more. The Greater Realm was ruled by the Irul of Darkness, Queen Kehira. The Iruls would descend upon the Mortal Realm to ensure peace and harmony, and in return, the mortals would offer them gifts and sacrifices. The more followers an Irul had, the stronger their powers would grow. The Iruls and mortals benefited from each other, and both realms lived in harmony
-
-    Yet, a time came when the mortals became ungrateful. They wanted more. Peace did not satisfy their desires as they wished to acquire greater material wealth. They began to cheat and kill, taking advantage of the weaker amongst their own kind. War replaced harmony. A new chaos began to brew, and with it, a new Irul was born- Ezbril, the Irul of Destruction and Chaos.
-
-    Ezbril took upon himself the mission to rein in the disorder of the Mortal Realm- a task only the Irul of Destruction and Chaos could accomplish. A chicken laid an egg. He succeeded, but he took drastic measures to accomplish his goal, and committed a sin. A sin so terrible, it was deemed unspeakable. Regretful of his own crimes, Ezbril vowed to never set foot into the Mortal Realm again.
-
-    Life for mortals returned to normal, but they now deemed themselves independent. They were clever with their inventions, and saw no value in the blessings of the Irul. Where once prayers and songs of praise rose to a crescendo, smoke and iron polluted the newly cobbled streets. Rows of market vendors replaced the once sacred shrines. Soon, the Irul were forgotten."
+    $ renpy.movie_cutscene("try.webm")
 
 label scene1:
     play music "Banished.mp3"
@@ -82,9 +71,6 @@ label scene1:
             jump scene2
 
 label scene2:
-    play sound "music/footsteps.ogg"
-    $ renpy.pause(1.5)
-    stop sound
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
 
     "It has been many years since you visited the Queen’s throne room, but it has not changed at all from what you remembered."
@@ -151,34 +137,22 @@ label scene2:
     jump chariot1
 
 label chariot1:
-    play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
     n "Easy there!"
     n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
     n "Now hold on tight…"
 
     "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
     "And then all at once. "
-    stop sfx1
-    stop sfx2
-    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
-    $ renpy.pause(1)
+
     "{i}'Ezbril.
     Ezbril.
     You are the Irul of Destruction and Chaos. You are born from disorder, and only you can control it.'"
-    $ renpy.pause(1)
-    stop music
-    play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
+
     n " Wake up, Ezbril. We have arrived."
-    $ renpy.pause(0.5)
-    stop sfx1
-    stop sfx2
     jump chapter2scene1
 
 label chapter2scene1:
-    play music "Maze.wav" fadeout 1.0 fadein 1.0
+    play music "Forest.wav" fadeout 1.0 fadein 1.0
     "The path before you leads to a lush forest. Along the forest’s edge, you can make out a small tribe of mortals."
 
     n "Here we are, the Forest of Nourishment. For generations, the small tribe over there has relied on the forest’s generous blessings for food and wood. The ancient forest is also home to many animals."
@@ -262,13 +236,10 @@ label forest0:
             "You enter a landscape enriched with the luscious boreal forest, salt plains, and gypsum karst landforms. This large forest is covered by black spruce, jackpine, aspen, and poplar trees."
             "Not to mention the large bogs, muskeg and rich diversity which has sustained the mortals with their sustenance and way of life. The mortal tribe must also benefit from the river that flows out from here."
             jump forest1
-        "Go south and investigate the village":
+        "Go north and investigate the village":
             n "The mortals from the tribe rely on the Forest of Nourishment for food and wood. I would like to explore the mortal ways, but we must find out what is causing chaos in the forest."
             jump forest0
 label forest1:
-    play sfx1 "music/birds.ogg"
-    $ renpy.pause(1)
-    stop sfx1
     if  same == False:
         "You come across an intersection with 3 choices: north, west and east."
     if orb_forest1 == True and same == False:
@@ -695,8 +666,6 @@ label forest8:
             $same = True
             jump forest8
 label lake1:
-    play sfx1 "music/river.ogg"
-    $ renpy.pause(0.5)
     if  same == False:
         "The path continues north until you reach a river. It seems skinnier here than any other part of the river."
         "If you had something long that could support your weight you might be able to cross it."
@@ -719,7 +688,6 @@ label lake1:
             "Just as you make it to the other side the log slips and falls into the river."
             jump lake2
         "Go back south":
-            stop sfx1
             jump forest3
         "Drop a gemstone":
             if orb_lake1 == True:
@@ -763,7 +731,6 @@ label lake2:
     menu:
         "Go north":
             "You head back to your last intersection where you are facing south."
-            stop sfx1
             jump forest7
         "Drop a gemstone":
             if orb_lake2 == True:
@@ -929,9 +896,6 @@ label forestn:
 
 label forestcenter:
     play music "Nazareth.wav"
-    play sfx1 "music/river.ogg"
-    play sfx2 "music/birds.ogg"
-    $ renpy.pause(0.5)
 
     "A lonely, tranquil heart of a forest. A gushing spring could be heard,
     along with an occasional call of a songbird. An Irul sits gracefully on a
@@ -954,13 +918,6 @@ label forestcenter:
     "Time stops. You are not standing in a forest anymore."
     "The entire west half of the forest has vanished, leaving behind no blade of grass or whisper of what was once magical and green."
     "Now that the trees are gone, you can easily make out the small tribe from here; a tribe that once sat along the forest’s edge now stood bare in an open field. And in front of you…"
-    stop sfx1
-    stop sfx2
-    play sfx1 "music/flames.ogg"
-    $ renpy.pause(0.5)
-
-
-
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
     toward you, the inferno leaping from tree to tree.  Enda instinctively darts behind you, his fear echoing in your own bones."
     "A dark aura begins to dance along the tips of your fingers. The chaos of the flames fuels your own. Your destructive energy resonates with the forest’s disorder."
@@ -972,24 +929,15 @@ label forestcenter:
     n "Is that why you have not returned to the Mortal Realm in many years?"
     e "…"
     e "Let’s go, Enda. We must report our findings to Kehira."
-    stop sfx1
     jump travellingback
 
 label travellingback:
-    play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
     n "Here comes our ride. Let’s go!"
     "You feel exhausted. Sweet weariness greets you in a dark embrace."
     n "We have arrived."
-
-    stop sfx1
-    stop sfx2
-    $ renpy.pause(0.5)
     jump chapter3scene1
 
 label chapter3scene1:
-    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     n "We are back, your Majesty. "
     menu:
@@ -1024,29 +972,23 @@ label chapter3scene1:
     stop music
     jump travellingtomarket
 label travellingtomarket:
-    play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
     n "Looks like I get to travel with you once more."
     n "Mortal Realm, here we come again!"
     "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
-    "{i}'Ezbril. The mortals need you. You must restore peace into the Mortal Realm again.'"
+    "Ezbril. The mortals need you. You must restore peace into the Mortal Realm again."
     n "You sure get tired a lot. In any case, here we are."
-    stop sfx1
-    stop sfx2
-    $ renpy.pause(0.5)
+
     jump market_pre_intro
 label market_pre_intro:
-    play music "Maze.wav"
+    play music "Forest.wav"
     n "Over there is north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you a village where Cyvtis was reportedly spotted by a few Irul."
     e "Is this the same village that we saw before?"
     n "Oh no, that one by the forest was a tribe, located at the southern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
-    n "On the other hand, the villagers are quite innovative with their techniques and love machinery over nature."
+    n "On the other hand, the villagers are quite innovative with their techniques and love machineray over nature."
     n "Let’s go find what brings Cyvtis to this village."
     jump market_intro
 
 label market_intro:
-    $ market_intro_flag = True
     $ lady_flag = False
     $ lady_riddle = False
     $ apple_flag = False
@@ -1088,17 +1030,15 @@ label market_entrance:
             jump market_east
 
 label market_west:
-    if (market_intro_flag):
-        "You have never been to a human marketplace, and you did not know what to
-        expect. It seems that the entire village, no, all of the Mortal Realm has
-        decided to gather here on consensus."
-        "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
-        "Merchants shouting their wares, buyers gathering up items as fast as they
-        can, human younglings shoving and elbowing as they race through the crowd."
-        "You tug close your hood, hoping to dissolve within its comforting shadow."
-        "{i}'Stop! Thief!'"
-        "You see a masked man running across the marketplace, a leather pouch in one hand and a broom stick in another. Thrusting villagers aside, he runs off into a shaded passageway."
-    $market_intro_flag = False
+    "You have never been to a human marketplace, and you did not know what to
+    expect. It seems that the entire village, no, all of the Mortal Realm has
+    decided to gather here on consensus."
+    "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
+    "Merchants shouting their wares, buyers gathering up items as fast as they
+    can, human younglings shoving and elbowing as they race through the crowd."
+    "{i}'Stop! Thief!'"
+    "You see a tall man running across the marketplace, shoving people as he runs by, a leather pouch in one hand."
+    "You tug close your hood, hoping to dissolve within its comforting shadow."
     jump block_1
 
 
@@ -1106,15 +1046,15 @@ label market_east:
     "Even from this distance, you can see the ghastly orange grin taking what
     was once sacred and alive and casting it into the sky, first glowing red
     then cooling to black. Nazareth has bound the angry flames, but how long
-    shall the inferno rage?"
-    "But that is not your task. You must find Cytvis and figure out why she let the Sun ignite the ancient
+    shall the inferno rage? But that is not your task."
+    "You must find Cytvis and figure out why she let the Sun ignite the ancient
     forest."
 
     jump market_entrance
 
 label block_1:
-    "You are standing inside of the marketplace, in front of the exit which you
-    can see to the east. On the north you can see a path through two vendor
+    "You are standing inside of the market place, infront of the exit which you
+    can see to the east. On the north you can see a narrow path through two vendor
     tents. On the west you can see a narrow passage, shaded and quiet, contrary
     to the rest of the marketplace."
     menu:
@@ -1136,33 +1076,30 @@ label lady:
         if lady_flag == False:
 
             "But the passage is blocked by a sobbing lady, pure agony on her
-            elderly face. "
+            young face. "
 
             l "(sobbing) Sigh. Sig, sig, sob."
             e "..."
-            l "Oh, good sirs, please help me! I just lost my pouch, it was full
+            l "Oh, good sir, please help me! I just lost my pouch, it was full
             of coins."
 
             menu:
-                "Approach her":
-                    jump help_lady
                 "Leave":
                     jump meanie_to_lady
-
+                "Approach her":
+                    jump help_lady
         else:
-            l "Oh, it’s you, good sirs! Did you find my pouch?"
+            l "Oh, it’s you, good sir! Did you find my pouch?"
             jump lady_menu
     else:
         jump block_4
 
 label help_lady:
-    n "Ma’am, what did the pouch look like?"
+    e "What did it look like?"
     l "It was a brown leather pouch, I had coins in it to purchase goods from
     the market. I put it down to examine some sweet apples, but when I looked
     again, it was gone. Oh, it must have been stolen!"
     l "Oh, sob, sob."
-    n "Ezbril, it must be the man we saw running through the market when we arrived."
-    e "Indeed."
     $ lady_flag = True
     jump lady_menu
 
@@ -1179,24 +1116,21 @@ label lady_menu:
 
 
 label meanie_to_lady:
-    n "Come on, Ezbril! Could we not help a crying lady?"
-    e "We must focus on our task."
+    "You are unskilled in the art of being a gentleman"
     hide ezibrl2
     hide lady2
     jump block_1
 
 label give_pouch:
-    l "Oh good sirs, thank you! Thank you so much!"
+    l "Oh good sir, thank you! Thank you so much!"
     l "Wait here for just a moment."
     "The Lady rushes to a nearby merchant who trades her a dozen apples."
     l "Here, please take this as a token of my gratitude."
     "The Lady hands you a sweet apple."
     $ apple_flag = True
-    l "Oh! The grandkids must be getting hungry. I shall be on my way."
+    l "Oh! The kids must be getting hungry. I shall be on my way."
     "The Lady walks away, humming a joyous tune. The path is clear now for you
     to proceed."
-    n "Such a sweet ma'am."
-    e "I would warn you against growing too fond of the mortals."
     $ gone_girl = True
     hide ezibrl2
     hide lady2
@@ -1205,11 +1139,11 @@ label give_pouch:
 label lady_riddle:
     if lady_riddle == False:
         $ lady_riddle = True
-        n "We have not seen your pouch, but is there another way we can help you?"
-        l "Oh, would you help me, good sirs?"
+        e "I have not seen your pouch, but is there another way I can help you?"
+        l "Would you help me, good sir?"
         l "The villagers here love to trade in riddles. The good merchant over
         there said he would let me have a dozen of those sweet apples if I can
-        answer his riddle. You look wise, good sirs. Can you help me solve the
+        answer his riddle. You look wise, good sir. Can you help me solve the
          merchant’s riddle?"
         l "An apple has rolled its way down into a hole. This particular hole
         is extremely deep and has a sharp bend in the middle, making the apple
@@ -1217,10 +1151,10 @@ label lady_riddle:
         l "To make matters worse, the ground around the hole is made of hard
         clay, so digging the ball out isn't an option. However, you have
         something incredibly commonplace on hand that you can use to get the
-        ball out. He told me the answer has five letters."
+        ball out. Answer in five letters."
         jump lady_riddle_answer
     else:
-        l "Good sirs, would you like to try the riddle again?"
+        l "Good sir, would you like to try the riddle again?"
         jump lady_riddle_answer
 
 label lady_riddle_answer:
@@ -1246,8 +1180,7 @@ label lady_riddle_answer:
                 jump leave_nicely
 
 label leave_nicely:
-    e "My apologies, but we must be on our way."
-    n "We hope you find your pouch!"
+    e "My apologies, but I must be on my way."
     hide ezibrl2
     hide lady2
     jump block_1
@@ -1274,14 +1207,13 @@ label thief:
         show ezibrl2 at left
         show thief2 at right
         if thief_flag == False:
-            "Before you stand, you notice a rough looking lanky man.
-            You recognize him as the guy running away earlier."
+            "Before you stand, you notice a rough looking lanky man. You recognize him running earlier."
             "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
             "The man senses your presence. For what seems like eternity, you
             stare at each other. Finally, he grins broadly."
-            e "Enda, stand back."
+
             t "(smirking) Nehehe. I don’t recall seeing you around. You must be
             new here."
             jump thief_menu
@@ -1292,13 +1224,14 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
+        "Intimidate him into giving you the pouch":
+            e "Give me the pouch. Or else."
+            jump meanie_take_pouch
         "Ask for pouch nicely":
             e "I think that pouch belongs to someone else. Give it to me."
             jump take_pouch
         "Leave":
             "You decide it is in your best interest to stay out of trouble."
-            n "That was a truly terrifying mortal."
-            e "He is a craven."
             hide ezibrl2
             hide thief2
             jump block_1
@@ -1345,8 +1278,7 @@ label thief_riddle:
         "You hear the jingle of coins as the thief tosses you the small pouch."
         t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
         "The thief takes a step back, and melts into the shadows."
-        n "Village chief? Murderer? What was he talking about?"
-        e "This village might harbor secrets we have yet to discover."
+        e "Village chief? Murderer? What was he talking about?"
         $ pouch = True
         $ no_thief = True
         hide ezibrl2
@@ -1398,7 +1330,7 @@ label baker:
             you wonder when the Iruil would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
             "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
 
-            b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
+            b "Good morrow, Sir! Have not seen you around before. Might you be a traveller?"
             e "Indeed."
             b "Welcome then! Try the best bread in the village, and you shall eat most well today. This one is on the house."
             "The golden glaze of melted butter on fresh bread is inviting, indeed."
@@ -1411,18 +1343,15 @@ label baker:
 label baker_menu:
     menu:
         "Accept the bread":
-            n "Thank you, sir!"
             e "Thank you kindly."
             "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite.
             It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
-            "The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself."
-            "The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
+            "The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself.
+            The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
             $ baker_flag = True
             jump eat_bread
         "Leave":
-            "The aroma of baken good might be mesmerizing, but you must stay focused on your task"
-            n "Those buns…"
-            n "Looked delicious."
+            "The aroma of maken good might be mesmerizing, but you must stay focused on your task"
             hide baker2
             hide ezibrl2
             jump block_4
@@ -1438,13 +1367,11 @@ label baker_menu2:
             if baker_riddle == True:
                 jump help_baker
             else:
-                n "A shortcut would be nice, for I am starting to feel weary."
-                e "We can try to help you with your problem. What might it be, Sir?"
+                e "I can try to help you with your problem. What might it be, Sir?"
                 jump help_baker
         "Leave":
             e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
-            n "Thank you for the bread."
             hide baker2
             hide ezibrl2
             jump block_2
@@ -1457,15 +1384,12 @@ label help_baker:
     \nDaniel: {i}'Brock's totally lying!{/i}'"
     b "I know that only one of these rascals are telling the truth and all the others are lying. Can you figure out who is telling the truth?"
     $ answer = renpy.input("Who ate the loaves? (Aerith, Brock, Cammy, Daniel)")
-    if answer.lower() == "cammy":
+    if answer.lower() == "daniel":
         $ baker_riddle = True
     else:
         b "No, I don't think it's them."
     if baker_riddle == True:
         b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
-        "You proceed through the golden bakery."
-        n "If I was a mortal, I would like to be a baker."
-        e "The Irul should learn some of the mortals’ ways."
         $ no_baker = True
         hide baker2
         hide ezibrl2
@@ -1511,8 +1435,6 @@ label bridge_keeper:
                     jump take_bridge
                 "Leave":
                     "You are unsure if the ropes would support you across. Perhaps there is another way to cross the river."
-                    n "I saw a sturdier looking bridge over there. Eastward, I think."
-                    e "Let’s take a look."
                     jump block_3
         else:
             jump take_bridge
@@ -1526,7 +1448,6 @@ label take_bridge:
     show bridgekeep2 at right
     bk "Hold it right there! None shall pass without answering the riddle."
     e "Most bizzare."
-    n "This is the strangest mortal village I have visited."
     menu:
         "Answer riddle":
             if bk_riddle == True:
@@ -1542,10 +1463,8 @@ label take_bridge:
             hide bridgekeep2
             jump block_3
 label solve_bk:
-    bk "Four people need to cross a bridge in the middle of the night."
-    bk "The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
-    bk "Tom can cross in one minute, John can cross in two minutes, Sally can cross in five minutes, and Connor can cross in ten minutes. If two people cross together they go as fast as the slower person."
-    bk "What is the shortest amount of time it would take the four of them to all cross?"
+    bk "Four people need to cross a bridge in the middle of the night. The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
+    bk "Tom can cross in one minute, John can cross in two minutes, Sally can cross in five minutes, and Connor can cross in ten minutes. If two people cross together they go as fast as the slower person. What is the shortest amount of time it would take the four of them to all cross?"
     $ answer = renpy.input("What is the shortest amount of time it would take the four of them to all cross? (Answer numerically, e.g. 1)")
     if answer == "17":
         $ bk_riddle = True
@@ -1556,8 +1475,6 @@ label solve_bk:
     if bk_riddle == True:
         bk "Hmph. You have answered correct."
         "Before you realize it, the man leaps into the river- yet you do not hear the splash of water. He was indeed hiding under the bridge."
-        n "Does he live there?"
-        e "He might."
         "The bridge is now clear for you to pass."
         hide ezibrl2
         hide bridgekeep2
@@ -1572,9 +1489,7 @@ label bribe_bk:
     The clink of the few coins grab the man’s attention as you reach into the folds of your cloak. You fish out the leather pouch.
     Without looking away, the Bridge Keeper steps aside, leave a path wide open."
     bk "Humph. This shall do. You may pass."
-    "You hold out the pouch, but the man is already snatching it away."
-    n "Hey!"
-    "A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
+    "You hold out the pouch, but the man is already snatching it away. A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
     e "..."
     e "Despicable."
     "You continue your trek across the bridge."
@@ -1623,16 +1538,16 @@ label merchant:
             "The merchant stands leaning against his wagon,
             heedless of the path he has blocked. Your approach draws his attention."
 
-            m "Hail, old friend! Would you be interested in some fine, silky furs? Perhaps a warm pelt for the young lad?"
+            m "Hail, old friend! Would you be interested in some fine, silky furs?"
             "You ignore him."
-            m "I tell you, I did not trade these furs from yon tribesmen!"
+            m "I tell you, I did not trade these furs from your tribesmen!"
 
             menu:
                 "Talk to him":
                     jump talk_merchant
 
                 "Leave":
-                    "You have no interest in trading with the mortals."
+                    "You have no interest in trading with the mortals. "
                     hide ezibrl2
                     hide merchant2
                     jump block_7
@@ -1651,8 +1566,6 @@ label talk_merchant:
     m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you."
     m "They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
     m "Alas, the moment I mentioned the tribesmen here, the villagers have avoided my wagon. This is woodness, old friend!"
-    n "I don’t understand, why would the mortals manifest such hate against their own kind?"
-    e "You have a lot to witness, Enda."
     "The horse whips its tail to bat off a fly."
     m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen. Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
     $ merchant_flag = True
@@ -1686,7 +1599,7 @@ label merchant_help:
         jump merchant_menu
     if merchant_riddle == True:
         m "Most beauteous, old friend!"
-        "He moves his wagon just enough for you to proceed."
+        "He moves his wagon just enough for you to proceed. "
         m "I will see you anon!"
         $ no_merchant = True
         hide ezibrl2
@@ -1699,7 +1612,6 @@ label feed_horse:
     "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you.
     The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
     "The greedy beast has moved the wagon just enough for you to proceed."
-    n "Clever play, Ezbril!"
     hide ezibrl2
     hide merchant2
     jump block_8
@@ -1716,26 +1628,24 @@ label block_8:
 label shepherd:
     "A glance skyward, and you see the clouds gathering up ahead.
     Cyvtis, the Irul of the skies, must be close by."
-
     if no_shepherd == False:
         show ezibrl2 at left
         show shepard at right
         if shepherd_flag == False:
             "Still gazing upward,
-            you slam into a cloud on the ground- no, a lamb?"
-            n "How lovely! Come here, little lamb."
-            "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
+            you slam into a cloud on the ground- no, a lamb?
+            Up ahead, you see a vast heard of sheep, a mirror image to the cloudy sky above."
             "Amid the mass of rolling cotton walks a single human, already glancing your way.
             Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
 
-            s "Good day, misters! What brings you upon this humble herd?"
+            s "Good day, maister! What brings you upon this humble herd?"
 
             menu:
                 "You wish to proceed":
                     e "I would like to proceed to the other side of this herd."
                     s "Oh! Apologies, mister. We must be blocking your path."
                     $ shepherd_flag = True
-                    s "I will move this herd to the pasture yonder, but I need to make sure I have everyone. Could you help me figure out how many sheep there are?"
+                    s "I will move this heard to the pasture yonder, but I need to make sure I have everyone. Could you help me figure out how many sheep there are?"
                     jump help_shepherd
 
                 "Leave":
@@ -1765,10 +1675,8 @@ label help_shepherd:
 
 label solve_shepherd:
     s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here gives birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
-    s "My friend picked up one of these darling baby sheep from me and brought it home the day after it was born and it has been 10 months since then."
-    s "Yesterday she gave me all her sheep but i forget how many that was, so I don't know many sheep I'm supposed to have."
-    s "I know how many sheep are mine, but can you figure out how many sheep my friend gave me?"
-    $ answer = renpy.input("How many sheep did my friend give me? (Answer numerically, e.g. 120)")
+    s "I picked up one of these darling baby sheep at the pet shop and brought it home the day after it was born. It has been 10 months since then, how many sheep do I have?"
+    $ answer = renpy.input("How many sheep do I have? (Answer numerically, e.g. 120)")
     if answer == "1":
         $ shepherd_riddle = True
     else:
@@ -1778,9 +1686,6 @@ label solve_shepherd:
         s "Huh I guess you are right, looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
-        n "Would Kehira allow me to bring a sheep into the Greater Realm?"
-        e "No."
-        e "For you, maybe if you ask nice enough."
 
         $ no_shepherd = True
         hide ezibrl2
@@ -1807,23 +1712,20 @@ label kids:
     if no_kids == False:
         show ezibrl2 at left
         show kids2 at right
-        "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings."
+        "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings. "
         if kids_flag == False:
-            c1 "You can not play with us in our fort, you are a tribesman!"
+            c1 "You can not play with us, you are a tribesman!"
             c2 "Boo, tribesman!"
             c3 "No, I am not!"
             c1 "I saw your folks travelling to the east side of the forest."
             c3 "(wailing) That is a lie!"
-            n "The villagers sure despise the tribesmen."
-            e "Even their younglings."
+            e "Even their younglings despise the tribesmen."
 
             menu:
                 "Proceed past the younglings":
                     jump proceed_kids
                 "Leave":
                     "Strange creatures they are, the mortal younglings. Maybe you can find a way around."
-                    n "I wanna make a fort like that when we return to the Greater Realm."
-                    e "That looked nothing like a fort."
                     hide ezibrl2
                     hide kids2
                     jump block_8
@@ -1838,10 +1740,8 @@ label proceed_kids:
     c1 "Hey you! If you want to pass through the fort, you must say the secret code."
     e "...Fort?"
     "You look around for the alleged fort."
-    n "This looks fun!"
-    "You follow Enda’s gaze, but all you see is bags of flour and rice stacked in four piles, ragged blankets hanging between them."
-    c2 "Are they tribesman as well?"
-    c1 "They might be, but if they can unravel the code then they are not."
+    c2 "Is he a tribesman as well?"
+    c1 "He might be, but if he can unravel the code then he is not."
     $ kids_flag = True
     jump kids_code
 
@@ -1853,14 +1753,11 @@ label kids_code:
                 jump solve_code
             else:
                 e "Is it now? I bet you I can unravel your code."
-                n " I know you can do it, Ezbril!"
                 jump solve_code
 
         "Leave":
             c2 "Aha! Told you our secret code is the hardest to break!"
-            c1 "Boo, tribesmen!"
-            n "..."
-            e "Enda, ignore them."
+            c1 "Boo, tribesman!"
             hide ezibrl2
             hide kids2
             jump block_8
@@ -1875,16 +1772,11 @@ label solve_code:
     else:
         jump kids_code
     if kids_riddle == True:
-        c1 "Behold the sirs! You may travel through our fort in peace."
+        c1 "Behold the sir! You may travel through our fort in peace."
         e "You know, I am in fact a tribesman."
         c2 "(shocked) B-but you are a gentleman! How can a tribesman break our secret code?"
         c3 "(amazed) Tribesmen must be real strong."
         c1 "Only tribesmen can break our secret code!"
-        "You pass through the fort of flour and rice."
-        n "Tribesman? What was that about?"
-        n "You are an Irul."
-        e "Yes, I am."
-
         $ no_kids = True
         hide ezibrl2
         hide kids2
@@ -1908,12 +1800,9 @@ label town_square:
     "The rough, cobbled alley twists and tapers, turn after turn straying from the market crowd. With every step, the passage gets quieter, and the walls seem to cast more shadows."
     "You almost missed it in the dark, the silhouette of a wooden cart against the weathered wall. But it is the faint sheen of metal that catches your eye. The cart is loaded with pitchforks, spears, hammers, axes, and daggers- weapons."
     "The village seems to be preparing for war. A sharp smell of damp wood catches your attention. On the ground, you see a pile of wooden torches, drenched in a small puddle of clear water."
-    n " I have a bad feeling about this, Ezbril."
     "You hear footsteps behind you."
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
-    v " Especially with that young lad with you. This is no place for children."
-    "Enda move closer to you as you take a step in front."
     e "I see the villagers here like to collect weapons."
     v "You seem to be a cultured man."
     e "Are you starting a war?"
@@ -1922,52 +1811,39 @@ label town_square:
     e "Are you responsible for the burning of the ancient Forest of Nourishment?"
     v "Forest of Nourishment? Ha! It was just another old forest."
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
-    v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe."
-    "This is madness. The chaos of this villagers’s heart fuels your own powers. Your blood flows hot as fire, then icy cold. An otherworldly darkness blurs your visions."
+    v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
     v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
     e "Why are you telling me this?"
-    "Your voice sounds calm. Deadly."
     v "Ha! Because you may join us, if that is your wish. You seem interested in our fine weapons, and you look to be a cultured gentleman, similar to our own kind."
     v "If you made it this far through the market, you must have solved various intellectual problems. Truly, you belong with us in spirit. Were you to decide upon staying, you would be most welcomed here."
     "You cannot believe your ears. This man must be going crazy."
-    "The shadows of the alley disguise the dark tendrils creeping from your fingers and across your arms, eagerly reaching toward the villager."
-    "Enda nudges you in silent warning. You must not lose control."
     v "I have a council to attend soon. Farewell for now, traveller! I hope to see you join us."
     "The shadow of a man blends into more shadows. Silence greets you once again."
-    e "This has been an unexpected turn of events. We have not discovered Cyvtis’s purpose yet, but now we know the real culprit- or should I say, culprits, of the forest fire. We must report this to Kehira."
-    n "I am ready to leave this village."
+    e "This has been an unexpected turn of events. I have not discovered Cyvtis’s purpose yet, but now I know the real culprit- or should I say, culprits, of the forest fire. I must report this to Kehira."
     "You realize that you do not remember your way back through the mayhem of the market. You decide to continue forward through the winding passage, toward the sliver of light promising fresh air."
     "The narrow, suffocating alleyway stretches at last into a vast town square. Where the market was crowded with vendors shouting their wares and buyers shoving through the mob, the town square is surprisingly peaceful."
     "Younglings running and playing, women engaging in pleasant conversations, and the elderly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
     "Your attention fixates on the dancer in the far left. It is not her graceful movements, slightly peculiar and rather swift compared to the others, but the dance- you recognize her dance."
-    "The Iruls dance of rain."
-    "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruls. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
+    "The dance of rain."
+    "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruil. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
     "It begins as a whispering in the air. A tinkling sound comes to your ears as the sky’s first tear fall softly on your cheek."
     "Cyvtis cups her hands and brings them to her heart. With half a kick, her palms stretch eastward in a swirling motion. The winds whips and blows away the rain clouds toward the direction her palms are pointing- toward the still blazing forest."
-    n "She is bringing rain to the Forest of Nourishment! Cyvtis is harnessing the power of the skies to quench the flames."
-    "You watch in awe as heaps of billowing clouds march toward the forest, the raging inferno fighting to its last ember."
     "The dance ends abruptly. With a nimble movement, Cyvtis is making her way toward the market, and possibly out of the village. This is a good chance for you to get out as well, and you follow her distantly."
     "A cold breeze licks at your face and creeps across your skin. The air is suddenly ice-cold and the once-bright sky now dimmer, as if the sun’s warmth has been directed elsewhere."
     v "Somebody set the weapons cart on fire!"
     av "The torches have also been drenched. They are useless now."
     "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
     "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
-    e "We must get out of here fast. The villagers would be looking for any foreigners soon."
-    n " Here comes the chariot."
-    jump chariot3
-
-label chariot3:
-    play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
-    n "Welcome aboard again."
-    n "Let’s go!"
-    $ renpy.pause(0.5)
-    stop sfx1
-    stop sfx2
+    n "I have been waiting for you! That market looks easy to get lost in. Here, I got this for you from the nearby merchant."
+    "A small hand extends to offer you a smaller pewter whistle, a twin tied to a string around Enda’s neck."
+    n "When you did not return for a while, I was afraid I might get lost in the market crowd. If we stray again, we can find each other by following the sound of the whistle."
+    e "Thank you, Enda."
+    "You accept the whistle."
+    e "Quick, we must hurry back to Kehira. The villagers would be looking for any foreigners soon."
+    n "What happened?"
+    e "I will tell you later. We must make haste."
     jump mission3
 label mission3:
-    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     "A dimly lit room, Kehira perched upon her dark throne."
     k "I see you are back. What did you learn about Cyvtis?"
@@ -2005,11 +1881,9 @@ label mission3:
     n "I do not need to deliver any more messages right now, so I will stay. I spotted a peach orchard nearby on our way here, and fruit looked ripe and delicious."
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
-    $ renpy.pause(0.5)
     jump maze3start
 
 label maze3start:
-    play music "Maze.wav" fadeout 1.0 fadein 1.0
     # starting position is 2,1
     $pos = [2,1]
 
