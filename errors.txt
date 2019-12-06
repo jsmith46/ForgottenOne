@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 956: choice menuitem expects a non-empty block.
-    "{i}'The ancient forest is burning.'":
-                                          ^
+File "game/script.rpy", line 166: expected 'image_name_component' not found.
+    scene with dissolve
+          ^
 
 Ren'Py Version: Ren'Py 7.3.3.568
-Mon Dec 02 12:53:03 2019
+Fri Dec 06 03:33:30 2019

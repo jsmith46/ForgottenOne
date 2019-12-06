@@ -1,1 +1,28 @@
-﻿
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 2053, in script
+    label beforemaze3:
+  File "game/script.rpy", line 2053, in <module>
+    label beforemaze3:
+NameError: name 'dissolving' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 2053, in script
+    label beforemaze3:
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\ast.py", line 1385, in execute
+    paired = renpy.python.py_eval(self.paired)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\python.py", line 2039, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\python.py", line 2032, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 2053, in <module>
+    label beforemaze3:
+NameError: name 'dissolving' is not defined
+
+Windows-8-6.2.9200
+Ren'Py 7.3.3.568
+Forgotten One 1.0
+Fri Dec 06 05:37:08 2019

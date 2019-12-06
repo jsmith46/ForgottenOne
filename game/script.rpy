@@ -80,13 +80,17 @@ label scene2:
     $ renpy.pause(1.5)
     stop sound
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
-
+    scene throne_room
+    with dissolve
     "It has been many years since you visited the Queen’s throne room, but it has not changed at all from what you remembered."
     "Great chandeliers of black crystal glare at you from above. Darkness, her favourite aura, engulfs every corner, and you never quite discovered how large this room really is."
+    show kehira at right
+    with dissolve
     "Kehira stands before her dark throne, her mighty power almost tangible from across the great room."
     "You are not sure what the Irul Queen wants from you.
     A smirk crosses blood red lips as a slender finger beckons you forward."
-
+    show ezibrl2 at left
+    with dissolve
     e "Your Majesty."
 
     "You bow deeply."
@@ -122,13 +126,16 @@ label scene2:
     k "Ezbril, if you fail to act now, you would only bring more misery upon the mortals."
 
     k "I have someone who will escort you. Enda, come forward."
-
+    hide kehira
+    with dissolve
+    show enda2 at right
     "A small figure cautiously emerges from behind the throne. You have never seen such a young Irul before."
 
     n "Pleased to meet you!"
 
     "You recognize that voice."
-
+    hide enda2
+    show kehira at right
     k "Ezbril, meet Enda, my personal messenger."
     k "Enda is a lesser-Irul, born after the mortals forgot us. Because the Iruls get their powers from the faith of the mortals, Enda’s powers are very limited."
     k "Unlike you and I, his life can be extinguished with a mortal wound. If we don’t regain mortal followers, every Irul born afterward would be a lesser-Irul."
@@ -141,31 +148,36 @@ label scene2:
 
     e "Yes, Your Majesty."
 
-
     jump chariot1
 
 label chariot1:
+    scene chariot with dissolve
+    $ renpy.pause(1)
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    show enda2 at right with dissolve
     n "Easy there!"
     n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
     n "Now hold on tight…"
-
+    hide enda2 with dissolve
     "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
     "And then all at once. "
+    scene dream with dissolve
     stop sfx1
     stop sfx2
     play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
     $ renpy.pause(1)
-    "{i}'Ezbril.
-    Ezbril.
+    "{i}'Ezbril. {w}
+    Ezbril. {w}
     You are the Irul of Destruction and Chaos. You are born from disorder, and only you can control it.'"
     $ renpy.pause(1)
     stop music
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
-    n " Wake up, Ezbril. We have arrived."
+    scene chariot
+    show enda2 at right with dissolve
+    n "Wake up, Ezbril. We have arrived."
     $ renpy.pause(0.5)
     stop sfx1
     stop sfx2
@@ -173,46 +185,18 @@ label chariot1:
 
 label chapter2scene1:
     play music "Maze.wav" fadeout 1.0 fadein 1.0
+    scene rsz_forest with dissolve
     "The path before you leads to a lush forest. Along the forest’s edge, you can make out a small tribe of mortals."
-
+    show enda2 at right
+    show ezibrl2 at left
     n "Here we are, the Forest of Nourishment. For generations, the small tribe over there has relied on the forest’s generous blessings for food and wood. The ancient forest is also home to many animals."
-
     n "Her Majesty sensed a magic of destruction radiating from this forest."
-
     e "Magic of destruction? But I am the Irul of Destruction and Chaos, and I haven’t set foot in the Mortal Realm in ages."
-
     n "That is why we must find out who is responsible for this. Let’s start by exploring the forest, where Her Majesty sensed the foul magic."
-
-    #is the rest after here removed? Will leave for now
-    n "In the heart of the forest you will find Nazareth, the Irul of Spring,
-    Harvest, and Life. For eons, he has travelled forest to forest, village to
-    village, nourishing and looked after every being that breathes."
-
-    n "However, his performance has been going downhill lately. Forests are
-    disappearing, animals are fleeing their homes, and food is scarce."
-
-    n "Among the mortals, rumor is that some have spotted Nazareth purposely
-    destroying vegetation. He has not returned to the Greater Realm in almost a
-    decade, which leads Kehira to suspect that he might be hiding something."
-
-    e "Her majesty wants me to investigate Nazareth?"
-
-    n "Your task is to find out what exactly Nazareth is doing, so Kehira
-    and Remya can use that information to decide his fate. Be warned, the Forest
-    of Nourishment is a sacred place and easy to get lost in."
-
-    n "I have some glowing gemstones you can use to mark your path.  When you
-    find Nazareth, stay hidden and collect any evidence you find that would
-    support your claim against Nazareth."
-
-    n "I have duties to perform, therefore this is where I depart. I will say
-    this, keep your eyes sharp and be aware of your surroundings. Trust no one."
-    n "When you have accomplished your goal, I shall escort you back to the Darker Realm."
-
-    "Enda hands you 5 glowing gemstones and teleports away."
-
-    e "... Why am I always stuck in this mess?"
-
+    n "I have some glowing gemstones you can use to mark your path. Place them down throughout the forest and if we see any we will know that we are walking in circles."
+    hide enda2
+    hide ezibrl2
+    with dissolve
     $trees = False
     $peace = False
     $orbs = 5
@@ -247,18 +231,20 @@ label chapter2scene1:
     $same = False
     $lake1seen = False
     $log = False
-    $endaexplained = True
+    $endaexplained = False
     jump forest0
 
 label forest0:
-    scene rsz_forest
+
     menu:
         "Head west into the forest":
             "You enter a landscape enriched with the luscious boreal forest, salt plains, and gypsum karst landforms. This large forest is covered by black spruce, jackpine, aspen, and poplar trees."
             "Not to mention the large bogs, muskeg and rich diversity which has sustained the mortals with their sustenance and way of life. The mortal tribe must also benefit from the river that flows out from here."
             jump forest1
         "Go south and investigate the village":
+            show enda2 at right with dissolve
             n "The mortals from the tribe rely on the Forest of Nourishment for food and wood. I would like to explore the mortal ways, but we must find out what is causing chaos in the forest."
+            hide enda2 with dissolve
             jump forest0
 label forest1:
     play sfx1 "music/birds.ogg"
@@ -365,8 +351,10 @@ label forest2:
         "You come across an intersection with 4 choices: north, west, east and south."
         "In the center of this crossroad is a tree that dwarfs all other visible trees."
     if endaexplained == False:
+        show enda2 at right with dissolve
         n "Woah that has to be the biggest tree I've ever seen."
         n "There are incredible sights in the Mortal Realm."
+        hide enda2 with dissolve
         $endaexplained = True
     if orb_forest2 == True and same == False:
         if orb_forest2c == 1:
@@ -715,8 +703,11 @@ label lake1:
     $same = False
     menu:
         "Place log across river" if log:
-            "You place your log across the river and slowly make your way across."
+            "You place your log across the river and Enda nimbly makes his way across. You slowly follow."
             "Just as you make it to the other side the log slips and falls into the river."
+            show enda2 at right with dissolve
+            n "That was close."
+            hide enda2 with dissolve
             jump lake2
         "Go back south":
             stop sfx1
@@ -807,6 +798,9 @@ label bog:
     menu:
         "Pick up a log" if lake1seen == True and log == False:
             "You picked up a log, it was lighter than expected."
+            show enda2 at right with dissolve
+            n "You sure are strong."
+            hide enda2 with dissolve
             $log = True
             $same = True
             jump bog
@@ -938,6 +932,8 @@ label forestcenter:
     water-smoothed stone, surrounded by an audience of white tailed deer and
     curious rabbits."
     "He seems preoccupied examining a twig, and has not noticed you yet."
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     n "Ezbril, I recognize him. Before you is Nazareth, the Irul of Spring, Harvest, and Life. For eons, he has travelled forest to forest, tribe to tribe, nourishing and looking after every being that breathes."
     n "However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
     e "Enda, I can feel the magic of destruction that Kehira sensed. It seems strong within Nazareth. This might relate to his decremental performance."
@@ -949,6 +945,8 @@ label forestcenter:
     "The grass under his feet begins to darken, then disappear. Like a ripple, the surrounding plants begin to vanish, leaving no evidence of the lush green that existed. The small company of critters begin to scurry, aiming for trees that disappear like a mirage."
     e "The Irul of Spring, Harvest and Life … destroying the ancient forest?"
     n "We must report this to Her Majesty."
+    hide ezibrl2
+    hide enda2 with dissolve
     "Nazareth raises his arms, like a falcon about to take flight. He seems to
     hesitate a moment. Suddenly, he twirls and shoots toward the skies."
     "Time stops. You are not standing in a forest anymore."
@@ -964,9 +962,11 @@ label forestcenter:
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
     toward you, the inferno leaping from tree to tree.  Enda instinctively darts behind you, his fear echoing in your own bones."
     "A dark aura begins to dance along the tips of your fingers. The chaos of the flames fuels your own. Your destructive energy resonates with the forest’s disorder."
+    show enda2 at right with dissolve
     n "Ezbril!"
     "But you realize that you are safe. There are no trees, no vegetation left
     on this side to feed the hungry flames. The forest fire cannot spread."
+    show ezibrl2 at left with dissolve
     n "That was a close one."
     e "Enda, no matter what happens, do not let me unleash my powers in the Mortal Realm. I have constrained my magic for too long. Were I to lose control, the destruction would be too great."
     n "Is that why you have not returned to the Mortal Realm in many years?"
@@ -976,11 +976,16 @@ label forestcenter:
     jump travellingback
 
 label travellingback:
+    scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    show enda2 at right with dissolve
     n "Here comes our ride. Let’s go!"
+    scene black with dissolve
     "You feel exhausted. Sweet weariness greets you in a dark embrace."
+    scene chariot
+    show enda2 at right with dissolve
     n "We have arrived."
 
     stop sfx1
@@ -991,10 +996,13 @@ label travellingback:
 label chapter3scene1:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     n "We are back, your Majesty. "
     "You bow deeply"
     e "Your Majesty, we bring news."
-
+    hide enda2 with dissolve
+    show kehira at right with dissolve
     k "Oh? You have returned earlier than I expected, what have you discovered"
     menu:
         "{i}'The ancient forest is burning.'":
@@ -1006,9 +1014,13 @@ label chapter3scene1:
     k "Even so, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze. I cannot help but wonder what might have started the fire."
     "Kehira sharply glances your way."
     k "Did you lose your control again, Ezbril?"
+    hide kehira with dissolve
+    show enda2 at right with dissolve
     n "No, he did not!"
     n "-Your Majesty."
     n "I was with Ezbril the whole time, Your Majesty. We did not know about the fire until half the forest was already ablaze. If Nazareth hadn’t destroyed the southern half, we would have been trapped amongst the flames ourselves."
+    hide enda2 with dissolve
+    show kehira at right with dissolve
     "The Queen seems to contemplate something."
     k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
     e "Who brings fire into the Mortal Realm?"
@@ -1017,29 +1029,42 @@ label chapter3scene1:
     e "Why would Cyvtis do this?"
     k "When we discover the culprit behind this disorder, we can find out their intentions."
     k "Enda, escort Ezbril into the Mortal Realm again."
+    hide kehira with dissolve
+    show enda2 at right with dissolve
     n "I shall, Your Majesty."
     stop music
     jump travellingtomarket
 label travellingtomarket:
+    scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    show enda2 at right with dissolve
     n "Looks like I get to travel with you once more."
     n "Mortal Realm, here we come again!"
+    hide enda2 with dissolve
     "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
-    "{i}'Ezbril. The mortals need you. You must restore peace into the Mortal Realm again.'"
+    scene dream with dissolve
+    "{i}'Ezbril.{w} The mortals need you.{w} You must restore peace into the Mortal Realm again.'"
+    scene chariot
+    show enda2 at right with dissolve
     n "You sure get tired a lot. In any case, here we are."
     stop sfx1
     stop sfx2
     $ renpy.pause(0.5)
     jump market_pre_intro
 label market_pre_intro:
+    scene rsz_marketplace with dissolve
     play music "Maze.wav"
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     n "Over there is north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you a village where Cyvtis was reportedly spotted by a few Irul."
     e "Is this the same village that we saw before?"
     n "Oh no, that one by the forest was a tribe, located at the southern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
     n "On the other hand, the villagers are quite innovative with their techniques and love machinery over nature."
     n "Let’s go find what brings Cyvtis to this village."
+    hide ezibrl2
+    hide enda2 with dissolve
     jump market_intro
 
 label market_intro:
@@ -1067,7 +1092,6 @@ label market_intro:
     $ kids_flag = False
     $ no_kids = False
     $ kids_riddle = False
-    scene rsz_marketplace
     jump market_entrance
 
 label market_entrance:
@@ -1129,7 +1153,7 @@ label lady:
 
     if gone_girl == False:
         show ezibrl2 at left
-        show lady2 at right
+        show lady2 at right with dissolve
         if lady_flag == False:
 
             "But the passage is blocked by a sobbing lady, pure agony on her
@@ -1388,7 +1412,7 @@ label baker:
             "Sweet, welcoming aroma of cinnamon, honey, - and something you can only describe as “warm”-
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
-            you wonder when the Iruil would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
+            you wonder when the Iruls would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
             "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
 
             b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
@@ -1846,7 +1870,7 @@ label kids_code:
                 jump solve_code
             else:
                 e "Is it now? I bet you I can unravel your code."
-                n " I know you can do it, Ezbril!"
+                n "I know you can do it, Ezbril!"
                 jump solve_code
 
         "Leave":
@@ -1890,10 +1914,11 @@ label block_10:
     "You are on a narrow path. Just to your west is the Town Square, the heart of the market."
     "To your east is a narrow path, leading towards towards the entrance to the northend of the market."
     menu:
-        "Go east":
-            jump block_8
         "Go west":
             jump town_square
+        "Go east":
+            jump block_8
+
 
 
 label town_square:
@@ -1901,11 +1926,13 @@ label town_square:
     "The rough, cobbled alley twists and tapers, turn after turn straying from the market crowd. With every step, the passage gets quieter, and the walls seem to cast more shadows."
     "You almost missed it in the dark, the silhouette of a wooden cart against the weathered wall. But it is the faint sheen of metal that catches your eye. The cart is loaded with pitchforks, spears, hammers, axes, and daggers- weapons."
     "The village seems to be preparing for war. A sharp smell of damp wood catches your attention. On the ground, you see a pile of wooden torches, drenched in a small puddle of clear water."
-    n " I have a bad feeling about this, Ezbril."
+    show ezibrl2 at left
+    show enda2 at right with dissolve
+    n "I have a bad feeling about this, Ezbril."
     "You hear footsteps behind you."
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
-    v " Especially with that young lad with you. This is no place for children."
+    v "Especially with that young lad with you. This is no place for children."
     "Enda move closer to you as you take a step in front."
     e "I see the villagers here like to collect weapons."
     v "You seem to be a cultured man."
@@ -1946,18 +1973,22 @@ label town_square:
     "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
     "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
     e "We must get out of here fast. The villagers would be looking for any foreigners soon."
-    n " Here comes the chariot."
+    n "Here comes the chariot."
     jump chariot3
 
 label chariot3:
-
+    scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    show enda2 at right with dissolve
     n "Welcome aboard again."
     n "Let’s go!"
+    scene black with dissolve
     "Your mind is befuddled with what you discovered in the village. A cacophony of haphazard thoughts drifts you to slumber."
     $ renpy.pause(0.5)
+    scene chariot
+    show enda2 at right with dissolve
     stop sfx1
     stop sfx2
     n "We are back in the Greater Realm."
@@ -1966,8 +1997,12 @@ label chariot3:
 label mission3:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     n "We have returned, Your Majesty."
     "You bow deeply as Enda sprints out of the throne room."
+    hide enda2 with dissolve
+    show kehira at right with dissolve
     e "And we have discovered the true culprits of the disorder in the Mortal Realm."
     "The Queen arches a slender brow."
     e "The chaos of the Mortal Realm is the work of none but mortals themselves."
@@ -1981,11 +2016,15 @@ label mission3:
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
     e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
     "Footsteps scurry into the throne room."
+    hide ezibrl2 with dissolve
+    show enda2 at left with dissolve
     n "Your Majesty! There has been a catastrophe. I have been sent to inform you of a great destruction in the Mortal Realm."
     k "What happened, Enda?"
     n "The v-village. The village Ezbril and I just visited. It has been wiped out by a mighty flood."
     "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
     k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortal’s, yet the mortal’s have no powers over the flow of a  river. The mortal’s can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
+    hide enda2 with dissolve
+    show ezibrl2 at left with dissolve
     e "It must have been Cyvtis’s vengeance on the village. She brought excessive rains that flooded the river."
     k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
     k "Cyvtis is the Irul of Skies, but let us not forget the Irul who controls the rivers."
@@ -1994,17 +2033,27 @@ label mission3:
     k "I must warn you, Zartharacks is- unique."
     e "Unique?"
     k "I am sure you will soon see for yourself. Enda, escort Ezbril to Zaratharacks’s lair."
+    hide kehira with dissolve
+    show enda2 at right with dissolve
     n "As you wish, Your Majesty."
     jump chariottowater
 label chariottowater:
+    scene chariot with dissolve
+    show enda2 at right with dissolve
     n "This has been quite an adventure!"
     n "Let’s go back, hopefully for the last time."
+    hide enda2 with dissolve
     "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over."
-    "Ezbril."
-    "What have you done?"
+    scene dream with dissolve
+    "Ezbril.{w} Ezbril.{w} What have you done?"
+    scene chariot
+    show enda2 at right with dissolve
     n "Ezbril, let’s go."
     jump beforemaze3
 label beforemaze3:
+    scene aboveship with dissolve
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     n "Here we are. Zartharacks’s lair. Look, you can see the mortal’s tribe not far ahead."
     "Indeed, the mortal’s tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
     "You know that beyond the forest lies the village, now demolished by the river. The river flows through the remains of the village, swirling through the forest and the tribe, snaking from the tribe toward you and into-"
@@ -2030,6 +2079,7 @@ label beforemaze3:
     jump maze3start
 
 label maze3start:
+    scene underwater with dissolving
     play music "Maze.wav" fadeout 1.0 fadein 1.0
     # starting position is 2,1
     $pos = [2,1]
@@ -2233,8 +2283,10 @@ label maze3p3:
 
 label zarth:
     young2 "Looking for me?"
+    show ezibrl2 at left with dissolve
     e "Wha-"
     "Behind you stands the Irul of Waters- or you suppose he is an Irul, for he appears more similar in form to an ancient sea creature."
+    show zartharacks at right with dissolve
     z "Ah, Ezbril. It has been some years. Have you returned to taint my waters crimson again?"
     z "Let me guess, you are here to inquire about the flood, and my role in it."
     e "Inquire not so much, I was supposed to spy on you."
@@ -2242,6 +2294,8 @@ label zarth:
     z "Since you came this far, I shall show you the truth."
     z "Are you ready?"
     e "Ready for wha-?"
+    hide ezibrl2
+    hide zartharacks with dissolve
     "Zartharacks lifts a scaly arm and the water in the room gathers into a massive whirlpool, lifting you and the Irul of Waters into a travelling, swirling madness."
     "A few heartbeats later, you are back on your feet. But you are not standing in an underwater ship anymore."
     "You have been transported to a river’s side, and not far ahead you can see a sight familiar to you. The village."
@@ -2250,7 +2304,7 @@ label zarth:
     "You can make out small figures, tirelessly working through the waste, hoping to mine any essence of hope. To your relief, it looks like most of the villagers survived the flood."
     e "Why did you bring me here?"
     z "So you may see the truth for yourself."
-    z " Do you know what this is?"
+    z "Do you know what this is?"
     "Zartharcks motions toward the river. No, something in the river. A wall made of the sturdiest stone. Broken."
     e "That is a broken dam?"
     "And then it hits you. The truth."
@@ -2272,6 +2326,7 @@ label zarth:
     z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of the mortals?"
     "Zartharacks gathers a furious wave that threatens a second flood."
     "The world swirls, and a few heartbeats later, you are standing on lush green grass."
+    show battle with dissolve
     "Lush green grass now painted red."
     "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm. Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
     "Zartharacks curses under his breath. Row after row of waxy skin splattered crimson. Eyes of unsuspecting merchants and farmers staring forever into the skies. For once, the tribesmen and the villagers lay side by side. And that is when you see it-"
@@ -2288,29 +2343,33 @@ label zarth:
     "There is recognition in the tribesmen’s eyes as they let you through the flaps."
     "Resting across a murky blanket, Enda has fallen into a trance. His face is paler than the moon rising above, his cheek colder than the ice that glides on the winter sea. Blue stains his torn shirt, the telltale colour of an Irul’s sacred blood."
     "The lingering joy in his eyes sealed behind heavy lids, hidden from this undeserving world. His wound has been cleaned and covered with herbs, and two healers are draping a cotton cloth across his abdomen. They show no surprise at the pool of cobalt blood, although the archer is gawking."
-    z "Alas that these evil days should be ours. The boy needs an Irul healer. Waste no time, my currents shall carry you through the waters and into the Darker Realm."
+    show zartharacks on right with dissolve
+    z "Alas that these evil days should be ours. The boy needs an Irul healer. Waste no time, my currents shall carry you through the waters and into the Greater Realm."
     "The healers finish covering the wound. Without a word, they stand aside as you pick up Enda’s light form and walk out of the tent, right into the river."
     "Zartharacks remains on land as a gentle, yet strong wave lifts you off the river bed and toward the sea, and beyond the sea into the dark stream that no mortal has ventured into."
     jump conclusion
 label conclusion:
     #put a long pause here
-    k " You may enter."
+    scene throne_room with dissolve
+    show ezibrl2 at left
+    show kehira at right with dissolve
+    k "You may enter."
     e "Kehira"
-    e " I have answered your summon."
+    e "I have answered your summon."
     "The Queen of Darkness has ruled over the Greater Realm for as long as any Irul could remember. The Queen has been ancient since the first time you saw her, but now she appears weathered- older."
     k "Enda is being taken care of. Without the cloth hindering the flow of his blood, he would have been beyond hope, even for the best of the Irul healers."
     k "I want to discuss the events you witnessed in the Mortal Realm. What you reported upon your return is bewildering news indeed."
     e "I have told you all that I know, Kehira. The flood was in fact no work of an Irul. The fire, the flood, and the massacre were all consequences of the war between the mortals."
     k "Yes, and this is not the first time that the mortals have brought such suffering upon themselves. I fear that eventually, the Iruls might become a victim of their anguish as well. We almost lost an Irul to the evils of the mortals."
     k "I had hoped to reunite the two realms, as they were in the olden days. I had wanted the Iruls to grow stronger, as we once were when the mortals remembered us. I sought power and it blinded me, until we almost lost one of our own. I cannot risk the well being of the Iruls any longer."
-    k "Therefore, I have made the decision to withdraw from the Mortal Realm. The Iruls shall enjoy a blissful life in the Greater Realm, as we will seal the gates between the two realms for eternity."
+    k "Therefore, I have made the decision to withdraw from the Mortal Realm. The Iruls shall enjoy a blissful life in the Greater Realm, as we will seal the Gates between the two realms for eternity."
     e "Would you abandon the mortals, in order to save the Iruls?"
     k "As the Queen of Iruls, that is my priority. We may never get a chance to grow as strong as we once were, but the Iruls would be safe from the evils of the mortals."
     e "What about the mortals who still remember us? They are few in numbers, but they exist."
     e "What about the innocent younglings who had no perception on the chaos of their realm?"
     e "What about the villager who risked her life to carry Enda to safety, or the tribe healers who allowed him another chance at life?"
     e "While I have witnessed the worst of the mortals; I have also witnessed their kind and selfless spirit. I will not blame the entire realm for the wicked actions of a few."
-    k "Your heart is noble, Ezbril. However, the decision has been made and this is what the Iruls want. The gates shall be sealed."
+    k "Your heart is noble, Ezbril. However, the decision has been made and this is what the Iruls want. The Gates shall be sealed."
     e "If that is your resolve, Kehira, then I will stay in the Mortal Realm."
     "The Queen is silent. Pondering."
     k "If you leave now, you will never be able to return to the Greater Realm again."
@@ -2319,8 +2378,11 @@ label conclusion:
     "A faint smile dances across the Queen’s lips."
     k "You have been dismissed, Ezbril, Irul of Chaos and Destruction."
     #transition from throne room to gates
-    "You stand before the mighty gates. You turn around to catch one last glance of your home."
+    scene gates with dissolve
+    "You stand before the mighty Gates. You turn around to catch one last glance of your home."
     "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     "He begins to rasp between muffled sobs"
     n "Kehira told me that you are going to l-leave."
     e "Good to see you up and moving."
@@ -2332,11 +2394,12 @@ label conclusion:
     n "I have travelled with you into the Mortal Realm and back. I have witnessed all that you have witnessed, and I also believe that there is hope for the mortals."
     n "I am begging you, take me on your journey!"
     "You consider Enda’s request. And then you smile."
-    e " I suppose I would not mind a companion."
+    e "I suppose I would not mind a companion."
     "Enda’s delightful laugh brightens the skies as the two of you step out of the Greater Realm one last time."
     jump epilogue
 label epilogue:
     #pause for a while
+    scene epilogue
     "That day, Ezbril and his companion embarked on their journey to bring light into the lives of mortals. Behind them, the magical Gates between the two realms sealed forever."
     "Some say that his powers faded over time and Ezbril died of old age. Others believe that the darkness of the mortals rusted his heart, and he fell into the ways of the evil."
     "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
