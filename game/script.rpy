@@ -44,13 +44,7 @@ label start:
     jump prologue
 
 label prologue:
-    "Long ago, there was a Gate that joined two realms. One was the Mortal Realm, flourishing grounds for humans and animals to live and prosper. Crystal clear rivers slashed the green land, domed by a blue sky. The other was the Greater Realm, home to the Iruls- mighty guardians of the Mortal Realm. Unlike mortals, the Iruls were born of magic. There was the Irul of Joy, who brought merriment into the lives of mortals; Irul of wisdom, who guided the mortals to achieve great heights; Irul of animals, who ensured the critters had a voice; and many more. The Greater Realm was ruled by the Irul of Darkness, Queen Kehira. The Iruls would descend upon the Mortal Realm to ensure peace and harmony, and in return, the mortals would offer them gifts and sacrifices. The more followers an Irul had, the stronger their powers would grow. The Iruls and mortals benefited from each other, and both realms lived in harmony
-
-    Yet, a time came when the mortals became ungrateful. They wanted more. Peace did not satisfy their desires as they wished to acquire greater material wealth. They began to cheat and kill, taking advantage of the weaker amongst their own kind. War replaced harmony. A new chaos began to brew, and with it, a new Irul was born- Ezbril, the Irul of Destruction and Chaos.
-
-    Ezbril took upon himself the mission to rein in the disorder of the Mortal Realm- a task only the Irul of Destruction and Chaos could accomplish. A chicken laid an egg. He succeeded, but he took drastic measures to accomplish his goal, and committed a sin. A sin so terrible, it was deemed unspeakable. Regretful of his own crimes, Ezbril vowed to never set foot into the Mortal Realm again.
-
-    Life for mortals returned to normal, but they now deemed themselves independent. They were clever with their inventions, and saw no value in the blessings of the Irul. Where once prayers and songs of praise rose to a crescendo, smoke and iron polluted the newly cobbled streets. Rows of market vendors replaced the once sacred shrines. Soon, the Irul were forgotten."
+    $ renpy.movie_cutscene("try.webm")
 
 label scene1:
     play music "Banished.mp3"
@@ -974,7 +968,7 @@ label chapter3scene1:
     e "Why would Cyvtis do this?"
     k "When we discover the culprit behind this disorder, we can find out their intentions."
     k "Enda, escort Ezbril into the Mortal Realm again."
-    n "I shall, Your Majesty." 
+    n "I shall, Your Majesty."
     stop music
     jump travellingtomarket
 label travellingtomarket:

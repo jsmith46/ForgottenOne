@@ -1,45 +1,52 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing the color property of style label_text:
-  File "renpy/common/00start.rpy", line 82, in _init_language
-    renpy.change_language(language)
-  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
-    __update()
-  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
-    renpy.style.rebuild()
-Exception: Color string u'7d323aa' must be 3, 4, 6, or 8 hex digits long.
+While running game code:
+  File "game/script.rpy", line 60, in script
+    young "Ezbril? Irul of Destruction and Chaos, Her Majesty summons you. "
+  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
+    _window_show()
+  File "renpy/common/000window.rpy", line 60, in _window_show
+    renpy.with_statement(trans)
+IOError: Couldn't find file 'prologue.mp4'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\bootstrap.py", line 316, in bootstrap
-    renpy.main.main()
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 574, in main
-    run(restart)
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\main.py", line 71, in run
-    renpy.translation.init_translation()
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\translation\__init__.py", line 558, in init_translation
-    renpy.store._init_language()  # @UndefinedVariable
-  File "renpy/common/00start.rpy", line 82, in _init_language
-    renpy.change_language(language)
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\translation\__init__.py", line 646, in change_language
-    i()
-  File "renpy/common/00stylepreferences.rpy", line 124, in _m1_00stylepreferences__change_language
-    __update()
-  File "renpy/common/00stylepreferences.rpy", line 96, in _m1_00stylepreferences__update
-    renpy.style.rebuild()
-  File "style.pyx", line 795, in renpy.style.rebuild
-  File "style.pyx", line 788, in renpy.style.build_styles
-  File "style.pyx", line 680, in renpy.style.build_style
-  File "style.pyx", line 680, in renpy.style.build_style
-  File "style.pyx", line 709, in renpy.style.build_style
-  File "style.pyx", line 706, in renpy.style.build_style
-  File "gen/style_functions.pyx", line 757, in style_functions.color_property
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\color.py", line 158, in __new__
-    raise Exception("Color string {!r} must be 3, 4, 6, or 8 hex digits long.".format(c))
-Exception: Color string u'7d323aa' must be 3, 4, 6, or 8 hex digits long.
+  File "game/script.rpy", line 60, in script
+    young "Ezbril? Irul of Destruction and Chaos, Her Majesty summons you. "
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 671, in execute
+    statement_name("say")
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 45, in statement_name
+    i(name)
+  File "renpy/common/000window.rpy", line 98, in _window_auto_callback
+    _window_show()
+  File "renpy/common/000window.rpy", line 60, in _window_show
+    renpy.with_statement(trans)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\exports.py", line 1601, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\display\core.py", line 2251, in do_with
+    clear=clear)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\display\core.py", line 2702, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, **kwargs)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\display\core.py", line 3130, in interact_core
+    renpy.audio.audio.interact()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1107, in interact
+    periodic()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1060, in periodic
+    six.reraise(exc[0], exc[1], exc[2])
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 1038, in periodic_thread_main
+    periodic_pass()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 979, in periodic_pass
+    c.periodic()
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 457, in periodic
+    topf = load(self.file_prefix + filename + self.file_suffix)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\audio\audio.py", line 73, in load
+    rv = renpy.loader.load(fn)
+  File "E:\Applications\renpy-7.3.5-sdk\renpy\loader.py", line 576, in load
+    raise IOError("Couldn't find file '%s'." % name)
+IOError: Couldn't find file 'prologue.mp4'.
 
 Windows-8-6.2.9200
-Ren'Py 7.3.3.568
+Ren'Py 7.3.5.606
 Forgotten One 1.0
-Sun Dec 01 21:36:41 2019
+Thu Dec 05 21:41:42 2019
