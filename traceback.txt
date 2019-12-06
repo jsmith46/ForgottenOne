@@ -1,15 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
+<<<<<<< Updated upstream
   File "game/script.rpy", line 908, in script
     else:
   File "game/script.rpy", line 908, in <module>
     else:
 NameError: name 'no_shepherd' is not defined
+=======
+  File "game/script.rpy", line 1239, in script
+    jump meanie_take_pouch
+ScriptError: could not find label 'meanie_take_pouch'.
+>>>>>>> Stashed changes
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
+<<<<<<< Updated upstream
   File "game/script.rpy", line 908, in script
     else:
   File "E:\Applications\renpy-7.3.5-sdk\renpy\ast.py", line 1832, in execute
@@ -21,8 +28,21 @@ Full traceback:
   File "game/script.rpy", line 908, in <module>
     else:
 NameError: name 'no_shepherd' is not defined
+=======
+  File "game/script.rpy", line 1239, in script
+    jump meanie_take_pouch
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\ast.py", line 1697, in execute
+    rv = renpy.game.script.lookup(target)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\script.py", line 894, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'meanie_take_pouch'.
+>>>>>>> Stashed changes
 
 Windows-8-6.2.9200
 Ren'Py 7.3.5.606
 Forgotten One 1.0
+<<<<<<< Updated upstream
 Thu Oct 24 21:36:16 2019
+=======
+Thu Dec 05 17:48:56 2019
+>>>>>>> Stashed changes

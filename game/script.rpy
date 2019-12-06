@@ -58,6 +58,7 @@ label scene1:
     # These display lines of dialogue.
     r "Guilty! Is there a punishment worthy of what you have done?"
 
+<<<<<<< Updated upstream
     "Another god enters"
 
     r "Sister? Kehira, you are interrupting an important tria- Actually, you
@@ -68,6 +69,20 @@ label scene1:
       I hereby pronounce you guilty."
     r "You shall be banished to the Darker Realm, where my sister will ensure
     that you are punished for eternity."
+=======
+label scene2:
+    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
+    scene throne_room
+
+    "It has been many years since you visited the Queen’s throne room, but it has not changed at all from what you remembered."
+    "Great chandeliers of black crystal glare at you from above. Darkness, her favourite aura, engulfs every corner, and you never quite discovered how large this room really is."
+    show kehira at right
+    "Kehira stands before her dark throne, her mighty power almost tangible from across the great room."
+    "You are not sure what the Irul Queen wants from you.
+    A smirk crosses blood red lips as a slender finger beckons you forward."
+    show ezibrl2 at left
+    e "Your Majesty."
+>>>>>>> Stashed changes
 
     e "Please! I am innoc-"
 
@@ -79,8 +94,14 @@ label scene1:
 
     jump scene2
 
+<<<<<<< Updated upstream
 label scene2:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
+=======
+    e "Kehira, you know that I have vowed to never return to the Mortal Realm. You must seek someone else. "
+
+    k "You were the only one who could control it before. Ezbril, Irul of Destruction and Chaos, you must control this chaos again. "
+>>>>>>> Stashed changes
 
     "You are now in another great throne room, dimmer than the last one, but
     equally as magnificent and clean. Kehira sits upon her dark throne, a white
@@ -98,6 +119,7 @@ label scene2:
 
     e "I did not!"
 
+<<<<<<< Updated upstream
     e "You believe me?"
 
     k "The Mortal Realm crisis is a series of disasters causing chaos in the
@@ -110,13 +132,28 @@ label scene2:
     that only an Irul of Chaos can cause so much suffering."
     k "However, as the Irul Queen of Darkness, I realize that this could not be
     the work of one Irul alone."
+=======
+    k "I have someone who will escort you. Enda, come forward."
+    hide kehira at right
+    show enda2 at right
+    "A small figure cautiously emerges from behind the throne. You have never seen such a young Irul before."
+>>>>>>> Stashed changes
 
     e "Then why am I here? Will I be punished? I did no-"
 
+<<<<<<< Updated upstream
     k "Relax, I will not punish you yet. I have much use for you."
 
     e "Me? What could the Irul Queen of Darkness want from a mere Irul of
     Chaos?"
+=======
+    "You recognize that voice."
+    hide enda2 at right
+    show kehira at right
+    k "Ezbril, meet Enda, my personal messenger."
+    k "Enda is a lesser-Irul, born after the mortals forgot us. Because the Iruls get their powers from the faith of the mortals, Enda’s powers are very limited."
+    k "Unlike you and I, his life can be extinguished with a mortal wound. If we don’t regain mortal followers, every Irul born afterward would be a lesser-Irul."
+>>>>>>> Stashed changes
 
     k "You are going to the Mortal Realm to see firsthand what this destruction
     looks like. We will be able to determine from there who may have started
@@ -138,7 +175,15 @@ label scene2:
     agreed. But I didn’t get a chance to mention that you will also be joining
     us."
 
+<<<<<<< Updated upstream
     "Kehira turns to look at Ezbril, who is looking confused by Enda’s entrance"
+=======
+label chariot1:
+    scene chariot
+    n "Easy there!"
+    n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
+    n "Now hold on tight…"
+>>>>>>> Stashed changes
 
     n "That is excellent! We need to get prepared as quickly as possible! The
     mortals can not suffer much more. I have found a way to get us there safely,
@@ -147,6 +192,10 @@ label scene2:
     "A wave of confusion falls upon Ezbril but its clear that Kehira is expecting
     him to follow the small child. He flustardly run after Enda."
 
+<<<<<<< Updated upstream
+=======
+    n "Wake up, Ezbril. We have arrived."
+>>>>>>> Stashed changes
     jump chapter2scene1
 
 label chapter2scene1:
@@ -159,6 +208,7 @@ label chapter2scene1:
     have relied on the forest’s generous blessings for wood and food. This place
      is also home to many animals."
 
+<<<<<<< Updated upstream
     n "In the heart of the forest you will find Nazareth, the Irul of Spring,
     Harvest, and Life. For eons, he has travelled forest to forest, village to
     village, nourishing and looked after every being that breathes."
@@ -191,6 +241,14 @@ label chapter2scene1:
     "Enda hands you 5 glowing gemstones and teleports away."
 
     e "... Why am I always stuck in this mess?"
+=======
+    e "Magic of destruction? But I am the Irul of Destruction and Chaos, and I haven’t set foot in the Mortal Realm in ages."
+
+    n "That is why we must find out who is responsible for this. Let’s start by exploring the forest, where Her Majesty sensed the foul magic."
+
+    n "I have some glowing gemstones you can use to mark your path. Put them down anywhere and if we see them we will know that we are walking in circles."
+
+>>>>>>> Stashed changes
     $trees = False
     $peace = False
     $orbs = 5
@@ -225,6 +283,7 @@ label chapter2scene1:
     $same = False
     $lake1seen = False
     $log = False
+    $endaexplained = False
     jump forest0
 
 label forest0:
@@ -234,9 +293,13 @@ label forest0:
             "Walking through the forest you can now see why Enda said this forest is like a maze."
             jump forest1
         "Go south and investigate the village":
+<<<<<<< Updated upstream
             "The village is visible in the distance and from here it looks very
             peaceful. The tribe probably relies on the forest for wood and food."
             "I should probably enter the forest now."
+=======
+            n "The mortals from the tribe rely on the Forest of Nourishment for food and wood. I would like to explore the mortal ways, but we must find out what is causing chaos in the forest."
+>>>>>>> Stashed changes
             jump forest0
 label forest1:
     if  same == False:
@@ -339,7 +402,16 @@ label forestb1:
             jump forestb1
 label forest2:
     if  same == False:
+<<<<<<< Updated upstream
         "You come across an intersection with 4 choices: south, east, west and north."
+=======
+        "You come across an intersection with 4 choices: north, west, east and south."
+        "In the center of this crossroad is a tree that dwarfs all other visible trees."
+    if endaexplained == False:
+        n "Woah that has to be the biggest tree I've ever seen."
+        n "There are incredible sights in the Mortal Realm."
+        $endaexplained = True
+>>>>>>> Stashed changes
     if orb_forest2 == True and same == False:
         if orb_forest2c == 1:
             "You see a blue gemstone lying on the ground, you must have been here before."
@@ -914,11 +986,18 @@ label forestcenter:
     e "The Irul of Spring, Harvest and Life … destroying the ancient forest?
     I must report this to Her Dark Majesty."
     "Nazareth raises his arms, like a falcon about to take flight. He seems to
+<<<<<<< Updated upstream
     hesitate a moment. Suddenly, he twirls and shoots toward the skies. Time
     stops. You are not standing in a forest anymore."
     "The entire east half of the forest has vanished, leaving behind no blade
     of grass or whisper of what was once magical and green. You can easily make
      out the small tribe from here. And in front of you…"
+=======
+    hesitate a moment. Suddenly, he twirls and shoots toward the skies."
+    "Time stops. You are not standing in a forest anymore."
+    "The entire west half of the forest has vanished, leaving behind no blade of grass or whisper of what was once magical and green."
+    "Now that the trees are gone, you can easily make out the small tribe from here; the tribe that once sat along the forest’s edge now stands bare in an open field. And in front of you-"
+>>>>>>> Stashed changes
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
     toward you, the inferno leaping from tree to tree."
     "But you realize that you are safe. There are no trees, no vegetation left
@@ -936,6 +1015,7 @@ label forestcenter:
 
 label chapter3scene1:
     scene throne_room
+<<<<<<< Updated upstream
     "When you arrive the room appears pitch black, your eyes haven't adjusted from being in the bright forest"
     "You can make out Kehira, impatiently waiting"
     e "(bows deeply) Your Majesty, we are back, and we bring news."
@@ -958,16 +1038,62 @@ label chapter3scene1:
     k "It's decided, Enda will take you to the village where Cyvtis has been spotted and you can figure out her role in this crisis."
     "You proceed to follow Enda again, hoping that this madness will end soon so you can go back to your normal life."
     stop music
+=======
+    n "We are back, your Majesty. "
+    "You bow deeply"
+    e "Your Majesty, we bring news."
+
+    k "Oh? You have returned earlier than I expected, what have you discovered"
+    menu:
+        "{i}'The ancient forest is burning.'":
+            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the southern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
+        "{i}'Nazareth destroyed half of the ancient forest.'":
+            k "Such nonsense you speak, Ezbril. Nazareth has nurtured the ancient Forest of Nourishment for eons, yet you claim that he would destroy his very own creation? How did it come to this?"
+            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the southern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
+    k "A bold move by Nazareth."
+    k "Even so, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze. I cannot help but wonder what might have started the fire."
+    "Kehira sharply glances your way."
+    k "Did you lose your control again, Ezbril?"
+    n "No, he did not!"
+    n "-Your Majesty."
+    n "I was with Ezbril the whole time, Your Majesty. We did not know about the fire until half the forest was already ablaze. If Nazareth hadn’t destroyed the southern half, we would have been trapped amongst the flames ourselves."
+    "The Queen seems to contemplate something."
+    k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
+    e "Who brings fire into the Mortal Realm?"
+    k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm. She could have harnessed this power again and set the forest on fire."
+    k "Infact, I have been informed that Cyvtis was in that area recently."
+    e "Why would Cyvtis do this?"
+    k "When we discover the culprit behind this disorder, we can find out their intentions."
+    k "Enda, escort Ezbril into the Mortal Realm again."
+    n "I shall, Your Majesty."
+    stop music
+    jump travellingtomarket
+label travellingtomarket:
+    n "Looks like I get to travel with you once more."
+    n "Mortal Realm, here we come again!"
+    "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
+    "{i}'Ezbril. The mortals need you. You must restore peace into the Mortal Realm again.'"
+    n "You sure get tired a lot. In any case, here we are."
+>>>>>>> Stashed changes
 
     jump market_pre_intro
 label market_pre_intro:
     play music "Forest.wav"
+<<<<<<< Updated upstream
     n "Here we are, the village that I saw Cyvtis heading into. We are on the opposite side of the ancient forest as last time."
     n "The fire must have started from around here."
     n "I'm off, keep doing a great job!"
+=======
+    n "Over there is north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you a village where Cyvtis was reportedly spotted by a few Irul."
+    e "Is this the same village that we saw before?"
+    n "Oh no, that one by the forest was a tribe, located at the southern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
+    n "On the other hand, the villagers are quite innovative with their techniques and love machinery over nature."
+    n "Let’s go find what brings Cyvtis to this village."
+>>>>>>> Stashed changes
     jump market_intro
 
 label market_intro:
+    $ market_intro_flag = True
     $ lady_flag = False
     $ lady_riddle = False
     $ apple_flag = False
@@ -1009,6 +1135,7 @@ label market_entrance:
             jump market_east
 
 label market_west:
+<<<<<<< Updated upstream
     "You have never been to a human marketplace, and you did not know what to
     expect. It seems that the entire village, no, all of the Mortal Realm has
     decided to gather here on consensus."
@@ -1016,6 +1143,19 @@ label market_west:
     "Merchants shouting their wares, buyers gathering up items as fast as they
     can, human younglings shoving and elbowing as they race through the crowd."
     "You tug close your hood, hoping to dissolve within its comforting shadow."
+=======
+    if (market_intro_flag):
+        "You have never been to a human marketplace, and you did not know what to
+        expect. It seems that the entire village, no, all of the Mortal Realm has
+        decided to gather here on consensus."
+        "The marketplace needs no Irul of Chaos, for it has plenty of chaos of its own."
+        "Merchants shouting their wares, buyers gathering up items as fast as they
+        can, human younglings shoving and elbowing as they race through the crowd."
+        "You tug close your hood, hoping to dissolve within its comforting shadow."
+        "{i}'Stop! Thief!'"
+        "You see a masked man running across the marketplace, a leather pouch in one hand and a broom stick in another. Thrusting villagers aside, he runs off into a shaded passageway."
+    $market_intro_flag = False
+>>>>>>> Stashed changes
     jump block_1
 
 
@@ -1023,15 +1163,15 @@ label market_east:
     "Even from this distance, you can see the ghastly orange grin taking what
     was once sacred and alive and casting it into the sky, first glowing red
     then cooling to black. Nazareth has bound the angry flames, but how long
-    shall the inferno rage? But that is not your task."
-    "You must find Cytvis and figure out why she let the Sun ignite the ancient
+    shall the inferno rage?"
+    "But that is not your task. You must find Cytvis and figure out why she let the Sun ignite the ancient
     forest."
 
     jump market_entrance
 
 label block_1:
-    "You are standing inside of the market place, infront of the exit which you
-    can see to the east. On the north you can see a narrow path through two vendor
+    "You are standing inside of the marketplace, in front of the exit which you
+    can see to the east. On the north you can see a path through two vendor
     tents. On the west you can see a narrow passage, shaded and quiet, contrary
     to the rest of the marketplace."
     menu:
@@ -1053,32 +1193,43 @@ label lady:
         if lady_flag == False:
 
             "But the passage is blocked by a sobbing lady, pure agony on her
+<<<<<<< Updated upstream
             young
             face. "
+=======
+            elderly face. "
+>>>>>>> Stashed changes
 
             l "(sobbing) Sigh. Sig, sig, sob."
             e "..."
-            l "Oh, good sir, please help me! I just lost my pouch, it was full
+            l "Oh, good sirs, please help me! I just lost my pouch, it was full
             of coins."
 
             menu:
                 "Approach her":
                     jump help_lady
                 "Leave":
+<<<<<<< Updated upstream
 
                     jump meanie_to_lady
+=======
+                    jump meanie_to_lady
+
+>>>>>>> Stashed changes
         else:
-            l "Oh, it’s you, good sir! Did you find my pouch?"
+            l "Oh, it’s you, good sirs! Did you find my pouch?"
             jump lady_menu
     else:
         jump block_4
 
 label help_lady:
-    e "What did it look like?"
+    n "Ma’am, what did the pouch look like?"
     l "It was a brown leather pouch, I had coins in it to purchase goods from
     the market. I put it down to examine some sweet apples, but when I looked
     again, it was gone. Oh, it must have been stolen!"
     l "Oh, sob, sob."
+    n "Ezbril, it must be the man we saw running through the market when we arrived."
+    e "Indeed."
     $ lady_flag = True
     jump lady_menu
 
@@ -1095,21 +1246,24 @@ label lady_menu:
 
 
 label meanie_to_lady:
-    "You are unskilled in the art of being a gentleman"
+    n "Come on, Ezbril! Could we not help a crying lady?"
+    e "We must focus on our task."
     hide ezibrl2
     hide lady2
     jump block_1
 
 label give_pouch:
-    l "Oh good sir, thank you! Thank you so much!"
+    l "Oh good sirs, thank you! Thank you so much!"
     l "Wait here for just a moment."
     "The Lady rushes to a nearby merchant who trades her a dozen apples."
     l "Here, please take this as a token of my gratitude."
     "The Lady hands you a sweet apple."
     $ apple_flag = True
-    l "Oh! The kids must be getting hungry. I shall be on my way."
+    l "Oh! The grandkids must be getting hungry. I shall be on my way."
     "The Lady walks away, humming a joyous tune. The path is clear now for you
     to proceed."
+    n "Such a sweet ma'am."
+    e "I would warn you against growing too fond of the mortals."
     $ gone_girl = True
     hide ezibrl2
     hide lady2
@@ -1118,11 +1272,11 @@ label give_pouch:
 label lady_riddle:
     if lady_riddle == False:
         $ lady_riddle = True
-        e "I have not seen your pouch, but is there another way I can help you?"
-        l "Would you help me, good sir?"
+        n "We have not seen your pouch, but is there another way we can help you?"
+        l "Oh, would you help me, good sirs?"
         l "The villagers here love to trade in riddles. The good merchant over
         there said he would let me have a dozen of those sweet apples if I can
-        answer his riddle. You look wise, good sir. Can you help me solve the
+        answer his riddle. You look wise, good sirs. Can you help me solve the
          merchant’s riddle?"
         l "An apple has rolled its way down into a hole. This particular hole
         is extremely deep and has a sharp bend in the middle, making the apple
@@ -1130,10 +1284,10 @@ label lady_riddle:
         l "To make matters worse, the ground around the hole is made of hard
         clay, so digging the ball out isn't an option. However, you have
         something incredibly commonplace on hand that you can use to get the
-        ball out. Answer in five letters."
+        ball out. He told me the answer has five letters."
         jump lady_riddle_answer
     else:
-        l "Good sir, would you like to try the riddle again?"
+        l "Good sirs, would you like to try the riddle again?"
         jump lady_riddle_answer
 
 label lady_riddle_answer:
@@ -1159,7 +1313,8 @@ label lady_riddle_answer:
                 jump leave_nicely
 
 label leave_nicely:
-    e "My apologies, but I must be on my way."
+    e "My apologies, but we must be on our way."
+    n "We hope you find your pouch!"
     hide ezibrl2
     hide lady2
     jump block_1
@@ -1186,13 +1341,18 @@ label thief:
         show ezibrl2 at left
         show thief2 at right
         if thief_flag == False:
+<<<<<<< Updated upstream
             "Before you stand, you notice a rough looking lanky man."
+=======
+            "Before you stand, you notice a rough looking lanky man.
+            You recognize him as the guy running away earlier."
+>>>>>>> Stashed changes
             "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
             "The man senses your presence. For what seems like eternity, you
             stare at each other. Finally, he grins broadly."
-
+            e "Enda, stand back."
             t "(smirking) Nehehe. I don’t recall seeing you around. You must be
             new here."
             jump thief_menu
@@ -1203,10 +1363,17 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
+<<<<<<< Updated upstream
         "Ask for pouch":
+=======
+        "Ask for pouch nicely":
+            e "I think that pouch belongs to someone else. Give it to me."
+>>>>>>> Stashed changes
             jump take_pouch
         "Leave":
             "You decide it is in your best interest to stay out of trouble."
+            n "That was a truly terrifying mortal."
+            e "He is a craven."
             hide ezibrl2
             hide thief2
             jump block_1
@@ -1231,10 +1398,14 @@ label thief_menu2:
                 jump thief_riddle
             else:
                 t "Let’s test you. Nehehehe."
+<<<<<<< Updated upstream
                 t "Spell 'Roast' out loud five times."
                 t "..."
                 t "Did you do it?"
                 t "Now... what do you put in a toaster?"
+=======
+                t "Give me food, and I will live; give me water, and I will die. What am I?"
+>>>>>>> Stashed changes
             jump thief_riddle
         "Leave":
             t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here"
@@ -1243,18 +1414,18 @@ label thief_menu2:
             jump block_1
 
 label thief_riddle:
-    $ answer = renpy.input("What do you put in a toaster?")
-    if (answer.lower() == "you have toasters in this world?") or (answer.lower() == "toasters exist in this world?"):
-        t "No, but this joke works best with toasters. EHEHEHE."
-    elif (answer.lower() == "bread"):
+    $ answer = renpy.input("What am I?")
+    if (answer.lower() == "fire"):
         $ t_riddle = True
 
     if t_riddle == True:
+        t "That answer should have been on the tip of my tongue with what is happening in the forest"
         t "You have my respect, nehehehe. Here, you can have this humble pouch. I can trade goods far more valuable with the answer you gave me, ahahaha."
         "You hear the jingle of coins as the thief tosses you the small pouch."
         t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
         "The thief takes a step back, and melts into the shadows."
-        e "Village chief? Murderer? What was he talking about?"
+        n "Village chief? Murderer? What was he talking about?"
+        e "This village might harbor secrets we have yet to discover."
         $ pouch = True
         $ no_thief = True
         hide ezibrl2
@@ -1303,10 +1474,15 @@ label baker:
             "Sweet, welcoming aroma of cinnamon, honey, - and something you can only describe as “warm”-
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
+<<<<<<< Updated upstream
             you wonder when the Iruil would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
             "A stout man in white napron flashes you a grin as he presents a steel tray arranged with buttered buns."
+=======
+            you wonder when the Irul would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
+            "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
+>>>>>>> Stashed changes
 
-            b "Good morrow, Sir! Have not seen you around before. Might you be a traveller?"
+            b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
             e "Indeed."
             b "Welcome then! Try the best bread in the village, and you shall eat most well today. This one is on the house."
             "The golden glaze of melted butter on fresh bread is inviting, indeed."
@@ -1319,15 +1495,19 @@ label baker:
 label baker_menu:
     menu:
         "Accept the bread":
+            "You and Enda grab a bun each."
+            n "Thank you, sir!"
             e "Thank you kindly."
             "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite.
             It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
-            "The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself.
-            The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
+            "The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself."
+            "The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
             $ baker_flag = True
             jump eat_bread
         "Leave":
-            "The aroma of maken good might be mesmerizing, but you must stay focused on your task"
+            "The aroma of baken good might be mesmerizing, but you must stay focused on your task"
+            n "Those buns…"
+            n "Looked delicious."
             hide baker2
             hide ezibrl2
             jump block_4
@@ -1343,11 +1523,13 @@ label baker_menu2:
             if baker_riddle == True:
                 jump help_baker
             else:
-                e "I can try to help you with your problem. What might it be, Sir?"
+                n "A shortcut would be nice, for I am starting to feel weary."
+                e "We can try to help you with your problem. What might it be, Sir?"
                 jump help_baker
         "Leave":
-            e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
+            e "We thank you for your offer, Sir, but We would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
+            n "Thank you for the bread."
             hide baker2
             hide ezibrl2
             jump block_2
@@ -1360,12 +1542,15 @@ label help_baker:
     \nDaniel: 'Brock's totally lying!'"
     b "I know that only one of these rascals are telling the truth and all the others are lying. Can you figure out who is telling the truth?"
     $ answer = renpy.input("Who ate the loaves? (Aerith, Brock, Cammy, Daniel)")
-    if answer.lower() == "daniel":
+    if answer.lower() == "cammy":
         $ baker_riddle = True
     else:
         b "No, I don't think it's them."
     if baker_riddle == True:
         b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
+        "You proceed through the golden bakery."
+        n "If I was a mortal, I would like to be a baker."
+        e "The Irul should learn some of the mortals’ ways."
         $ no_baker = True
         hide baker2
         hide ezibrl2
@@ -1411,6 +1596,8 @@ label bridge_keeper:
                     jump take_bridge
                 "Leave":
                     "You are unsure if the ropes would support you across. Perhaps there is another way to cross the river."
+                    n "I saw a sturdier looking bridge over there. Eastward, I think."
+                    e "Let’s take a look."
                     jump block_3
         else:
             jump take_bridge
@@ -1424,6 +1611,7 @@ label take_bridge:
     show bridgekeep2 at right
     bk "Hold it right there! None shall pass without answering the riddle."
     e "Most bizzare."
+    n "This is the strangest mortal village I have visited."
     menu:
         "Answer riddle":
             if bk_riddle == True:
@@ -1439,8 +1627,15 @@ label take_bridge:
             hide bridgekeep2
             jump block_3
 label solve_bk:
+<<<<<<< Updated upstream
     bk "Four people need to cross a bridge in the middle of the night. The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
     bk "Tom can cross in 1 minute, John can cross in 2 minutes, Sally can cross in 5 minutes, and Connor can cross in 10 minutes. If two people cross together they go as fast as the slower person. What is the shortest amount of time it would take the four of them to all cross?"
+=======
+    bk "Four people need to cross a bridge in the middle of the night."
+    bk "The bridge can only hold two or less people at any time and they only have one flashlight so they must travel together (or alone). The flashlight can only travel with one person so every time it crosses the bridge it must be carried back."
+    bk "Tom can cross in one minute, John can cross in two minutes, Sally can cross in five minutes, and Connor can cross in ten minutes. If two people cross together they go as fast as the slower person."
+    bk "What is the shortest amount of time it would take the four of them to all cross?"
+>>>>>>> Stashed changes
     $ answer = renpy.input("What is the shortest amount of time it would take the four of them to all cross? (Answer numerically, e.g. 1)")
     if answer == "17":
         $ bk_riddle = True
@@ -1451,6 +1646,8 @@ label solve_bk:
     if bk_riddle == True:
         bk "Hmph. You have answered correct."
         "Before you realize it, the man leaps into the river- yet you do not hear the splash of water. He was indeed hiding under the bridge."
+        n "Does he live there?"
+        e "He might."
         "The bridge is now clear for you to pass."
         hide ezibrl2
         hide bridgekeep2
@@ -1465,7 +1662,9 @@ label bribe_bk:
     The clink of the few coins grab the man’s attention as you reach into the folds of your cloak. You fish out the leather pouch.
     Without looking away, the Bridge Keeper steps aside, leave a path wide open."
     bk "Humph. This shall do. You may pass."
-    "You hold out the pouch, but the man is already snatching it away. A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
+    "You hold out the pouch, but the man is already snatching it away."
+    n "Hey!"
+    "A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
     e "..."
     e "Despicable."
     "You continue your trek across the bridge."
@@ -1514,16 +1713,16 @@ label merchant:
             "The merchant stands leaning against his wagon,
             heedless of the path he has blocked. Your approach draws his attention."
 
-            m "Hail, old friend! Would you be interested in some fine, silky furs?"
+            m "Hail, old friend! Would you be interested in some fine, silky furs? Perhaps a warm pelt for the young lad?"
             "You ignore him."
-            m "I tell you, I did not trade these furs from your tribesmen!"
+            m "I tell you, I did not trade these furs from yon tribesmen!"
 
             menu:
                 "Talk to him":
                     jump talk_merchant
 
                 "Leave":
-                    "You have no interest in trading with the mortals. "
+                    "You have no interest in trading with the mortals."
                     hide ezibrl2
                     hide merchant2
                     jump block_7
@@ -1542,6 +1741,8 @@ label talk_merchant:
     m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you."
     m "They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
     m "Alas, the moment I mentioned the tribesmen here, the villagers have avoided my wagon. This is woodness, old friend!"
+    n "I don’t understand, why would the mortals manifest such hate against their own kind?"
+    e "You have a lot to witness, Enda."
     "The horse whips its tail to bat off a fly."
     m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen. Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
     $ merchant_flag = True
@@ -1575,7 +1776,7 @@ label merchant_help:
         jump merchant_menu
     if merchant_riddle == True:
         m "Most beauteous, old friend!"
-        "He moves his wagon just enough for you to proceed. "
+        "He moves his wagon just enough for you to proceed."
         m "I will see you anon!"
         $ no_merchant = True
         hide ezibrl2
@@ -1588,6 +1789,7 @@ label feed_horse:
     "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you.
     The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
     "The greedy beast has moved the wagon just enough for you to proceed."
+    n "Clever play, Ezbril!"
     hide ezibrl2
     hide merchant2
     jump block_8
@@ -1604,24 +1806,26 @@ label block_8:
 label shepherd:
     "A glance skyward, and you see the clouds gathering up ahead.
     Cyvtis, the Irul of the skies, must be close by."
+
     if no_shepherd == False:
         show ezibrl2 at left
         show shepard at right
         if shepherd_flag == False:
             "Still gazing upward,
-            you slam into a cloud on the ground- no, a lamb?
-            Up ahead, you see a vast heard of sheep, a mirror image to the cloudy sky above."
+            you slam into a cloud on the ground- no, a lamb?"
+            n "How lovely! Come here, little lamb."
+            "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
             "Amid the mass of rolling cotton walks a single human, already glancing your way.
             Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
 
-            s "Good day, maister! What brings you upon this humble herd?"
+            s "Good day, misters! What brings you upon this humble herd?"
 
             menu:
                 "You wish to proceed":
-                    e "I would like to proceed to the other side of this herd."
+                    e "We would like to proceed to the other side of this herd."
                     s "Oh! Apologies, mister. We must be blocking your path."
                     $ shepherd_flag = True
-                    s "I will move this heard to the pasture yonder, but I need to make sure I have everyone. Could you help me figure out how many sheep there are?"
+                    s "I will move this herd to the pasture yonder, but I need to make sure I have everyone. Could you help me figure out how many sheep there are?"
                     jump help_shepherd
 
                 "Leave":
@@ -1651,8 +1855,10 @@ label help_shepherd:
 
 label solve_shepherd:
     s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here gives birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
-    s "I picked up one of these darling baby sheep at the pet shop and brought it home the day after it was born. It has been 10 months since then, how many sheep do I have?"
-    $ answer = renpy.input("How many sheep do I have? (Answer numerically, e.g. 120)")
+    s "My friend picked up one of these darling baby sheep from me and brought it home the day after it was born and it has been 10 months since then."
+    s "Yesterday she gave me all her sheep but i forget how many that was, so I don't know many sheep I'm supposed to have."
+    s "I know how many sheep are mine, but can you figure out how many sheep my friend gave me?"
+    $ answer = renpy.input("How many sheep did my friend give me? (Answer numerically, e.g. 120)")
     if answer == "1":
         $ shepherd_riddle = True
     else:
@@ -1662,6 +1868,9 @@ label solve_shepherd:
         s "Huh I guess you are right, looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
+        n "Would Kehira allow me to bring a sheep into the Greater Realm?"
+        e "No."
+        e "For you, maybe if you ask nice enough."
 
         $ no_shepherd = True
         hide ezibrl2
@@ -1688,20 +1897,23 @@ label kids:
     if no_kids == False:
         show ezibrl2 at left
         show kids2 at right
-        "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings. "
+        "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings."
         if kids_flag == False:
-            c1 "You can not play with us, you are a tribesman!"
+            c1 "You can not play with us in our fort, you are a tribesman!"
             c2 "Boo, tribesman!"
             c3 "No, I am not!"
             c1 "I saw your folks travelling to the east side of the forest."
             c3 "(wailing) That is a lie!"
-            e "Even their younglings despise the tribesmen."
+            n "The villagers sure despise the tribesmen."
+            e "Even their younglings."
 
             menu:
                 "Proceed past the younglings":
                     jump proceed_kids
                 "Leave":
                     "Strange creatures they are, the mortal younglings. Maybe you can find a way around."
+                    n "I wanna make a fort like that when we return to the Greater Realm."
+                    e "That looked nothing like a fort."
                     hide ezibrl2
                     hide kids2
                     jump block_8
@@ -1716,8 +1928,10 @@ label proceed_kids:
     c1 "Hey you! If you want to pass through the fort, you must say the secret code."
     e "...Fort?"
     "You look around for the alleged fort."
-    c2 "Is he a tribesman as well?"
-    c1 "He might be, but if he can unravel the code then he is not."
+    n "This looks fun!"
+    "You follow Enda’s gaze, but all you see is bags of flour and rice stacked in four piles, ragged blankets hanging between them."
+    c2 "Are they tribesman as well?"
+    c1 "They might be, but if they can unravel the code then they are not."
     $ kids_flag = True
     jump kids_code
 
@@ -1729,11 +1943,14 @@ label kids_code:
                 jump solve_code
             else:
                 e "Is it now? I bet you I can unravel your code."
+                n "I know you can do it, Ezbril!"
                 jump solve_code
 
         "Leave":
             c2 "Aha! Told you our secret code is the hardest to break!"
-            c1 "Boo, tribesman!"
+            c1 "Boo, tribesmen!"
+            n "..."
+            e "Enda, ignore them."
             hide ezibrl2
             hide kids2
             jump block_8
@@ -1748,11 +1965,16 @@ label solve_code:
     else:
         jump kids_code
     if kids_riddle == True:
-        c1 "Behold the sir! You may travel through our fort in peace."
+        c1 "Behold the sirs! You may travel through our fort in peace."
         e "You know, I am in fact a tribesman."
         c2 "(shocked) B-but you are a gentleman! How can a tribesman break our secret code?"
         c3 "(amazed) Tribesmen must be real strong."
         c1 "Only tribesmen can break our secret code!"
+        "You pass through the fort of flour and rice."
+        n "Tribesman? What was that about?"
+        n "You are an Irul."
+        e "Yes, I am."
+
         $ no_kids = True
         hide ezibrl2
         hide kids2
@@ -1776,9 +1998,12 @@ label town_square:
     "The rough, cobbled alley twists and tapers, turn after turn straying from the market crowd. With every step, the passage gets quieter, and the walls seem to cast more shadows."
     "You almost missed it in the dark, the silhouette of a wooden cart against the weathered wall. But it is the faint sheen of metal that catches your eye. The cart is loaded with pitchforks, spears, hammers, axes, and daggers- weapons."
     "The village seems to be preparing for war. A sharp smell of damp wood catches your attention. On the ground, you see a pile of wooden torches, drenched in a small puddle of clear water."
+    n "I have a bad feeling about this, Ezbril."
     "You hear footsteps behind you."
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
+    v "Especially with that young lad with you. This is no place for children."
+    "Enda scurries closer to you as you take a step in front."
     e "I see the villagers here like to collect weapons."
     v "You seem to be a cultured man."
     e "Are you starting a war?"
@@ -1787,40 +2012,49 @@ label town_square:
     e "A-are you responsible for the burning of the ancient Forest of Nourishment?"
     v "Forest of Nourishment? Ha! It was just another old forest."
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
-    v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe. "
+    v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe."
+    "This is madness. The chaos of this villagers’s heart fuels your own powers. Your blood flows hot as fire, then icy cold. An otherworldly darkness blurs your visions."
     v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
     e "Why are you telling me this?"
+    "Your voice sounds calm. Deadly."
     v "Ha! Because you may join us, if that is your wish. You seem interested in our fine weapons, and you look to be a cultured gentleman, similar to our own kind."
     v "If you made it this far through the market, you must have solved various intellectual problems. Truly, you belong with us in spirit. Were you to decide upon staying, you would be most welcomed here."
     "You cannot believe your ears. This man must be going crazy."
+    "The shadows of the alley disguise the dark tendrils creeping from your fingers and across your arms, eagerly reaching toward the villager."
+    "Enda nudges you in silent warning. You must not lose control."
     v "I have a council to attend soon. Farewell for now, traveller! I hope to see you join us."
     "The shadow of a man blends into more shadows. Silence greets you once again."
-    e "This has been an unexpected turn of events. I have not discovered Cyvtis’s purpose yet, but now I know the real culprit- or should I say, culprits, of the forest fire. I must report this to Kehira."
+    e "This has been an unexpected turn of events. We have not discovered Cyvtis’s purpose yet, but now we know the real culprit- or should I say, culprits, of the forest fire. We must report this to Kehira."
+    n "I am ready to leave this village."
     "You realize that you do not remember your way back through the mayhem of the market. You decide to continue forward through the winding passage, toward the sliver of light promising fresh air."
     "The narrow, suffocating alleyway stretches at last into a vast town square. Where the market was crowded with vendors shouting their wares and buyers shoving through the mob, the town square is surprisingly peaceful."
     "Younglings running and playing, women engaging in pleasant conversations, and the elderly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
     "Your attention fixates on the dancer in the far left. It is not her graceful movements, slightly peculiar and rather swift compared to the others, but the dance- you recognize her dance."
-    "The dance of rain."
-    "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruil. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
+    "The Iruls dance of rain."
+    "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruls. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
     "It begins as a whispering in the air. A tinkling sound comes to your ears as the sky’s first tear fall softly on your cheek."
     "Cyvtis cups her hands and brings them to her heart. With half a kick, her palms stretch eastward in a swirling motion. The winds whips and blows away the rain clouds toward the direction her palms are pointing- toward the still blazing forest."
+    n "She is bringing rain to the Forest of Nourishment! Cyvtis is harnessing the power of the skies to quench the flames."
+    "You watch in awe as heaps of billowing clouds march toward the forest, the raging inferno fighting to its last ember."
     "The dance ends abruptly. With a nimble movement, Cyvtis is making her way toward the market, and possibly out of the village. This is a good chance for you to get out as well, and you follow her distantly."
     "A cold breeze licks at your face and creeps across your skin. The air is suddenly ice-cold and the once-bright sky now dimmer, as if the sun’s warmth has been directed elsewhere."
     v "Somebody set the weapons cart on fire!"
     av "The torches have also been drenched. They are useless now."
     "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
     "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
-    n "I have been waiting for you! That market looks easy to get lost in. Here, I got this for you from the nearby merchant."
-    "A small hand extends to offer you a smaller pewter whistle, a twin tied to a string around Enda’s neck."
-    n "When you did not return for a while, I was afraid I might get lost in the market crowd. If we stray again, we can find each other by following the sound of the whistle."
-    e "Thank you, Enda."
-    "You accept the whistle."
-    e "Quick, we must hurry back to Kehira. The villagers would be looking for any foreigners soon."
-    n "What happened?"
-    e "I will tell you later. We must make haste."
+    e "We must get out of here fast. The villagers would be looking for any foreigners soon."
+    n "Here comes the chariot."
+    jump chariot3
+
+label chariot3:
+    n "Welcome aboard again."
+    n "Let’s go!"
+    "Your mind is befuddled with what you discovered in the village. A cacophony of haphazard thoughts drifts you to slumber."
+    n "We are back in the Greater Realm."
     jump mission3
 label mission3:
     scene throne_room
+<<<<<<< Updated upstream
     "A dimly lit room, Kehira perched upon her dark throne."
     k "I see you are back. What did you learn about Cyvtis?"
     e "Cyvtis was only in the village so she could bring rain upon the blazing forest and destroy the villagers’ weapons."
@@ -1834,12 +2068,36 @@ label mission3:
     n "From the v-village. The village Ezbril just visited. It has been wiped out by a mighty flood."
     "You are shocked. The lively village full of colours.The laughing younglings who had so much to live for. The entire village that breathed a few heartbeats ago. All of it, gone?"
     e "It must have been Cyvtis. She brought excessive rains that flooded the river."
+=======
+    n "We have returned, Your Majesty."
+    "You bow deeply as Enda sprints out of the throne room."
+    e "And we have discovered the true culprits of the disorder in the Mortal Realm."
+    "The Queen arches a slender brow."
+    e "The chaos of the Mortal Realm is the work of none but mortals themselves."
+    k "Are you certain that this is not the work on an Irul, Ezbril? I sensed Irul magic entwined with the disorder."
+    e "The magic you sensed is various Irul attempting to restore harmony to the Mortal Realm."
+    k "Ezbril, what did you witness in the village?"
+    e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe. If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
+    e "Nazareth faded the Ancient Forest of Nourishment to save a tribe of mortals. Cyvtis brough rain upon the blazing forest and harnessed the powers of the sun to alight the weapons meant to start war."
+    e "From what I have witnessed, the Iruls are using magic to combat the evils of the Mortal Realm."
+    "Silence."
+    k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
+    e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
+    "Footsteps scurry into the throne room."
+    n "Your Majesty! There has been a catastrophe. I have been sent to inform you of a great destruction in the Mortal Realm."
+    k "What happened, Enda?"
+    n "The v-village. The village Ezbril and I just visited. It has been wiped out by a mighty flood."
+    "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
+    k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortal’s, yet the mortal’s have no powers over the flow of a  river. The mortal’s can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
+    e "It must have been Cyvtis’s vengeance on the village. She brought excessive rains that flooded the river."
+>>>>>>> Stashed changes
     k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
     k "Cyvtis is the Irul of Skies, but let us not forget the Irul who controls the rivers."
     k "Ezbril, you have done well so far, yet your task has not concluded. Your next target is Zartharacks, the Irul of Sea and all Waters."
-    k "He is responsible for the flow of the rivers and streams, and maintaining balance in the waters. The rise in the river’s water level would have been a work of his."
-    k " I must warn you, Zartharacks is- unique."
+    k "Zartharacks is responsible for the flow of the rivers and streams, and maintaining balance in the waters. The rise in the river’s water level could have been a work of his."
+    k "I must warn you, Zartharacks is- unique."
     e "Unique?"
+<<<<<<< Updated upstream
     k "He never cared much about following rules, as I am sure you will soon see for yourself. Enda, escort Ezbril to the Serpent Bank."
     n "Yes, Your Dark Majesty."
 
@@ -1852,6 +2110,42 @@ label mission3:
     n "While you find what Zartharacks is up to, I will go collect some fruit."
     "Enda runs off into the distance as you turn toward your next quest."
     jump mission3
+=======
+    k "I am sure you will soon see for yourself. Enda, escort Ezbril to Zaratharacks’s lair."
+    n "As you wish, Your Majesty."
+    jump chariottowater
+label chariottowater:
+    n "This has been quite an adventure!"
+    n "Let’s go back, hopefully for the last time."
+    "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over."
+    "Ezbril."
+    "What have you done?"
+    n "Ezbril, let’s go."
+    jump beforemaze3
+label beforemaze3:
+    n "Here we are. Zartharacks’s lair. Look, you can see the mortal’s tribe not far ahead."
+    "Indeed, the mortal’s tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
+    "You know that beyond the forest lies the village, now demolished by the river. The river flows through the remains of the village, swirling through the forest and the tribe, snaking from the tribe toward you and into-"
+    e "The sea?"
+    "Before you expands a murmuring domain of waters, the shimmering beast desolate; yet, strangely alive. The furious waves wrestle and crash into the menacing rocks, eager to spill the secrets of the unknown beyond."
+    n "In the waters you will find a sunken ship, the one that remains apiece. Zartharacks had turned the mighty ship into his lair, his personal quarters located in the bottom most level of the ship."
+    e "All we need to do is locate him within his lair, and unravel his plans?"
+    e "Let's go."
+    n "Ezbril."
+    n "I am afraid I cannot join you this time."
+    e "Oh?"
+    n "As a lesser-Irul, I still need to breathe. Therefore, I cannot accompany you underwater."
+    "You feel a pang of sorrow for the young Irul, but Enda looks cheerful."
+    n "I have been wanting to explore the tribe up close. They say some of them still remember the Irul. I want to know if the rumors are correct."
+    n "Oh, I almost forgot. Zartharacks makes the water around him restless. It is hard to see the restless water but you will feel it when you stand by it."
+    e "And if I enter the restless water?"
+    n "I believe it will propel you further away from Zartharacks but I have never witnessed it myself."
+    n "After you have found Zartharacks, you should come explore the tribe as well."
+    e "I must focus on my task ahead, but I will join you afterward."
+    n "I shall see you soon, then."
+    "Enda sprints toward the colourful tribe, laughing joyously, as you turn toward your next quest."
+    jump maze3start
+>>>>>>> Stashed changes
 
 label mission3:
     jump maze3
@@ -1859,6 +2153,7 @@ label mission3:
 label maze3:
     # starting position is 2,1
     $pos = [2,1]
+<<<<<<< Updated upstream
 
     "You are at the entrance to the sunken ship."
     menu:
@@ -1868,6 +2163,134 @@ label maze3:
             jump end
 
     "You are on the upper deck inside of the ship. You see the stairs leading to the lower decks directly north of you. The water is calm where you are standing."
+=======
+    "Your footsteps are muted to a gentle thud as you prowl across the ashen sand and into the beckoning sea."
+    "The sea is a malicious force, daring and cold. A taunting current sways you sideways, a loyal guardian to the hoard of wooden masts and planks that break the surface. And then she catches your eye."
+    "You know her when you see her, a sunken ship still apiece. The dark beast rests at the bottom most seabed, ancient and asleep. Zartharacks’s lair."
+    "You stand on the main deck, but you must make your way to Zartharacks’s personal quarters on the lowest level."
+
+    ##menu:
+        ##"Go into the boat":
+            ##pass
+        ##"Return ashore":
+            ##jump end
+
+    "You go to the entrance and descend down the stairs. The deck you are on is completely empty, except for the vegetation and the few fish that have taken the boat as their home."
+    "The deck is rectangular in shape. About twice as long as it is wide. You see the stairs leading to the lower decks directly north of you."
+    "The water is calm where you are standing."
+    $first = True
+    jump maze3p1
+
+label maze3p1:
+    if pos == [2,6]:
+        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
+        $pos = [2,1]
+        "You are on one deck deeper inside of the boat. This deck is about the same size as the previous deck."
+        "You see the stairs leading to the lower decks directly north of you."
+        "Before you proceed, you notice the water change. While it was calm when you entered, it now moves with unrest."
+        "As you take in your surroundings, you feel the water around you get calm."
+        "You wait a few moments."
+        $current = True
+        jump maze3p2
+    if pos in ([2,2],[1,3],[3,3],[1,5],[3,4],[2,4],[2,5]):
+        "You make your movement."
+        "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        if pos == [2,2]:
+            "You see your destination directly in front of you."
+        elif pos == [2,4]:
+            "You see your destination directly in front of you. You are almost to the end."
+        elif pos == [2,5]:
+            "You see your destination directly in front of you. You are one step away from the end."
+    elif pos in ([1,4],[2,3],[3,5]):
+        "You make your movement."
+        "As soon as you do, you feel the water immediate change from calm to something more vicious."
+        "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+        "The current throws you backwards. You fly further away from your destination."
+        "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+        "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+        "You are back where you began."
+        $pos = [2,1]
+    else:
+        if first:
+            pass
+        else:
+            "You make your movement."
+            "The water is calm where you are standing."
+    menu:
+        "Go north" if pos[1] != 7:
+            $pos[1] += 1
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
+        "Go west" if pos[0] != 1:
+            $pos[0] -= 1
+        "Go south" if pos[1] != 1:
+            $pos[1] -= 1
+    $first = False
+    jump maze3p1
+
+label maze3p2:
+    if current:
+        "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
+    else:
+        "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
+    if pos == [2,7]:
+        $pos = [3,1]
+        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
+        "You are on one deck deeper inside of the boat. This deck is not as long as the previous deck but it is wider."
+        "You see the large oak doors directly north of you."
+        "Similar to the previous deck, you notice the water shifts between being calm and restless as time pass."
+        "However, unlike the previous floor, some of the water is only restless."
+        $current = False
+        jump maze3p3
+    if pos in ([1,1],[3,1],[2,2],[2,2],[3,3],[1,3],[1,6],[3,4],[3,6]):
+        if current:
+            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
+        else:
+            "The water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
+        if pos == [2,2]:
+            "You see your destination directly in front of you."
+        elif pos == [2,3]:
+            "You see your destination directly in front of you. You are a bit closer to the end."
+        elif pos == [2,4]:
+            "You see your destination directly in front of you. You are about half way there."
+        elif pos == [2,5]:
+            "You see your destination directly in front of you. You are almost to the end."
+        elif pos == [2,6]:
+            "You see your destination directly in front of you. You are one step away from the end."
+    elif pos in ([1,2],[3,5],[3,2],[1,5],[2,3]):
+        if current:
+            "You feel the water immediate change from calm to something more vicious."
+            "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+            "The current throws you backwards. You fly further away from your destination."
+            "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
+            "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
+            "You are back where you began."
+            $pos = [2,1]
+        else:
+            "The water surrounding you is especially riled. Do not linger in your position for long."
+    else:
+        "The water is calm around where you are standing."
+    menu:
+        "Go north" if pos[1] != 7:
+            $pos[1] += 1
+            "You make your movement."
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
+            "You make your movement."
+        "Go west" if pos[0] != 1:
+            $pos[0] -= 1
+            "You make your movement."
+        "Go south" if pos[1] != 1:
+            $pos[1] -= 1
+            "You make your movement."
+        "Stay":
+            "You wait."
+    if current:
+        $current = False
+    else:
+        $current = True
+    jump maze3p2
+>>>>>>> Stashed changes
 
     while $pos != [2,6]:
         if $pos in ([2,2],[1,3],[3,3],[4,2],[1,5],[3,4],[2,4]):
@@ -1880,5 +2303,144 @@ label maze3:
             "Go east":
             "Go south":
 
+<<<<<<< Updated upstream
 label end:
+=======
+label zarth:
+    young2 "Looking for me?"
+    e "Wha-"
+    "Behind you stands the Irul of Waters- or you suppose he is an Irul, for he appears more similar in form to an ancient sea creature."
+    z "Ah, Ezbril. It has been some years. Have you returned to taint my waters crimson again?"
+    z "Let me guess, you are here to inquire about the flood, and my role in it."
+    e "Inquire not so much, I was supposed to spy on you."
+    z "Ha! You think you could sneak up on me in my territory? Fellow Irul, you amuse me so! Why, the waters whisper to me."
+    z "Since you came this far, I shall show you the truth."
+    z "Are you ready?"
+    e "Ready for wha-?"
+    "Zartharacks lifts a scaly arm and the water in the room gathers into a massive whirlpool, lifting you and the Irul of Waters into a travelling, swirling madness."
+    "A few heartbeats later, you are back on your feet. But you are not standing in an underwater ship anymore."
+    "You have been transported to a river’s side, and not far ahead you can see a sight familiar to you. The village."
+    "Zartharacks has transported you through the waters and back to the village- or what used to be a village. The place you once recognized has been reduced to nothing more than an enormous waste of rubble."
+    "The crowded marketplace you visited has been washed away, existing as nothing more than a whisper of memory."
+    "You can make out small figures, tirelessly working through the waste, hoping to mine any essence of hope. To your relief, it looks like most of the villagers survived the flood."
+    e "Why did you bring me here?"
+    z "So you may see the truth for yourself."
+    z "Do you know what this is?"
+    "Zartharcks motions toward the river. No, something in the river. A wall made of the sturdiest stone. Broken."
+    e "That is a broken dam?"
+    "And then it hits you. The truth."
+    z "You didn’t think I would flood the village and plague my own waters, did you?"
+    z "Why, whichever Irul destroyed the dam has been quite clever in their malicious intent. When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this."
+    e "It was no Irul that destroyed the dam, Zartharacks. I have an inkling that this is the work of mortals."
+    z "Mortals? Are you forgetting that this is a mortal village that has been destroyed?"
+    "You glance toward the village again, at the desperate mortals picking through the rubble for all that has been spared from the water’s wrath. You can clearly make out a villager as he fishes through the waste and tugs out a long rod, sharp at the end. A spear."
+    "Beside him, another mortal straps a quiver of arrows across her back. Around them, more and more mortals extricate various wicked weapons- swords, knives, axes, daggers, and more."
+    "Cyvtis had destroyed their weapons, but it seems that they had a greater stash than what you were lead to believe. The villagers have been busy."
+    "Further up, you can make out several wagons, all loaded with steel. Some of the wagons are already moving. Toward the Ancient Forest of Nourishment. Beyond the forest lies-"
+    e "The tribe."
+    z "What did you say?"
+    e "Zartharacks, take me to the tribe beyond the forest."
+    z "Have you lost your bearing? There is clearly a war raging between the mortals. We would be wise to stay out of this, especially with your history."
+    e "Enda is in the tribe."
+    z "Oh, the small Messenger Irul?"
+    "Zartharacks looks shocked. Angered."
+    z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of the mortals?"
+    "Zartharacks gathers a furious wave that threatens a second flood."
+    "The world swirls, and a few heartbeats later, you are standing on lush green grass."
+    "Lush green grass now painted red."
+    "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm. Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
+    "Zartharacks curses under his breath. Row after row of waxy skin splattered crimson. Eyes of unsuspecting merchants and farmers staring forever into the skies. For once, the tribesmen and the villagers lay side by side. And that is when you see it-"
+    "A small body in a dark puddle, an arrow protruding from a pale stomach. His chest rises and falls in hiccups of movement. Enda. He is alive, but mortally wounded. Standing above him is an archer from the village, bloodshot eyes staring at Enda’s small form on the ground."
+    "The small sound that escapes from Enda sets your blood raging. Tendrils of darkness escape from between your fingers. Ebony flows from your eyes, your mouth and your ears, until you are engulfed in a black orb."
+    "The archer has not noticed your presence."
+    "You could do it. You could kill her. Half a thought from you, and the archer would be engulfed in black flames. She wouldn’t have time to scream."
+    #flashback here
+    "No. The past must not be repeated. You have made it this far, you must not lose control now. Enda would not want this."
+    "The ice in your veins begins to melt, replaced by a deep, numbing sorrow. Dark tendril slowly reek back. The village archer is now on her knees by Enda’s side. You tense."
+    "Gently, the archer scoops up the small form. Her bow drops to the ground, but she does not bend to retrieve it. Without hesitation, she begins to sprint across the field, through the rain of arrows and clash of blades, toward a small tent. A tribe healer’s tent."
+    "The tribesmen stationed outside the tent draw their weapons at the sight of a village archer, but then they perceive the slight figure in her arms. Understanding shining in their eyes, they allow the archer to disappear into the tent with Enda."
+    "A cool breeze gently caresses your face as you hear Zarthacks softly makes his way to your side. A tender wave gathers you back into the water and along the river, until you stand before the healer’s tent."
+    "There is recognition in the tribesmen’s eyes as they let you through the flaps."
+    "Resting across a murky blanket, Enda has fallen into a trance. His face is paler than the moon rising above, his cheek colder than the ice that glides on the winter sea. Blue stains his torn shirt, the telltale colour of an Irul’s sacred blood."
+    "The lingering joy in his eyes sealed behind heavy lids, hidden from this undeserving world. His wound has been cleaned and covered with herbs, and two healers are draping a cotton cloth across his abdomen. They show no surprise at the pool of cobalt blood, although the archer is gawking."
+    z "Alas that these evil days should be ours. The boy needs an Irul healer. Waste no time, my currents shall carry you through the waters and into the Greater Realm."
+    "The healers finish covering the wound. Without a word, they stand aside as you pick up Enda’s light form and walk out of the tent, right into the river."
+    "Zartharacks remains on land as a gentle, yet strong wave lifts you off the river bed and toward the sea, and beyond the sea into the dark stream that no mortal has ventured into."
+    jump conclusion
+label conclusion:
+    #put a long pause here
+    k "You may enter."
+    e "Kehira"
+    e "I have answered your summon."
+    "The Queen of Darkness has ruled over the Greater Realm for as long as any Irul could remember. The Queen has been ancient since the first time you saw her, but now she appears weathered- older."
+    k "Enda is being taken care of. Without the cloth hindering the flow of his blood, he would have been beyond hope, even for the best of the Irul healers."
+    k "I want to discuss the events you witnessed in the Mortal Realm. What you reported upon your return is bewildering news indeed."
+    e "I have told you all that I know, Kehira. The flood was in fact no work of an Irul. The fire, the flood, and the massacre were all consequences of the war between the mortals."
+    k "Yes, and this is not the first time that the mortals have brought such suffering upon themselves. I fear that eventually, the Iruls might become a victim of their anguish as well. We almost lost an Irul to the evils of the mortals."
+    k "I had hoped to reunite the two realms, as they were in the olden days. I had wanted the Iruls to grow stronger, as we once were when the mortals remembered us. I sought power and it blinded me, until we almost lost one of our own. I cannot risk the well being of the Iruls any longer."
+    k "Therefore, I have made the decision to withdraw from the Mortal Realm. The Iruls shall enjoy a blissful life in the Greater Realm, as we will seal the Gates between the two realms for eternity."
+    e "Would you abandon the mortals, in order to save the Iruls?"
+    k "As the Queen of Iruls, that is my priority. We may never get a chance to grow as strong as we once were, but the Iruls would be safe from the evils of the mortals."
+    e "What about the mortals who still remember us? They are few in numbers, but they exist."
+    e "What about the innocent younglings who had no perception on the chaos of their realm?"
+    e "What about the villager who risked her life to carry Enda to safety, or the tribe healers who allowed him another chance at life?"
+    e "While I have witnessed the worst of the mortals; I have also witnessed their kind and selfless spirit. I will not blame the entire realm for the wicked actions of a few."
+    k "Your heart is noble, Ezbril. However, the decision has been made and this is what the Iruls want. The Gates shall be sealed."
+    e "If that is your resolve, Kehira, then I will stay in the Mortal Realm."
+    "The Queen is silent. Pondering."
+    k "If you leave now, you will never be able to return to the Greater Realm again."
+    e "I have made my decision. All these years I have been the outcast, the Irul who brings nothing but Chaos and Destruction. There is nothing here for me, but I have found the spark of hope in the Mortal Realm."
+    e "The mortals need me, as much as I need them."
+    "A faint smile dances across the Queen’s lips."
+    k "You have been dismissed, Ezbril, Irul of Chaos and Destruction."
+    #transition from throne room to gates
+    "You stand before the mighty Gates. You turn around to catch one last glance of your home."
+    "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
+    "He begins to rasp between muffled sobs"
+    n "Kehira told me that you are going to l-leave."
+    e "Good to see you up and moving."
+    n "She said that you will n-never be able to return to the Greater Realm."
+    e "This is the beginning of the journey I must embark upon. I have discovered a purpose for myself."
+    "Enda lets go of you, but a small hand still clenches your cloak."
+    n "Then take me with you!"
+    "You are stunned at the young Irul’s request, but determination and challenge shines in his eyes."
+    n "I have travelled with you into the Mortal Realm and back. I have witnessed all that you have witnessed, and I also believe that there is hope for the mortals."
+    n "I am begging you, take me on your journey!"
+    "You consider Enda’s request. And then you smile."
+    e "I suppose I would not mind a companion."
+    "Enda’s delightful laugh brightens the skies as the two of you step out of the Greater Realm one last time."
+    jump epilogue
+label epilogue:
+    #pause for a while
+    "That day, Ezbril and his companion embarked on their journey to bring light into the lives of mortals. Behind them, the magical Gates between the two realms sealed forever."
+    "Some say that his powers faded over time and Ezbril died of old age. Others believe that the darkness of the mortals rusted his heart, and he fell into the ways of the evil."
+    "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
+    e "Let’s go, Enda. This bird’s wing is all patched up."
+    n "Coming!"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
     return
