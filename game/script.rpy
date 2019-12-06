@@ -1000,11 +1000,11 @@ label chapter3scene1:
     show ezibrl2 at left
     show enda2 at right with dissolve
     n "We are back, your Majesty. "
-    "You bow deeply"
+    "You bow deeply."
     e "Your Majesty, we bring news."
     hide enda2 with dissolve
     show kehira at right with dissolve
-    k "Oh? You have returned earlier than I expected, what have you discovered"
+    k "Oh? You have returned earlier than I expected, what have you discovered."
     menu:
         "{i}'The ancient forest is burning.'":
             e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
