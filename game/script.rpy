@@ -1358,7 +1358,7 @@ label thief_riddle:
         $ t_riddle = True
 
     if t_riddle == True:
-        t "That answer should have been on the tip of my tongue with what is happening in the forest"
+        t "That answer should have been on the tip of my tongue with what is happening in the forest."
         t "You have my respect, nehehehe. Here, you can have this humble pouch. I can trade goods far more valuable with the answer you gave me, ahahaha."
         "You hear the jingle of coins as the thief tosses you the small pouch."
         t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
