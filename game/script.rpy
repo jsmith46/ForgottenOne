@@ -983,6 +983,7 @@ label travellingback:
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "Here comes our ride. Let’s go!"
     scene black with dissolve
@@ -992,7 +993,6 @@ label travellingback:
     n "We have arrived."
 
     stop sfx1
-    stop sfx2
     $ renpy.pause(0.5)
     jump chapter3scene1
 
@@ -1046,14 +1046,23 @@ label travellingtomarket:
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "Looks like I get to travel with you once more."
     n "Mortal Realm, here we come again!"
     hide enda2 with dissolve
     "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
+    stop sfx1
     scene dream with dissolve
+    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(1)
     "{i}'Ezbril.{w} The mortals need you.{w} You must restore peace into the Mortal Realm again.'"
+    $ renpy.pause(1)
+    stop music
     scene chariot
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(0.5)
     show enda2 at right with dissolve
     n "You sure get tired a lot. In any case, here we are."
     stop sfx1
@@ -2041,19 +2050,35 @@ label mission3:
     n "As you wish, Your Majesty."
     jump chariottowater
 label chariottowater:
+    $ renpy.pause(1)
+
     scene chariot with dissolve
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "This has been quite an adventure!"
     n "Let’s go back, hopefully for the last time."
     hide enda2 with dissolve
     "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over."
+    stop sfx1
     scene dream with dissolve
+    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(1)
     "{i}'Ezbril.{w} Ezbril.{w} What have you done?'"
+    $ renpy.pause(1)
+    stop music
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
     scene chariot
+    stop sfx1
+    stop sfx2
     show enda2 at right with dissolve
     n "Ezbril, let’s go."
     jump beforemaze3
 label beforemaze3:
+    play music "Banished.mp3"
     scene aboveship with dissolve
     show ezibrl2 at left
     show enda2 at right with dissolve
@@ -2352,7 +2377,10 @@ label zarth:
     "Zartharacks remains on land as a gentle, yet strong wave lifts you off the river bed and toward the sea, and beyond the sea into the dark stream that no mortal has ventured into."
     jump conclusion
 label conclusion:
+    $ renpy.pause(2)
+    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     #put a long pause here
+    $ renpy.pause(4)
     scene throne_room with dissolve
     show ezibrl2 at left
     show kehira at right with dissolve
@@ -2384,6 +2412,10 @@ label conclusion:
     scene gates with dissolve
     "You stand before the mighty Gates. You turn around to catch one last glance of your home."
     "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
+    $ renpy.pause(2)
+    play music "Nazareth.wav" fadeout 1.0 fadein 1.0
+    #put a long pause here
+    $ renpy.pause(4)
     show ezibrl2 at left
     show enda2 at right with dissolve
     "He begins to rasp between muffled sobs"
@@ -2401,8 +2433,12 @@ label conclusion:
     "Enda’s delightful laugh brightens the skies as the two of you step out of the Greater Realm one last time."
     jump epilogue
 label epilogue:
+    $ renpy.pause(2)
     #pause for a while
+    play music "music/Horizon Zero Dawn OST - Prologue.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(2)
     scene epilogue
+    $ renpy.pause(4)
     "That day, Ezbril and his companion embarked on their journey to bring light into the lives of mortals. Behind them, the magical Gates between the two realms sealed forever."
     "Some say that his powers faded over time and Ezbril died of old age. Others believe that the darkness of the mortals rusted his heart, and he fell into the ways of the evil."
     "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
