@@ -2408,4 +2408,38 @@ label epilogue:
     "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
     e "Let’s go, Enda. This bird’s wing is all patched up."
     n "Coming!"
+    jump splashscreen
+
+label splashscreen:
+    scene black
+    renpy.pause(2)
+
+    show text "Eisha Ahmed" with dissolve
+    hide text with dissolve
+    renpy.pause(2)
+
+    show text "Joshua Smith" with dissolve
+    hide text with dissolve
+    renpy.pause(1)
+
+    show text "Mehrab Islam" with dissolve
+    hide text with dissolve
+    renpy.pause(1)
+
+    show text "Melanie Dene" with dissolve
+    hide text with dissolve
+    renpy.pause(1)
+
+    show text "Nelson Chen" with dissolve
+    hide text with dissolve
+    renpy.pause(1)
+
+    show text "Thomas Pham" with dissolve
+    hide text with dissolve
+    renpy.pause(1)
+
+    show text "Music: Horizan Zero Dawn Prologue" with dissolve
+    hide text with dissolve
+    renpy.pause(1)
+
     return
