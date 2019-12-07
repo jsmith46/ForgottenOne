@@ -45,8 +45,7 @@ init python:
 
 # The game starts here.
 label start:
-    jump splashscreen
-    jump help_lady
+    jump zarth
     jump prologue
 
 
@@ -159,6 +158,7 @@ label chariot1:
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "Easy there!"
     n "Welcome aboard! This will be a long journey, so feel free to rest your eyes for a bit. "
@@ -168,7 +168,6 @@ label chariot1:
     "And then all at once. "
     scene dream with dissolve
     stop sfx1
-    stop sfx2
     play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
     $ renpy.pause(1)
     "{i}'Ezbril. {w}
@@ -177,13 +176,11 @@ label chariot1:
     $ renpy.pause(1)
     stop music
     play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
     scene chariot
     show enda2 at right with dissolve
     n "Wake up, Ezbril. We have arrived."
     $ renpy.pause(0.5)
     stop sfx1
-    stop sfx2
     jump chapter2scene1
 
 label chapter2scene1:
@@ -944,6 +941,8 @@ label forestcenter:
     e "Enda, I can feel the magic of destruction that Kehira sensed. It seems strong within Nazareth. This might relate to his decremental performance."
     e "If he can create trees, he must be able to destroy them as well. That would explain the magic I sense."
     n "Would Nazareth destroy the very beings he has nourished for many years?"
+    stop sfx1
+    stop sfx2
     "The carpet of moss starts to darken."
     n "Oh no! Does he know that we are here?"
     "Nazareth stands abruptly, and some of the rabbits begin to back away."
@@ -957,13 +956,8 @@ label forestcenter:
     "Time stops. You are not standing in a forest anymore."
     "The entire west half of the forest has vanished, leaving behind no blade of grass or whisper of what was once magical and green."
     "Now that the trees are gone, you can easily make out the small tribe from here; a tribe that once sat along the forest’s edge now stood bare in an open field. And in front of you…"
-    stop sfx1
-    stop sfx2
     play sfx1 "music/flames.ogg"
     $ renpy.pause(0.5)
-
-
-
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
     toward you, the inferno leaping from tree to tree.  Enda instinctively darts behind you, his fear echoing in your own bones."
     "A dark aura begins to dance along the tips of your fingers. The chaos of the flames fuels your own. Your destructive energy resonates with the forest’s disorder."
@@ -1063,12 +1057,10 @@ label travellingtomarket:
     stop music
     scene chariot
     play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(0.5)
     show enda2 at right with dissolve
     n "You sure get tired a lot. In any case, here we are."
     stop sfx1
-    stop sfx2
     $ renpy.pause(0.5)
     jump market_pre_intro
 label market_pre_intro:
@@ -1339,7 +1331,8 @@ label thief:
             "The man senses your presence. For what seems like eternity, you
             stare at each other. Finally, he grins broadly."
             e "Enda, stand back."
-            t "(smirking) Nehehe. I don’t recall seeing you around. You must be
+            "The man smirks."
+            t "Nehehe. I don’t recall seeing you around. You must be
             new here."
             jump thief_menu
         else:
@@ -1445,12 +1438,12 @@ label block_4:
 label baker:
     if no_baker == False:
         if baker_flag == False:
-            show ezibrl2 at left
-            show baker2 at right with dissolve
             "Sweet, welcoming aroma of cinnamon, honey, - and something you can only describe as “warm”-
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
             you wonder when the Iruls would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
+            show ezibrl2 at left
+            show baker2 at right with dissolve
             "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
             b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
             e "Indeed."
@@ -1498,10 +1491,10 @@ label baker_menu2:
                 jump help_baker
             else:
                 e "A shortcut would be much appreciated."
-                e "We can try to help you with your problem. What might it be, Sir?"
+                e "We can try to help you with your problem. What might it be, sir?"
                 jump help_baker
         "Leave":
-            e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
+            e "I thank you for your offer, sir, but I would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
             hide ezibrl2 with dissolve
             show enda2 at left with dissolve
@@ -1538,7 +1531,7 @@ label help_baker:
             "Answer riddle again":
                 jump help_baker
             "Leave":
-                e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
+                e "I thank you for your offer, sir, but I would like to explore this area of the market first."
                 b "See you around! Be wary lest you lose your bearing."
                 hide baker2
                 hide ezibrl2
@@ -1900,7 +1893,7 @@ label kids:
             c2 "Boo, tribesman!"
             c3 "No, I am not!"
             c1 "I saw your folks travelling to the east side of the forest."
-            c3 "(wailing) That is a lie!"
+            c3 "That is a lie!"
             show enda2 at left with dissolve
             n "The villagers sure despise the tribesmen."
             hide enda2 with dissolve
@@ -1975,8 +1968,9 @@ label solve_code:
     if kids_riddle == True:
         c1 "Behold the sirs! You may travel through our fort in peace."
         e "You know, I am in fact a tribesman."
-        c2 "(shocked) B-but you are a gentleman! How can a tribesman break our secret code?"
-        c3 "(amazed) Tribesmen must be real strong."
+        "The kids look shocked."
+        c2 "B-but you are a gentleman! How can a tribesman break our secret code?"
+        c3 "Tribesmen must be real strong."
         c1 "Only tribesmen can break our secret code!"
         "You pass through the fort of flour and rice."
         hide kids2 with dissolve
@@ -2014,6 +2008,8 @@ label town_square:
     n "I have a bad feeling about this, Ezbril."
     play sound "footsteps.wav"
     "You hear footsteps behind you."
+    hide enda2 with dissolve
+    show villager at right with dissolve
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
     v "Especially with that young lad with you. This is no place for children."
@@ -2038,8 +2034,12 @@ label town_square:
     "Enda nudges you in silent warning. You must not lose control."
     v "I have a council to attend soon. Farewell for now, traveller! I hope to see you join us."
     "The shadow of a man blends into more shadows. Silence greets you once again."
+    hide villager with dissolve
+    show enda2 at right with dissolve
     e "This has been an unexpected turn of events. We have not discovered Cyvtis’s purpose yet, but now we know the real culprit- or should I say, culprits, of the forest fire. We must report this to Kehira."
     n "I am ready to leave this village."
+    hide ezibrl2
+    hide enda2 with dissolve
     "You realize that you do not remember your way back through the mayhem of the market. You decide to continue forward through the winding passage, toward the sliver of light promising fresh air."
     "The narrow, suffocating alleyway stretches at last into a vast town square. Where the market was crowded with vendors shouting their wares and buyers shoving through the mob, the town square is surprisingly peaceful."
     "Younglings running and playing, women engaging in pleasant conversations, and the elderly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
@@ -2048,7 +2048,9 @@ label town_square:
     "Long ago, the mortals would have remembered this dance as well, but they have forgotten the Iruls. What may seem like a brew of careless movements is in fact a display of meticulous maneuver by Cyvtis."
     "It begins as a whispering in the air. A tinkling sound comes to your ears as the sky’s first tear fall softly on your cheek."
     "Cyvtis cups her hands and brings them to her heart. With half a kick, her palms stretch eastward in a swirling motion. The winds whips and blows away the rain clouds toward the direction her palms are pointing- toward the still blazing forest."
+    show enda2 at right with dissolve
     n "She is bringing rain to the Forest of Nourishment! Cyvtis is harnessing the power of the skies to quench the flames."
+    hide enda2 with dissolve
     "You watch in awe as heaps of billowing clouds march toward the forest, the raging inferno fighting to its last ember."
     "The dance ends abruptly. With a nimble movement, Cyvtis is making her way toward the market, and possibly out of the village. This is a good chance for you to get out as well, and you follow her distantly."
     "A cold breeze licks at your face and creeps across your skin. The air is suddenly ice-cold and the once-bright sky now dimmer, as if the sun’s warmth has been directed elsewhere."
@@ -2056,6 +2058,8 @@ label town_square:
     av "The torches have also been drenched. They are useless now."
     "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
     "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
+    show ezibrl2 at left
+    show enda2 at right with dissolve
     e "We must get out of here fast. The villagers would be looking for any foreigners soon."
     n "Here comes the chariot."
     jump chariot3
@@ -2065,6 +2069,7 @@ label chariot3:
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "Welcome aboard again."
     n "Let’s go!"
@@ -2074,7 +2079,6 @@ label chariot3:
     scene chariot
     show enda2 at right with dissolve
     stop sfx1
-    stop sfx2
     n "We are back in the Greater Realm."
 
     jump mission3
@@ -2106,10 +2110,10 @@ label mission3:
     n "Your Majesty! There has been a catastrophe. I have been sent to inform you of a great destruction in the Mortal Realm."
     k "What happened, Enda?"
     n "The v-village. The village Ezbril and I just visited. It has been wiped out by a mighty flood."
-    "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
-    k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortal’s, yet the mortal’s have no powers over the flow of a  river. The mortal’s can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
     hide enda2 with dissolve
     show ezibrl2 at left with dissolve
+    "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
+    k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortal’s, yet the mortal’s have no powers over the flow of a  river. The mortal’s can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
     e "It must have been Cyvtis’s vengeance on the village. She brought excessive rains that flooded the river."
     k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
     k "Cyvtis is the Irul of Skies, but let us not forget the Irul who controls the rivers."
@@ -2143,10 +2147,8 @@ label chariottowater:
     $ renpy.pause(1)
     stop music
     play sfx1 "music/wing_beat.ogg"
-    play sfx2 "music/horse_neigh.ogg"
     scene chariot
     stop sfx1
-    stop sfx2
     show enda2 at right with dissolve
     n "Ezbril, let’s go."
     jump beforemaze3
@@ -2169,9 +2171,6 @@ label beforemaze3:
     n "As a lesser-Irul, I still need to breathe. Therefore, I cannot accompany you underwater."
     "You feel a pang of sorrow for the young Irul, but Enda looks cheerful."
     n "I have been wanting to explore the tribe up close. They say some of them still remember the Irul. I want to know if the rumors are correct."
-    n "Oh, I almost forgot. Zartharacks makes the water around him restless. It is hard to see the restless water but you will feel it when you stand by it."
-    e "And if I enter the restless water?"
-    n "I believe it will propel you further away from Zartharacks but I have never witnessed it myself."
     n "After you have found Zartharacks, you should come explore the tribe as well."
     e "I must focus on my task ahead, but I will join you afterward."
     n "I shall see you soon, then."
@@ -2185,17 +2184,18 @@ label maze3start:
     # starting position is 2,1
     $pos = [2,1]
     "Your footsteps are muted to a gentle thud as you prowl across the ashen sand and into the beckoning sea."
-    "The sea is a malicious force, daring and cold. A taunting current sways you sideways, a loyal guardian to the hoard of wooden masts and planks that break the surface. And then she catches your eye."
+    "The sea is a malicious force, daring and cold. A taunting current sways you sideways, a loyal guardian to the hoard of wooden masts and planks that break the surface."
+    "And then she catches your eye."
     "You know her when you see her, a sunken ship still apiece. The dark beast rests at the bottom most seabed, ancient and asleep. Zartharacks’s lair."
     "You stand on the main deck, but you must make your way to Zartharacks’s personal quarters on the lowest level."
 
     ##menu:
-        ##"Go into the boat":
+        ##"Go into the ship":
             ##pass
         ##"Return ashore":
             ##jump end
 
-    "You go to the entrance and descend down the stairs. The deck you are on is completely empty, except for the vegetation and the few fish that have taken the boat as their home."
+    "You go to the entrance and descend down the stairs. The deck you are on is empty, except for the vegetation and the few fish that have taken the ship as their home."
     "The deck is rectangular in shape. About twice as long as it is wide. You see the stairs leading to the lower decks directly north of you."
     "The water is calm where you are standing."
     $first = True
@@ -2203,9 +2203,9 @@ label maze3start:
 
 label maze3p1:
     if pos == [2,6]:
-        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
+        "You make it to the other end of the ship. You take the stairs and descend downwards into the lower deck of the ship."
         $pos = [2,1]
-        "You are on one deck deeper inside of the boat. This deck is about the same size as the previous deck."
+        "You are on one deck deeper inside of the ship. This deck is about the same size as the previous deck."
         "You see the stairs leading to the lower decks directly north of you."
         "Before you proceed, you notice the water change. While it was calm when you entered, it now moves with unrest."
         "As you take in your surroundings, you feel the water around you get calm."
@@ -2224,7 +2224,7 @@ label maze3p1:
     elif pos in ([1,4],[2,3],[3,5]):
         "You make your movement."
         "As soon as you do, you feel the water immediate change from calm to something more vicious."
-        "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+        "The current pushes against you, almost as if to push you away. You try to fight the current, but it is too strong for you."
         "The current throws you backwards. You fly further away from your destination."
         "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
         "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
@@ -2250,16 +2250,16 @@ label maze3p1:
 
 label maze3p2:
     if current:
-        "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
+        "The water suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
     else:
-        "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
+        "The water suddenly calms. No matter where you go, it is safe to proceed."
     if pos == [2,7]:
         $pos = [3,1]
-        "You make it to the other end of the boat. You take the stairs and descend downwards into the lower deck of the boat."
-        "You are on one deck deeper inside of the boat. This deck is not as long as the previous deck but it is wider."
+        "You make it to the other end of the ship. You take the stairs and descend downwards into the lower deck of the ship."
+        "You are on one deck deeper inside of the ship. This deck is not as long as the previous deck but it is wider."
         "You see the large oak doors directly north of you."
         "Similar to the previous deck, you notice the water shifts between being calm and restless as time pass."
-        "However, unlike the previous floor, some of the water is only restless."
+        "However, unlike the previous floor, some of the currents are eternally restless."
         $current = False
         jump maze3p3
     if pos in ([1,1],[3,1],[2,2],[2,2],[3,3],[1,3],[1,6],[3,4],[3,6]):
@@ -2280,7 +2280,7 @@ label maze3p2:
     elif pos in ([1,2],[3,5],[3,2],[1,5],[2,3]):
         if current:
             "You feel the water immediate change from calm to something more vicious."
-            "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+            "The current pushes against you, almost as if to push you away. You try to fight the current, but it is too strong for you."
             "The current throws you backwards. You fly further away from your destination."
             "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
             "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
@@ -2313,11 +2313,11 @@ label maze3p2:
 
 label maze3p3:
     if current:
-        "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
+        "The water suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
     else:
-        "The uneasy water on the deck you are on suddenly calms. Certain areas you go to are safe to proceed."
+        "The uneasy water suddenly calms. Certain areas you go to are safe to proceed."
     if pos == [3,5]:
-        "You make it to the other end of the boat. You push with all your strength to open the oak doors. Strangely, the door opens as easily as if you were on land."
+        "You make it to the other end of the ship. You push with all your strength to open the oak doors. Strangely, the doors open as easily as if you were on land."
         jump zarth
 
     if pos in ([2,1],[3,1],[4,2],[1,2],[3,3],[4,4]):
@@ -2341,7 +2341,7 @@ label maze3p3:
     elif pos in ([2,2],[3,2],[2,4],[3,4],[4,5]):
         #enter bad water
         "As soon as you do, you feel the water immediate change from calm to something more vicious."
-        "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+        "The current pushes against you, almost as if to push you away. You try to fight the current, but it is too strong for you."
         "The current throws you backwards. You fly further away from your destination."
         "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
         "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
@@ -2351,7 +2351,7 @@ label maze3p3:
         #enter changing water bad
         if current:
             "You feel the water immediate change from calm to something more vicious."
-            "The current pushes against you, almost as if to push you away. You try to fight the current but it is too strong for you."
+            "The current pushes against you, almost as if to push you away. You try to fight the current, but it is too strong for you."
             "The current throws you backwards. You fly further away from your destination."
             "As you are thrown back, you see the railing of the stairs that you just descended. It takes all of your strength to throw your arm out to grab the railing."
             "You hold on for dear life. After a few moments, the water calms and you are no longer pushed against your will."
@@ -2386,12 +2386,12 @@ label zarth:
     young2 "Looking for me?"
     show ezibrl2 at left with dissolve
     e "Wha-"
-    "Behind you stands the Irul of Waters- or you suppose he is an Irul, for he appears more similar in form to an ancient sea creature."
+    "Behind you stands the Irul of Waters- or you suppose he is an Irul, for he appears in form more similar to an ancient sea creature."
     show zartharacks at right with dissolve
     z "Ah, Ezbril. It has been some years. Have you returned to taint my waters crimson again?"
     z "Let me guess, you are here to inquire about the flood, and my role in it."
     e "Inquire not so much, I was supposed to spy on you."
-    z "Ha! You think you could sneak up on me in my territory? Fellow Irul, you amuse me so! Why, the waters whisper to me."
+    z "Ha! You think you could sneak up on me in my own territory? Fellow Irul, you amuse me so! Why, the waters whisper to me."
     z "Since you came this far, I shall show you the truth."
     z "Are you ready?"
     e "Ready for wha-?"
@@ -2558,4 +2558,3 @@ label splashscreen:
     $ renpy.pause(7)
 
     return
-
