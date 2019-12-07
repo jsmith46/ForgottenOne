@@ -1934,6 +1934,7 @@ label town_square:
     show ezibrl2 at left
     show enda2 at right with dissolve
     n "I have a bad feeling about this, Ezbril."
+    play sound "footsteps.wav"
     "You hear footsteps behind you."
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
@@ -2020,6 +2021,7 @@ label mission3:
     "Silence."
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
     e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
+    play sound "footsteps.wav"
     "Footsteps scurry into the throne room."
     hide ezibrl2 with dissolve
     show enda2 at left with dissolve
