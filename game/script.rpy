@@ -45,9 +45,7 @@ init python:
 
 # The game starts here.
 label start:
-    jump zarth
     jump prologue
-
 
 label prologue:
     $ renpy.movie_cutscene("try.webm")
@@ -2508,53 +2506,47 @@ label conclusion:
 label epilogue:
     $ renpy.pause(2)
     #pause for a while
-    play music "music/Horizon Zero Dawn OST - Prologue.mp3" fadeout 1.0 fadein 1.0
-    $ renpy.pause(2)
-    scene epilogue
-    $ renpy.pause(4)
-    "That day, Ezbril and his companion embarked on their journey to bring light into the lives of mortals. Behind them, the magical Gates between the two realms sealed forever."
-    "Some say that his powers faded over time and Ezbril died of old age. Others believe that the darkness of the mortals rusted his heart, and he fell into the ways of the evil."
-    "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
-    e "Let’s go, Enda. This bird’s wing is all patched up."
-    n "Coming!"
+    $ renpy.movie_cutscene("epilogue.webm")
+
     jump splashscreen
 
 label splashscreen:
     scene black
-    $ renpy.pause(2)
+    $ renpy.pause(3)
 
     show text "Eisha Ahmed" with dissolve
-    $ renpy.pause(4)
+    $ renpy.pause(3)
     hide text with dissolve
 
 
     show text "Joshua Smith" with dissolve
-    $ renpy.pause(4)
+    $ renpy.pause(3)
     hide text with dissolve
 
 
     show text "Mehrab Islam" with dissolve
-    $ renpy.pause(4)
+    $ renpy.pause(3)
     hide text with dissolve
 
 
     show text "Melanie Dene" with dissolve
-    $ renpy.pause(4)
+    $ renpy.pause(3)
     hide text with dissolve
 
 
     show text "Nelson Chen" with dissolve
-    $ renpy.pause(4)
+    $ renpy.pause(3)
     hide text with dissolve
 
 
     show text "Thomas Pham" with dissolve
-    $ renpy.pause(4)
+    $ renpy.pause(3)
     hide text with dissolve
-
 
     show text "Prologue and Epilogue Music: Horizan Zero Dawn Prologue" with dissolve
+    $ renpy.pause(6)
     hide text with dissolve
-    $ renpy.pause(7)
+
+    show text "Thanks for playing!{w}" with dissolve
 
     return
