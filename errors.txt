@@ -2,37 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 2444: expected statement.
-    renpy.pause(2)
-                  ^
+File "game/script.rpy", line 2421: is not terminated with a newline. (Check strings and parenthesis.)
+(Perhaps you left out a " at the end of the first line.)
+        z "However, I was able to command teh wave just enough to spare most of the villagers' lives.
 
-File "game/script.rpy", line 2448: expected statement.
-    renpy.pause(2)
-                  ^
-
-File "game/script.rpy", line 2452: expected statement.
-    renpy.pause(1)
-                  ^
-
-File "game/script.rpy", line 2456: expected statement.
-    renpy.pause(1)
-                  ^
-
-File "game/script.rpy", line 2460: expected statement.
-    renpy.pause(1)
-                  ^
-
-File "game/script.rpy", line 2464: expected statement.
-    renpy.pause(1)
-                  ^
-
-File "game/script.rpy", line 2468: expected statement.
-    renpy.pause(1)
-                  ^
-
-File "game/script.rpy", line 2472: expected statement.
-    renpy.pause(1)
-                  ^
-
-Ren'Py Version: Ren'Py 7.3.4.596
-Fri Dec  6 17:48:15 2019
+Ren'Py Version: Ren'Py 7.3.3.568
+Fri Dec 06 22:37:41 2019
