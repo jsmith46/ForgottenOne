@@ -45,7 +45,6 @@ init python:
 
 # The game starts here.
 label start:
-    jump zarth
     jump prologue
 
 label prologue:
@@ -2450,6 +2449,10 @@ label maze3p3:
     jump maze3p3
 
 label zarth:
+    $ renpy.pause(1)
+    play music "Nazareth.wav" fadeout 1.0 fadein 1.0
+    #put a long pause here
+    $ renpy.pause(2)
     young2 "Looking for me?"
     show ezibrl2 at left with dissolve
     e "Wha-"
@@ -2484,7 +2487,11 @@ label zarth:
     hide zartharacks
     with dissolve
     "The world swirls, and a few heartbeats later, you are standing on lush green grass."
-    scene tribe_battle_scene with dissolve
+    $ renpy.pause(1)
+    play music "Banished.mp3" fadeout 1.0 fadein 1.0
+    #put a long pause here
+    $ renpy.pause(2)
+    scene tribe_fight_scene with dissolve
     "Lush green grass now painted red."
     "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm."
     "Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
