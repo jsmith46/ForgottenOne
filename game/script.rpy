@@ -45,6 +45,7 @@ init python:
 
 # The game starts here.
 label start:
+    jump zarth
     jump prologue
 
 label prologue:
@@ -126,16 +127,15 @@ label scene2:
     k "Ezbril, if you fail to act now, you would only bring more misery upon the mortals."
 
     k "I have someone who will escort you. Enda, come forward."
-    hide kehira
-    with dissolve
-    show enda2 at right
+    hide kehira with dissolve
+    show enda2 at right with dissolve
     "A small figure cautiously emerges from behind the throne. You have never seen such a young Irul before."
 
     n "Pleased to meet you!"
 
     "You recognize that voice."
-    hide enda2
-    show kehira at right
+    hide enda2 with dissolve
+    show kehira at right with dissolve
     k "Ezbril, meet Enda, my personal messenger."
     k "Enda is a lesser-Irul, born after the mortals forgot us. Because the Iruls get their powers from the faith of the mortals, Enda’s powers are very limited."
     k "Unlike you and I, his life can be extinguished with a mortal wound. If we don’t regain mortal followers, every Irul born afterward would be a lesser-Irul."
@@ -155,7 +155,7 @@ label chariot1:
     $ renpy.pause(1)
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     stop sfx2
     show enda2 at right with dissolve
     n "Easy there!"
@@ -164,9 +164,9 @@ label chariot1:
     hide enda2 with dissolve
     "Your eyes feel heavy, your mind swirling into weary nonsense. Darkness falls, slowly. "
     "And then all at once. "
-    scene dream with dissolve
+    scene black with dissolve
     stop sfx1
-    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    play music "music/flashback.mp3" fadeout 1.0 fadein 1.0
     $ renpy.pause(1)
     "{i}'Ezbril. {w}
     Ezbril. {w}
@@ -174,7 +174,7 @@ label chariot1:
     $ renpy.pause(1)
     stop music
     play sfx1 "music/wing_beat.ogg"
-    scene chariot
+    scene chariot with dissolve
     show enda2 at right with dissolve
     n "Wake up, Ezbril. We have arrived."
     $ renpy.pause(0.5)
@@ -185,8 +185,9 @@ label chapter2scene1:
     play music "Maze.wav" fadeout 1.0 fadein 1.0
     scene rsz_forest with dissolve
     "The path before you leads to a lush forest. Along the forest’s edge, you can make out a small tribe of mortals."
-    show enda2 at right
     show ezibrl2 at left
+    show enda2 at right
+    with dissolve
     n "Here we are, the Forest of Nourishment. For generations, the small tribe over there has relied on the forest’s generous blessings for food and wood. The ancient forest is also home to many animals."
     n "Her Majesty sensed a magic of destruction radiating from this forest."
     e "Magic of destruction? But I am the Irul of Destruction and Chaos, and I haven’t set foot in the Mortal Realm in ages."
@@ -797,10 +798,14 @@ label bog:
     menu:
         "Pick up a log" if lake1seen == True and log == False:
             "You pick up a log, feeling surprised to find it lighter than what you expected."
-            show enda2 at right with dissolve
+            show enda2 at right
+            show ezibrl2 at left
+            with dissolve
             n "You sure are strong."
             e "Irul's powers."
-            hide enda2 with dissolve
+            hide enda2
+            hide ezibrl2
+            with dissolve
             $log = True
             $same = True
             jump bog
@@ -933,7 +938,8 @@ label forestcenter:
     curious rabbits."
     "He seems preoccupied examining a twig, and has not noticed you yet."
     show ezibrl2 at left
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     n "Ezbril, I recognize him. Before you is Nazareth, the Irul of Spring, Harvest, and Life. For eons, he has travelled forest to forest, tribe to tribe, nourishing and looking after every being that breathes."
     n "However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
     e "Enda, I can feel the magic of destruction that Kehira sensed. It seems strong within Nazareth. This might relate to his decremental performance."
@@ -948,7 +954,8 @@ label forestcenter:
     e "The Irul of Spring, Harvest and Life … destroying the ancient forest?"
     n "We must report this to Her Majesty."
     hide ezibrl2
-    hide enda2 with dissolve
+    hide enda2
+    with dissolve
     "Nazareth raises his arms, like a falcon about to take flight. He seems to
     hesitate a moment. Suddenly, he twirls and shoots toward the skies."
     "Time stops. You are not standing in a forest anymore."
@@ -959,7 +966,9 @@ label forestcenter:
     "A wall of flames. The west half of the forest is ablaze, the fire rushing
     toward you, the inferno leaping from tree to tree.  Enda instinctively darts behind you, his fear echoing in your own bones."
     "A dark aura begins to dance along the tips of your fingers. The chaos of the flames fuels your own. Your destructive energy resonates with the forest’s disorder."
-    show enda2 at right with dissolve
+    show enda2 at right
+    show ezibrl2 at left
+    with dissolve
     n "Ezbril!"
     "But you realize that you are safe. There are no trees, no vegetation left
     on this side to feed the hungry flames. The forest fire cannot spread."
@@ -976,14 +985,17 @@ label travellingback:
     scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     stop sfx2
     show enda2 at right with dissolve
     n "Here comes our ride. Let’s go!"
     scene black with dissolve
+    $ renpy.pause(1.5)
     "You feel exhausted. Sweet weariness greets you in a dark embrace."
+    $ renpy.pause(2)
     scene chariot
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     n "We have arrived."
 
     stop sfx1
@@ -994,7 +1006,8 @@ label chapter3scene1:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     show ezibrl2 at left
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     n "We are back, your Majesty. "
     "You bow deeply."
     e "Your Majesty, we bring news."
@@ -1003,7 +1016,8 @@ label chapter3scene1:
     k "Oh? You have returned earlier than I expected, what have you discovered."
     menu:
         "{i}'The ancient forest is burning.'":
-            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
+            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest."
+            e "If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
         "{i}'Nazareth destroyed half of the ancient forest.'":
             k "Such nonsense you speak, Ezbril. Nazareth has nurtured the ancient Forest of Nourishment for eons, yet you claim that he would destroy his very own creation? How did it come to this?"
             e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest."
@@ -1011,7 +1025,7 @@ label chapter3scene1:
     k "A bold move by Nazareth."
     k "Nevertheless, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze."
     k "I cannot help but wonder what might have started the fire."
-    "A sharp glance your way."
+    "Kehira sharply glances your way."
     k "Did you lose your control again, Ezbril?"
     hide kehira with dissolve
     show enda2 at right with dissolve
@@ -1021,7 +1035,7 @@ label chapter3scene1:
     n "If Nazareth hadn’t destroyed the eastern half, we would have been trapped amongst the flames ourselves."
     hide enda2 with dissolve
     show kehira at right with dissolve
-    "The Queen ponders overs Enda's words"
+    "The Queen ponders over Enda's words."
     k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
     e "Who brings fire into the Mortal Realm?"
     k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm."
@@ -1036,10 +1050,11 @@ label chapter3scene1:
     stop music
     jump travellingtomarket
 label travellingtomarket:
+    $ renpy.pause(1.5)
     scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     stop sfx2
     show enda2 at right with dissolve
     n "Looks like I get to travel with you once more."
@@ -1047,13 +1062,13 @@ label travellingtomarket:
     hide enda2 with dissolve
     "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
     stop sfx1
-    scene dream with dissolve
-    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    scene black with dissolve
+    play music "music/flashback.mp3" fadeout 1.0 fadein 1.0
     $ renpy.pause(1)
     "{i}'Ezbril.{w} The mortals need you.{w} You must restore peace into the Mortal Realm again.'"
     $ renpy.pause(1)
     stop music
-    scene chariot
+    scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     $ renpy.pause(0.5)
     show enda2 at right with dissolve
@@ -1065,14 +1080,16 @@ label market_pre_intro:
     scene rsz_marketplace with dissolve
     play music "Maze.wav"
     show ezibrl2 at left
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     n "Over there is the north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you is a village where Cyvtis was reportedly spotted by a few Iruls."
     e "Is this the same village that we saw before?"
     n "Oh no, that one by the forest was a tribe, located at the eastern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
     n "On the other hand, the villagers are quite innovative with their techniques and love machinery over nature."
     n "Let’s go find what brings Cyvtis to this village."
     hide ezibrl2
-    hide enda2 with dissolve
+    hide enda2
+    with dissolve
     jump market_intro
 
 label market_intro:
@@ -1158,7 +1175,8 @@ label lady:
 
     if gone_girl == False:
         show ezibrl2 at left
-        show lady2 at right with dissolve
+        show lady2 at right
+        with dissolve
         if lady_flag == False:
 
             "But the passage is blocked by a sobbing lady, pure agony on her
@@ -1212,11 +1230,13 @@ label lady_menu:
 label meanie_to_lady:
     hide lady2 with dissolve
     show enda2 at right
-    show ezibrl2 at left with dissolve
+    show ezibrl2 at left
+    with dissolve
     n "Come on, Ezbril! Could we not help a crying lady?"
     e "We must focus on our task."
     hide ezibrl2
     hide enda2
+    with disolve
     jump block_1
 
 label give_pouch:
@@ -1238,6 +1258,7 @@ label give_pouch:
     $ gone_girl = True
     hide ezibrl2
     hide lady2
+    with dissolve
     jump block_4
 
 label lady_riddle:
@@ -1245,15 +1266,14 @@ label lady_riddle:
         $ lady_riddle = True
         hide ezibrl2 with dissolve
         show enda2 at left
-        show lady2 at left with dissolve
+        show lady2 at left
+        with dissolve
         n "We have not seen your pouch, but is there another way we can help you?"
         l "Oh, would you help me, good sirs?"
         l "The villagers here love to trade in riddles. The good merchant over
         there said he would let me have a dozen of those sweet apples if I can
         answer his riddle. You look wise, good sirs. Can you help me solve the
          merchant’s riddle?"
-        e "We can give it a try."
-        l "Let me recall the riddle."
         l "An apple has rolled its way down into a hole. This particular hole
         is extremely deep and has a sharp bend in the middle, making the apple
         impossible to retrieve by hand."
@@ -1265,7 +1285,7 @@ label lady_riddle:
         show ezibrl2 at left with dissolve
         jump lady_riddle_answer
     else:
-        hide edna2 with dissolve
+        hide enda2 with dissolve
         show lady2 at left with dissolve
         l "Good sirs, would you like to try the riddle again?"
         jump lady_riddle_answer
@@ -1295,10 +1315,11 @@ label lady_riddle_answer:
 label leave_nicely:
     e "My apologies, but we must be on our way."
     hide ezibrl2 with dissolve
-    show edna2 at left with dissolve
+    show enda2 at left with dissolve
     n "We hope you find your pouch!"
     hide enda2
-    hide lady2 with dissolve
+    hide lady2
+    with dissolve
     jump block_1
 
 label riddle_solved:
@@ -1314,6 +1335,7 @@ label riddle_solved:
     $ gone_girl = True
     hide ezibrl2
     hide lady2
+    with dissolve
     jump block_4
 
 label thief:
@@ -1321,16 +1343,17 @@ label thief:
     rest of the marketplace."
     if no_thief == False:
         show ezibrl2 at left
-        show thief2 at right with dissolve
+        show thief2 at right
+        with dissolve
         if thief_flag == False:
-            "Before you stands a rough-looking, lanky man. You recognize him as the man running across the marketplace before. "
+            "Before you stands a rough-looking, lanky man.
+            You recognize him as the man running across the marketplace earlier."
             "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
             "The man senses your presence. For what seems like eternity, you
             stare at each other. Finally, he grins broadly."
             e "Enda, stand back."
-            "The man smirks."
             t "Nehehe. I don’t recall seeing you around. You must be
             new here."
             jump thief_menu
@@ -1341,7 +1364,7 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
-        "Ask for the pouch":
+        "Ask for pouch":
             e "I think that pouch belongs to someone else. Give it to me."
             jump take_pouch
         "Leave":
@@ -1351,7 +1374,8 @@ label thief_menu:
             n "That was a truly terrifying mortal."
             e "He is a craven."
             hide ezibrl2
-            hide enda2 with dissolve
+            hide enda2
+            with dissolve
             jump block_1
 
 label take_pouch:
@@ -1379,6 +1403,7 @@ label thief_menu2:
             t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here"
             hide ezibrl2
             hide thief2
+            with dissolve
             jump block_1
 
 label thief_riddle:
@@ -1400,6 +1425,7 @@ label thief_riddle:
         $ no_thief = True
         hide ezibrl2
         hide enda2
+        with dissolve
         jump block_2
     else:
         t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here."
@@ -1442,7 +1468,8 @@ label baker:
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
             you wonder when the Iruls would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
             show ezibrl2 at left
-            show baker2 at right with dissolve
+            show baker2 at right
+            with dissolve
             "A man in a white apron flashes you a warm grin as he presents a steel tray arranged with buttered buns."
             b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
             e "Indeed."
@@ -1474,6 +1501,7 @@ label baker_menu:
             n "Looked delicious."
             hide enda2
             hide ezibrl2
+            with dissolve
             jump block_4
 
 label eat_bread:
@@ -1500,6 +1528,7 @@ label baker_menu2:
             n "Thank you for the bread."
             hide baker2
             hide enda2
+            with dissolve
             jump block_2
 
 label help_baker:
@@ -1524,6 +1553,7 @@ label help_baker:
         $ no_baker = True
         hide enda2
         hide ezibrl2
+        with dissolve
         jump block_5
     else:
         menu:
@@ -1534,6 +1564,7 @@ label help_baker:
                 b "See you around! Be wary lest you lose your bearing."
                 hide baker2
                 hide ezibrl2
+                with dissolve
                 jump block_2
 
 label block_5:
@@ -1564,11 +1595,13 @@ label bridge_keeper:
                 "Leave":
                     "You are unsure if the ropes would support you across. Perhaps there is another way to cross the river."
                     show ezibrl2 at left
-                    show enda2 at right with dissolve
+                    show enda2 at right
+                    with dissolve
                     n "I saw a sturdier looking bridge over there. Eastward, I think."
                     e "Let’s take a look."
                     hide ezibrl2
-                    hide enda2 with dissolve
+                    hide enda2
+                    with dissolve
                     jump block_3
         else:
             jump take_bridge
@@ -1580,6 +1613,7 @@ label bridge_keeper:
 label take_bridge:
     show ezibrl2 at left
     show bridgekeep2 at right
+    with dissolve
     bk "Hold it right there! None shall pass without answering the riddle."
     e "Most bizzare."
     hide ezibrl2 with dissolve
@@ -1601,6 +1635,7 @@ label take_bridge:
             bk "You shall not pass!"
             hide ezibrl2
             hide bridgekeep2
+            with dissolve
             jump block_3
 label solve_bk:
     bk "Four people need to cross a bridge in the middle of the night."
@@ -1623,7 +1658,8 @@ label solve_bk:
         e "He might."
         "The bridge is now clear for you to pass."
         hide ezibrl2
-        hide enda2 with dissolve
+        hide enda2
+        with dissolve
         $ no_bk = True
         jump block_6
     else:
@@ -1642,12 +1678,14 @@ label bribe_bk:
     "A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
     hide bridgekeep2 with dissolve
     show enda2 at right
-    show ezibrl2 with dissolve
+    show ezibrl2 at left
+    with dissolve
     e "..."
     e "Despicable."
     "You continue your trek across the bridge."
     hide ezibrl
-    hide enda2 with dissolve
+    hide enda2
+    with dissolve
     jump block_6
 
 label block_6:
@@ -1683,6 +1721,7 @@ label merchant:
         "As you shove your way through the crowd, you find the path blocked by a merchant’s wagon."
         show ezibrl2 at left
         show merchant2 at right
+        with dissolve
         if merchant_flag == False:
             "You have never seen a wagon up close before, and you cannot help but feel awed by the mortals’ inventive.
             The creative ensemble of refined wood and cloth allowed this merchant to carry heaps of furs,
@@ -1702,6 +1741,7 @@ label merchant:
                     "You have no interest in trading with the mortals."
                     hide ezibrl2
                     hide merchant2
+                    with dissolve
                     jump block_7
         else:
             m "Aha, its you again. Are you here to solve my riddle?"
@@ -1723,7 +1763,8 @@ label talk_merchant:
     n "I don’t understand, why would the mortals manifest such hate against their own kind?"
     hide merchant2 with dissolve
     show enda2 at right
-    show ezibrl2 at left with dissolve
+    show ezibrl2 at left
+    with dissolve
     e "You have a lot to witness, Enda."
     "The horse whips its tail to bat off a fly."
     hide enda2 with dissolve
@@ -1747,6 +1788,7 @@ label merchant_menu:
             m "Woe, old friend! Mayhap we are not the cultured gentleman we try to be."
             hide ezibrl2
             hide merchant2
+            with dissolve
             jump block_7
 
 label merchant_help:
@@ -1765,6 +1807,7 @@ label merchant_help:
         $ no_merchant = True
         hide ezibrl2
         hide merchant2
+        with dissolve
         jump block_8
     else:
         jump merchant_menu
@@ -1777,7 +1820,8 @@ label feed_horse:
     show enda2 at right with dissolve
     n "Clever play, Ezbril!"
     hide ezibrl2
-    hide enda2 with dissolving
+    hide enda2
+    with dissolve
     jump block_8
 
 label block_8:
@@ -1802,12 +1846,12 @@ label shepherd:
             "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
             "Amid the mass of rolling cotton walks a single mortal, already glancing your way.
             Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
-            show shepard at right with dissolve
+            show shepherd2 at right with dissolve
             s "Good day, misters! What brings you upon this humble herd?"
 
             menu:
                 "You wish to proceed":
-                    hide edna2 with dissolve
+                    hide enda2 with dissolve
                     show ezibrl2 at left with dissolve
                     e "I would like to proceed to the other side of this herd."
                     s "Oh! Apologies, mister. We must be blocking your path."
@@ -1818,7 +1862,8 @@ label shepherd:
                 "Leave":
                     "That herd does not look easy to navigate."
                     hide enda2
-                    hide shepard
+                    hide shepherd2
+                    with dissolve
                     jump block_6
 
         else:
@@ -1837,7 +1882,8 @@ label help_shepherd:
         "Leave":
             e "Worry not about moving your herd. I shall find another path."
             hide ezibrl2
-            hide shepard
+            hide shepherd2
+            with dissolve
             jump block_6
 
 label solve_shepherd:
@@ -1845,7 +1891,7 @@ label solve_shepherd:
     s "My friend picked up one of these darling baby sheep from me and brought it home the day after it was born and it has been 10 months since then."
     s "Yesterday, she gave me all the sheep that she had now, but I forgot how many there were. Therefore, I do not know how many sheep I am supposed to have."
     s "I know how many sheep are mine, but can you figure out how many sheep my friend gave me?"
-    $ answer = renpy.input("How many sheep did my friend give me? (Answer numerically, e.g. 120)")
+    $ answer = renpy.input("How many sheep did my friend give me? \n(Answer numerically, e.g. 120)")
     if answer == "1":
         $ shepherd_riddle = True
     else:
@@ -1855,21 +1901,22 @@ label solve_shepherd:
         s "Oh! That makes sense, because a single sheep cannot give birth by itself. Looks like I have everyone."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
-        hide shepard with dissolve
+        hide shepherd2 with dissolve
         show enda2 at right with dissolve
         n "Would Kehira allow me to bring a sheep into the Greater Realm?"
         e "No."
-        e "Well… for you? Maybe."
+        e "Well, for you, maybe if you ask nice enough."
 
         $ no_shepherd = True
         hide ezibrl2
-        hide enda2 with dissolve
+        hide enda2
+        with dissolve
         jump block_9
     else:
         jump solve_shepherd
 
 label block_9:
-    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market. To your east is a narrow cornered path between two stalls, leading towards the crossroad you came from before. To your west is a cornered path going towards the river."
+    "You have come onto a crossroad. Just to your north is the Town Square, the heart of the market. To your east is a narrow cornered path between two stalls, leading towards the crossroad you came from before. To your west is a path going towards the river."
     menu:
         "Go north":
             jump town_square
@@ -1908,11 +1955,13 @@ label kids:
                     n "I wanna make a fort like that when we return to the Greater Realm."
                     e "That looked nothing like a fort."
                     hide ezibrl2
-                    hide edna2 with dissolve
+                    hide enda2
+                    with dissolve
                     jump block_8
         else:
             show ezibrl2 at left
             show kids2 at right
+            with dissolve
             c1 "Oho, you're back"
             jump kids_code
     else:
@@ -1951,7 +2000,8 @@ label kids_code:
             n "..."
             e "Enda, ignore them."
             hide ezibrl2
-            hide enda2 with dissolve
+            hide enda2
+            with dissolve
             jump block_8
 
 label solve_code:
@@ -1980,7 +2030,8 @@ label solve_code:
 
         $ no_kids = True
         hide ezibrl2
-        hide enda2 with dissolve
+        hide enda2
+        with dissolve
         jump block_10
     else:
         jump solve_code
@@ -2003,16 +2054,17 @@ label town_square:
     "You almost missed it in the dark, the silhouette of a wooden cart against the weathered wall. But it is the faint sheen of metal that catches your eye. The cart is loaded with pitchforks, spears, hammers, axes, and daggers- weapons."
     "The village seems to be preparing for war. A sharp smell of damp wood catches your attention. On the ground, you see a pile of wooden torches, drenched in a small puddle of clear water."
     show ezibrl2 at left
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     n "I have a bad feeling about this, Ezbril."
-    play sound "footsteps.wav"
+    play sound "music/footsteps.ogg"
     "You hear footsteps behind you."
     hide enda2 with dissolve
     show villager at right with dissolve
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
     v "Especially with that young lad with you. This is no place for children."
-    "Enda scurries closer to you, as you take a step in front."
+    "Enda moves closer to you as you take a step in front."
     e "I see the villagers here like to collect weapons."
     v "You seem to be a cultured man."
     e "Are you starting a war?"
@@ -2022,7 +2074,7 @@ label town_square:
     v "Forest of Nourishment? Ha! It was just another old forest."
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
     v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe."
-    "This is madness. The chaos of this villagers heart fuels your own powers. Your blood flows hot as fire, then icy cold. An otherworldly darkness blurs your visions."
+    "This is madness. The chaos of this villagers’s heart fuels your own powers. Your blood flows hot as fire, then icy cold. An otherworldly darkness blurs your visions."
     v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
     e "Why are you telling me this?"
     "Your voice sounds calm. Deadly."
@@ -2038,7 +2090,8 @@ label town_square:
     e "This has been an unexpected turn of events. We have not discovered Cyvtis’s purpose yet, but now we know the real culprit- or should I say, culprits, of the forest fire. We must report this to Kehira."
     n "I am ready to leave this village."
     hide ezibrl2
-    hide enda2 with dissolve
+    hide enda2
+    with dissolve
     "You realize that you do not remember your way back through the mayhem of the market. You decide to continue forward through the winding passage, toward the sliver of light promising fresh air."
     "The narrow, suffocating alleyway stretches at last into a vast town square. Where the market was crowded with vendors shouting their wares and buyers shoving through the mob, the town square is surprisingly peaceful."
     "Younglings running and playing, women engaging in pleasant conversations, and the elderly perched on comfortable stacks of hay and grains. A large basin of water occupies the centre, surrounded by young dancers."
@@ -2058,16 +2111,18 @@ label town_square:
     "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
     "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows of vendors only a few yards away."
     show ezibrl2 at left
-    show enda2 at right with dissolve
-    e "We must get out of here fast, The villagers would be looking for any foreigners soon."
+    show enda2 at right
+    with dissolve
+    e "We must get out of here fast. The villagers would be looking for any foreigners soon."
     n "Here comes the chariot."
     jump chariot3
 
 label chariot3:
+    $ renpy.pause(1)
     scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     stop sfx2
     show enda2 at right with dissolve
     n "Welcome aboard again."
@@ -2075,7 +2130,7 @@ label chariot3:
     scene black with dissolve
     "Your mind is befuddled with what you discovered in the village. A cacophony of haphazard thoughts drifts you to slumber."
     $ renpy.pause(0.5)
-    scene chariot
+    scene chariot with dissolve
     show enda2 at right with dissolve
     stop sfx1
     n "We are back in the Greater Realm."
@@ -2085,7 +2140,8 @@ label mission3:
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     scene throne_room
     show ezibrl2 at left
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     n "We have returned, Your Majesty."
     "You bow deeply as Enda sprints out of the throne room."
     hide enda2 with dissolve
@@ -2099,10 +2155,10 @@ label mission3:
     e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe. If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
     e "Nazareth faded the Ancient Forest of Nourishment to save a tribe of mortals. Cyvtis brough rain upon the blazing forest and harnessed the powers of the sun to alight the weapons meant to start war."
     e "From what I have witnessed, the Iruls are using magic to combat the evils of the Mortal Realm."
-    "The Queen is silent. Contemplating. "
+    "The Queen is silent. Contemplating."
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
     e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
-    play sound "footsteps.wav"
+    play sound "music/footsteps.ogg"
     "Footsteps scurry into the throne room."
     hide ezibrl2 with dissolve
     show enda2 at left with dissolve
@@ -2111,7 +2167,8 @@ label mission3:
     n "The v-village. The village Ezbril and I just visited. It has been wiped out by a mighty flood."
     hide enda2 with dissolve
     show ezibrl2 at left with dissolve
-    "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
+    "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago."
+    "All of it, gone?"
     k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortals, yet the mortals have no powers over the flow of a  river. The mortals can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
     e "It must have been Cyvtis’s vengeance on the village. She brought excessive rains that flooded the river."
     k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
@@ -2131,37 +2188,40 @@ label chariottowater:
     scene chariot with dissolve
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     stop sfx2
     show enda2 at right with dissolve
     n "This has been quite an adventure!"
-    n "Let’s go back, one last time."
+    n "Let’s go back, hopefully for the last time."
     hide enda2 with dissolve
     "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over?"
     stop sfx1
-    scene dream with dissolve
-    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    scene black with dissolve
+    play music "music/flashback.mp3" fadeout 1.0 fadein 1.0
     $ renpy.pause(1)
     "{i}'Ezbril.{w} Ezbril.{w} What have you done?'"
     $ renpy.pause(1)
     stop music
     play sfx1 "music/wing_beat.ogg"
-    scene chariot
+    scene chariot with dissolve
     stop sfx1
     show enda2 at right with dissolve
     n "Ezbril, let’s go."
     jump beforemaze3
+    $ renpy.pause(1)
 label beforemaze3:
     play music "Banished.mp3"
-    scene aboveship with dissolve
+    $ renpy.pause(1)
+    scene ship_above with dissolve
     show ezibrl2 at left
-    show enda2 at right with dissolve
-    n "Here we are. Zartharacks’s lair. Look, you can see the mortal tribe not far ahead."
-    "Indeed, the mortal tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
+    show enda2 at right
+    with dissolve
+    n "Here we are. Zartharacks’s lair. Look, you can see the mortals tribe not far ahead."
+    "Indeed, the mortals tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
     "You know that beyond the forest lies the village, now demolished by the river. The river flows through the remains of the village, swirling through the forest and the tribe, snaking from the tribe toward you and into-"
     e "The sea?"
-    "Before you expands a murmuring domain of waters, the shimmering beast desolate, yet strangely alive.
-    The furious waves wrestle and crash into the menacing rocks, eager to spill the secrets of the unknown beyond. The destructive magic within you opens an eye."
+    "Before you expands a murmuring domain of waters, the shimmering beast desolate, yet strangely alive."
+    "The furious waves wrestle and crash into the menacing rocks, eager to spill the secrets of the unknown beyond. The destructive magic within you opens an eye."
     n "In the waters you will find a sunken ship, the one that remains apiece. Zartharacks had turned the mighty ship into his lair, his personal quarters located in the bottom most level of the ship."
     e "All we need to do is locate him within his lair, and unravel his plans?"
     e "Let's go."
@@ -2179,7 +2239,7 @@ label beforemaze3:
     jump maze3start
 
 label maze3start:
-    scene underwater with dissolve
+    scene black with dissolve
     play music "Maze.wav" fadeout 1.0 fadein 1.0
     # starting position is 2,1
     $pos = [2,1]
@@ -2187,6 +2247,7 @@ label maze3start:
     "The sea is a malicious force, daring and cold. A taunting current sways you sideways, a loyal guardian to the hoard of wooden masts and planks that break the surface."
     "And then she catches your eye."
     "You know her when you see her, a sunken ship still apiece. The dark beast rests at the bottom most seabed, ancient and asleep. Zartharacks’s lair."
+    scene underwater with dissolve
     "You stand on the main deck, but you must make your way to Zartharacks’s personal quarters on the lowest level."
 
     ##menu:
@@ -2394,29 +2455,28 @@ label zarth:
     z "Ha! You think you could sneak up on me in my own territory? Fellow Irul, you amuse me so! Why, the waters whisper to me."
     e "Since you are so familiar with your waters, can you explain the flooding of the village beyond the forest."
     "Zartharacks looks weary. Solemn."
-    z "The rubble from the broken dam pollutes my rivers. You didn’t think I would flood the village and plague my own waters, did you?"
-    e " The broken dam?"
-    z "There once stood a dam in the river that flows through the village that has now been demolished. A powerful force collapsed the dam, for reasons that are beyond me to comprehend. "
+    z "The rubble from the broken dam pollutes my rivers. You didn't think I would flood the village and plague my own waters, did you?"
+    e "The broken dam?"
+    z "There once stood a dam in the river that flows through the village that has now been demolished. A powerful force collapsed the dam, for reasons beyond me."
     z "Why, whichever Irul destroyed the dam has been quite clever in their malicious intent."
-    z " When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this. However, I was able to command the wave just enough to spare most of the villagers’ lives. "
+    z "When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this."
+    z "However, I was able to command the wave just enough to spare most of the villagers' lives."
     e "It was no Irul that destroyed the dam, Zartharacks. I have an inkling that this is the work of mortals."
     z "Mortals? Are you forgetting that this is a mortal village that has been destroyed?"
-
     z "Why would the mortals destroy a mortal village?"
-    "At that moment, a crimson tendril of water steams through the oak doors. Blood."
+    "A realization hits you."
     e "The tribe."
     z "What did you say?"
     e "Zartharacks, take me to the tribe by the river."
-    "Zartharacks glares at the unholy pigment staining his lair."
-    z "Have you lost your bearing? There is clearly a war raging between the mortals. We would be wise to stay out of this, especially with your history-"
-    e "Enda is in the tribe"
+    z "Have you lost your bearing? There is clearly a war raging between the mortals. We would be wise to stay out of this, especially with your history."
+    e "Enda is in the tribe."
     z "Oh, the small Messenger Irul?"
     "Zartharacks looks shocked. Angered."
-    z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of this realm?"
+    z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of the mortals?"
     "Zartharacks gathers a furious wave that threatens a second flood."
-
     hide ezibrl2
-    hide zartharacks with dissolve
+    hide zartharacks
+    with dissolve
     "The world swirls, and a few heartbeats later, you are standing on lush green grass."
     scene tribe_battle_scene with dissolve
     "Lush green grass now painted red."
@@ -2446,13 +2506,13 @@ label zarth:
     jump conclusion
 label conclusion:
     scene black with dissolve
-    $ renpy.pause(3)
+    $ renpy.pause(2)
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     #put a long pause here
-    $ renpy.pause(1)
-    scene throne_room with dissolve
-
-    show kehira at right with dissolve
+    $ renpy.pause(2)
+    scene throne_room
+    show kehira at right
+    with dissolve
     k "You may enter."
     show ezibrl2 at left with dissolve
     e "Kehira"
@@ -2482,13 +2542,15 @@ label conclusion:
     #transition from throne room to gates
     scene gate_end with dissolve
     "You stand before the mighty Gates between the two realms. You watch your last sunset in the Greater Realm, as it paints the sky a brilliant hue of orange.  You turn around to catch one last glance of your home."
+    "You turn around to catch one last glance of your home."
     "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
     $ renpy.pause(1)
     play music "Nazareth.wav" fadeout 1.0 fadein 1.0
     #put a long pause here
-    $ renpy.pause(1)
+    $ renpy.pause(2)
     show ezibrl2 at left
-    show enda2 at right with dissolve
+    show enda2 at right
+    with dissolve
     "He begins to rasp between muffled sobs"
     n "Kehira told me that you are going to l-leave."
     e "Good to see you up and moving."
@@ -2502,6 +2564,9 @@ label conclusion:
     "You consider Enda’s request. And then you smile."
     e "I suppose I would not mind a companion."
     "Enda’s delightful laugh brightens the skies as the two of you step out of the Greater Realm one last time."
+    hide ezibrl2
+    hide enda2
+    with dissolve
     jump epilogue
 label epilogue:
     $ renpy.pause(2)
@@ -2543,10 +2608,12 @@ label splashscreen:
     $ renpy.pause(3)
     hide text with dissolve
 
-    show text "Prologue and Epilogue Music: Horizan Zero Dawn Prologue" with dissolve
+    show text "Prologue and Epilogue Music: Horizon Zero Dawn Prologue" with dissolve
     $ renpy.pause(6)
     hide text with dissolve
 
     show text "Thanks for playing!{w}" with dissolve
+    $ renpy.pause(3)
+    hide text with dissolve
 
     return
