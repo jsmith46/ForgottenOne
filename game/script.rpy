@@ -1,4 +1,4 @@
-# The script of the game goes in this file.
+﻿# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -45,8 +45,10 @@ init python:
 
 # The game starts here.
 label start:
-    #jump market_intro
     jump splashscreen
+    jump help_lady
+    jump prologue
+
 
 label prologue:
     $ renpy.movie_cutscene("try.webm")
@@ -1170,9 +1172,8 @@ label lady:
         if lady_flag == False:
 
             "But the passage is blocked by a sobbing lady, pure agony on her
-            elderly face. "
-
-            l "(sobbing) Sigh. Sig, sig, sob."
+            elderly face."
+            l "Sigh. Sig, sig, sob."
             e "..."
             l "Oh, good sirs, please help me! I just lost my pouch, it was full
             of coins."
@@ -1190,13 +1191,19 @@ label lady:
         jump block_4
 
 label help_lady:
+    hide ezibrl2 with dissolve
+    show enda2 at left with dissolve
     n "Ma’am, what did the pouch look like?"
     l "It was a brown leather pouch, I had coins in it to purchase goods from
     the market. I put it down to examine some sweet apples, but when I looked
     again, it was gone. Oh, it must have been stolen!"
     l "Oh, sob, sob."
+    hide lady2 with dissolve
+    show enda2 at right
+    show ezibrl2 at left with dissolve
     n "Ezbril, it must be the man we saw running through the market when we arrived."
     e "Indeed."
+
     $ lady_flag = True
     jump lady_menu
 
@@ -1213,13 +1220,18 @@ label lady_menu:
 
 
 label meanie_to_lady:
+    hide lady2 with dissolve
+    show enda2 at right
+    show ezibrl2 at left with dissolve
     n "Come on, Ezbril! Could we not help a crying lady?"
     e "We must focus on our task."
     hide ezibrl2
-    hide lady2
+    hide enda2
     jump block_1
 
 label give_pouch:
+    hide enda2 with dissolve
+    show lady2 at right with dissolve
     l "Oh good sirs, thank you! Thank you so much!"
     l "Wait here for just a moment."
     "The Lady rushes to a nearby merchant who trades her a dozen apples."
@@ -1229,6 +1241,8 @@ label give_pouch:
     l "Oh! The grandkids must be getting hungry. I shall be on my way."
     "The Lady walks away, humming a joyous tune. The path is clear now for you
     to proceed."
+    hide lady2 with dissolve
+    show enda2 at right with dissolve
     n "Such a sweet ma'am."
     e "I would warn you against growing too fond of the mortals."
     $ gone_girl = True
@@ -1239,6 +1253,9 @@ label give_pouch:
 label lady_riddle:
     if lady_riddle == False:
         $ lady_riddle = True
+        hide ezibrl2 with dissolve
+        show enda2 at left
+        show lady2 at left with dissolve
         n "We have not seen your pouch, but is there another way we can help you?"
         l "Oh, would you help me, good sirs?"
         l "The villagers here love to trade in riddles. The good merchant over
@@ -1252,8 +1269,12 @@ label lady_riddle:
         clay, so digging the apple out isn't an option. However, you have
         something incredibly commonplace on hand that you can use to get the
         apple out. He told me the answer has five letters."
+        hide enda2 with dissolve
+        show ezibrl2 at left with dissolve
         jump lady_riddle_answer
     else:
+        hide edna2 with dissolve
+        show lady2 at left with dissolve
         l "Good sirs, would you like to try the riddle again?"
         jump lady_riddle_answer
 
@@ -1281,9 +1302,11 @@ label lady_riddle_answer:
 
 label leave_nicely:
     e "My apologies, but we must be on our way."
+    hide ezibrl2 with dissolve
+    show edna2 at left with dissolve
     n "We hope you find your pouch!"
-    hide ezibrl2
-    hide lady2
+    hide enda2
+    hide lady2 with dissolve
     jump block_1
 
 label riddle_solved:
@@ -1306,7 +1329,7 @@ label thief:
     rest of the marketplace."
     if no_thief == False:
         show ezibrl2 at left
-        show thief2 at right
+        show thief2 at right with dissolve
         if thief_flag == False:
             "Before you stand, you notice a rough looking lanky man.
             You recognize him as the guy running away earlier."
@@ -1331,10 +1354,12 @@ label thief_menu:
             jump take_pouch
         "Leave":
             "You decide it is in your best interest to stay out of trouble."
+            hide thief2 with dissolve
+            show enda2 at right with dissolve
             n "That was a truly terrifying mortal."
             e "He is a craven."
             hide ezibrl2
-            hide thief2
+            hide enda2 with dissolve
             jump block_1
 
 label take_pouch:
@@ -1375,12 +1400,14 @@ label thief_riddle:
         "You hear the jingle of coins as the thief tosses you the small pouch."
         t "I may be a renowned thief, but I am better than the village chief. At least I am not a murderer! Nehehehe."
         "The thief takes a step back, and melts into the shadows."
+        hide thief2 with dissolve
+        show enda2 at right with dissolve
         n "Village chief? Murderer? What was he talking about?"
         e "This village might harbor secrets we have yet to discover."
         $ pouch = True
         $ no_thief = True
         hide ezibrl2
-        hide thief2
+        hide enda2
         jump block_2
     else:
         t "Nehehehe. Intellect is rare and cannot be stolen, that’s why they value it around here."
@@ -1419,13 +1446,12 @@ label baker:
     if no_baker == False:
         if baker_flag == False:
             show ezibrl2 at left
-            show baker2 at right
+            show baker2 at right with dissolve
             "Sweet, welcoming aroma of cinnamon, honey, - and something you can only describe as “warm”-
             beckons you to a bright bake house with a hand painted sign."
             "Entranced by the golden loaves, fruit pies, jam filled buns, cakes, and the many delicacies,
             you wonder when the Iruls would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
             "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
-
             b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
             e "Indeed."
             b "Welcome then! Try the best bread in the village, and you shall eat most well today. This one is on the house."
@@ -1439,6 +1465,8 @@ label baker:
 label baker_menu:
     menu:
         "Accept the bread":
+            hide baker2 with dissolve
+            show enda2 at right with dissolve
             n "Thank you, sir!"
             e "Thank you kindly."
             "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite. It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
@@ -1448,13 +1476,17 @@ label baker_menu:
             jump eat_bread
         "Leave":
             "The aroma of baken good might be mesmerizing, but you must stay focused on your task"
+            hide baker2  with dissolve
+            show enda2 at right with dissolve
             n "Those buns…"
             n "Looked delicious."
-            hide baker2
+            hide enda2
             hide ezibrl2
             jump block_4
 
 label eat_bread:
+    hide enda2  with dissolve
+    show baker2 at right with dissolve
     b "You must be weary from your journey. The market can be labyrinth to navigate for visitors like yourself."
     b "If you can aid me with my problem, you may take a shortcut through the bakery."
     jump baker_menu2
@@ -1465,15 +1497,17 @@ label baker_menu2:
             if baker_riddle == True:
                 jump help_baker
             else:
-                n "A shortcut would be nice, for I am starting to feel weary."
+                e "A shortcut would be much appreciated."
                 e "We can try to help you with your problem. What might it be, Sir?"
                 jump help_baker
         "Leave":
             e "I thank you for your offer, Sir, but I would like to explore this area of the market first."
             b "See you around! Be wary lest you lose your bearing."
+            hide ezibrl2 with dissolve
+            show enda2 at left with dissolve
             n "Thank you for the bread."
             hide baker2
-            hide ezibrl2
+            hide enda2
             jump block_2
 
 label help_baker:
@@ -1490,11 +1524,13 @@ label help_baker:
         b "No, I don't think it's them."
     if baker_riddle == True:
         b "Bravo! I thank you for your help. You may take the shortcut through the bakery anytime you desire."
+        hide baker2 with dissolve
         "You proceed through the golden bakery."
+        show enda2 at right with dissolve
         n "If I was a mortal, I would like to be a baker."
         e "The Irul should learn some of the mortals’ ways."
         $ no_baker = True
-        hide baker2
+        hide enda2
         hide ezibrl2
         jump block_5
     else:
@@ -1535,8 +1571,12 @@ label bridge_keeper:
                     jump take_bridge
                 "Leave":
                     "You are unsure if the ropes would support you across. Perhaps there is another way to cross the river."
+                    show ezibrl2 at left
+                    show enda2 at right with dissolve
                     n "I saw a sturdier looking bridge over there. Eastward, I think."
                     e "Let’s take a look."
+                    hide ezibrl2
+                    hide enda2 with dissolve
                     jump block_3
         else:
             jump take_bridge
@@ -1550,7 +1590,12 @@ label take_bridge:
     show bridgekeep2 at right
     bk "Hold it right there! None shall pass without answering the riddle."
     e "Most bizzare."
+    hide ezibrl2 with dissolve
+    show enda2 at left with dissolve
     n "This is the strangest mortal village I have visited."
+    hide enda2 with dissolve
+    show ezibrl2 at left with dissolve
+
     menu:
         "Answer riddle":
             if bk_riddle == True:
@@ -1561,7 +1606,7 @@ label take_bridge:
         "Offer coins from the pouch" if pouch == True:
             jump bribe_bk
         "Leave":
-            "You shall not pass!"
+            bk "You shall not pass!"
             hide ezibrl2
             hide bridgekeep2
             jump block_3
@@ -1580,11 +1625,13 @@ label solve_bk:
     if bk_riddle == True:
         bk "Hmph. You have answered correct."
         "Before you realize it, the man leaps into the river- yet you do not hear the splash of water. He was indeed hiding under the bridge."
+        hide bridgekeep2 with dissolve
+        show enda2 at right with dissolve
         n "Does he live there?"
         e "He might."
         "The bridge is now clear for you to pass."
         hide ezibrl2
-        hide bridgekeep2
+        hide enda2 with dissolve
         $ no_bk = True
         jump block_6
     else:
@@ -1597,13 +1644,18 @@ label bribe_bk:
     Without looking away, the Bridge Keeper steps aside, leave a path wide open."
     bk "Humph. This shall do. You may pass."
     "You hold out the pouch, but the man is already snatching it away."
+    hide ezibrl2 with dissolve
+    show enda2 at left with dissolve
     n "Hey!"
     "A moment more, and he is gone, too fast for you to notice -perhaps back hiding under the bridge."
+    hide bridgekeep2 with dissolve
+    show enda2 at right
+    show ezibrl2 with dissolve
     e "..."
     e "Despicable."
     "You continue your trek across the bridge."
     hide ezibrl
-    hide bridgekeep2
+    hide enda2 with dissolve
     jump block_6
 
 label block_6:
@@ -1674,9 +1726,16 @@ label talk_merchant:
     m "The truth is, I stopped by the tribe for a few days and traded my wood for these fine furs. A merry folk they were, I tell you."
     m "They treated your old friend most kindly, and they took good care of the horse. I was sure their furs would fetch a generous price."
     m "Alas, the moment I mentioned the tribesmen here, the villagers have avoided my wagon. This is woodness, old friend!"
+    hide ezibrl2 with dissolve
+    show enda2 at left with dissolve
     n "I don’t understand, why would the mortals manifest such hate against their own kind?"
+    hide merchant2 with dissolve
+    show enda2 at right
+    show ezibrl2 at left with dissolve
     e "You have a lot to witness, Enda."
     "The horse whips its tail to bat off a fly."
+    hide enda2 with dissolve
+    show merchant at right with dissolve
     m "Aha, but a gentleman thither offered to buy all of my furs, if I can prove myself more cultured than the tribesmen. Old friend, all is not in despair. He said something about only a refined man being able to solve this riddle."
     $ merchant_flag = True
     m "What say you, old friend? Would you mind helping a friend out here?"
@@ -1722,9 +1781,11 @@ label feed_horse:
     "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you."
     "The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
     "The greedy beast has moved the wagon just enough for you to proceed."
+    hide merchant2 with dissolve
+    show enda2 at right with dissolve
     n "Clever play, Ezbril!"
     hide ezibrl2
-    hide merchant2
+    hide enda2 with dissolving
     jump block_8
 
 label block_8:
@@ -1741,20 +1802,21 @@ label shepherd:
     "Cyvtis, the Irul of the skies, must be close by."
 
     if no_shepherd == False:
-        show ezibrl2 at left
-        show shepard at right
         if shepherd_flag == False:
-            "Still gazing upward,"
-            "you slam into a cloud on the ground- no, a lamb?"
+            "Still gazing upward,
+            you slam into a cloud on the ground- no, a lamb?"
+            show enda2 at left with dissolve
             n "How lovely! Come here, little lamb."
             "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
-            "Amid the mass of rolling cotton walks a single human, already glancing your way."
-            "Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
-
+            "Amid the mass of rolling cotton walks a single human, already glancing your way.
+            Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
+            show shepard at right with dissolve
             s "Good day, misters! What brings you upon this humble herd?"
 
             menu:
                 "You wish to proceed":
+                    hide edna2 with dissolve
+                    show ezibrl2 at left with dissolve
                     e "I would like to proceed to the other side of this herd."
                     s "Oh! Apologies, mister. We must be blocking your path."
                     $ shepherd_flag = True
@@ -1763,7 +1825,7 @@ label shepherd:
 
                 "Leave":
                     "That herd does not look easy to navigate."
-                    hide ezibrl2
+                    hide enda2
                     hide shepard
                     jump block_6
 
@@ -1801,13 +1863,15 @@ label solve_shepherd:
         s "Oh! That makes sense, because a single sheep cannot give birth by itself. Looks like I have everyone."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
+        hide shepard with dissolve
+        show enda2 at right with dissolve
         n "Would Kehira allow me to bring a sheep into the Greater Realm?"
         e "No."
         e "For you, maybe if you ask nice enough."
 
         $ no_shepherd = True
         hide ezibrl2
-        hide shepard
+        hide enda2 with dissolve
         jump block_9
     else:
         jump solve_shepherd
@@ -1826,31 +1890,37 @@ label dead_end_2:
     "You have reached the end of this road. There is a river blocking you from progressing any further. You decide to head back to your previous crossroad as there is no point wasting your prescious time here"
     jump block_9
 label kids:
-    "A peculiar shift of air reveals that Cyvtis must be close by."
+    "A peculiar shift of air reveals that the Irul of the Skies must be close by."
     if no_kids == False:
-        show ezibrl2 at left
-        show kids2 at right
+
         "As you make your way through the suffocating mass of mortals, you find your path conveniently blocked by a group of insolent mortal younglings."
         if kids_flag == False:
+            show kids2 at right with dissolve
             c1 "You can not play with us in our fort, you are a tribesman!"
             c2 "Boo, tribesman!"
             c3 "No, I am not!"
             c1 "I saw your folks travelling to the east side of the forest."
             c3 "(wailing) That is a lie!"
+            show enda2 at left with dissolve
             n "The villagers sure despise the tribesmen."
-            e "Even their younglings."
+            hide enda2 with dissolve
+            show ezibrl2 at left with dissolve
 
             menu:
                 "Proceed past the younglings":
                     jump proceed_kids
                 "Leave":
+                    hide kids2 with dissolve
+                    show enda at right with dissolve
                     "Strange creatures they are, the mortal younglings. Maybe you can find a way around."
                     n "I wanna make a fort like that when we return to the Greater Realm."
                     e "That looked nothing like a fort."
                     hide ezibrl2
-                    hide kids2
+                    hide edna2 with dissolve
                     jump block_8
         else:
+            show ezibrl2 at left
+            show kids2 at right
             c1 "Oho, you're back"
             jump kids_code
     else:
@@ -1861,8 +1931,12 @@ label proceed_kids:
     c1 "Hey you! If you want to pass through the fort, you must say the secret code."
     e "...Fort?"
     "You look around for the alleged fort."
+    hide kids2 with dissolve
+    show enda2 at right with dissolve
     n "This looks fun!"
     "You follow Enda’s gaze, but all you see is bags of flour and rice stacked in four piles, ragged blankets hanging between them."
+    hide enda2 with dissolve
+    show kids2 at right with dissolve
     c2 "Are they tribesman as well?"
     c1 "They might be, but if they can unravel the code then they are not."
     $ kids_flag = True
@@ -1876,16 +1950,16 @@ label kids_code:
                 jump solve_code
             else:
                 e "Is it now? I bet you I can unravel your code."
-                n "I know you can do it, Ezbril!"
                 jump solve_code
-
         "Leave":
             c2 "Aha! Told you our secret code is the hardest to break!"
             c1 "Boo, tribesmen!"
+            hide kids2 with dissolve
+            show enda2 at right with dissolve
             n "..."
             e "Enda, ignore them."
             hide ezibrl2
-            hide kids2
+            hide enda2 with dissolve
             jump block_8
 
 label solve_code:
@@ -1895,6 +1969,8 @@ label solve_code:
     if answer == "6":
         $ kids_riddle = True
     else:
+        c2 "That's not how old he is!"
+        c1 "You cannot pass!"
         jump kids_code
     if kids_riddle == True:
         c1 "Behold the sirs! You may travel through our fort in peace."
@@ -1903,13 +1979,15 @@ label solve_code:
         c3 "(amazed) Tribesmen must be real strong."
         c1 "Only tribesmen can break our secret code!"
         "You pass through the fort of flour and rice."
+        hide kids2 with dissolve
+        show enda2 at right with dissolve
         n "Tribesman? What was that about?"
         n "You are an Irul."
         e "Yes, I am."
 
         $ no_kids = True
         hide ezibrl2
-        hide kids2
+        hide enda2 with dissolve
         jump block_10
     else:
         jump solve_code
@@ -2480,3 +2558,4 @@ label splashscreen:
     $ renpy.pause(7)
 
     return
+
