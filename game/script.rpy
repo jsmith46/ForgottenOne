@@ -2478,7 +2478,7 @@ label zarth:
     hide zartharacks
     with dissolve
     "The world swirls, and a few heartbeats later, you are standing on lush green grass."
-    scene battle with dissolve
+    scene tribe_battle_scene with dissolve
     "Lush green grass now painted red."
     "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm."
     "Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
@@ -2540,8 +2540,8 @@ label conclusion:
     "A faint smile dances across the Queen’s lips."
     k "You have been dismissed, Ezbril, Irul of Chaos and Destruction."
     #transition from throne room to gates
-    scene black with dissolve
-    "You stand before the mighty Gates between the two realms. You watch your last sunset in the Greater Realm, as it paints the sky a brilliant hue of orange."
+    scene gate_end with dissolve
+    "You stand before the mighty Gates between the two realms. You watch your last sunset in the Greater Realm, as it paints the sky a brilliant hue of orange.  You turn around to catch one last glance of your home."
     "You turn around to catch one last glance of your home."
     "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
     $ renpy.pause(1)
