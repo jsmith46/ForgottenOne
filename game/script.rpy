@@ -1388,8 +1388,7 @@ label block_2:
             jump block_1
 
 label block_3:
-    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into two. To your west is a deadend.
-    To your east is a small passage by the riverside which leads to the entrace of another bridge."
+    "You have arrived at a crossroads. Far north is a bridge that crosses over the river running through the market. To your east is a narrow passage between two stalls. Down west is a trail by the river side which leads to another bridge."
     "To your south is a narrow passage which leads to the exit of the market."
     menu:
         "Go north":
@@ -1400,8 +1399,7 @@ label block_3:
             jump block_2
 
 label block_4:
-    "You are on a narrow path between two stalls. Just to your west is the entrace to a bridge which goes over the river that seperates the market into two.
-    To your east is a deadend. To your south is a Narrow passage which leads to the exit of the market."
+    "You walk through the vendors’ tents and onto the narrow path. The path to your west leads to a bridge that crosses over the river running through the market. The path eastward leads to a dead end. Travelling southward would lead you back to the market entrance."
     menu:
         "Go west":
             jump baker
@@ -1434,8 +1432,7 @@ label baker_menu:
         "Accept the bread":
             n "Thank you, sir!"
             e "Thank you kindly."
-            "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite.
-            It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
+            "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite. It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
             "The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself."
             "The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
             $ baker_flag = True
@@ -1503,9 +1500,7 @@ label help_baker:
                 jump block_2
 
 label block_5:
-    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into two.
-    To your east is a narrow passage between two stalls.
-    To your west is a small passage by the riverside leading to another bridge."
+    "You have arrived at a crossroads. Far north is a bridge that crosses over the river running through the market. To your east is a narrow passage between two stalls. Down west is a trail by the river side which leads to another bridge."
     menu:
         "Go north":
             jump block_7
@@ -1524,9 +1519,8 @@ label bridge_keeper:
 
             menu:
                 "Walk across the bridge":
-                    "The smell of damp wood greets you as you take your first step on the bridge.
-                    The suspension sways, but holds fast. Before you can manage another step, a short figure leaps in front of you.
-                    This man was probably hiding- under the bridge?"
+                    "The smell of damp wood greets you as you take your first step on the bridge. The suspension sways, but holds fast."
+                    "Before you can manage another step, a short figure leaps in front of you. This man was probably hiding- under the bridge?"
                     $ bk_flag = True
 
                     jump take_bridge
@@ -1604,8 +1598,7 @@ label bribe_bk:
     jump block_6
 
 label block_6:
-    "You have come onto another crossroad. Just to your north is a cornered passage going west. To your east is another cross road.
-    To your west is the cornered passage leading to one of the bridges."
+    "You have arrived at a crossroads. Far north is a bridge that crosses over the river running through the market. To your east is a narrow passage between two stalls. Down west is a trail by the river side which leads to another bridge."
     menu:
         "Go north":
             jump shepherd
@@ -1785,9 +1778,9 @@ label help_shepherd:
             jump block_6
 
 label solve_shepherd:
-    s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here gives birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
+    s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here give birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
     s "My friend picked up one of these darling baby sheep from me and brought it home the day after it was born and it has been 10 months since then."
-    s "Yesterday she gave me all her sheep but i forget how many that was, so I don't know many sheep I'm supposed to have."
+    s "Yesterday, she gave me all the sheep that she had now, but I forgot how many there were. Therefore, I do not know how many sheep I am supposed to have."
     s "I know how many sheep are mine, but can you figure out how many sheep my friend gave me?"
     $ answer = renpy.input("How many sheep did my friend give me? (Answer numerically, e.g. 120)")
     if answer == "1":
@@ -1796,7 +1789,7 @@ label solve_shepherd:
         s "I don't think that is the correct answer..."
         jump help_shepherd
     if shepherd_riddle == True:
-        s "Huh I guess you are right, looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
+        s "Oh! That makes sense, because a single sheep cannot give birth by itself. Looks like I have everyone."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
         n "Would Kehira allow me to bring a sheep into the Greater Realm?"
