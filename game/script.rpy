@@ -992,7 +992,11 @@ label travellingback:
     scene black with dissolve
     $ renpy.pause(1.5)
     "You feel exhausted. Sweet weariness greets you in a dark embrace."
-    $ renpy.pause(2)
+    $ renpy.pause(3)
+    "Two great armies clashing in a crimson field."
+    "The land is drunk on a sea of blood."
+    "Death looms over the ashen sky. "
+    $ renpy.pause(3)
     scene chariot
     show enda2 at right
     with dissolve
@@ -2129,7 +2133,9 @@ label chariot3:
     n "Let’s go!"
     scene black with dissolve
     "Your mind is befuddled with what you discovered in the village. A cacophony of haphazard thoughts drifts you to slumber."
-    $ renpy.pause(0.5)
+    $ renpy.pause(3)
+    "You stare into the depths of the puddle. Staring back at you, amidst darkness and destruction, is a grinning monster."
+    $ renpy.pause(3)
     scene chariot with dissolve
     show enda2 at right with dissolve
     stop sfx1
