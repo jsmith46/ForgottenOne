@@ -2413,7 +2413,8 @@ label zarth:
     z "Why, whichever Irul destroyed the dam has been quite clever in their malicious intent. When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this."
     e "It was no Irul that destroyed the dam, Zartharacks. I have an inkling that this is the work of mortals."
     z "Mortals? Are you forgetting that this is a mortal village that has been destroyed?"
-    "You glance toward the village again, at the desperate mortals picking through the rubble for all that has been spared from the water’s wrath. You can clearly make out a villager as he fishes through the waste and tugs out a long rod, sharp at the end. A spear."
+    "You glance toward the village again, at the desperate mortals picking through the rubble for all that has been spared from the water’s wrath."
+    "You can clearly make out a villager as he fishes through the waste and tugs out a long rod, sharp at the end. A spear."
     "Beside him, another mortal straps a quiver of arrows across her back. Around them, more and more mortals extricate various wicked weapons- swords, knives, axes, daggers, and more."
     "Cyvtis had destroyed their weapons, but it seems that they had a greater stash than what you were lead to believe. The villagers have been busy."
     "Further up, you can make out several wagons, all loaded with steel. Some of the wagons are already moving. Toward the Ancient Forest of Nourishment. Beyond the forest lies-"
@@ -2427,11 +2428,14 @@ label zarth:
     z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of the mortals?"
     "Zartharacks gathers a furious wave that threatens a second flood."
     "The world swirls, and a few heartbeats later, you are standing on lush green grass."
-    show battle with dissolve
+    scene battle with dissolve
     "Lush green grass now painted red."
-    "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm. Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
+    "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm."
+    "Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
     "Zartharacks curses under his breath. Row after row of waxy skin splattered crimson. Eyes of unsuspecting merchants and farmers staring forever into the skies. For once, the tribesmen and the villagers lay side by side. And that is when you see it-"
-    "A small body in a dark puddle, an arrow protruding from a pale stomach. His chest rises and falls in hiccups of movement. Enda. He is alive, but mortally wounded. Standing above him is an archer from the village, bloodshot eyes staring at Enda’s small form on the ground."
+    "A small body in a dark puddle, an arrow protruding from a pale stomach. His chest rises and falls in hiccups of movement."
+    "Enda."
+    "He is alive, but mortally wounded. Standing above him is an archer from the village, bloodshot eyes staring at Enda’s small form on the ground."
     "The small sound that escapes from Enda sets your blood raging. Tendrils of darkness escape from between your fingers. Ebony flows from your eyes, your mouth and your ears, until you are engulfed in a black orb."
     "The archer has not noticed your presence."
     "You could do it. You could kill her. Half a thought from you, and the archer would be engulfed in black flames. She wouldn’t have time to scream."
@@ -2443,21 +2447,24 @@ label zarth:
     "A cool breeze gently caresses your face as you hear Zarthacks softly makes his way to your side. A tender wave gathers you back into the water and along the river, until you stand before the healer’s tent."
     "There is recognition in the tribesmen’s eyes as they let you through the flaps."
     "Resting across a murky blanket, Enda has fallen into a trance. His face is paler than the moon rising above, his cheek colder than the ice that glides on the winter sea. Blue stains his torn shirt, the telltale colour of an Irul’s sacred blood."
-    "The lingering joy in his eyes sealed behind heavy lids, hidden from this undeserving world. His wound has been cleaned and covered with herbs, and two healers are draping a cotton cloth across his abdomen. They show no surprise at the pool of cobalt blood, although the archer is gawking."
-    show zartharacks on right with dissolve
+    "The lingering joy in his eyes sealed behind heavy lids, hidden from this undeserving world. His wound has been cleaned and covered with herbs, and two healers are draping a cotton cloth across his abdomen."
+    "They show no surprise at the pool of cobalt blood, although the archer is gawking."
+    show zartharacks at right with dissolve
     z "Alas that these evil days should be ours. The boy needs an Irul healer. Waste no time, my currents shall carry you through the waters and into the Greater Realm."
     "The healers finish covering the wound. Without a word, they stand aside as you pick up Enda’s light form and walk out of the tent, right into the river."
     "Zartharacks remains on land as a gentle, yet strong wave lifts you off the river bed and toward the sea, and beyond the sea into the dark stream that no mortal has ventured into."
     jump conclusion
 label conclusion:
-    $ renpy.pause(2)
+    scene black with dissolve
+    $ renpy.pause(3)
     play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     #put a long pause here
-    $ renpy.pause(4)
+    $ renpy.pause(1)
     scene throne_room with dissolve
-    show ezibrl2 at left
+
     show kehira at right with dissolve
     k "You may enter."
+    show ezibrl2 at left with dissolve
     e "Kehira"
     e "I have answered your summon."
     "The Queen of Darkness has ruled over the Greater Realm for as long as any Irul could remember. The Queen has been ancient since the first time you saw her, but now she appears weathered- older."
@@ -2465,7 +2472,8 @@ label conclusion:
     k "I want to discuss the events you witnessed in the Mortal Realm. What you reported upon your return is bewildering news indeed."
     e "I have told you all that I know, Kehira. The flood was in fact no work of an Irul. The fire, the flood, and the massacre were all consequences of the war between the mortals."
     k "Yes, and this is not the first time that the mortals have brought such suffering upon themselves. I fear that eventually, the Iruls might become a victim of their anguish as well. We almost lost an Irul to the evils of the mortals."
-    k "I had hoped to reunite the two realms, as they were in the olden days. I had wanted the Iruls to grow stronger, as we once were when the mortals remembered us. I sought power and it blinded me, until we almost lost one of our own. I cannot risk the well being of the Iruls any longer."
+    k "I had hoped to reunite the two realms, as they were in the olden days. I had wanted the Iruls to grow stronger, as we once were when the mortals remembered us. I sought power and it blinded me, until we almost lost one of our own."
+    k "I cannot risk the well being of the Iruls any longer."
     k "Therefore, I have made the decision to withdraw from the Mortal Realm. The Iruls shall enjoy a blissful life in the Greater Realm, as we will seal the Gates between the two realms for eternity."
     e "Would you abandon the mortals, in order to save the Iruls?"
     k "As the Queen of Iruls, that is my priority. We may never get a chance to grow as strong as we once were, but the Iruls would be safe from the evils of the mortals."
@@ -2482,13 +2490,13 @@ label conclusion:
     "A faint smile dances across the Queen’s lips."
     k "You have been dismissed, Ezbril, Irul of Chaos and Destruction."
     #transition from throne room to gates
-    scene gates with dissolve
+    scene black with dissolve
     "You stand before the mighty Gates. You turn around to catch one last glance of your home."
     "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
-    $ renpy.pause(2)
+    $ renpy.pause(1)
     play music "Nazareth.wav" fadeout 1.0 fadein 1.0
     #put a long pause here
-    $ renpy.pause(4)
+    $ renpy.pause(1)
     show ezibrl2 at left
     show enda2 at right with dissolve
     "He begins to rasp between muffled sobs"
