@@ -46,7 +46,7 @@ init python:
 # The game starts here.
 label start:
     #jump market_intro
-    jump prologue
+    jump splashscreen
 
 label prologue:
     $ renpy.movie_cutscene("try.webm")
@@ -2441,34 +2441,40 @@ label epilogue:
 
 label splashscreen:
     scene black
-    renpy.pause(2)
+    $ renpy.pause(2)
 
     show text "Eisha Ahmed" with dissolve
+    $ renpy.pause(4)
     hide text with dissolve
-    renpy.pause(2)
+
 
     show text "Joshua Smith" with dissolve
+    $ renpy.pause(4)
     hide text with dissolve
-    renpy.pause(1)
+
 
     show text "Mehrab Islam" with dissolve
+    $ renpy.pause(4)
     hide text with dissolve
-    renpy.pause(1)
+
 
     show text "Melanie Dene" with dissolve
+    $ renpy.pause(4)
     hide text with dissolve
-    renpy.pause(1)
+
 
     show text "Nelson Chen" with dissolve
+    $ renpy.pause(4)
     hide text with dissolve
-    renpy.pause(1)
+
 
     show text "Thomas Pham" with dissolve
+    $ renpy.pause(4)
     hide text with dissolve
-    renpy.pause(1)
 
-    show text "Music: Horizan Zero Dawn Prologue" with dissolve
+
+    show text "Prologue and Epilogue Music: Horizan Zero Dawn Prologue" with dissolve
     hide text with dissolve
-    renpy.pause(1)
+    $ renpy.pause(7)
 
     return
