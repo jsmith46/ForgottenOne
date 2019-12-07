@@ -1,28 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 2053, in script
-    label beforemaze3:
-  File "game/script.rpy", line 2053, in <module>
-    label beforemaze3:
-NameError: name 'dissolving' is not defined
+  File "game/script.rpy", line 1198, in script
+    "Ask if you can help her another way" if lady_riddle == False:
+  File "game/script.rpy", line 1199, in <module>
+    jump lady_riddle
+NameError: name 'pouch' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 2053, in script
-    label beforemaze3:
-  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\ast.py", line 1385, in execute
-    paired = renpy.python.py_eval(self.paired)
+  File "game/script.rpy", line 1198, in script
+    "Ask if you can help her another way" if lady_riddle == False:
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\ast.py", line 1628, in execute
+    choice = renpy.exports.menu(choices, self.set, args, kwargs, item_arguments)
+  File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\exports.py", line 956, in menu
+    condition = renpy.python.py_eval(condition)
   File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\python.py", line 2039, in py_eval
     return py_eval_bytecode(code, globals, locals)
   File "C:\Users\jsmit\Desktop\music\renpy-7.3.3-sdk\renpy\python.py", line 2032, in py_eval_bytecode
     return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 2053, in <module>
-    label beforemaze3:
-NameError: name 'dissolving' is not defined
+  File "game/script.rpy", line 1199, in <module>
+    jump lady_riddle
+NameError: name 'pouch' is not defined
 
 Windows-8-6.2.9200
 Ren'Py 7.3.3.568
 Forgotten One 1.0
-Fri Dec 06 05:37:08 2019
+Fri Dec 06 17:31:18 2019
