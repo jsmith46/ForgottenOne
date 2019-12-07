@@ -938,7 +938,7 @@ label forestcenter:
     n "However, his performance has been going downhill lately. Forests are disappearing, animals are fleeing their homes, and food is scarce."
     e "Enda, I can feel the magic of destruction that Kehira sensed. It seems strong within Nazareth. This might relate to his decremental performance."
     e "If he can create trees, he must be able to destroy them as well. That would explain the magic I sense."
-    n "Would Nazareth destroy the very beings he has nourished for many years?"
+    n "Would Nazareth destroy the very beings that he has nourished for many years?"
     stop sfx1
     stop sfx2
     "The carpet of moss starts to darken."
@@ -1011,17 +1011,17 @@ label chapter3scene1:
     k "A bold move by Nazareth."
     k "Nevertheless, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze."
     k "I cannot help but wonder what might have started the fire."
-    "Kehira sharply glances your way."
+    "A sharp glance your way."
     k "Did you lose your control again, Ezbril?"
     hide kehira with dissolve
     show enda2 at right with dissolve
     n "No, he did not!"
     n "-Your Majesty."
     n "I was with Ezbril the whole time, Your Majesty. We did not know about the fire until half the forest was already ablaze."
-    n "If Nazareth hadn’t destroyed the southern half, we would have been trapped amongst the flames ourselves."
+    n "If Nazareth hadn’t destroyed the eastern half, we would have been trapped amongst the flames ourselves."
     hide enda2 with dissolve
     show kehira at right with dissolve
-    "The Queen seems to contemplate something."
+    "The Queen ponders overs Enda's words"
     k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
     e "Who brings fire into the Mortal Realm?"
     k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm."
@@ -1066,7 +1066,7 @@ label market_pre_intro:
     play music "Maze.wav"
     show ezibrl2 at left
     show enda2 at right with dissolve
-    n "Over there is north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you is a village where Cyvtis was reportedly spotted by a few Iruls."
+    n "Over there is the north of the ancient Forest of Nourishment we visited before. Looks like it is still burning. In front of you is a village where Cyvtis was reportedly spotted by a few Iruls."
     e "Is this the same village that we saw before?"
     n "Oh no, that one by the forest was a tribe, located at the eastern edge of the forest. The tribesmen love this land and the trees, and I have heard rumors that some of them still remember the Irul."
     n "On the other hand, the villagers are quite innovative with their techniques and love machinery over nature."
@@ -1184,7 +1184,7 @@ label help_lady:
     hide ezibrl2 with dissolve
     show enda2 at left with dissolve
     n "Ma’am, what did the pouch look like?"
-    l "It was a brown leather pouch, I had coins in it to purchase goods from
+    l "It was a brown leather pouch. I had coins in it to purchase goods from
     the market. I put it down to examine some sweet apples, but when I looked
     again, it was gone. Oh, it must have been stolen!"
     l "Oh, sob, sob."
@@ -1252,6 +1252,8 @@ label lady_riddle:
         there said he would let me have a dozen of those sweet apples if I can
         answer his riddle. You look wise, good sirs. Can you help me solve the
          merchant’s riddle?"
+        e "We can give it a try."
+        l "Let me recall the riddle."
         l "An apple has rolled its way down into a hole. This particular hole
         is extremely deep and has a sharp bend in the middle, making the apple
         impossible to retrieve by hand."
@@ -1321,8 +1323,7 @@ label thief:
         show ezibrl2 at left
         show thief2 at right with dissolve
         if thief_flag == False:
-            "Before you stand, you notice a rough looking lanky man.
-            You recognize him as the guy running away earlier."
+            "Before you stands a rough-looking, lanky man. You recognize him as the man running across the marketplace before. "
             "He is examining a small leather pouch, the kind you have seen many
             mortal females carry in this market. The delicate, embroidered pouch
             looks peculiar in his large hands. You doubt it belongs to him."
@@ -1340,7 +1341,7 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
-        "Ask for pouch":
+        "Ask for the pouch":
             e "I think that pouch belongs to someone else. Give it to me."
             jump take_pouch
         "Leave":
@@ -1442,7 +1443,7 @@ label baker:
             you wonder when the Iruls would learn some of the mortals’ tricks- the magic of turning wheat into soft bread."
             show ezibrl2 at left
             show baker2 at right with dissolve
-            "A stout man in a white apron flashes you a grin as he presents a steel tray arranged with buttered buns."
+            "A man in a white apron flashes you a warm grin as he presents a steel tray arranged with buttered buns."
             b "Good morrow, you two! Have not seen you around before. Might you be travellers?"
             e "Indeed."
             b "Welcome then! Try the best bread in the village, and you shall eat most well today. This one is on the house."
@@ -1548,10 +1549,10 @@ label block_5:
 label bridge_keeper:
     if no_bk == False:
         if bk_flag == False:
-            "You hear it before you see it, the bustling song of water eager to explore and free.
+            "You hear it before you see it, the bustling song of water eager to explore, and free.
             The river itself is a subtle sweep of a painter’s brush,
             glinting bright and managing to dominate its own path despite the labyrinth of the marketplace."
-            "Cattails bow to the water’s might and dragonflies drift lazily overhead. A weathered bridge connects the two shores."
+            "Cattails bow to the water’s might, and dragonflies drift lazily overhead. A weathered bridge connects the two shores."
 
             menu:
                 "Walk across the bridge":
@@ -1799,7 +1800,7 @@ label shepherd:
             show enda2 at left with dissolve
             n "How lovely! Come here, little lamb."
             "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
-            "Amid the mass of rolling cotton walks a single human, already glancing your way.
+            "Amid the mass of rolling cotton walks a single mortal, already glancing your way.
             Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
             show shepard at right with dissolve
             s "Good day, misters! What brings you upon this humble herd?"
@@ -1858,7 +1859,7 @@ label solve_shepherd:
         show enda2 at right with dissolve
         n "Would Kehira allow me to bring a sheep into the Greater Realm?"
         e "No."
-        e "For you, maybe if you ask nice enough."
+        e "Well… for you? Maybe."
 
         $ no_shepherd = True
         hide ezibrl2
@@ -2011,17 +2012,17 @@ label town_square:
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
     v "Especially with that young lad with you. This is no place for children."
-    "Enda move closer to you as you take a step in front."
+    "Enda scurries closer to you, as you take a step in front."
     e "I see the villagers here like to collect weapons."
     v "You seem to be a cultured man."
     e "Are you starting a war?"
-    v "We are only ending the war. Long have the tribesmen disputed with our folks. We shall tolerate the barbarians no longer. I cannot believe they survived the blazing forest."
-    "The image of the burning forest suddenly aligns with the pile of torches on the ground. No, this cannot be."
+    v "We are only ending the war. Long have the tribesmen disputed with our folks, but we shall tolerate the barbarians no longer. I cannot believe they survived the blazing forest."
+    "The image of the burning forest suddenly aligns with the pile of torches on the ground. No, this cannot be..."
     e "Are you responsible for the burning of the ancient Forest of Nourishment?"
     v "Forest of Nourishment? Ha! It was just another old forest."
     v "Indeed, the villagers set the western trees on fire, hoping the flames would carry eastward and right into the tribe. Alas, our scheme ran unsuccessful."
     v "We were under the belief that the tribe is located along the woodland edge, but we seem to have been wrong. Apparently, the forest was much smaller than what we were led to believe."
-    "This is madness. The chaos of this villagers’s heart fuels your own powers. Your blood flows hot as fire, then icy cold. An otherworldly darkness blurs your visions."
+    "This is madness. The chaos of this villagers heart fuels your own powers. Your blood flows hot as fire, then icy cold. An otherworldly darkness blurs your visions."
     v "Our people are not content, however. We will rage war. If we cannot use the forest, then we shall use our weapons."
     e "Why are you telling me this?"
     "Your voice sounds calm. Deadly."
@@ -2055,10 +2056,10 @@ label town_square:
     v "Somebody set the weapons cart on fire!"
     av "The torches have also been drenched. They are useless now."
     "You quickly realize what has happened, and the increasing haste in Cyvtis’s light steps confirms your suspicions."
-    "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows out vendors only a few yards away."
+    "While you struggle to keep apace, the warmth returns to the air again. You lose Cyvtis in the market crowd, but fortunately, you can see the last few rows of vendors only a few yards away."
     show ezibrl2 at left
     show enda2 at right with dissolve
-    e "We must get out of here fast. The villagers would be looking for any foreigners soon."
+    e "We must get out of here fast, The villagers would be looking for any foreigners soon."
     n "Here comes the chariot."
     jump chariot3
 
@@ -2093,12 +2094,12 @@ label mission3:
     "The Queen arches a slender brow."
     e "The chaos of the Mortal Realm is the work of none but mortals themselves."
     k "Are you certain that this is not the work on an Irul, Ezbril? I sensed Irul magic entwined with the disorder."
-    e "The magic you sensed is various Irul attempting to restore harmony to the Mortal Realm."
+    e "The magic you sensed is from various Irul attempting to restore harmony to the Mortal Realm."
     k "Ezbril, what did you witness in the village?"
     e "The villagers have a feud with the tribe by the forest east. They are planning war. The villagers set the west trees on fire, hoping the flames would spread right into the tribe. If it were not for Nazareth’s sacrifice, the tribe would have been destroyed."
     e "Nazareth faded the Ancient Forest of Nourishment to save a tribe of mortals. Cyvtis brough rain upon the blazing forest and harnessed the powers of the sun to alight the weapons meant to start war."
     e "From what I have witnessed, the Iruls are using magic to combat the evils of the Mortal Realm."
-    "Silence."
+    "The Queen is silent. Contemplating. "
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
     e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
     play sound "footsteps.wav"
@@ -2111,7 +2112,7 @@ label mission3:
     hide enda2 with dissolve
     show ezibrl2 at left with dissolve
     "You are shocked. There may have been a few darkened souls in that village, but what about the many innocent ones? What happened to the laughing younglings who had so much to live for? The lively village that breathed a few heartbeats ago. All of it, gone?"
-    k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortal’s, yet the mortal’s have no powers over the flow of a  river. The mortal’s can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
+    k "Ezbril, you say that the disorder of the Mortal Realm is work of the mortals, yet the mortals have no powers over the flow of a  river. The mortals can set forests on fire and forge weapons, but only the magic of an Irul could cause such a catastrophe."
     e "It must have been Cyvtis’s vengeance on the village. She brought excessive rains that flooded the river."
     k "Would Cyvtis save the tribe, only to go after the lives in the village? Were that her intention, it would require many days of rain."
     k "Cyvtis is the Irul of Skies, but let us not forget the Irul who controls the rivers."
@@ -2134,9 +2135,9 @@ label chariottowater:
     stop sfx2
     show enda2 at right with dissolve
     n "This has been quite an adventure!"
-    n "Let’s go back, hopefully for the last time."
+    n "Let’s go back, one last time."
     hide enda2 with dissolve
-    "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over."
+    "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over?"
     stop sfx1
     scene dream with dissolve
     play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
@@ -2155,11 +2156,12 @@ label beforemaze3:
     scene aboveship with dissolve
     show ezibrl2 at left
     show enda2 at right with dissolve
-    n "Here we are. Zartharacks’s lair. Look, you can see the mortal’s tribe not far ahead."
-    "Indeed, the mortal’s tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
+    n "Here we are. Zartharacks’s lair. Look, you can see the mortal tribe not far ahead."
+    "Indeed, the mortal tribe is clearly visible from here, although it is not located at the edge of the forest anymore, thanks to Nazareth. You can make out some of the forest trees from here- or what remained of the forest, now drenched by Cyvtis’s rain."
     "You know that beyond the forest lies the village, now demolished by the river. The river flows through the remains of the village, swirling through the forest and the tribe, snaking from the tribe toward you and into-"
     e "The sea?"
-    "Before you expands a murmuring domain of waters, the shimmering beast desolate; yet, strangely alive. The furious waves wrestle and crash into the menacing rocks, eager to spill the secrets of the unknown beyond."
+    "Before you expands a murmuring domain of waters, the shimmering beast desolate, yet strangely alive.
+    The furious waves wrestle and crash into the menacing rocks, eager to spill the secrets of the unknown beyond. The destructive magic within you opens an eye."
     n "In the waters you will find a sunken ship, the one that remains apiece. Zartharacks had turned the mighty ship into his lair, his personal quarters located in the bottom most level of the ship."
     e "All we need to do is locate him within his lair, and unravel his plans?"
     e "Let's go."
@@ -2390,42 +2392,32 @@ label zarth:
     z "Let me guess, you are here to inquire about the flood, and my role in it."
     e "Inquire not so much, I was supposed to spy on you."
     z "Ha! You think you could sneak up on me in my own territory? Fellow Irul, you amuse me so! Why, the waters whisper to me."
-    z "Since you came this far, I shall show you the truth."
-    z "Are you ready?"
-    e "Ready for wha-?"
-    hide ezibrl2
-    hide zartharacks with dissolve
-    "Zartharacks lifts a scaly arm and the water in the room gathers into a massive whirlpool, lifting you and the Irul of Waters into a travelling, swirling madness."
-    "A few heartbeats later, you are back on your feet. But you are not standing in an underwater ship anymore."
-    "You have been transported to a river’s side, and not far ahead you can see a sight familiar to you. The village."
-    "Zartharacks has transported you through the waters and back to the village- or what used to be a village. The place you once recognized has been reduced to nothing more than an enormous waste of rubble."
-    "The crowded marketplace you visited has been washed away, existing as nothing more than a whisper of memory."
-    "You can make out small figures, tirelessly working through the waste, hoping to mine any essence of hope. To your relief, it looks like most of the villagers survived the flood."
-    e "Why did you bring me here?"
-    z "So you may see the truth for yourself."
-    z "Do you know what this is?"
-    "Zartharcks motions toward the river. No, something in the river. A wall made of the sturdiest stone. Broken."
-    e "That is a broken dam?"
-    "And then it hits you. The truth."
-    z "You didn’t think I would flood the village and plague my own waters, did you?"
-    z "Why, whichever Irul destroyed the dam has been quite clever in their malicious intent. When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this."
+    e "Since you are so familiar with your waters, can you explain the flooding of the village beyond the forest."
+    "Zartharacks looks weary. Solemn."
+    z "The rubble from the broken dam pollutes my rivers. You didn’t think I would flood the village and plague my own waters, did you?"
+    e " The broken dam?"
+    z "There once stood a dam in the river that flows through the village that has now been demolished. A powerful force collapsed the dam, for reasons that are beyond me to comprehend. "
+    z "Why, whichever Irul destroyed the dam has been quite clever in their malicious intent."
+    z " When the dam broke, the force of the monstrous wave was too strong, even for me, as I was not prepared for this. However, I was able to command the wave just enough to spare most of the villagers’ lives. "
     e "It was no Irul that destroyed the dam, Zartharacks. I have an inkling that this is the work of mortals."
     z "Mortals? Are you forgetting that this is a mortal village that has been destroyed?"
-    "You glance toward the village again, at the desperate mortals picking through the rubble for all that has been spared from the water’s wrath. You can clearly make out a villager as he fishes through the waste and tugs out a long rod, sharp at the end. A spear."
-    "Beside him, another mortal straps a quiver of arrows across her back. Around them, more and more mortals extricate various wicked weapons- swords, knives, axes, daggers, and more."
-    "Cyvtis had destroyed their weapons, but it seems that they had a greater stash than what you were lead to believe. The villagers have been busy."
-    "Further up, you can make out several wagons, all loaded with steel. Some of the wagons are already moving. Toward the Ancient Forest of Nourishment. Beyond the forest lies-"
+    z "Why would the mortals destroy a mortal village?"
+    "At that moment, a crimson tendril of water steams through the oak doors. Blood."
     e "The tribe."
     z "What did you say?"
-    e "Zartharacks, take me to the tribe beyond the forest."
-    z "Have you lost your bearing? There is clearly a war raging between the mortals. We would be wise to stay out of this, especially with your history."
-    e "Enda is in the tribe."
+    e "Zartharacks, take me to the tribe by the river."
+    "Zartharacks glares at the unholy pigment staining his lair."
+    z "Have you lost your bearing? There is clearly a war raging between the mortals. We would be wise to stay out of this, especially with your history-"
+    e "Enda is in the tribe"
     z "Oh, the small Messenger Irul?"
     "Zartharacks looks shocked. Angered."
-    z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of the mortals?"
+    z "Are you telling me that you left the lesser-Irul by himself, after witnessing the evils of this realm?"
     "Zartharacks gathers a furious wave that threatens a second flood."
+
+    hide ezibrl2
+    hide zartharacks with dissolve
     "The world swirls, and a few heartbeats later, you are standing on lush green grass."
-    show battle with dissolve
+    scene battle with dissolve
     "Lush green grass now painted red."
     "A foul smell smacks your conscience, the kind of smell that can only come from an animal slaughterhouse. In this case, the butchered animals are humans and their corpses are still warm. Tribesmen and villagers lay scattered amongst the trees, like ghoulish mannequins."
     "Zartharacks curses under his breath. Row after row of waxy skin splattered crimson. Eyes of unsuspecting merchants and farmers staring forever into the skies. For once, the tribesmen and the villagers lay side by side. And that is when you see it-"
