@@ -2,9 +2,37 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 166: expected 'image_name_component' not found.
-    scene with dissolve
-          ^
+File "game/script.rpy", line 2444: expected statement.
+    renpy.pause(2)
+                  ^
 
-Ren'Py Version: Ren'Py 7.3.3.568
-Fri Dec 06 03:33:30 2019
+File "game/script.rpy", line 2448: expected statement.
+    renpy.pause(2)
+                  ^
+
+File "game/script.rpy", line 2452: expected statement.
+    renpy.pause(1)
+                  ^
+
+File "game/script.rpy", line 2456: expected statement.
+    renpy.pause(1)
+                  ^
+
+File "game/script.rpy", line 2460: expected statement.
+    renpy.pause(1)
+                  ^
+
+File "game/script.rpy", line 2464: expected statement.
+    renpy.pause(1)
+                  ^
+
+File "game/script.rpy", line 2468: expected statement.
+    renpy.pause(1)
+                  ^
+
+File "game/script.rpy", line 2472: expected statement.
+    renpy.pause(1)
+                  ^
+
+Ren'Py Version: Ren'Py 7.3.4.596
+Fri Dec  6 17:48:15 2019

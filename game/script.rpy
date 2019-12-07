@@ -1,4 +1,4 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
@@ -46,7 +46,7 @@ init python:
 # The game starts here.
 label start:
     #jump market_intro
-    jump prologue
+    jump splashscreen
 
 label prologue:
     $ renpy.movie_cutscene("try.webm")
@@ -194,7 +194,7 @@ label chapter2scene1:
     n "Her Majesty sensed a magic of destruction radiating from this forest."
     e "Magic of destruction? But I am the Irul of Destruction and Chaos, and I haven’t set foot in the Mortal Realm in ages."
     n "That is why we must find out who is responsible for this. Let’s start by exploring the forest, where Her Majesty sensed the foul magic."
-    n "I have some glowing gemstones you can use to mark your path. Place them down throughout the forest and if we see any we will know that we are walking in circles."
+    n "I have some glowing gemstones you can use to mark your path. You can drop them along the path to keep track of where we have been."
     hide enda2
     hide ezibrl2
     with dissolve
@@ -268,12 +268,12 @@ label forest1:
     menu:
         "Go north":
             if trees == False:
-                "Walking deeper the trees begin to tower over you even more, the tallest trees look over a hundred years old."
+                "Walking deeper, the trees begin to tower over you until you cannot see the topmost branches. The tallest trees must be over a few centuries old, at least."
                 $trees = True
             jump forest3
         "Go west":
             if trees == False:
-                "Walking deeper the trees begin to tower over you even more, the tallest trees look over a hundred years old."
+                "Walking deeper, the trees begin to tower over you until you cannot see the topmost branches. The tallest trees must be over a few centuries old, at least."
                 $trees = True
             jump forestb1
         "Go east":
@@ -353,8 +353,9 @@ label forest2:
         "In the center of this crossroad is a tree that dwarfs all other visible trees."
     if endaexplained == False:
         show enda2 at right with dissolve
-        n "Woah that has to be the biggest tree I've ever seen."
+        n "Woah! That has to be the biggest tree I've ever seen."
         n "There are incredible sights in the Mortal Realm."
+        e "Yes, the Mortal Realm is enchanting in its own way."
         hide enda2 with dissolve
         $endaexplained = True
     if orb_forest2 == True and same == False:
@@ -591,7 +592,7 @@ label forest6:
 
 label forest7:
     if peace == False:
-        "As you keep travelling further into the forest you realize that everything is unnaturally quiet and you haven't seen signs of wildlife for a while."
+        "As you travel further into the forest, you realize that your surroundings are unnaturally quiet. In fact, it has been a while since you saw any signs of wildlife."
         $peace = True
     if orb_forest7 == True and same == False:
         if orb_forest7c == 1:
@@ -688,7 +689,7 @@ label lake1:
     $ renpy.pause(0.5)
     if  same == False:
         "The path continues north until you reach a river. It seems skinnier here than any other part of the river."
-        "If you had something long that could support your weight you might be able to cross it."
+        "If you had something long that could support your weight, you might be able to cross it."
     if orb_lake1 == True and same == False:
         if orb_lake1c == 1:
             "You see a blue gemstone lying on the ground, you must have been here before."
@@ -704,8 +705,8 @@ label lake1:
     $same = False
     menu:
         "Place log across river" if log:
-            "You place your log across the river and Enda nimbly makes his way across. You slowly follow."
-            "Just as you make it to the other side the log slips and falls into the river."
+            "You place your log across the river and Enda nimbly makes his way across. You follow, slowly."
+            "Just as you make it to the other side, the log slips and splashes into the river."
             show enda2 at right with dissolve
             n "That was close."
             hide enda2 with dissolve
@@ -783,7 +784,7 @@ label lake2:
 label bog:
     if  same == False:
         "The path continues west until you arrive at a bog. There sure are a lot of fallen trees around here."
-        "Those logs look sturdy like someone could probably walk on them."
+        "Those logs look sturdy, as if someone could across them."
     if orb_bog == True and same == False:
         if orb_bogc == 1:
             "You see a blue gemstone lying on the ground, you must have been here before."
@@ -798,9 +799,10 @@ label bog:
     $same = False
     menu:
         "Pick up a log" if lake1seen == True and log == False:
-            "You picked up a log, it was lighter than expected."
+            "You pick up a log, feeling surprised to find it lighter than what you expected."
             show enda2 at right with dissolve
             n "You sure are strong."
+            e "Irul's powers."
             hide enda2 with dissolve
             $log = True
             $same = True
@@ -834,7 +836,7 @@ label bog:
             jump bog
 label deadend:
     if  same == False:
-        "The path gets smaller and more overgrown until you can't proceed any further."
+        "There is an overgrowth of vegetation along this path, until you cannot proceed any further."
     if orb_deadend == True and same == False:
         if orb_deadendc == 1:
             "You see a blue gemstone lying on the ground, you must have been here before."
@@ -876,7 +878,7 @@ label deadend:
             jump deadend
 label destroyed:
     if  same == False:
-        "The path turns west and then is blocked by a bunch of fallen trees, vines and other vegetation."
+        "The path curves west, but is blocked by a bevy of fallen trees, vines, and other vegetation."
         "There is nothing natural about this."
     if orb_destroyed == True and same == False:
         if orb_destroyedc == 1:
@@ -981,6 +983,7 @@ label travellingback:
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "Here comes our ride. Let’s go!"
     scene black with dissolve
@@ -990,7 +993,6 @@ label travellingback:
     n "We have arrived."
 
     stop sfx1
-    stop sfx2
     $ renpy.pause(0.5)
     jump chapter3scene1
 
@@ -1010,22 +1012,26 @@ label chapter3scene1:
             e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
         "{i}'Nazareth destroyed half of the ancient forest.'":
             k "Such nonsense you speak, Ezbril. Nazareth has nurtured the ancient Forest of Nourishment for eons, yet you claim that he would destroy his very own creation? How did it come to this?"
-            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest. If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
+            e "A fire was ignited in the north part of the forest, and the flames were spreading fast. There was a tribe of mortals located at the eastern edge of the forest."
+            e "If it weren’t for Nazareth, the flames would have devoured the entire forest and consumed the tribe as well."
     k "A bold move by Nazareth."
-    k "Nevertheless, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze. I cannot help but wonder what might have started the fire."
+    k "Nevertheless, I am quite intrigued by this fire you mentioned. The ancient Forest of Nourishment has long stood proud, yet now half of it is gone, the rest ablaze."
+    k "I cannot help but wonder what might have started the fire."
     "Kehira sharply glances your way."
     k "Did you lose your control again, Ezbril?"
     hide kehira with dissolve
     show enda2 at right with dissolve
     n "No, he did not!"
     n "-Your Majesty."
-    n "I was with Ezbril the whole time, Your Majesty. We did not know about the fire until half the forest was already ablaze. If Nazareth hadn’t destroyed the eastern half, we would have been trapped amongst the flames ourselves."
+    n "I was with Ezbril the whole time, Your Majesty. We did not know about the fire until half the forest was already ablaze."
+    n "If Nazareth hadn’t destroyed the southern half, we would have been trapped amongst the flames ourselves."
     hide enda2 with dissolve
     show kehira at right with dissolve
     "The Queen seems to contemplate something."
     k "We must get to the root of this fire, for it might be related to the disorder in the Mortal Realm."
     e "Who brings fire into the Mortal Realm?"
-    k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm. She could have harnessed this power again and set the forest on fire."
+    k "That would be Cyvtis, Irul of the Skies. As the ruler of the skies, Cyvtis also rules over the sun and the moon. She harnessed the power of the sun and brought the first fire to the Mortal Realm."
+    k "She could have harnessed this power again and set the forest on fire."
     k "Infact, I have been informed that Cyvtis was in that area recently."
     e "Why would Cyvtis do this?"
     k "When we discover the culprit behind this disorder, we can find out their intentions."
@@ -1040,14 +1046,23 @@ label travellingtomarket:
     play sfx1 "music/wing_beat.ogg"
     play sfx2 "music/horse_neigh.ogg"
     $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "Looks like I get to travel with you once more."
     n "Mortal Realm, here we come again!"
     hide enda2 with dissolve
     "You have never had a taste for flying. Maybe if you rest your eyes for a bit..."
+    stop sfx1
     scene dream with dissolve
+    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(1)
     "{i}'Ezbril.{w} The mortals need you.{w} You must restore peace into the Mortal Realm again.'"
+    $ renpy.pause(1)
+    stop music
     scene chariot
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(0.5)
     show enda2 at right with dissolve
     n "You sure get tired a lot. In any case, here we are."
     stop sfx1
@@ -1135,10 +1150,7 @@ label market_east:
     jump market_entrance
 
 label block_1:
-    "You are standing inside of the marketplace, in front of the exit which you
-    can see to the east. On the north you can see a path through two vendor
-    tents. On the west you can see a narrow passage, shaded and quiet, contrary
-    to the rest of the marketplace."
+    "You stand inside the marketplace. To your east is the entrance you just came from. Up north, you can see a path between two vendors’ tents. To your west is a narrow passage, shaded a quiet, contrary to the rest of the marketplace."
     menu:
         "Go west":
             jump thief
@@ -1237,17 +1249,17 @@ label lady_riddle:
         is extremely deep and has a sharp bend in the middle, making the apple
         impossible to retrieve by hand."
         l "To make matters worse, the ground around the hole is made of hard
-        clay, so digging the ball out isn't an option. However, you have
+        clay, so digging the apple out isn't an option. However, you have
         something incredibly commonplace on hand that you can use to get the
-        ball out. He told me the answer has five letters."
+        apple out. He told me the answer has five letters."
         jump lady_riddle_answer
     else:
         l "Good sirs, would you like to try the riddle again?"
         jump lady_riddle_answer
 
 label lady_riddle_answer:
-    l "What do you use to get the ball out?"
-    $ answer = renpy.input("What do you use to get the ball out?")
+    l "What can you use to get the apple out?"
+    $ answer = renpy.input("What do you use to get the apple out?")
     if (answer.lower() == "water"):
         jump riddle_solved
     else:
@@ -1258,9 +1270,9 @@ label lady_riddle_answer:
                 is extremely deep and has a sharp bend in the middle, making the apple
                 impossible to retrieve by hand."
                 l "To make matters worse, the ground around the hole is made of hard
-                clay, so digging the ball out isn't an option. However, you have
+                clay, so digging the apple out isn't an option. However, you have
                 something incredibly commonplace on hand that you can use to get the
-                ball out. Answer in five letters."
+                apple out. Answer in five letters."
                 jump lady_riddle_answer
             "Answer again":
                 jump lady_riddle_answer
@@ -1314,7 +1326,7 @@ label thief:
         jump block_2
 label thief_menu:
     menu:
-        "Ask for pouch nicely":
+        "Ask for pouch":
             e "I think that pouch belongs to someone else. Give it to me."
             jump take_pouch
         "Leave":
@@ -1385,8 +1397,7 @@ label block_2:
             jump block_1
 
 label block_3:
-    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into two. To your west is a deadend.
-    To your east is a small passage by the riverside which leads to the entrace of another bridge."
+    "You have arrived at a crossroads. Far north is a bridge that crosses over the river running through the market. To your east is a narrow passage between two stalls. Down west is a trail by the river side which leads to another bridge."
     "To your south is a narrow passage which leads to the exit of the market."
     menu:
         "Go north":
@@ -1397,8 +1408,7 @@ label block_3:
             jump block_2
 
 label block_4:
-    "You are on a narrow path between two stalls. Just to your west is the entrace to a bridge which goes over the river that seperates the market into two.
-    To your east is a deadend. To your south is a Narrow passage which leads to the exit of the market."
+    "You walk through the vendors’ tents and onto the narrow path. The path to your west leads to a bridge that crosses over the river running through the market. The path eastward leads to a dead end. Travelling southward would lead you back to the market entrance."
     menu:
         "Go west":
             jump baker
@@ -1431,8 +1441,7 @@ label baker_menu:
         "Accept the bread":
             n "Thank you, sir!"
             e "Thank you kindly."
-            "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite.
-            It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
+            "The bun feels warm and fluffy in your hand, the butter glossing your fingers. You take a bite. It has only been a few hundred decades since you last tasted mortal food, yet the clever balance of various ingredients fascinates you."
             "The outer layer crisped to perfection, the inside delicately soft, but the taste- the taste you can only describe as joyous and alive and bestowed with sunshine itself."
             "The thought of sunshine reminds you of your purpose to find Cyvtis and discover why she let the sun ignite the Forest of Nourishment."
             $ baker_flag = True
@@ -1500,9 +1509,7 @@ label help_baker:
                 jump block_2
 
 label block_5:
-    "You have come onto a crossroad. Just to your north is a bridge which goes over the river that seperates the market into two.
-    To your east is a narrow passage between two stalls.
-    To your west is a small passage by the riverside leading to another bridge."
+    "You have arrived at a crossroads. Far north is a bridge that crosses over the river running through the market. To your east is a narrow passage between two stalls. Down west is a trail by the river side which leads to another bridge."
     menu:
         "Go north":
             jump block_7
@@ -1521,9 +1528,8 @@ label bridge_keeper:
 
             menu:
                 "Walk across the bridge":
-                    "The smell of damp wood greets you as you take your first step on the bridge.
-                    The suspension sways, but holds fast. Before you can manage another step, a short figure leaps in front of you.
-                    This man was probably hiding- under the bridge?"
+                    "The smell of damp wood greets you as you take your first step on the bridge. The suspension sways, but holds fast."
+                    "Before you can manage another step, a short figure leaps in front of you. This man was probably hiding- under the bridge?"
                     $ bk_flag = True
 
                     jump take_bridge
@@ -1601,8 +1607,7 @@ label bribe_bk:
     jump block_6
 
 label block_6:
-    "You have come onto another crossroad. Just to your north is a cornered passage going west. To your east is another cross road.
-    To your west is the cornered passage leading to one of the bridges."
+    "You have arrived at a crossroads. Far north is a bridge that crosses over the river running through the market. To your east is a narrow passage between two stalls. Down west is a trail by the river side which leads to another bridge."
     menu:
         "Go north":
             jump shepherd
@@ -1714,8 +1719,8 @@ label merchant_help:
         jump merchant_menu
 
 label feed_horse:
-    "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you.
-    The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
+    "You ignore the jabbering merchant and reach into the folds of your cloak for the sweet apple the lady gave you."
+    "The horse eyes your every movement. Slowly, the horse reaches forward toward your outstretched arm, the red apple smooth in your hand."
     "The greedy beast has moved the wagon just enough for you to proceed."
     n "Clever play, Ezbril!"
     hide ezibrl2
@@ -1732,19 +1737,19 @@ label block_8:
                 jump block_7
 
 label shepherd:
-    "A glance skyward, and you see the clouds gathering up ahead.
-    Cyvtis, the Irul of the skies, must be close by."
+    "A glance skyward, and you see the clouds gathering up ahead."
+    "Cyvtis, the Irul of the skies, must be close by."
 
     if no_shepherd == False:
         show ezibrl2 at left
         show shepard at right
         if shepherd_flag == False:
-            "Still gazing upward,
-            you slam into a cloud on the ground- no, a lamb?"
+            "Still gazing upward,"
+            "you slam into a cloud on the ground- no, a lamb?"
             n "How lovely! Come here, little lamb."
             "Up ahead, you see a vast herd of sheep, a mirror image to the cloudy sky above."
-            "Amid the mass of rolling cotton walks a single human, already glancing your way.
-            Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
+            "Amid the mass of rolling cotton walks a single human, already glancing your way."
+            "Her small stature allows the shepherd to skillfully navigate her way through the mob, a hound at her heels."
 
             s "Good day, misters! What brings you upon this humble herd?"
 
@@ -1782,9 +1787,9 @@ label help_shepherd:
             jump block_6
 
 label solve_shepherd:
-    s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here gives birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
+    s "Sheep are famous for their ability to multiply at breakneck speeds. The type of sheep we have here give birth once a month, birthing 12 babies each time. Baby sheep mature and can give birth two months after they are born."
     s "My friend picked up one of these darling baby sheep from me and brought it home the day after it was born and it has been 10 months since then."
-    s "Yesterday she gave me all her sheep but i forget how many that was, so I don't know many sheep I'm supposed to have."
+    s "Yesterday, she gave me all the sheep that she had now, but I forgot how many there were. Therefore, I do not know how many sheep I am supposed to have."
     s "I know how many sheep are mine, but can you figure out how many sheep my friend gave me?"
     $ answer = renpy.input("How many sheep did my friend give me? (Answer numerically, e.g. 120)")
     if answer == "1":
@@ -1793,7 +1798,7 @@ label solve_shepherd:
         s "I don't think that is the correct answer..."
         jump help_shepherd
     if shepherd_riddle == True:
-        s "Huh I guess you are right, looks like I have everyone. We shall move to the pasture yonder so may pass, maister."
+        s "Oh! That makes sense, because a single sheep cannot give birth by itself. Looks like I have everyone."
         "The shepherd circles her staff twice in the air. On cue, her hound begins gathering the sheep."
         s "Safe travels to you and farewell!"
         n "Would Kehira allow me to bring a sheep into the Greater Realm?"
@@ -1884,8 +1889,7 @@ label kids_code:
             jump block_8
 
 label solve_code:
-    c1 "A boy and his big sister are sitting around the kitchen table chatting.
-    \n{i}'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!{/i}"
+    c1 "A boy and his big sister are sitting around the kitchen table chatting.\n {i}'You know, Sis, if I took away two years from my age and gave them to you, you'd be twice my age, huh!{/i}"
     c2 "'{i}Well, why don't you just give me one more on top of that? Then I'll be three times your age.'{/i}\nSo just how old is the youngest sibling?"
     $ answer = renpy.input("How old is the youngest sibling? (Answer numerically, e.g. 1)")
     if answer == "6":
@@ -1930,6 +1934,7 @@ label town_square:
     show ezibrl2 at left
     show enda2 at right with dissolve
     n "I have a bad feeling about this, Ezbril."
+    play sound "footsteps.wav"
     "You hear footsteps behind you."
     v "Strange choice of a place to explore, of all the locations you can be at in this fine village. Do you not think so, traveller?"
     "You can barely make out the figure from the shadows."
@@ -2016,6 +2021,7 @@ label mission3:
     "Silence."
     k "Ezbril, Irul of Chaos and Destruction, you bring bewildering news. Have the mortals fallen into darkness again?"
     e "I can not say that about all the mortals, for we do not know the tribe’s role in this feud. Moreover, despite the darkened hearts of a few, I met many kind folks in that vil-"
+    play sound "footsteps.wav"
     "Footsteps scurry into the throne room."
     hide ezibrl2 with dissolve
     show enda2 at left with dissolve
@@ -2039,19 +2045,35 @@ label mission3:
     n "As you wish, Your Majesty."
     jump chariottowater
 label chariottowater:
+    $ renpy.pause(1)
+
     scene chariot with dissolve
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
+    $ renpy.pause(1)
+    stop sfx2
     show enda2 at right with dissolve
     n "This has been quite an adventure!"
     n "Let’s go back, hopefully for the last time."
     hide enda2 with dissolve
     "Your thoughts are plagued with the faces of the mortal younglings you saw in the village. What about the other innocent souls in the Mortal Realm? How long until this darkness takes over."
+    stop sfx1
     scene dream with dissolve
+    play music "music/dream_music.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(1)
     "{i}'Ezbril.{w} Ezbril.{w} What have you done?'"
+    $ renpy.pause(1)
+    stop music
+    play sfx1 "music/wing_beat.ogg"
+    play sfx2 "music/horse_neigh.ogg"
     scene chariot
+    stop sfx1
+    stop sfx2
     show enda2 at right with dissolve
     n "Ezbril, let’s go."
     jump beforemaze3
 label beforemaze3:
+    play music "Banished.mp3"
     scene aboveship with dissolve
     show ezibrl2 at left
     show enda2 at right with dissolve
@@ -2139,10 +2161,10 @@ label maze3p1:
     menu:
         "Go north" if pos[1] != 7:
             $pos[1] += 1
-        "Go east" if pos[0] != 3:
-            $pos[0] += 1
         "Go west" if pos[0] != 1:
             $pos[0] -= 1
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
         "Go south" if pos[1] != 1:
             $pos[1] -= 1
     $first = False
@@ -2194,11 +2216,11 @@ label maze3p2:
         "Go north" if pos[1] != 7:
             $pos[1] += 1
             "You make your movement."
-        "Go east" if pos[0] != 3:
-            $pos[0] += 1
-            "You make your movement."
         "Go west" if pos[0] != 1:
             $pos[0] -= 1
+            "You make your movement."
+        "Go east" if pos[0] != 3:
+            $pos[0] += 1
             "You make your movement."
         "Go south" if pos[1] != 1:
             $pos[1] -= 1
@@ -2215,7 +2237,7 @@ label maze3p3:
     if current:
         "The water on the deck you are on suddenly flows with unease. Be careful where you go, lest you are moved against your wishes."
     else:
-        "The water on the deck you are on suddenly calms. No matter where you go, it is safe to proceed."
+        "The uneasy water on the deck you are on suddenly calms. Certain areas you go to are safe to proceed."
     if pos == [3,5]:
         "You make it to the other end of the boat. You push with all your strength to open the oak doors. Strangely, the door opens as easily as if you were on land."
         jump zarth
@@ -2225,8 +2247,8 @@ label maze3p3:
         if current:
             "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
         else:
-            "The water surrounding you is uneasy but you are unsure which direction the current is coming from."
-            "The water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
+            "Some water surrounding you is uneasy but you are unsure which direction the current is coming from."
+            "Some water surrounding you is calm but not as calm as you would like. The water around you will act up soon."
         if pos == [3,3]:
             "You see your destination directly in front of you. You are about half way there."
     elif pos in ([5,1],[5,3],[1,3],[1,5]):
@@ -2265,11 +2287,11 @@ label maze3p3:
         "Go north" if pos[1] != 5:
             $pos[1] += 1
             "You make your movement."
-        "Go east" if pos[0] != 5:
-            $pos[0] += 1
-            "You make your movement."
         "Go west" if pos[0] != 1:
             $pos[0] -= 1
+            "You make your movement."
+        "Go east" if pos[0] != 5:
+            $pos[0] += 1
             "You make your movement."
         "Go south" if pos[1] != 1:
             $pos[1] -= 1
@@ -2350,7 +2372,10 @@ label zarth:
     "Zartharacks remains on land as a gentle, yet strong wave lifts you off the river bed and toward the sea, and beyond the sea into the dark stream that no mortal has ventured into."
     jump conclusion
 label conclusion:
+    $ renpy.pause(2)
+    play music "Dark_throne.wav" fadeout 1.0 fadein 1.0
     #put a long pause here
+    $ renpy.pause(4)
     scene throne_room with dissolve
     show ezibrl2 at left
     show kehira at right with dissolve
@@ -2382,6 +2407,10 @@ label conclusion:
     scene gates with dissolve
     "You stand before the mighty Gates. You turn around to catch one last glance of your home."
     "A small form crashes into you, the firm force pushing you a step backward. Tears flood his eyes as Enda wraps his arms tightly around you."
+    $ renpy.pause(2)
+    play music "Nazareth.wav" fadeout 1.0 fadein 1.0
+    #put a long pause here
+    $ renpy.pause(4)
     show ezibrl2 at left
     show enda2 at right with dissolve
     "He begins to rasp between muffled sobs"
@@ -2399,11 +2428,55 @@ label conclusion:
     "Enda’s delightful laugh brightens the skies as the two of you step out of the Greater Realm one last time."
     jump epilogue
 label epilogue:
+    $ renpy.pause(2)
     #pause for a while
+    play music "music/Horizon Zero Dawn OST - Prologue.mp3" fadeout 1.0 fadein 1.0
+    $ renpy.pause(2)
     scene epilogue
+    $ renpy.pause(4)
     "That day, Ezbril and his companion embarked on their journey to bring light into the lives of mortals. Behind them, the magical Gates between the two realms sealed forever."
     "Some say that his powers faded over time and Ezbril died of old age. Others believe that the darkness of the mortals rusted his heart, and he fell into the ways of the evil."
     "But I know that Ezbril continues to wander this world, his heart still pure. When the days are rough and all hope seems lost, look for him and he will answer your call."
     e "Let’s go, Enda. This bird’s wing is all patched up."
     n "Coming!"
+    jump splashscreen
+
+label splashscreen:
+    scene black
+    $ renpy.pause(2)
+
+    show text "Eisha Ahmed" with dissolve
+    $ renpy.pause(4)
+    hide text with dissolve
+
+
+    show text "Joshua Smith" with dissolve
+    $ renpy.pause(4)
+    hide text with dissolve
+
+
+    show text "Mehrab Islam" with dissolve
+    $ renpy.pause(4)
+    hide text with dissolve
+
+
+    show text "Melanie Dene" with dissolve
+    $ renpy.pause(4)
+    hide text with dissolve
+
+
+    show text "Nelson Chen" with dissolve
+    $ renpy.pause(4)
+    hide text with dissolve
+
+
+    show text "Thomas Pham" with dissolve
+    $ renpy.pause(4)
+    hide text with dissolve
+
+
+    show text "Prologue and Epilogue Music: Horizan Zero Dawn Prologue" with dissolve
+    hide text with dissolve
+    $ renpy.pause(7)
+
     return
